@@ -65,9 +65,11 @@ question
    ├─ coverage diagnosis .... tells the model how thin its evidence actually is
    │
    ├─ generation ............ Qwen2.5-3B-Instruct-4bit via MLX (Apple Silicon)
+   │                          answer pass, then a separate evidence-gap pass
    │
-   └─ verification .......... acronym repair · template-echo removal ·
-                              sentence-level attribution + groundedness score
+   └─ verification .......... template-echo removal · acronym repair ·
+                              sentence-level attribution + groundedness ·
+                              catalogue-figure check · geographic scope check
 ```
 
 Each stage exists because a simpler version failed on these questions. The
@@ -101,11 +103,22 @@ entry is topically perfect and still fabricated, because those records were
 never loaded. Any figure whose every citation is a data card is flagged
 separately.
 
-**Body retry.** Recency bias makes a small model start with whatever the prompt
-mentioned last, so it sometimes emits the closing gap section and stops. If the
-answer has no body, it is regenerated once with a corrective instruction; if the
-model drops the gap section instead, a deterministic one is built from what
-retrieval actually found.
+**Geographic scope check.** The highest-risk error for a regional RAG is not an
+invented number but a real one attached to the wrong geography — these documents
+constantly set a national statistic beside a regional one ("177,409 people across
+the U.S. … Central Ohio has seen similarly concerning trends"). Similarity
+attribution is blind to it, because the number really is in the cited passage. So
+every figure is traced back to the sentence that governs it in the source, and a
+national→local flip is reported.
+
+**Split generation.** Asking one small model for the answer *and* the evidence-gap
+section in a single shot makes it trade them off: it either leads with the gap
+section and never writes an answer, or writes a good answer and forgets the
+section. So the two are requested separately — a body retry if the answer is
+missing, and a focused second pass for the gaps, which also produces much
+sharper ones (naming Renner Road, McKinley Avenue and the COTSP rather than
+"more data is needed"). A deterministic section derived from retrieval is the
+last-resort fallback.
 
 ---
 
@@ -117,6 +130,20 @@ retrieval actually found.
 ```
 
 Writes `eval/results.json` and a readable `eval/transcript.md`.
+
+Current run on an M1 / 8 GB Mac, all ten questions passing:
+
+| metric | value |
+|---|---|
+| mean locality (local proper nouns per answer) | 7.5 |
+| mean distinct documents cited | 8.5 |
+| mean groundedness | 100% |
+| answers with an evidence-gap section | 10 / 10 |
+| mean latency | 70 s |
+
+Locality moves by a point or two between runs — generation is sampled, not
+greedy. Latency is roughly half that with `CBRAG_GAP_SECOND_PASS=0`, at the cost
+of vaguer gap sections.
 
 The headline metric is **locality**: how many Columbus/Central Ohio proper nouns
 and programme names the answer uses (`Renner Road`, `COTSP`, `SFY 2026–2029 TIP`,
@@ -192,8 +219,11 @@ sources, groundedness and warnings.
 - **A 3B model is the weak link**, not retrieval. It occasionally writes flat,
   list-like prose. Moving to 7B noticeably improves synthesis if RAM allows.
 - **Groundedness is a similarity check**, not entailment. It reliably catches
-  topical invention; it will not catch a correctly-themed sentence that reverses
-  a document's meaning.
+  topical invention, and the scope and catalogue checks close the two specific
+  blind spots that mattered most here — but it will not catch a correctly-themed
+  sentence that reverses a document's meaning.
+- **Warnings are part of the answer.** A response can be 100% "grounded" and still
+  carry a scope-mismatch or catalogue-figure warning. Read them.
 
 ## Layout
 

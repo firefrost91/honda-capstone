@@ -75,6 +75,9 @@ class Config:
     temperature: float = 0.2
     #: Rough budget for retrieved context, in characters.
     context_char_budget: int = 16000
+    #: Request the evidence-gap section in its own pass. Roughly doubles
+    #: latency and markedly sharpens the gaps; set false for speed.
+    gap_second_pass: bool = True
 
     # ---- serving ------------------------------------------------------
     host: str = "127.0.0.1"

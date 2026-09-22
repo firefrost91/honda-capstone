@@ -53,6 +53,98 @@ def check_catalog_claims(attributions: list["SentenceAttribution"],
     return offenders
 
 
+#: Scope markers. This corpus constantly sets a national statistic beside a
+#: regional one - "177,409 people across the U.S. ... Central Ohio has seen
+#: similarly concerning trends" - so the likeliest serious error is not an
+#: invented number but a real one re-scoped to the wrong geography. Similarity
+#: attribution cannot see that: the sentence matches the passage almost
+#: perfectly, because the number really is in it.
+_NATIONAL = re.compile(
+    r"\b(?:U\.?S\.?A?\b|United States|nationally|nationwide|national(?:ly)?|"
+    r"across the country|in the country)", re.I)
+_LOCAL = re.compile(
+    r"\b(?:Central Ohio|Columbus|Franklin County|Delaware County|Licking County|"
+    r"Fairfield County|Union County|MPO planning area|the region|regional|"
+    r"MORPC(?:\'s)? (?:planning )?area|locally)\b", re.I)
+#: Statistics, not dates. A bare four-digit year is not a figure that can be
+#: mis-scoped, and treating it as one makes every sentence that names a study
+#: period look like a scope error.
+_NUMBER = re.compile(r"\b\d{1,3}(?:,\d{3})+\b|\b(?!(?:1[89]|20)\d{2}\b)\d{3,}\b")
+#: The scope that governs a figure is the sentence it sits in, plus the one
+#: before it (scope is routinely inherited: "...across the U.S. ... In that
+#: same time frame, 32,674 pedestrians were killed"). A fixed character window
+#: is too blunt - it reaches into the neighbouring contrast sentence and reads
+#: as both scopes at once, so every real mismatch gets skipped as ambiguous.
+#: Requires a capital after the break, so "the U.S. died in a crash" is not
+#: split at the abbreviation - which would strip the very scope word the check
+#: depends on.
+_SENT_BOUNDARY = re.compile(r"(?<=[.!?])\s+(?=[A-Z(])")
+
+
+def _scope_of(text: str) -> set[str]:
+    scopes = set()
+    if _NATIONAL.search(text):
+        scopes.add("national")
+    if _LOCAL.search(text):
+        scopes.add("local")
+    return scopes
+
+
+def _governing_span(body: str, pos: int) -> str:
+    """The sentence containing offset ``pos``, plus the preceding sentence."""
+    starts = [0] + [m.end() for m in _SENT_BOUNDARY.finditer(body)]
+    ends = [m.start() for m in _SENT_BOUNDARY.finditer(body)] + [len(body)]
+    for i, (a, b) in enumerate(zip(starts, ends)):
+        if a <= pos < b:
+            return body[starts[i - 1] if i else a: b]
+    return body[max(0, pos - 200): pos + 200]
+
+
+def check_scope_claims(attributions: list["SentenceAttribution"],
+                       passage_texts: list[str]) -> list[tuple[str, str]]:
+    """Find figures the answer re-scoped between national and local.
+
+    For each large number in a sentence, locate that same number in the cited
+    passages and read the scope words around it. If the passage frames the
+    figure nationally and the sentence frames it locally (or the reverse), the
+    claim is wrong however well it matches on similarity.
+    """
+    problems: list[tuple[str, str]] = []
+    for a in attributions:
+        sent_scope = _scope_of(a.text)
+        if not sent_scope or len(sent_scope) != 1:
+            continue                      # no scope, or the sentence says both
+        for raw in _NUMBER.findall(a.text):
+            for c in a.citations:
+                if not 1 <= c <= len(passage_texts):
+                    continue
+                body = passage_texts[c - 1]
+                pos = body.find(raw)
+                if pos < 0:
+                    continue
+                src_scope = _scope_of(_governing_span(body, pos))
+                if len(src_scope) == 1 and src_scope != sent_scope:
+                    problems.append((
+                        raw,
+                        f"answer frames {raw} as {next(iter(sent_scope))} but [S{c}] "
+                        f"reports it as {next(iter(src_scope))}"))
+                    break
+    return problems
+
+
+def check_invented_figures(attributions: list["SentenceAttribution"],
+                           passage_texts: list[str]) -> list[str]:
+    """Large numbers in the answer that appear in no cited passage."""
+    missing = []
+    for a in attributions:
+        cited = " ".join(passage_texts[c - 1] for c in a.citations
+                         if 1 <= c <= len(passage_texts))
+        for raw in _NUMBER.findall(a.text):
+            if raw not in cited and raw.replace(",", "") not in cited.replace(",", ""):
+                missing.append(raw)
+    return sorted(set(missing))
+
+
 @dataclass
 class SentenceAttribution:
     text: str

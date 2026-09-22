@@ -9,11 +9,13 @@ from typing import Iterator
 import numpy as np
 
 from .config import CONFIG, Config
-from .attribute import attribute, check_catalog_claims, fix_glossary
+from .attribute import (attribute, check_catalog_claims,
+                        check_invented_figures, check_scope_claims, fix_glossary)
 from .index import HybridIndex
 from .llm import BaseLLM, get_llm
 from .postprocess import GAP_HEADING, clean
-from .prompts import SYSTEM_PROMPT, build_context, build_user_prompt
+from .prompts import (SYSTEM_PROMPT, build_context, build_gap_prompt,
+                      build_user_prompt)
 from .retrieve import Hit, Retriever
 
 _CITE = re.compile(r"\[S(\d+)\]")
@@ -161,16 +163,22 @@ class RAGPipeline:
                    kind=h.passage.kind, source_id=h.passage.source_id)
             for i, h in enumerate(kept)
         ]
-        return prompt, sources, subqueries, confidence, coverage_note, warnings, kept
+        return (prompt, sources, subqueries, confidence, coverage_note, warnings,
+                kept, context)
 
     def _finish(self, question, text, sources, subqueries, confidence, coverage_note,
-                warnings, kept, t0) -> Answer:
+                warnings, kept, t0, context="") -> Answer:
         text, clean_warnings = clean(text)
         warnings = warnings + clean_warnings
         if self.llm.available and GAP_HEADING not in text:
-            text += "\n\n" + self._fallback_gaps(kept, coverage_note)
-            warnings = warnings + ["model omitted the evidence-gap section; "
-                                   "substituted one derived from retrieval"]
+            bullets = self._generate_gaps(question, context, text)
+            if bullets:
+                text += f"\n\n{GAP_HEADING}\n" + bullets
+                warnings = warnings + ["evidence-gap section generated in a second pass"]
+            else:
+                text += "\n\n" + self._fallback_gaps(kept, coverage_note)
+                warnings = warnings + ["model omitted the evidence-gap section; "
+                                       "substituted one derived from retrieval"]
         text, n_fixed = fix_glossary(text)
         if n_fixed:
             warnings = warnings + [f"corrected {n_fixed} misexpanded local acronym(s)"]
@@ -194,6 +202,15 @@ class RAGPipeline:
                 warnings = warnings + [
                     f"{len(bogus)} figure(s) attributed only to a dataset catalogue "
                     "entry, whose records are not loaded - treat as unverified"]
+
+            texts = [h.passage.text for h in kept]
+            for _num, msg in check_scope_claims(attributions, texts):
+                warnings = warnings + ["geographic scope mismatch: " + msg]
+                unsupported.append(msg)
+            invented = check_invented_figures(attributions, texts)
+            if invented:
+                warnings = warnings + [
+                    "figures not found in any cited passage: " + ", ".join(invented[:6])]
             if unsupported:
                 warnings = warnings + [
                     f"{len(unsupported)} of {summary['total']} sentences not supported "
@@ -219,14 +236,14 @@ class RAGPipeline:
             return Answer(question=question, text="Nothing in the knowledge base matched "
                           "that question.", sources=[], backend=self.llm.name,
                           elapsed_s=time.time() - t0)
-        prompt, sources, subqueries, confidence, note, warnings, kept = prep
+        prompt, sources, subqueries, confidence, note, warnings, kept, context = prep
 
         if self.llm.available:
             text = self._generate_with_body(prompt)
         else:
             text = self._extractive(kept)
         return self._finish(question, text, sources, subqueries, confidence, note,
-                            warnings, kept, t0)
+                            warnings, kept, t0, context)
 
     def stream(self, question: str, k: int | None = None) -> Iterator[tuple[str, object]]:
         """Yield ('token', str) chunks then a final ('answer', Answer)."""
@@ -236,7 +253,7 @@ class RAGPipeline:
             yield "answer", Answer(question=question, text="Nothing in the knowledge base "
                                    "matched that question.", sources=[], backend=self.llm.name)
             return
-        prompt, sources, subqueries, confidence, note, warnings, kept = prep
+        prompt, sources, subqueries, confidence, note, warnings, kept, context = prep
 
         parts: list[str] = []
         if self.llm.available:
@@ -250,7 +267,28 @@ class RAGPipeline:
             parts.append(text)
             yield "token", text
         yield "answer", self._finish(question, "".join(parts), sources, subqueries,
-                                     confidence, note, warnings, kept, t0)
+                                     confidence, note, warnings, kept, t0, context)
+
+    def _generate_gaps(self, question: str, context: str, answer: str) -> str:
+        """Ask for the gap section on its own.
+
+        Asking for answer and gaps in one shot makes a small model trade them
+        off - it writes a good answer and forgets the section, or leads with
+        the section and never writes the answer. Splitting the request removes
+        the competition and produces sharper gaps than a templated fallback.
+        """
+        if not context or not self.cfg.gap_second_pass:
+            return ""
+        try:
+            raw = self.llm.generate(
+                build_gap_prompt(question, context, answer),
+                system=SYSTEM_PROMPT, max_tokens=320, temperature=0.3)
+        except Exception:
+            return ""
+        from .postprocess import _is_bullet, _is_echoed_example
+        bullets = [l.rstrip() for l in raw.split("\n")
+                   if _is_bullet(l) and not _is_echoed_example(l)]
+        return "\n".join(bullets[:4])
 
     @staticmethod
     def _fallback_gaps(kept: list[Hit], coverage_note: str) -> str:

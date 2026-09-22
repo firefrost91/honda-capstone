@@ -105,6 +105,26 @@ USER_TEMPLATE = """CONTEXT PASSAGES
 Write the ANSWER FIRST - several paragraphs of substance, naming specific Central Ohio places, plans, agencies and figures from the passages above. Do NOT open with the "what the local evidence does not cover" heading; that section comes LAST, after the answer, and only once."""
 
 
+GAP_PROMPT = """CONTEXT PASSAGES
+================
+{context}
+
+================
+
+QUESTION: {question}
+
+ANSWER ALREADY WRITTEN:
+{answer}
+
+Now write ONLY the evidence-gap section for that answer. List two to four bullets, each naming a specific thing the context does NOT establish - a measurement nobody took, a dataset whose records are not loaded here, a date range that stops short, an effect the documents assert but never quantify.
+
+Name the specific data and where it would have to come from. Be concrete about this question; do not write generic advice like "more data is needed". Output the bullets only - no heading, no preamble, one per line starting with "- "."""
+
+
+def build_gap_prompt(question: str, context: str, answer: str) -> str:
+    return GAP_PROMPT.format(context=context, question=question, answer=answer.strip())
+
+
 def build_user_prompt(question: str, context: str, coverage_note: str = "") -> str:
     note = f"RETRIEVAL NOTE FOR YOU (do not quote verbatim): {coverage_note}\n\n" if coverage_note else ""
     return USER_TEMPLATE.format(context=context, question=question, coverage_note=note)

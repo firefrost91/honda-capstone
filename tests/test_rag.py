@@ -12,8 +12,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from rag.attribute import (attribute, check_catalog_claims, fix_glossary,
-                           _split_sentences, SentenceAttribution)
+from rag.attribute import (attribute, check_catalog_claims,
+                           check_invented_figures, check_scope_claims,
+                           fix_glossary, _split_sentences, SentenceAttribution)
 from rag.corpus import load_passages, _informative, _clean
 from rag.lexical import BM25, tokenize, expand_query
 from rag.postprocess import clean
@@ -207,6 +208,63 @@ def test_figures_sourced_only_to_a_catalogue_entry_are_flagged():
     assert check_catalog_claims([only_catalog], kinds) == [only_catalog.text]
     assert check_catalog_claims([with_document], kinds) == []
     assert check_catalog_claims([no_figure], kinds) == []
+
+
+
+# The real passage that produced the bug this guards against: a national
+# figure sitting one sentence away from a regional one.
+_MIXED_SCOPE_PASSAGE = (
+    "During the five-year period between 2017 and 2021, 177,409 people across the "
+    "U.S. died in a motor vehicle crash. In that same time frame, 32,674 pedestrians "
+    "were killed while walking in their communities. Central Ohio has seen similarly "
+    "concerning trends. The MPO planning area had 162,384 crashes."
+)
+
+
+def _attr(text, citations=(1,)):
+    return SentenceAttribution(text=text, citations=list(citations), support=0.9,
+                               supported=True, model_cited=[])
+
+
+def test_national_figure_rescoped_to_central_ohio_is_flagged():
+    problems = check_scope_claims(
+        [_attr("In Central Ohio alone, 32,674 pedestrians were killed while walking.")],
+        [_MIXED_SCOPE_PASSAGE])
+    assert problems and problems[0][0] == "32,674"
+    assert "national" in problems[0][1] and "local" in problems[0][1]
+
+
+def test_correctly_scoped_figures_are_not_flagged():
+    passages = [_MIXED_SCOPE_PASSAGE]
+    assert check_scope_claims(
+        [_attr("Across the U.S., 177,409 people died in motor vehicle crashes.")],
+        passages) == []
+    assert check_scope_claims(
+        [_attr("The Central Ohio MPO planning area had 162,384 crashes.")],
+        passages) == []
+
+
+def test_abbreviation_periods_do_not_split_the_governing_sentence():
+    """'U.S. died' must not be read as a sentence break - that strips the scope."""
+    from rag.attribute import _governing_span
+    span = _governing_span(_MIXED_SCOPE_PASSAGE, _MIXED_SCOPE_PASSAGE.index("32,674"))
+    assert "U.S." in span
+
+
+def test_figures_absent_from_every_cited_passage_are_reported():
+    missing = check_invented_figures(
+        [_attr("The corridor saw 4,912 crashes and 162,384 elsewhere.")],
+        [_MIXED_SCOPE_PASSAGE])
+    assert missing == ["4,912"]
+
+
+
+def test_bare_years_are_not_treated_as_statistics():
+    """Years made every sentence naming a study period look like a scope error."""
+    from rag.attribute import _NUMBER
+    assert _NUMBER.findall("between 2017 and 2021 the count rose") == []
+    assert "162,384" in _NUMBER.findall("there were 162,384 crashes in 2022")
+    assert "691" in _NUMBER.findall("691 people died")
 
 
 if __name__ == "__main__":
