@@ -1,0 +1,54 @@
+{
+  "description": "Columbus / Central Ohio Local RAG prototype test set. The objective is whether a locally-grounded RAG gives more locally relevant and meaningful safety insight than a general LLM.",
+  "questions": [
+    {"id": 1, "question": "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
+     "probes": ["speed", "pedestrian", "vision zero", "high injury network", "fatal", "corridor"],
+     "expects_gap_honesty": false,
+     "note": "Must name specific local examples, not generic US safety issues."},
+
+    {"id": 2, "question": "Are there examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities? What can we learn from them?",
+     "probes": ["community", "neighborhood", "environmental justice", "i-70", "i-71", "connectivity"],
+     "expects_gap_honesty": true,
+     "note": "Reference answer cites King-Lincoln Bronzeville / Long Street Bridge, which are NOT in this corpus. A good answer uses what IS here (EJ appendix, corridor impacts) and flags the rest as missing."},
+
+    {"id": 3, "question": "Based on available local evidence, what information is still missing before recommending a safety improvement for a specific area in Columbus?",
+     "probes": ["crash", "volume", "speed", "pedestrian", "engagement", "cost", "data"],
+     "expects_gap_honesty": true,
+     "note": "Core test of gap-identification rather than invention."},
+
+    {"id": 4, "question": "Are there past transportation projects in Columbus that took longer or cost more than originally expected? What can we learn from these cases about local factors that should be considered in future projects?",
+     "probes": ["cost", "schedule", "funding", "phasing", "construction", "estimate"],
+     "expects_gap_honesty": true,
+     "note": "Must separate documented causes from inference."},
+
+    {"id": 5, "question": "If Columbus wants to reduce serious crashes, what types of transportation improvements should it prioritize based on local evidence?",
+     "probes": ["speed", "intersection", "crossing", "pedestrian", "bicycle", "signal", "separation", "high injury network"],
+     "expects_gap_honesty": true,
+     "note": "Should avoid an unsupported citywide priority claim."},
+
+    {"id": 6, "question": "How have transportation safety trends in Central Ohio changed over the past 5-10 years, and what emerging patterns should planners be aware of?",
+     "probes": ["trend", "increase", "decrease", "year", "fatalit", "pattern"],
+     "expects_gap_honesty": true,
+     "note": "Requires change-over-time analysis, not a snapshot."},
+
+    {"id": 7, "question": "How might projected population, employment, and development growth in Central Ohio change future transportation safety risks?",
+     "probes": ["population", "employment", "growth", "2050", "development", "vmt", "demand"],
+     "expects_gap_honesty": true,
+     "note": "Connects directly to MORPC projected growth."},
+
+    {"id": 8, "question": "What factors affect the time and quality of post-crash emergency response in Central Ohio, and where are the major gaps?",
+     "probes": ["emergency", "response", "incident", "responder", "ems"],
+     "expects_gap_honesty": true,
+     "note": "Post-Crash Care is thinly covered in this corpus; honesty about that is the correct behaviour."},
+
+    {"id": 9, "question": "What different types of local data can be combined to understand transportation safety, and what unique information does each type provide?",
+     "probes": ["crash", "traffic", "volume", "speed limit", "roadway", "sidewalk", "signal", "dataset"],
+     "expects_gap_honesty": true,
+     "note": "Tests synthesis across the GIS catalogue plus document evidence."},
+
+    {"id": 10, "question": "Are there examples in Central Ohio where improving safety for one type of road user created new challenges for another, and what does the evidence show?",
+     "probes": ["pedestrian", "bicycle", "transit", "freight", "truck", "vehicle", "lane"],
+     "expects_gap_honesty": true,
+     "note": "Trade-offs between user groups."}
+  ]
+}

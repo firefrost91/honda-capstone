@@ -1,0 +1,258 @@
+{
+  "summary": {
+    "backend": "mlx",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "llm_model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+    "n_questions": 10,
+    "total_s": 322.6,
+    "mean_locality": 4.7,
+    "mean_sources": 8.6,
+    "mean_groundedness": 1.0,
+    "gap_section_rate": 1.0,
+    "mean_latency_s": 32.2,
+    "needs_attention": [
+      4
+    ]
+  },
+  "scores": [
+    {
+      "id": 1,
+      "question": "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
+      "locality": 6,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "MORPC",
+        "Metropolitan Transportation Plan",
+        "Mid-Ohio Regional Planning Commission"
+      ],
+      "probes_hit": 4,
+      "probes_total": 6,
+      "n_distinct_sources": 8,
+      "n_cited": 11,
+      "groundedness": 1.0,
+      "confidence": 0.739,
+      "has_gap_section": true,
+      "n_gap_bullets": 5,
+      "hedges": 1,
+      "words": 160,
+      "elapsed_s": 31.8,
+      "warnings": []
+    },
+    {
+      "id": 2,
+      "question": "Are there examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities? What can we learn from them?",
+      "locality": 6,
+      "local_terms": [
+        "Columbus",
+        "Environmental Justice",
+        "MORPC",
+        "MTP",
+        "ODOT",
+        "Spindler"
+      ],
+      "probes_hit": 1,
+      "probes_total": 6,
+      "n_distinct_sources": 8,
+      "n_cited": 11,
+      "groundedness": 1.0,
+      "confidence": 0.713,
+      "has_gap_section": true,
+      "n_gap_bullets": 3,
+      "hedges": 3,
+      "words": 193,
+      "elapsed_s": 28.2,
+      "warnings": []
+    },
+    {
+      "id": 3,
+      "question": "Based on available local evidence, what information is still missing before recommending a safety improvement for a specific area in Columbus?",
+      "locality": 3,
+      "local_terms": [
+        "Hilliard",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "probes_hit": 3,
+      "probes_total": 7,
+      "n_distinct_sources": 12,
+      "n_cited": 4,
+      "groundedness": 1.0,
+      "confidence": 0.699,
+      "has_gap_section": true,
+      "n_gap_bullets": 3,
+      "hedges": 1,
+      "words": 96,
+      "elapsed_s": 24.3,
+      "warnings": []
+    },
+    {
+      "id": 4,
+      "question": "Are there past transportation projects in Columbus that took longer or cost more than originally expected? What can we learn from these cases about local factors that should be considered in future projects?",
+      "locality": 2,
+      "local_terms": [
+        "MTP",
+        "ODOT"
+      ],
+      "probes_hit": 1,
+      "probes_total": 6,
+      "n_distinct_sources": 7,
+      "n_cited": 2,
+      "groundedness": 1.0,
+      "confidence": 0.725,
+      "has_gap_section": true,
+      "n_gap_bullets": 6,
+      "hedges": 2,
+      "words": 154,
+      "elapsed_s": 28.2,
+      "warnings": [
+        "merged duplicated 'what the evidence does not cover' sections"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "If Columbus wants to reduce serious crashes, what types of transportation improvements should it prioritize based on local evidence?",
+      "locality": 4,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN"
+      ],
+      "probes_hit": 2,
+      "probes_total": 8,
+      "n_distinct_sources": 9,
+      "n_cited": 7,
+      "groundedness": 1.0,
+      "confidence": 0.721,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "hedges": 1,
+      "words": 153,
+      "elapsed_s": 28.8,
+      "warnings": []
+    },
+    {
+      "id": 6,
+      "question": "How have transportation safety trends in Central Ohio changed over the past 5-10 years, and what emerging patterns should planners be aware of?",
+      "locality": 8,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN",
+        "High Injury Network",
+        "MORPC",
+        "ODOT",
+        "Vision Zero Columbus"
+      ],
+      "probes_hit": 4,
+      "probes_total": 6,
+      "n_distinct_sources": 7,
+      "n_cited": 10,
+      "groundedness": 1.0,
+      "confidence": 0.736,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "hedges": 3,
+      "words": 289,
+      "elapsed_s": 38.6,
+      "warnings": []
+    },
+    {
+      "id": 7,
+      "question": "How might projected population, employment, and development growth in Central Ohio change future transportation safety risks?",
+      "locality": 3,
+      "local_terms": [
+        "Columbus",
+        "MTP",
+        "TIP"
+      ],
+      "probes_hit": 5,
+      "probes_total": 7,
+      "n_distinct_sources": 6,
+      "n_cited": 9,
+      "groundedness": 1.0,
+      "confidence": 0.736,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "hedges": 1,
+      "words": 282,
+      "elapsed_s": 35.2,
+      "warnings": []
+    },
+    {
+      "id": 8,
+      "question": "What factors affect the time and quality of post-crash emergency response in Central Ohio, and where are the major gaps?",
+      "locality": 6,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "Hilliard",
+        "Hilliard-Rome",
+        "Roberts Road",
+        "Vision Zero Columbus"
+      ],
+      "probes_hit": 3,
+      "probes_total": 5,
+      "n_distinct_sources": 8,
+      "n_cited": 10,
+      "groundedness": 1.0,
+      "confidence": 0.648,
+      "has_gap_section": true,
+      "n_gap_bullets": 5,
+      "hedges": 4,
+      "words": 358,
+      "elapsed_s": 40.8,
+      "warnings": []
+    },
+    {
+      "id": 9,
+      "question": "What different types of local data can be combined to understand transportation safety, and what unique information does each type provide?",
+      "locality": 5,
+      "local_terms": [
+        "Hilliard",
+        "MORPC",
+        "ODOT",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "probes_hit": 3,
+      "probes_total": 8,
+      "n_distinct_sources": 12,
+      "n_cited": 9,
+      "groundedness": 1.0,
+      "confidence": 0.701,
+      "has_gap_section": true,
+      "n_gap_bullets": 3,
+      "hedges": 3,
+      "words": 202,
+      "elapsed_s": 33.8,
+      "warnings": []
+    },
+    {
+      "id": 10,
+      "question": "Are there examples in Central Ohio where improving safety for one type of road user created new challenges for another, and what does the evidence show?",
+      "locality": 4,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Vision Zero Columbus"
+      ],
+      "probes_hit": 5,
+      "probes_total": 7,
+      "n_distinct_sources": 9,
+      "n_cited": 8,
+      "groundedness": 1.0,
+      "confidence": 0.707,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "hedges": 2,
+      "words": 211,
+      "elapsed_s": 32.8,
+      "warnings": []
+    }
+  ]
+}

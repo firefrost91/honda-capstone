@@ -1,0 +1,17 @@
+{
+  "note": "Proper nouns and programme names specific to Columbus / Central Ohio. Used as an automatic proxy for local specificity: a general-purpose LLM answering the same question will score near zero here.",
+  "terms": [
+    "MORPC", "Mid-Ohio Regional Planning Commission", "Vision Zero Columbus", "COTA",
+    "Central Ohio Transit Authority", "LinkUS", "ODOT", "Ohio Department of Transportation",
+    "Franklin County", "Delaware County", "Licking County", "Fairfield County", "Union County",
+    "Columbus", "Hilliard", "Dublin", "Westerville", "Grove City", "Sunbury", "Powell",
+    "Polaris", "Whitehall", "Bexley", "Upper Arlington", "Gahanna", "Reynoldsburg",
+    "High Injury Network", "HIN", "COTSP", "Central Ohio Transportation Safety Plan",
+    "Transportation Improvement Program", "Metropolitan Transportation Plan", "MTP", "TIP",
+    "Hilliard-Rome", "Renner Road", "Roberts Road", "Trabue Road", "Frazell", "Spindler",
+    "McKinley Avenue", "Alton", "Darby Creek", "West Broad", "Bike Plus", "Safe Routes to School",
+    "I-70", "I-71", "IR-70", "IR-71", "SR-161", "SR 161", "US-33", "I-270", "IR-270",
+    "HSIP", "SS4A", "Safe Streets and Roads for All", "Environmental Justice", "CSX",
+    "Scioto", "Olentangy", "Morse Road", "Livingston", "Parsons", "Cleveland Avenue"
+  ]
+}

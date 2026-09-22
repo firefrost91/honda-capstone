@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Ohio Transportation Safety</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#fff; --ink:#15181d; --muted:#5d6570; --line:#e2e5ea;
+  --accent:#1f5fa8; --accent-soft:#e8f0fa; --user:#1f5fa8; --warn:#8a5a00;
+  --warn-soft:#fdf3e0; --good:#1a6b45; --radius:12px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1115; --panel:#171a20; --ink:#e8eaee; --muted:#9aa3b0; --line:#272b33;
+  --accent:#6fa8e8; --accent-soft:#1a2735; --user:#6fa8e8; --warn:#e0b060;
+  --warn-soft:#2a2113; --good:#6cc79a;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --panel:#171a20; --ink:#e8eaee; --muted:#9aa3b0; --line:#272b33;
+  --accent:#6fa8e8; --accent-soft:#1a2735; --user:#6fa8e8; --warn:#e0b060;
+  --warn-soft:#2a2113; --good:#6cc79a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--panel);
+  border-bottom:1px solid var(--line);padding:14px 16px}
+.wrap{max-width:860px;margin:0 auto}
+h1{margin:0;font-size:16px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:12.5px;margin-top:3px}
+main{padding:20px 16px 150px}
+.msg{margin-bottom:22px}
+.who{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px}
+.bubble{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.user .bubble{background:var(--accent-soft);border-color:transparent}
+.cite{color:var(--accent);font-weight:600;font-size:12px;cursor:pointer;
+  text-decoration:none;padding:0 1px}
+.cite:hover{text-decoration:underline}
+.unsupported{background:var(--warn-soft);color:var(--warn);border-radius:4px;
+  padding:0 4px;font-size:12px;font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.badge{font-size:11.5px;padding:2px 9px;border-radius:999px;border:1px solid var(--line);
+  color:var(--muted);background:var(--panel)}
+.badge.good{color:var(--good);border-color:currentColor}
+.badge.warn{color:var(--warn);border-color:currentColor}
+details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-size:12.5px;color:var(--muted);font-weight:600}
+.src{font-size:12.5px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.src:last-child{border-bottom:0}
+.src .n{color:var(--accent);font-weight:700;margin-right:6px}
+.src .meta{color:var(--muted);font-size:11.5px;margin-top:2px}
+.src a{color:var(--accent);word-break:break-all}
+.src.flash{background:var(--accent-soft);border-radius:6px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{font-size:12.5px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;
+  background:var(--panel);cursor:pointer;text-align:left}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+footer{position:fixed;bottom:0;left:0;right:0;background:var(--panel);
+  border-top:1px solid var(--line);padding:12px 16px}
+.row{display:flex;gap:9px;align-items:flex-end}
+textarea{flex:1;resize:none;font:inherit;padding:10px 12px;border-radius:10px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);max-height:130px}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+button.send{background:var(--accent);color:#fff;border:0;border-radius:10px;
+  padding:11px 18px;font-weight:600;cursor:pointer}
+button.send:disabled{opacity:.5;cursor:default}
+.dots::after{content:'';animation:d 1.2s steps(4,end) infinite}
+@keyframes d{0%{content:''}25%{content:'.'}50%{content:'..'}75%{content:'...'}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Central Ohio Transportation Safety</h1>
+  <div class="sub" id="status">connecting…</div>
+</div></header>
+
+<main><div class="wrap" id="thread">
+  <div class="msg">
+    <div class="who">assistant</div>
+    <div class="bubble">Ask about transportation safety in Columbus and Central Ohio. Every answer is grounded in the local knowledge base — MORPC plans, Vision Zero Columbus, ODOT manuals, corridor studies and the regional GIS data catalogue — with a citation on each claim and an explicit note on what the local evidence does not cover.
+      <div class="chips" id="chips"></div>
+    </div>
+  </div>
+</div></main>
+
+<footer><div class="wrap row">
+  <textarea id="q" rows="1" placeholder="e.g. If Columbus wants to reduce serious crashes, what should it prioritize?"></textarea>
+  <button class="send" id="send">Ask</button>
+</div></footer>
+
+<script>
+const EXAMPLES = [
+ "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
+ "How have transportation safety trends in Central Ohio changed over the past 5-10 years?",
+ "How might projected population and employment growth change future transportation safety risks?",
+ "What different types of local data can be combined to understand transportation safety?",
+ "What information is still missing before recommending a safety improvement in Columbus?"
+];
+const thread = document.getElementById('thread');
+const chips  = document.getElementById('chips');
+const qEl    = document.getElementById('q');
+const sendEl = document.getElementById('send');
+let busy = false;
+
+EXAMPLES.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.textContent=t;
+  b.onclick=()=>{ qEl.value=t; ask(); };
+  chips.appendChild(b);
+});
+
+fetch('/health').then(r=>r.json()).then(h=>{
+  document.getElementById('status').textContent =
+    `${h.documents} sources · ${h.passages} passages · ${h.embed_model.split('/').pop()} · ` +
+    (h.llm_available ? `${h.backend}: ${h.llm_model.split('/').pop()}` : 'no language model — extractive mode');
+}).catch(()=>document.getElementById('status').textContent='server unreachable');
+
+const esc = s => s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function addMsg(who, html){
+  const d=document.createElement('div');
+  d.className='msg '+who;
+  d.innerHTML=`<div class="who">${who}</div><div class="bubble">${html}</div>`;
+  thread.appendChild(d);
+  window.scrollTo(0,document.body.scrollHeight);
+  return d.querySelector('.bubble');
+}
+
+// Turn [S3] into a link that scrolls to the matching source entry.
+function linkCitations(text, id){
+  return esc(text)
+    .replace(/\[S(\d+)\]/g, (_,n)=>`<a class="cite" href="#" onclick="flash('${id}',${n});return false;">[S${n}]</a>`)
+    .replace(/\[unsupported by retrieved evidence\]/g, '<span class="unsupported">unsupported</span>');
+}
+window.flash = (id,n)=>{
+  const el=document.querySelector(`#src-${id}-${n}`);
+  if(!el) return;
+  const d=el.closest('details'); if(d) d.open=true;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'),1400);
+};
+
+function renderMeta(bubble, d, id){
+  const pct = v => Math.round(v*100)+'%';
+  const g = d.groundedness ?? 1, c = d.confidence ?? 0;
+  const badges = [
+    `<span class="badge ${g>=.9?'good':'warn'}">grounded ${pct(g)}</span>`,
+    `<span class="badge ${c>=.55?'good':'warn'}">retrieval ${c.toFixed(2)}</span>`,
+    `<span class="badge">${d.n_documents} documents</span>`,
+    `<span class="badge">${d.elapsed_s}s</span>`,
+    ...(d.warnings||[]).map(w=>`<span class="badge warn">${esc(w)}</span>`)
+  ].join('');
+
+  const cited = (d.sources||[]).filter(s=>s.cited);
+  const list  = (cited.length?cited:(d.sources||[])).map(s=>`
+    <div class="src" id="src-${id}-${s.n}">
+      <div><span class="n">[S${s.n}]</span>${esc(s.title)}</div>
+      <div class="meta">${esc(s.organization||'')}${s.locator?' · '+esc(s.locator):''}</div>
+      ${s.url?`<div class="meta"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></div>`:''}
+    </div>`).join('');
+
+  const subs = (d.subqueries||[]).map(s=>`<div class="meta">· ${esc(s)}</div>`).join('');
+
+  bubble.insertAdjacentHTML('beforeend',
+    `<div class="badges">${badges}</div>
+     <details open><summary>Sources (${cited.length||(d.sources||[]).length})</summary>${list}</details>
+     <details><summary>How this was retrieved</summary>${subs}</details>`);
+}
+
+async function ask(){
+  const q = qEl.value.trim();
+  if(!q || busy) return;
+  busy = true; sendEl.disabled = true;
+  addMsg('user', esc(q));
+  qEl.value=''; qEl.style.height='auto';
+
+  const id = Date.now();
+  const bubble = addMsg('assistant', '<span class="dots">thinking</span>');
+  let streamed = '';
+
+  try{
+    const res = await fetch('/ask/stream', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({question:q})
+    });
+    const reader = res.body.getReader(), dec = new TextDecoder();
+    let buf='';
+    while(true){
+      const {value,done} = await reader.read();
+      if(done) break;
+      buf += dec.decode(value,{stream:true});
+      const lines = buf.split('\n\n'); buf = lines.pop();
+      for(const line of lines){
+        if(!line.startsWith('data:')) continue;
+        const d = JSON.parse(line.slice(5));
+        if(d.type==='token'){
+          streamed += d.text;
+          bubble.innerHTML = esc(streamed);
+          window.scrollTo(0,document.body.scrollHeight);
+        } else {
+          // final payload: citations are verified server-side, so replace
+          // the streamed draft with the attributed text
+          bubble.innerHTML = linkCitations(d.answer, id);
+          renderMeta(bubble, d, id);
+          window.scrollTo(0,document.body.scrollHeight);
+        }
+      }
+    }
+  }catch(e){
+    bubble.innerHTML = '<span class="unsupported">error</span> '+esc(String(e));
+  }
+  busy=false; sendEl.disabled=false; qEl.focus();
+}
+
+sendEl.onclick = ask;
+qEl.addEventListener('keydown', e=>{
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ask(); }
+});
+qEl.addEventListener('input', ()=>{
+  qEl.style.height='auto'; qEl.style.height=Math.min(qEl.scrollHeight,130)+'px';
+});
+</script>
+</body>
+</html>
