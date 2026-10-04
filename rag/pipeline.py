@@ -77,6 +77,10 @@ class Answer:
     elapsed_s: float = 0.0
     backend: str = ""
     warnings: list[str] = field(default_factory=list)
+    #: Text of each passage handed to the generator, aligned with ``sources``
+    #: (so ``[S3]`` -> ``contexts[2]``). Needed to evaluate retrieval and
+    #: faithfulness after the fact.
+    contexts: list[str] = field(default_factory=list)
 
     def cited_sources(self) -> list[Source]:
         return [s for s in self.sources if s.cited]
@@ -226,6 +230,7 @@ class RAGPipeline:
             unsupported_claims=unsupported, coverage_note=coverage_note,
             n_sources=len({h.passage.source_id for h in kept}),
             elapsed_s=time.time() - t0, backend=self.llm.name, warnings=warnings,
+            contexts=[h.passage.text for h in kept],
         )
 
     # -- public API -----------------------------------------------------

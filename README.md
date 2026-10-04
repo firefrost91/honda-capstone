@@ -145,6 +145,20 @@ Locality moves by a point or two between runs — generation is sampled, not
 greedy. Latency is roughly half that with `CBRAG_GAP_SECOND_PASS=0`, at the cost
 of vaguer gap sections.
 
+### Stakeholder evaluation (34 questions)
+
+```bash
+make eval-stakeholders            # ~2 h on an M-series Mac; checkpoints after every question
+./.venv/bin/python -m rag.evaluate_stakeholders --report-only   # rebuild reports from a partial run
+```
+
+Runs `eval/stakeholder_questions.json` (24 stakeholder-specific questions, the 8-stakeholder
+shared scenario, 2 add-ons) and writes `eval/reports/stakeholder/` - `report.md`,
+`results.json`, `per_question.csv`, `transcript.md`. Scores the RAG triad (retrieval,
+faithfulness, answer relevance), a retrieval ablation, a no-retrieval baseline, and
+whether Layer 2 answers differ by stakeholder perspective. `expected_sources` and `probes`
+in the question file are unreviewed silver labels.
+
 The headline metric is **locality**: how many Columbus/Central Ohio proper nouns
 and programme names the answer uses (`Renner Road`, `COTSP`, `SFY 2026–2029 TIP`,
 `High Injury Network`). A general-purpose LLM answering the same questions from

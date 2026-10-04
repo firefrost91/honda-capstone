@@ -1,0 +1,35 @@
+id,layer,stakeholder,theme,n_passages,n_docs,card_share,max_doc_share,retrieval_confidence,ret_source_recall,ret_hit,ret_mrr,ret_precision,ret_probe_context_recall,groundedness,n_unsupported,flag_invented_figure,flag_scope_mismatch,flag_catalog_figure,answer_relevancy,probe_recall,locality,words,has_gap_section,n_gap_bullets,n_cited_docs,elapsed_s,judge_context_precision,judge_context_ap,judge_faithfulness
+1,L1,state,Prioritization,13,12,0.615,0.154,0.76,0.25,1.0,0.091,0.154,0.833,1.0,0,0,0,0,0.869,0.5,9,326,True,3,8,90.1,,,0.727
+2,L1,state,Local Context & Decision Making,12,8,0.25,0.25,0.75,0.25,1.0,1.0,0.417,0.714,1.0,0,0,0,1,0.842,0.143,9,348,True,3,8,79.8,,,0.75
+3,L1,state,"Historical Precedents, Risks & Trade-offs",12,7,0.0,0.25,0.768,0.5,1.0,0.111,0.167,0.571,1.0,0,0,0,0,0.825,0.571,4,357,True,1,7,87.7,,,0.5
+4,L1,local,Implementation Feasibility / Infrastructure Conditions,12,7,0.167,0.25,0.753,0.0,0.0,0.0,0.0,0.286,1.0,0,0,0,1,0.846,0.0,6,283,True,1,7,104.1,,,0.167
+5,L1,local,Maintenance / Long-term Sustainability,12,6,0.0,0.25,0.736,0.75,1.0,1.0,0.75,0.571,1.0,0,0,0,0,0.839,0.429,7,446,True,1,6,103.6,,,0.333
+6,L1,local,Future Demand / Long-term Safety Performance,12,5,0.0,0.25,0.77,0.5,1.0,0.5,0.333,1.0,1.0,0,0,0,0,0.836,0.857,9,396,True,4,5,90.5,,,0.083
+7,L1,ems,Emergency Access / Response Time,12,6,0.0,0.25,0.707,0.5,1.0,1.0,0.333,0.857,1.0,0,0,0,0,0.806,0.286,8,223,True,2,5,79.0,,,0.143
+8,L1,ems,Safety Improvements vs. Emergency Operations,12,5,0.0,0.25,0.717,0.333,1.0,0.5,0.25,0.667,1.0,0,0,0,0,0.826,0.833,11,459,True,1,5,95.6,,,0.167
+9,L1,ems,Crash Severity / Post-Crash Response,13,12,0.615,0.154,0.767,0.0,0.0,0.0,0.0,0.857,1.0,0,0,0,1,0.87,0.857,11,451,True,3,10,91.6,,,0.083
+10,L1,transit,First / Last-Mile Safety & Access,12,6,0.0,0.25,0.752,0.0,0.0,0.0,0.0,0.714,1.0,0,0,0,0,0.81,0.571,5,373,True,1,5,90.1,,,0.25
+11,L1,transit,Value of Supporting Safety Projects,12,9,0.417,0.167,0.76,0.0,0.0,0.0,0.0,0.714,1.0,0,0,0,0,0.829,0.429,9,441,True,1,8,103.9,,,0.333
+12,L1,transit,Network Connectivity / Future Mobility Needs,12,7,0.167,0.25,0.733,0.25,1.0,0.333,0.083,0.429,1.0,0,0,0,0,0.828,0.429,8,413,True,1,6,103.7,,,0.25
+13,L1,resident,Safety & Quality of Life Near Homes,13,11,0.615,0.231,0.725,0.4,1.0,0.1,0.308,0.714,1.0,0,0,0,0,0.83,0.714,6,411,True,3,6,114.2,,,0.417
+14,L1,resident,Cut-Through Traffic & Neighborhood Impacts,13,10,0.385,0.231,0.748,0.333,1.0,0.167,0.077,0.857,1.0,0,0,0,0,0.83,0.429,10,438,True,1,9,108.3,,,0.167
+15,L1,resident,Construction Impacts & Community Engagement,12,7,0.0,0.25,0.739,0.0,0.0,0.0,0.0,0.571,1.0,0,0,0,0,0.832,0.571,11,464,True,1,6,118.4,,,0.167
+16,L1,driver,Crash Risk & Traffic Conflicts,13,9,0.308,0.231,0.736,0.75,1.0,0.25,0.308,0.857,1.0,0,0,0,0,0.822,0.714,12,386,True,1,5,115.2,,,0.25
+17,L1,driver,"Delay, Queues & Travel-Time Reliability",12,6,0.0,0.25,0.715,0.25,1.0,1.0,0.25,0.286,1.0,0,0,0,0,0.765,0.571,10,290,True,4,6,1036.5,,,0.333
+18,L1,driver,Roadway Design Clarity & Driver Behavior,13,10,0.538,0.154,0.746,0.25,1.0,0.1,0.154,0.714,1.0,0,0,0,0,0.845,0.857,6,318,True,4,8,100.2,,,0.0
+19,L1,vru,Crossing Safety & Visibility,12,8,0.083,0.25,0.75,0.5,1.0,1.0,0.583,1.0,1.0,0,0,0,0,0.865,0.571,7,390,True,4,8,110.0,,,0.167
+20,L1,vru,Sidewalk / Path Continuity & Accessibility,12,7,0.167,0.25,0.734,0.25,1.0,0.25,0.25,0.714,1.0,0,0,0,0,0.847,0.857,13,385,True,2,7,104.3,,,0.25
+21,L1,vru,Separation from Vehicles & Comfort,13,11,0.615,0.154,0.716,0.333,1.0,0.1,0.077,0.857,1.0,0,0,0,0,0.799,0.286,10,437,True,1,8,110.6,,,0.25
+22,L1,freight,Truck Interactions & Freight Routes,12,6,0.167,0.25,0.713,0.667,1.0,0.2,0.333,0.143,1.0,0,0,0,0,0.813,0.143,9,326,True,4,6,100.8,,,0.333
+23,L1,freight,Rail Crossing Safety & Conflict Risk,13,8,0.154,0.231,0.728,0.333,1.0,0.077,0.077,0.714,1.0,0,0,0,0,0.828,0.571,8,414,True,1,5,104.5,,,0.333
+24,L1,freight,Freight Access & Operational Impact,12,9,0.25,0.25,0.752,0.667,1.0,0.5,0.333,0.714,1.0,0,0,0,1,0.907,0.714,16,543,True,4,9,116.2,,,0.0
+25,L2,state,Shared scenario,12,9,0.25,0.25,0.786,0.25,1.0,0.083,0.083,0.667,1.0,0,0,0,1,0.927,1.0,3,483,True,4,8,127.8,,,0.167
+26,L2,local,Shared scenario,12,7,0.083,0.25,0.798,0.25,1.0,0.167,0.25,0.667,1.0,0,0,0,0,0.902,1.0,4,288,True,1,5,93.2,,,0.083
+27,L2,resident,Shared scenario,12,8,0.25,0.25,0.775,0.25,1.0,0.1,0.083,0.667,1.0,0,0,0,0,0.895,1.0,1,421,True,4,8,93.3,,,0.0
+28,L2,driver,Shared scenario,12,8,0.25,0.25,0.772,0.25,1.0,0.1,0.083,0.667,1.0,0,0,0,0,0.869,0.833,2,375,True,1,6,86.8,,,0.083
+29,L2,vru,Shared scenario,12,8,0.25,0.25,0.773,0.25,1.0,0.1,0.083,0.667,1.0,0,0,0,0,0.874,1.0,5,398,True,2,6,99.6,,,0.167
+30,L2,ems,Shared scenario,12,7,0.25,0.25,0.784,0.25,1.0,0.2,0.25,0.667,1.0,0,0,0,0,0.866,0.833,0,404,True,2,6,113.5,,,0.0
+31,L2,transit,Shared scenario,12,7,0.25,0.25,0.789,0.25,1.0,0.25,0.167,0.833,1.0,0,0,0,0,0.902,1.0,3,676,True,1,7,149.6,,,0.0
+32,L2,freight,Shared scenario,12,8,0.25,0.25,0.762,0.25,1.0,0.083,0.083,0.667,1.0,0,0,0,0,0.848,1.0,0,380,True,1,7,93.9,,,0.0
+33,L2-addon,all,Comparable Local Cases,12,5,0.0,0.25,0.755,0.0,0.0,0.0,0.0,1.0,1.0,0,0,0,0,0.88,0.571,4,272,True,3,4,57.2,,,0.333
+34,L2-addon,all,Local Evidence for Follow-Up Action,13,12,0.615,0.154,0.791,0.0,0.0,0.0,0.0,0.714,1.0,0,0,0,1,0.896,0.857,10,522,True,2,10,111.7,,,0.167

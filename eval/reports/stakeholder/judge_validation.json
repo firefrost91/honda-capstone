@@ -1,0 +1,11 @@
+{
+  "claim_pos_accept": 0.7777777777777778,
+  "claim_neg_reject": 1.0,
+  "ctx_pos_accept": 0.125,
+  "ctx_neg_reject": 1.0,
+  "n_claim_controls": 9,
+  "n_ctx_controls": 8,
+  "claim_valid": true,
+  "ctx_valid": false,
+  "valid": true
+}
