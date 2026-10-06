@@ -1,6 +1,6 @@
 VENV := ./.venv/bin
 
-.PHONY: install index chat serve eval eval-stakeholders test clean
+.PHONY: install index chat serve eval eval-stakeholders dashboard test clean
 
 install:
 	python3 -m venv .venv && $(VENV)/pip install -q -r requirements.txt
@@ -19,6 +19,10 @@ eval:
 
 eval-stakeholders:
 	$(VENV)/python -m rag.evaluate_stakeholders --judge --baseline
+	$(VENV)/python -m rag.build_dashboard
+
+dashboard:
+	$(VENV)/python -m rag.build_dashboard
 
 test:
 	$(VENV)/python tests/test_rag.py

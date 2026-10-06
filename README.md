@@ -152,6 +152,11 @@ make eval-stakeholders            # ~2 h on an M-series Mac; checkpoints after e
 ./.venv/bin/python -m rag.evaluate_stakeholders --report-only   # rebuild reports from a partial run
 ```
 
+Open `eval/reports/stakeholder/dashboard.html` in a browser for an interactive view of the
+latest run: scorecard against targets, per-stakeholder breakdown, retrieval ablation,
+RAG vs. baseline, Layer 2 perspective alignment, and a question explorer with each answer
+and its sources. `make dashboard` rebuilds it from the report files without re-running the eval.
+
 Runs `eval/stakeholder_questions.json` (24 stakeholder-specific questions, the 8-stakeholder
 shared scenario, 2 add-ons) and writes `eval/reports/stakeholder/` - `report.md`,
 `results.json`, `per_question.csv`, `transcript.md`. Scores the RAG triad (retrieval,
