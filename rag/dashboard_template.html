@@ -6,225 +6,108 @@
 <!--HEAD-->
 <title>Stakeholder Eval Dashboard</title>
 <style>
-/* Layout: one column of report sections; summary tiles first, detail (question explorer) last.
+/* Layout: one readable column. Overview, then key findings, then each metric explained.
    Tokens follow the chat UI in app/static/index.html (Honda red, warm neutrals). */
 :root{
-  --red:#cc0000; --red-soft:#fdf1f1; --red-line:#f2d4d4;
+  --red:#cc0000; --red-soft:#fdf1f1;
   --bg:#fbfaf9; --panel:#ffffff; --panel-2:#f5f3f1;
   --ink:#16161a; --ink-2:#3d3d44; --muted:#6b6b73; --line:#e6e3e0;
-  --base:#8d8a86;             /* comparison series (baseline, other retrievers) */
   --good:#1a6b45; --good-soft:#e8f3ed; --warn:#8a5500; --warn-soft:#fdf5e7;
   --bad:#b42318; --bad-soft:#fdeceb;
   --font:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --radius:12px;
-  --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px -14px rgba(0,0,0,.16);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --red:#ff5a5a; --red-soft:#2a1618; --red-line:#4a2226;
+  --red:#ff5a5a; --red-soft:#2a1618;
   --bg:#121214; --panel:#1b1b1e; --panel-2:#232327;
   --ink:#ededf0; --ink-2:#c6c6cc; --muted:#9a9aa2; --line:#2f2f34;
-  --base:#77757a;
   --good:#6cc79a; --good-soft:#15291f; --warn:#e3b164; --warn-soft:#2b2214;
   --bad:#ff8a80; --bad-soft:#2e1614;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -12px rgba(0,0,0,.6);
   color-scheme:dark}}
 :root[data-theme="dark"]{
-  --red:#ff5a5a; --red-soft:#2a1618; --red-line:#4a2226;
+  --red:#ff5a5a; --red-soft:#2a1618;
   --bg:#121214; --panel:#1b1b1e; --panel-2:#232327;
   --ink:#ededf0; --ink-2:#c6c6cc; --muted:#9a9aa2; --line:#2f2f34;
-  --base:#77757a;
   --good:#6cc79a; --good-soft:#15291f; --warn:#e3b164; --warn-soft:#2b2214;
   --bad:#ff8a80; --bad-soft:#2e1614;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -12px rgba(0,0,0,.6);
   color-scheme:dark}
 
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.55 var(--font);
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 56px;
-  display:flex;flex-direction:column;gap:28px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:flex;flex-direction:column;gap:36px}
 h1,h2,h3{text-wrap:balance;margin:0}
-.num,table{font-variant-numeric:tabular-nums}
-a{color:var(--red)}
-button,select,input{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+p{margin:0}
 
-/* header */
 header.top{background:var(--panel);border-bottom:1px solid var(--line)}
-header.top .in{max-width:1180px;margin:0 auto;padding:16px 20px;display:flex;gap:14px;
-  align-items:center;flex-wrap:wrap}
-.mark{width:28px;height:28px;border-radius:7px;background:var(--red);flex:none;
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
-.ttl{display:flex;flex-direction:column;min-width:0}
-.ttl h1{font-size:17px;font-weight:650;letter-spacing:-.01em}
-.ttl span{font-size:12px;color:var(--muted)}
-.meta{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-.chip{font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);
-  background:var(--panel-2);color:var(--ink-2);white-space:nowrap}
-.chip code{font-family:var(--mono);font-size:11px}
+header.top .in{max-width:900px;margin:0 auto;padding:16px 20px;display:flex;gap:12px;align-items:center}
+.mark{width:28px;height:28px;border-radius:7px;background:var(--red);flex:none;display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:13px}
+header h1{font-size:17px;font-weight:650;letter-spacing:-.01em}
+header span{font-size:12px;color:var(--muted)}
 
-/* sections */
-section{display:flex;flex-direction:column;gap:12px;min-width:0}
-.sh{display:flex;flex-direction:column;gap:3px}
-.sh h2{font-size:15px;font-weight:650;letter-spacing:-.005em}
-.sh p{margin:0;color:var(--muted);font-size:13px;max-width:80ch}
-.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-  padding:16px 18px;min-width:0}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
-.note{font-size:12.5px;color:var(--muted);margin:0}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+h2{font-size:20px;font-weight:650;letter-spacing:-.015em}
+.intro{color:var(--ink-2);max-width:68ch}
 
-/* verdict + KPI tiles */
-.lede{font-size:15px;color:var(--ink-2);max-width:85ch;margin:0}
-.lede b{color:var(--ink)}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-  padding:13px 14px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
-.tile .k{font-size:11.5px;color:var(--muted);font-weight:600}
-.tile .v{font-size:26px;font-weight:650;letter-spacing:-.02em;line-height:1.15}
-.tile .s{font-size:11.5px;color:var(--muted)}
-.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:650;
-  padding:2px 8px;border-radius:999px;white-space:nowrap;width:max-content}
+/* overview */
+.bottom{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:var(--radius);
+  padding:16px 18px;font-size:16px;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.fact b{display:block;font-size:22px;font-weight:650;letter-spacing:-.02em}
+.fact span{font-size:12.5px;color:var(--muted)}
+
+/* findings */
+.findings{display:flex;flex-direction:column;gap:10px}
+.finding{display:grid;grid-template-columns:28px 1fr;gap:12px;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:14px 16px}
+.finding .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px}
+.finding.good .ic{background:var(--good-soft);color:var(--good)}
+.finding.bad .ic{background:var(--bad-soft);color:var(--bad)}
+.finding.warn .ic{background:var(--warn-soft);color:var(--warn)}
+.finding h3{font-size:15px;font-weight:650;margin-bottom:3px}
+.finding p{color:var(--ink-2);font-size:14px}
+
+/* metrics */
+.group{display:flex;flex-direction:column;gap:10px}
+.group h3{font-size:14px;font-weight:650;color:var(--ink-2)}
+.metric{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;
+  display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:6px 24px;align-items:center}
+.metric .name{font-weight:650;font-size:15px}
+.metric .what{color:var(--ink-2);font-size:13.5px;grid-column:1}
+.metric .score{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;gap:6px}
+.metric .vrow{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.metric .v{white-space:nowrap;font-size:24px;font-weight:650;letter-spacing:-.02em}
+.metric .t{font-size:12px;color:var(--muted);text-align:right}
+.meter{position:relative;height:8px;border-radius:4px;background:var(--panel-2)}
+.meter i{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.meter b{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--ink-2);border-radius:1px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:650;padding:2px 9px;border-radius:999px;width:max-content}
 .pill.pass{color:var(--good);background:var(--good-soft)}
 .pill.below{color:var(--bad);background:var(--bad-soft)}
 .pill.info{color:var(--muted);background:var(--panel-2)}
-.pill.warn{color:var(--warn);background:var(--warn-soft)}
-.pill::before{font-size:10px}
-.pill.pass::before{content:"✓"}
-.pill.below::before{content:"✕"}
-.pill.warn::before{content:"!"}
+.pill.pass::before{content:"✓"} .pill.below::before{content:"✕"}
+@media (max-width:620px){.metric{grid-template-columns:minmax(0,1fr)}.metric .score{grid-column:1;grid-row:auto}}
 
-/* scorecard dot-and-interval rows */
-.sc{display:grid;grid-template-columns:minmax(150px,1.3fr) minmax(170px,2.2fr) 110px 96px;
-  gap:6px 14px;align-items:center}
-.sc .hd{font-size:11px;color:var(--muted);font-weight:650;text-transform:uppercase;letter-spacing:.06em}
-.sc .lab{font-size:13px;min-width:0}
-.sc .lab small{display:block;color:var(--muted);font-size:11px}
-.sc .val{font-size:12.5px;text-align:right;white-space:nowrap}
-.sc .val span{color:var(--muted)}
-.track{position:relative;height:22px}
-.track .axis{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
-.track .ci{position:absolute;top:calc(50% - 4px);height:8px;border-radius:4px;
-  background:color-mix(in srgb,var(--ink) 18%,transparent)}
-.track .dot{position:absolute;top:calc(50% - 6px);width:12px;height:12px;margin-left:-6px;
-  border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--panel)}
-.track .dot.below{background:var(--bad)}
-.track .dot.pass{background:var(--good)}
-.track .tgt{position:absolute;top:1px;bottom:1px;width:2px;margin-left:-1px;background:var(--ink-2);
-  border-radius:1px}
-.ticks{position:relative;height:14px;font-size:10px;color:var(--muted)}
-.ticks span{position:absolute;transform:translateX(-50%)}
-.ticks span:first-child{transform:none}
-.ticks span:last-child{transform:translateX(-100%)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);align-items:center}
-.legend i{display:inline-block;vertical-align:-1px;margin-right:5px}
-.lg-dot{width:10px;height:10px;border-radius:50%;background:var(--ink)}
-.lg-ci{width:18px;height:7px;border-radius:4px;background:color-mix(in srgb,var(--ink) 18%,transparent)}
-.lg-tgt{width:2px;height:12px;background:var(--ink-2)}
-.lg-sw{width:10px;height:10px;border-radius:3px}
-
-/* heatmap table */
+/* stakeholder table */
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
-table{border-collapse:collapse;width:100%;font-size:12.5px}
-th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
-th{font-size:11px;color:var(--muted);font-weight:650;white-space:nowrap;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--muted);font-weight:650}
 tr:last-child td{border-bottom:0}
-td.n,th.n{text-align:right}
-.hm td.c{text-align:right;position:relative;min-width:72px}
-.hm td.c .b{position:absolute;inset:3px;border-radius:5px;z-index:0}
-.hm td.c span{position:relative;z-index:1}
-.hm tr.grp td{background:var(--panel-2);font-weight:650}
-.who{display:flex;flex-direction:column;min-width:170px}
-.who small{color:var(--muted);font-size:11px}
+td.n,th.n{text-align:right;white-space:nowrap}
+td.c{white-space:nowrap}
+.dots{display:inline-flex;gap:4px;vertical-align:middle;margin-right:8px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line)}
+.dots i.on{background:var(--good);border-color:var(--good)}
+td small{display:block;color:var(--muted);font-size:12px}
 
-/* small-multiple bar charts */
-.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px}
-.sm h3{font-size:12.5px;font-weight:650;margin-bottom:8px}
-.sm h3 small{font-weight:500;color:var(--muted)}
-.bars{display:flex;flex-direction:column;gap:6px}
-.bar{display:grid;grid-template-columns:96px 1fr 42px;gap:8px;align-items:center;font-size:11.5px;
-  cursor:default}
-.bar .l{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bar .t{height:14px;position:relative}
-.bar .f{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;min-width:2px}
-.bar .v{text-align:right;color:var(--ink-2)}
-.bar:hover .f{filter:brightness(1.1)}
-.bar.on .l,.bar.on .v{color:var(--ink);font-weight:650}
-
-/* diverging lift chart */
-.dv{display:flex;flex-direction:column;gap:6px}
-.dvr{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:10px;align-items:center;font-size:12px}
-.dvr .l{color:var(--ink-2);min-width:0}
-.dvr .t{position:relative;height:18px}
-.dvr .z{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted)}
-.dvr .f{position:absolute;top:2px;bottom:2px;border-radius:4px}
-.dvr .vl{position:absolute;top:0;font-size:11px;line-height:18px;color:var(--ink-2);white-space:nowrap}
-.terms{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
-.terms span{font-size:10.5px;padding:0 6px;border-radius:4px;background:var(--panel-2);color:var(--muted)}
-blockquote{margin:0;padding:10px 14px;border-left:3px solid var(--red);background:var(--red-soft);
-  border-radius:0 8px 8px 0;color:var(--ink-2);font-size:13.5px}
-
-/* explorer */
-.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.filters select,.filters input{background:var(--panel);border:1px solid var(--line);
-  border-radius:8px;padding:6px 10px;font-size:13px;min-width:0}
-.filters input{flex:1 1 200px}
-.filters .count{font-size:12px;color:var(--muted);margin-left:auto}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
-.seg button{border:0;background:transparent;padding:6px 11px;font-size:12.5px;cursor:pointer;color:var(--ink-2)}
-.seg button+button{border-left:1px solid var(--line)}
-.seg button[aria-pressed="true"]{background:var(--red);color:#fff}
-.qt tbody tr.row{cursor:pointer}
-.qt tbody tr.row:hover td{background:var(--panel-2)}
-.qt tbody tr.row[aria-expanded="true"] td{background:var(--red-soft)}
-.qt td.qn{font-weight:650;color:var(--muted)}
-.qt td.theme{min-width:200px}
-.qt td.theme small{display:block;color:var(--muted);font-size:11px}
-.mini{display:inline-block;width:46px;height:6px;border-radius:3px;background:var(--panel-2);
-  vertical-align:middle;margin-right:6px;position:relative;overflow:hidden}
-.mini i{position:absolute;left:0;top:0;bottom:0;background:var(--ink-2);border-radius:3px}
-.detail td{background:var(--panel-2);padding:0}
-.dt{padding:16px 18px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px}
-@media (max-width:820px){.dt{grid-template-columns:minmax(0,1fr)}}
-.dt h4{margin:0 0 6px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.dt .q{font-size:14px;font-weight:600;margin:0 0 12px;color:var(--ink)}
-.ans{font-size:13.5px;color:var(--ink-2);line-height:1.6;background:var(--panel);border:1px solid var(--line);
-  border-radius:10px;padding:12px 14px;max-height:480px;overflow:auto}
-.ans p{margin:0 0 9px}
-.ans ul{margin:0 0 9px;padding-left:18px}
-.ans .cite{color:var(--red);font-weight:650;font-size:11px}
-.side{display:flex;flex-direction:column;gap:14px;min-width:0}
-.side ul{margin:0;padding-left:16px;font-size:12.5px;color:var(--ink-2)}
-.side li{margin-bottom:4px;overflow-wrap:anywhere}
-.side code{font-family:var(--mono);font-size:11.5px}
-.prob{color:var(--bad)}
-.ok{color:var(--good)}
-.kv{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;font-size:12.5px}
-.kv span:nth-child(3n+1){color:var(--muted)}
-.kv span:nth-child(3n){color:var(--muted);text-align:right}
-details.bl{margin-top:12px}
-details.bl summary{cursor:pointer;font-size:12.5px;font-weight:650;color:var(--ink-2)}
-details.bl .ans{margin-top:8px}
-.src-l{font-size:12px}
-.src-l li{margin-bottom:6px}
-.src-l a{word-break:break-all}
-
-/* tooltip */
-#tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--bg);
-  font-size:12px;padding:6px 9px;border-radius:7px;max-width:280px;box-shadow:var(--shadow);
-  line-height:1.4}
-footer ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:13px;max-width:90ch}
-footer li{margin-bottom:5px}
-@media (max-width:640px){
-  .sc{grid-template-columns:minmax(0,1fr) 92px}
-  .sc .track-c,.sc .hd.track-h{grid-column:1 / -1}
-  .sc .hd{display:none}
-  .sc .val{text-align:left}
-  .meta{margin-left:0}
-  .bar{grid-template-columns:80px 1fr 38px}
-}
-@media (prefers-reduced-motion:no-preference){.bar .f,.dvr .f{transition:filter .15s}}
+ul.care{margin:0;padding-left:20px;color:var(--ink-2);max-width:72ch}
+ul.care li{margin-bottom:6px}
+.legend{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.legend i{display:inline-block;width:2px;height:12px;background:var(--ink-2);vertical-align:-2px;margin-right:6px}
 </style>
 <!--/HEAD-->
 </head>
@@ -232,356 +115,143 @@ footer li{margin-bottom:5px}
 <!--BODY-->
 <header class="top"><div class="in">
   <div class="mark" aria-hidden="true">H</div>
-  <div class="ttl"><h1>Stakeholder evaluation</h1><span>Central Ohio transportation-safety RAG</span></div>
-  <div class="meta" id="meta"></div>
+  <div><h1>Stakeholder evaluation</h1><span id="sub"></span></div>
 </div></header>
 
-<main class="wrap" id="app">
-  <section style="padding-top:22px">
-    <p class="lede" id="lede"></p>
-    <div class="tiles" id="tiles"></div>
+<main class="wrap">
+  <section>
+    <span class="eyebrow">Overview</span>
+    <h2>How well does the safety chatbot answer real stakeholder questions?</h2>
+    <p class="intro" id="intro"></p>
+    <p class="bottom" id="bottom"></p>
+    <div class="facts" id="facts"></div>
   </section>
 
   <section>
-    <div class="sh"><span class="eyebrow">RAG triad</span><h2>Scorecard against pre-set targets</h2>
-      <p>Mean over questions with a 95% bootstrap interval. With 34 questions the intervals are wide, so differences under about 0.1 are not meaningful.</p></div>
-    <div class="panel">
-      <div class="sc" id="scorecard"></div>
-      <div class="legend" style="margin-top:12px">
-        <span><i class="lg-dot"></i>mean</span><span><i class="lg-ci"></i>95% interval</span>
-        <span><i class="lg-tgt"></i>target</span>
-      </div>
-    </div>
-    <div class="tiles" id="extra"></div>
+    <span class="eyebrow">Key findings</span>
+    <h2>What we learned</h2>
+    <div class="findings" id="findings"></div>
   </section>
 
   <section>
-    <div class="sh"><span class="eyebrow">Layer 1 · stakeholder questions</span><h2>Where each stakeholder group stands</h2>
-      <p>Three questions per stakeholder. Cell shading scales within each column (darker is higher); flag-free shows the share of answers with no detected invented or mis-scoped figure.</p></div>
-    <div class="tbl-wrap"><table class="hm" id="heat"></table></div>
+    <span class="eyebrow">Metrics</span>
+    <h2>The scores, and what each one means</h2>
+    <p class="intro">Targets were set before the test ran. Each bar runs from 0 to 100%.</p>
+    <div class="legend"><span><i></i>target</span></div>
+    <div id="metrics" style="display:flex;flex-direction:column;gap:22px"></div>
   </section>
 
   <section>
-    <div class="grid2">
-      <div class="panel">
-        <div class="sh" style="margin-bottom:12px"><span class="eyebrow">Retrieval ablation</span><h3 style="font-size:15px">Which pipeline stage earns its place</h3>
-          <p id="abl-note"></p></div>
-        <div class="sm" id="ablation" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))"></div>
-        <div class="legend" style="margin-top:12px"><span><i class="lg-sw" style="background:var(--red)"></i>in production (hybrid + LLM planner)</span><span><i class="lg-sw" style="background:var(--base)"></i>alternatives</span></div>
-      </div>
-      <div class="panel">
-        <div class="sh" style="margin-bottom:12px"><span class="eyebrow">RAG vs no retrieval</span><h3 style="font-size:15px">Same model, same question, no context</h3>
-          <p>Locality is the measure that separates the two. The baseline has no citations, so its specifics cannot be checked here.</p></div>
-        <div class="sm" id="baseline" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))"></div>
-        <div class="legend" style="margin-top:12px"><span><i class="lg-sw" style="background:var(--red)"></i>RAG</span><span><i class="lg-sw" style="background:var(--base)"></i>No-retrieval baseline</span></div>
-      </div>
-    </div>
+    <span class="eyebrow">By stakeholder</span>
+    <h2>How each group's questions fared</h2>
+    <p class="intro">Each group asked three questions of its own. A question "passes" when it clears every check: the right documents were found, no made-up figures, the answer fits the question, and it states what the evidence does not cover.</p>
+    <div class="tbl-wrap"><table id="groups"></table></div>
   </section>
 
   <section>
-    <div class="sh"><span class="eyebrow">Layer 2 · shared scenario</span><h2>Same evidence, different stakeholder lenses</h2>
-      <p>Each stakeholder answered the same scenario. Lift is how many of their own perspective terms the answer uses beyond the average of other stakeholders' terms.</p></div>
-    <blockquote id="scenario"></blockquote>
-    <div class="grid2">
-      <div class="panel"><div class="dv" id="lift"></div>
-        <div class="legend" style="margin-top:12px"><span><i class="lg-sw" style="background:var(--red)"></i>own vocabulary ranks first</span><span><i class="lg-sw" style="background:var(--base)"></i>does not rank first</span></div></div>
-      <div class="tiles" id="l2tiles" style="grid-template-columns:1fr;align-content:start"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="sh"><span class="eyebrow">All 34 questions</span><h2>Question explorer</h2>
-      <p>Select a row to read the answer, the sources it cited, the expected sources retrieval missed, and the no-retrieval baseline.</p></div>
-    <div class="filters">
-      <div class="seg" role="group" aria-label="Verdict filter" id="f-verdict">
-        <button type="button" data-v="all" aria-pressed="true">All</button>
-        <button type="button" data-v="flag" aria-pressed="false">Needs review</button>
-        <button type="button" data-v="ok" aria-pressed="false">Clears checks</button>
-      </div>
-      <select id="f-layer" aria-label="Layer"><option value="">All layers</option>
-        <option value="L1">Layer 1 · stakeholder</option><option value="L2">Layer 2 · shared scenario</option><option value="L2-addon">Layer 2 · add-ons</option></select>
-      <select id="f-stake" aria-label="Stakeholder"><option value="">All stakeholders</option></select>
-      <input id="f-q" type="search" placeholder="Search questions, themes and answers" aria-label="Search">
-      <span class="count" id="f-count"></span>
-    </div>
-    <div class="tbl-wrap"><table class="qt" id="qt">
-      <thead><tr><th>#</th><th>Stakeholder · theme</th><th>Src recall</th><th class="n">Hit</th><th class="n">Probes</th><th class="n">Relevancy margin</th><th class="n">Locality</th><th class="n">Latency</th><th>Verdict</th></tr></thead>
-      <tbody></tbody></table></div>
-  </section>
-
-  <footer class="panel">
-    <div class="sh" style="margin-bottom:10px"><span class="eyebrow">Read with care</span><h2>What this evaluation cannot tell you</h2></div>
-    <ul>
-      <li>There are no gold reference answers. Faithfulness here means supported by what was retrieved, not true; correctness of local claims needs a domain reviewer.</li>
-      <li>Expected sources and probes are provisional labels written from catalogue titles. Low recall may mean the label is wrong, not the retrieval.</li>
-      <li>Groundedness is an embedding-similarity check. It catches topical invention but can pass a sentence that reverses a document's meaning.</li>
-      <li>Generation is sampled at temperature 0.2, so this is one draw. Re-run before treating small differences as real.</li>
-      <li>EMS response, freight and transit first/last-mile have thin corpus coverage. A good answer there is an honest gap statement, which relevancy and probe metrics under-credit.</li>
-      <li id="judge-note"></li>
+    <span class="eyebrow">Read with care</span>
+    <h2>Limits of this test</h2>
+    <ul class="care">
+      <li>There are no "correct" model answers to compare against. "Grounded" means the answer matches the documents it found, not that it is true. A domain expert still needs to review the local claims.</li>
+      <li>The list of documents each question should find was drafted from document titles and has not been reviewed. Some "missed" documents may be wrong expectations rather than retrieval failures.</li>
+      <li>With 34 questions, differences of less than about 10 points are not meaningful. The model also varies a little from run to run.</li>
     </ul>
-  </footer>
+  </section>
 </main>
-<div id="tip" hidden></div>
 
 <script>
 const D = /*__DATA__*/null;
-const $ = (s, el=document) => el.querySelector(s);
+const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const f2 = v => v == null ? "–" : (+v).toFixed(2);
-const pct = v => v == null ? "–" : Math.round(v * 100) + "%";
-const mean = a => { const v = a.filter(x => x != null); return v.length ? v.reduce((s, x) => s + (+x), 0) / v.length : null; };
-const S = D.summary, Q = D.questions;
-const short = {state:"State / Regional", local:"Local Government", ems:"Emergency / Healthcare", transit:"Public Transit",
-  resident:"Nearby Residents", driver:"Drivers / Commuters", vru:"Pedestrians / Cyclists", freight:"Freight / Rail", all:"All stakeholders"};
-const labelOf = k => D.stakeholders[k] || (k === "all" ? "All stakeholders" : k);
-
-/* ---------- header + summary */
-$("#meta").innerHTML = [
-  `Run ${esc(S.date)}`, `commit <code>${esc(S.git_commit)}</code>`, esc(S.llm_model.split("/").pop()),
-  `${S.n_passages.toLocaleString()} passages · top-${S.final_k}`].map(t => `<span class="chip">${t}</span>`).join("");
-
+const pct = v => Math.round(v * 100) + "%";
+const S = D.summary, M = S.means, R = S.rates, T = D.targets, Q = D.questions;
+const model = S.llm_model.split("/").pop();
 const nPass = Q.filter(q => !q.problems.length).length;
-const nFlag = Q.filter(q => !q.hard_flag_free).length;
 const nMiss = Q.filter(q => q.ret_hit === 0).length;
-$("#lede").innerHTML = `<b>${nPass} of ${Q.length} answers clear every per-question check.</b> Answers are fully grounded in what was retrieved and always state their evidence gaps, but retrieval reaches only ${pct(S.means.ret_source_recall)} of expected sources, ${nMiss} questions retrieved none of them, and ${nFlag} answers quote a figure from a dataset whose records are not loaded.`;
+const nFlag = Q.filter(q => !q.hard_flag_free).length;
+const B = D.baseline, A = D.ablation;
 
-function status(v, t) { return t == null ? null : (v >= t - 1e-9 ? "pass" : "below"); }
-function pillHTML(st) { return st ? `<span class="pill ${st}">${st === "pass" ? "Meets target" : "Below target"}</span>` : `<span class="pill info">No target</span>`; }
-const T = D.targets;
-const tiles = [
-  ["Questions passing", pct(S.rates.questions_passing), `${nPass} of ${Q.length} questions`, null],
-  ["Groundedness", f2(S.means.groundedness), `target ≥ ${f2(T.groundedness)}`, status(S.means.groundedness, T.groundedness)],
-  ["Source recall@k", f2(S.means.ret_source_recall), `target ≥ ${f2(T.source_recall)}`, status(S.means.ret_source_recall, T.source_recall)],
-  ["Hit rate", f2(S.means.ret_hit), `target ≥ ${f2(T.hit)}`, status(S.means.ret_hit, T.hit)],
-  ["Free of hard flags", pct(S.rates.hard_flag_free), `${Q.length - nFlag} of ${Q.length} · target 100%`, status(S.rates.hard_flag_free, T.hard_flag_free)],
-  ["Mean latency", Math.round(S.mean_latency_s) + " s", `${(S.total_latency_s / 60).toFixed(0)} min for the full run`, null],
+$("#sub").textContent = `Central Ohio transportation-safety chatbot · run ${S.date}`;
+$("#intro").textContent = `We asked the chatbot ${S.n_questions} questions written from the point of view of eight groups affected by road-safety projects in Columbus: state and regional agencies, local government, emergency responders, transit providers, residents, drivers, pedestrians and cyclists, and freight operators. Each answer was scored automatically on whether it found the right documents, stuck to what they say, and addressed the question.`;
+$("#bottom").innerHTML = `<b>Bottom line:</b> the chatbot is trustworthy about what it says but often doesn't find the best documents to say it from. ${nPass} of ${S.n_questions} answers (${pct(R.questions_passing)}) passed every check.`;
+$("#facts").innerHTML = [
+  [S.n_questions, "questions asked"], [8, "stakeholder groups"],
+  [S.n_passages.toLocaleString(), "document passages searched"], [Math.round(S.mean_latency_s / 60 * 10) / 10 + " min", "average time per answer"],
+].map(([v, l]) => `<div class="fact"><b class="num">${v}</b><span>${l}</span></div>`).join("");
+
+/* key findings */
+const aligned = D.layer2.aligned.length;
+const findings = [
+  ["good", "✓", "Answers stick to their sources and are upfront about gaps",
+    `Every answer could be traced back to the documents it found, and every answer ended with a list of what the local evidence does not cover.`],
+  ["bad", "!", "Finding the right documents is the main weakness",
+    `On average the chatbot found only ${pct(M.ret_source_recall)} of the documents we expected it to use (target ${pct(T.source_recall)}). For ${nMiss} questions it found none of them, including both transit questions on access and the value of projects, construction impacts on neighbours, and post-crash emergency response. These are topics where the document collection is thin.`],
+  ["warn", "!", `${nFlag} answers quote numbers that can't be checked`,
+    `These answers give figures that point only to a dataset's catalogue entry. The underlying data isn't loaded, so those numbers can't be verified. The chatbot flags them, but ideally it would not quote them at all.`],
+  ["good", "✓", "Much more local than a general chatbot",
+    `Compared with the same model answering without any documents, answers named ${B.rag.locality.toFixed(1)} Columbus-specific places and programmes on average, versus ${B.base.locality.toFixed(1)}. The general model covered slightly more of the expected topics (${pct(B.base.probe_recall)} vs ${pct(B.rag.probe_recall)}), but none of its claims could be checked against a source.`],
+  ["warn", "!", "The AI search step makes retrieval worse",
+    `Rewriting each question into extra searches with the AI model lowered the share of expected documents found from ${pct(A.hybrid_rules.source_recall)} to ${pct(A.hybrid_llm_planner.source_recall)}. Using simple rules alone did better.`],
+  ["warn", "!", "Answers don't always sound like the stakeholder asking",
+    `When all eight groups asked about the same scenario, only ${aligned} of 8 answers clearly used their own group's concerns and language. The others read much the same.`],
 ];
-$("#tiles").innerHTML = tiles.map(([k, v, s, st]) =>
-  `<div class="tile"><span class="k">${k}</span><span class="v num">${v}</span><span class="s">${s}</span>${st ? pillHTML(st) : ""}</div>`).join("");
+$("#findings").innerHTML = findings.map(([c, ic, h, p]) =>
+  `<div class="finding ${c}"><div class="ic" aria-hidden="true">${ic}</div><div><h3>${esc(h)}</h3><p>${esc(p)}</p></div></div>`).join("");
 
-/* ---------- scorecard */
+/* metrics */
+const groups = [
+  ["Did it find the right documents?", [
+    ["Expected documents found", M.ret_source_recall, T.source_recall,
+      "For each question we listed the documents a good answer should draw on. This is the share of them the chatbot actually found."],
+    ["Questions with at least one right document", M.ret_hit, T.hit,
+      "The share of questions where the chatbot found at least one of the expected documents. A miss means the answer was built on less relevant material."],
+  ]],
+  ["Did it stick to the evidence?", [
+    ["Grounded sentences", M.groundedness, T.groundedness,
+      "The share of factual sentences that closely match a passage the chatbot retrieved. High means it isn't inventing content."],
+    ["Answers with no unverifiable figures", R.hard_flag_free, T.hard_flag_free,
+      "The share of answers with no numbers that are missing from the sources, applied to the wrong area, or taken from a dataset that isn't loaded."],
+    ["Answers that state their evidence gaps", R.gap_section, T.gap_section,
+      "The share of answers that end by saying what the local documents do not cover, so readers know the limits."],
+  ]],
+  ["Was the answer useful?", [
+    ["Expected topics covered", M.probe_recall, T.probe_recall,
+      "For each question we listed key topics a good answer should mention. This is the share it mentioned."],
+    ["Questions passing every check", R.questions_passing, null,
+      "The share of answers that cleared all the per-question checks above. It is the simplest overall score."],
+  ]],
+];
+const status = (v, t) => t == null ? "" : (v >= t - 1e-9 ? '<span class="pill pass">Meets target</span>' : '<span class="pill below">Below target</span>');
+$("#metrics").innerHTML = groups.map(([title, ms]) => `<div class="group"><h3>${title}</h3>${ms.map(([n, v, t, what]) => {
+  const ok = t == null || v >= t - 1e-9;
+  return `<div class="metric"><span class="name">${n}</span><p class="what">${what}</p>
+    <div class="score"><div class="vrow"><span class="v num">${pct(v)}</span><span class="t">${t != null ? "target " + pct(t) : "no target"}</span></div>
+    <div class="meter" role="img" aria-label="${pct(v)}${t != null ? ", target " + pct(t) : ""}"><i style="width:${Math.min(v, 1) * 100}%;background:${t == null ? "var(--ink-2)" : ok ? "var(--good)" : "var(--bad)"}"></i>${t != null ? `<b style="left:${t * 100}%"></b>` : ""}</div>
+    ${status(v, t)}</div></div>`;
+}).join("")}</div>`).join("") +
+`<div class="group"><h3>Other measures</h3>
+  <div class="metric"><span class="name">Local detail</span><p class="what">How many distinct Columbus and Central Ohio place and programme names an answer uses, such as Renner Road or the High Injury Network. A general chatbot can't name these reliably.</p>
+    <div class="score"><div class="vrow"><span class="v num">${B.rag.locality.toFixed(1)}</span><span class="t">vs ${B.base.locality.toFixed(1)} without documents</span></div></div></div>
+  <div class="metric"><span class="name">Response time</span><p class="what">Average time to produce one answer on a Mac running the ${esc(model)} model locally, including the checking steps.</p>
+    <div class="score"><div class="vrow"><span class="v num">${Math.round(S.mean_latency_s)} s</span><span class="t">vs ${Math.round(B.base.elapsed_s)} s without documents</span></div></div></div>
+</div>`;
+
+/* stakeholder table */
 (() => {
-  const x = v => (Math.max(0, Math.min(1, v)) * 100) + "%";
-  let h = `<span class="hd">Metric</span><span class="hd track-h">0 to 1</span><span class="hd" style="text-align:right">Mean [95% CI]</span><span class="hd">Status</span>`;
-  for (const r of D.scorecard) {
-    const st = status(r.mean, r.target);
-    const ci = r.lo != null ? `<div class="ci" style="left:${x(r.lo)};width:calc(${x(r.hi)} - ${x(r.lo)})"></div>` : "";
-    const tgt = r.target != null ? `<div class="tgt" style="left:${x(r.target)}"></div>` : "";
-    const tip = `${r.label}: ${f2(r.mean)}${r.lo != null ? ` (95% CI ${f2(r.lo)} to ${f2(r.hi)})` : ""}${r.target != null ? ` · target ≥ ${f2(r.target)}` : ""}`;
-    h += `<span class="lab">${esc(r.label)}<small>${r.leg}</small></span>
-      <div class="track-c"><div class="track" data-tip="${esc(tip)}"><div class="axis"></div>${ci}${tgt}<div class="dot ${st || ""}" style="left:${x(r.mean)}"></div></div></div>
-      <span class="val num stat">${f2(r.mean)}${r.lo != null ? ` <span>[${f2(r.lo)}, ${f2(r.hi)}]</span>` : ""}</span>
-      <span class="stat">${pillHTML(st)}</span>`;
-  }
-  h += `<span></span><div class="track-c"><div class="ticks"><span style="left:0">0</span><span style="left:25%">0.25</span><span style="left:50%">0.5</span><span style="left:75%">0.75</span><span style="left:100%">1</span></div></div><span></span><span></span>`;
-  $("#scorecard").innerHTML = h;
-
-  const m = D.extra.relevancy_margin;
-  const jv = S.judge_validation || {};
-  $("#extra").innerHTML = [
-    `<div class="tile"><span class="k">Relevancy margin</span><span class="v num">${f2(m.mean)}</span><span class="s">[${f2(m.lo)}, ${f2(m.hi)}] · target ≥ ${f2(m.target)}. Answer fits its own question better than other questions.</span>${pillHTML(status(m.mean, m.target))}</div>`,
-    `<div class="tile"><span class="k">Locality</span><span class="v num">${S.means.locality.toFixed(1)}</span><span class="s">distinct Columbus / Central Ohio proper nouns per answer</span><span class="pill info">No target</span></div>`,
-    `<div class="tile"><span class="k">LLM-judge control test</span><span class="v num">${pct(jv.claim_pos_accept)} / ${pct(jv.ctx_pos_accept)}</span><span class="s">accept rate on known-good claim / relevance controls (needs ≥ 75%). Relevance judge withheld.</span><span class="pill ${jv.ctx_valid ? "pass" : "warn"}">${jv.ctx_valid ? "Both judges valid" : "Relevance judge failed"}</span></div>`,
-  ].join("");
-  $("#judge-note").textContent = `The faithfulness judge is the same ${S.llm_model.split("/").pop()} model that wrote the answers. It passed its control test but over-rejects; treat its ${f2(S.means.judge_faithfulness)} as a second opinion.`;
-})();
-
-/* ---------- stakeholder heatmap */
-(() => {
-  const cols = [
-    ["Src recall", "ret_source_recall", f2, T.source_recall],
-    ["Hit", "ret_hit", f2, T.hit],
-    ["Probes", "probe_recall", f2, T.probe_recall],
-    ["Rel. margin", "relevancy_margin", v => (v >= 0 ? "+" : "") + (+v).toFixed(3), T.relevancy_margin],
-    ["Locality", "locality", v => (+v).toFixed(1), null],
-    ["Flag-free", "hard_flag_free", pct, T.hard_flag_free],
-    ["Latency s", "elapsed_s", v => Math.round(v), null],
-  ];
-  const agg = qs => Object.fromEntries(cols.map(([, k]) => [k, mean(qs.map(q => k === "hard_flag_free" ? (q[k] ? 1 : 0) : q[k]))]));
   const l1 = Q.filter(q => q.layer === "L1");
-  const order = [...new Set(l1.map(q => q.stakeholder))];
-  const rows = order.map(s => ({key: s, label: labelOf(s), n: l1.filter(q => q.stakeholder === s).length,
-    themes: l1.filter(q => q.stakeholder === s).map(q => q.theme), v: agg(l1.filter(q => q.stakeholder === s))}));
-  const groups = [
-    {label: "Layer 1 · all stakeholders", n: l1.length, v: agg(l1)},
-    {label: "Layer 2 · shared scenario", n: Q.filter(q => q.layer === "L2").length, v: agg(Q.filter(q => q.layer === "L2"))},
-    {label: "Layer 2 · add-ons", n: Q.filter(q => q.layer === "L2-addon").length, v: agg(Q.filter(q => q.layer === "L2-addon"))},
-  ];
-  const range = {};
-  for (const [, k] of cols) { const vs = rows.map(r => r.v[k]); range[k] = [Math.min(...vs), Math.max(...vs)]; }
-  const cell = (r, [name, k, fmt, tgt]) => {
-    const v = r.v[k]; const [lo, hi] = range[k];
-    const a = hi > lo ? (v - lo) / (hi - lo) : 0.5;
-    const shade = k === "elapsed_s" ? `color-mix(in srgb,var(--base) ${Math.round(8 + a * 34)}%,transparent)` : `color-mix(in srgb,var(--red) ${Math.round(6 + a * 30)}%,transparent)`;
-    const miss = tgt != null && v < tgt - 1e-9;
-    const tip = `${r.label} · ${name}: ${fmt(v)}${tgt != null ? ` (target ${k === "hard_flag_free" ? pct(tgt) : f2(tgt)}${miss ? ", below" : ", met"})` : ""}`;
-    return `<td class="c num" data-tip="${esc(tip)}"><div class="b" style="background:${shade}"></div><span${miss ? ' style="color:var(--bad)"' : ""}>${fmt(v)}</span></td>`;
-  };
-  let h = `<thead><tr><th>Stakeholder</th><th class="n">n</th>${cols.map(c => `<th class="n">${c[0]}</th>`).join("")}</tr></thead><tbody>`;
-  for (const r of rows) h += `<tr><td><div class="who">${esc(r.label)}<small>${r.themes.map(esc).join(" · ")}</small></div></td><td class="n">${r.n}</td>${cols.map(c => cell(r, c)).join("")}</tr>`;
-  for (const g of groups) h += `<tr class="grp"><td>${g.label}</td><td class="n">${g.n}</td>${cols.map(([, k, fmt, tgt]) => `<td class="n num"${tgt != null && g.v[k] < tgt - 1e-9 ? ' style="color:var(--bad)"' : ""}>${fmt(g.v[k])}</td>`).join("")}</tr>`;
-  $("#heat").innerHTML = h + "</tbody>";
-  $("#heat").insertAdjacentHTML("beforeend", `<caption style="caption-side:bottom;text-align:left;padding:8px 10px;font-size:11.5px;color:var(--muted)">Values in red miss their target.</caption>`);
-})();
-
-/* ---------- small-multiple bars */
-function barChart(title, sub, items, fmt, max) {
-  const m = max ?? Math.max(...items.map(i => i.v), 1e-9);
-  return `<div><h3>${title}${sub ? ` <small>${sub}</small>` : ""}</h3><div class="bars">${items.map(i =>
-    `<div class="bar${i.on ? " on" : ""}" data-tip="${esc(i.tip ?? `${i.label}: ${fmt(i.v)}`)}"><span class="l">${esc(i.label)}</span>
-      <span class="t"><span class="f" style="width:${(i.v / m * 100).toFixed(1)}%;background:${i.on ? "var(--red)" : "var(--base)"}"></span></span>
-      <span class="v num">${fmt(i.v)}</span></div>`).join("")}</div></div>`;
-}
-(() => {
-  const A = D.ablation, names = {dense_only: "Dense only", bm25_only: "BM25 only", hybrid_rules: "Hybrid, rules", hybrid_llm_planner: "Hybrid + LLM"};
-  const keys = Object.keys(names).filter(k => A[k]);
-  const mk = (metric, title) => barChart(title, "", keys.map(k => ({label: names[k], v: A[k][metric], on: k === "hybrid_llm_planner",
-    tip: `${names[k]} · ${title}: ${f2(A[k][metric])}`})), f2, 1);
-  $("#ablation").innerHTML = mk("source_recall", "Source recall") + mk("hit", "Hit rate") + mk("mrr", "MRR") + mk("probe_context_recall", "Keyword context recall");
-  const best = keys.reduce((b, k) => A[k].source_recall > A[b].source_recall ? k : b, keys[0]);
-  const prod = A.hybrid_llm_planner, rules = A.hybrid_rules;
-  $("#abl-note").textContent = `Retrieval only, top-${S.final_k}. ${names[best]} has the best source recall (${f2(A[best].source_recall)}); the LLM query planner lowers recall from ${f2(rules.source_recall)} to ${f2(prod.source_recall)} and hit rate from ${f2(rules.hit)} to ${f2(prod.hit)} versus rules alone. Dense and BM25 have no per-document cap, so their precision is not comparable.`;
-})();
-(() => {
-  const withB = Q.filter(q => q.baseline);
-  const pair = (title, rag, base, fmt, sub) => barChart(title, sub, [
-    {label: "RAG", v: rag, on: true}, {label: "Baseline", v: base}], fmt);
-  const bm = k => mean(withB.map(q => q.baseline[k]));
-  const rm = k => mean(withB.map(q => q[k]));
-  const gap = mean(withB.map(q => q.has_gap_section ? 1 : 0)), bgap = mean(withB.map(q => q.baseline.has_gap_section ? 1 : 0));
-  $("#baseline").innerHTML =
-    pair("Locality", rm("locality"), bm("locality"), v => v.toFixed(1), "local names") +
-    pair("Probe coverage", rm("probe_recall"), bm("probe_recall"), f2) +
-    pair("Evidence-gap section", gap, bgap, pct) +
-    pair("Relevancy margin", rm("relevancy_margin"), bm("relevancy_margin"), v => v.toFixed(3)) +
-    pair("Words per answer", rm("words"), bm("words"), v => Math.round(v)) +
-    pair("Latency", rm("elapsed_s"), bm("elapsed_s"), v => Math.round(v) + " s");
-})();
-
-/* ---------- layer 2 */
-(() => {
-  const L = D.layer2; if (!L) return;
-  $("#scenario").textContent = D.scenario || "";
-  const ent = Object.entries(L.alignment).sort((a, b) => b[1].lift - a[1].lift);
-  const lo = Math.min(0, ...ent.map(e => e[1].lift)), hi = Math.max(...ent.map(e => e[1].lift));
-  const span = hi - lo || 1, zx = (-lo / span) * 100;
-  $("#lift").innerHTML = ent.map(([k, a]) => {
-    const w = Math.abs(a.lift) / span * 100, left = a.lift >= 0 ? zx : zx - w;
-    const lbl = (a.lift >= 0 ? "+" : "") + a.lift.toFixed(2);
-    const vpos = a.lift >= 0 ? `left:calc(${left + w}% + 5px)` : `right:calc(${100 - left}% + 5px)`;
-    const tip = `${labelOf(k)}: ${a.own} own terms vs ${a.others_mean} for others (lift ${lbl})${a.own_rank_first ? ", own vocabulary ranks first" : ""}`;
-    return `<div class="dvr" data-tip="${esc(tip)}"><div class="l">${esc(short[k] || k)}<div class="terms">${(a.own_terms.length ? a.own_terms : ["no own terms"]).map(t => `<span>${esc(t)}</span>`).join("")}</div></div>
-      <div class="t"><div class="z" style="left:${zx}%"></div><div class="f" style="left:${left}%;width:${Math.max(w, .6)}%;background:${a.own_rank_first ? "var(--red)" : "var(--base)"}"></div>
-      <span class="vl num" style="${vpos}">${lbl}</span></div></div>`;
-  }).join("");
-  const nFirst = ent.filter(e => e[1].own_rank_first).length;
-  $("#l2tiles").innerHTML = [
-    ["Perspective alignment", pct(L.perspective_alignment_rate), `${nFirst} of ${L.n_stakeholders} answers use their own stakeholder's vocabulary more than any other's`],
-    ["Answer similarity", f2(L.mean_pairwise_similarity), "mean pairwise cosine across the eight answers. High by construction, since all share the scenario text"],
-    ["Shared evidence", f2(L.mean_source_jaccard), "mean Jaccard overlap of retrieved documents. Differences in perspective come from generation, not retrieval"],
-  ].map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v num">${v}</span><span class="s">${s}</span></div>`).join("");
-})();
-
-/* ---------- question explorer */
-const state = {verdict: "all", layer: "", stake: "", q: "", open: null};
-(() => {
-  const st = [...new Set(Q.map(q => q.stakeholder))];
-  $("#f-stake").insertAdjacentHTML("beforeend", st.map(s => `<option value="${s}">${esc(labelOf(s))}</option>`).join(""));
-})();
-
-function mdAnswer(text) {
-  const lines = String(text || "").split("\n"); let out = "", inList = false, para = [];
-  const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\[(S\d+)\]/g, '<span class="cite">[$1]</span>')
-    .replace(/\[unsupported by retrieved evidence\]/g, '<span class="pill warn">unsupported</span>');
-  const flush = () => { if (para.length) { out += `<p>${inline(para.join(" "))}</p>`; para = []; } };
-  for (const ln of lines) {
-    const t = ln.trim();
-    if (/^[-*•]\s+/.test(t)) { flush(); if (!inList) { out += "<ul>"; inList = true; } out += `<li>${inline(t.replace(/^[-*•]\s+/, ""))}</li>`; continue; }
-    if (inList) { out += "</ul>"; inList = false; }
-    if (!t) { flush(); continue; }
-    para.push(t);
+  const keys = [...new Set(l1.map(q => q.stakeholder))];
+  const dots = arr => `<span class="dots">${arr.map(b => `<i class="${b ? "on" : ""}"></i>`).join("")}</span>`;
+  let h = `<thead><tr><th>Stakeholder group</th><th>Passed every check</th><th>Found a right document</th><th class="n">Expected docs found</th></tr></thead><tbody>`;
+  for (const k of keys) {
+    const qs = l1.filter(q => q.stakeholder === k);
+    const pass = qs.map(q => !q.problems.length), hit = qs.map(q => q.ret_hit > 0);
+    const rec = qs.reduce((s, q) => s + q.ret_source_recall, 0) / qs.length;
+    h += `<tr><td>${esc(qs[0].stakeholder_label)}<small>${qs.map(q => esc(q.theme)).join(" · ")}</small></td>
+      <td class="c">${dots(pass)}${pass.filter(Boolean).length} of ${qs.length}</td>
+      <td class="c">${dots(hit)}${hit.filter(Boolean).length} of ${qs.length}</td>
+      <td class="n">${pct(rec)}</td></tr>`;
   }
-  flush(); if (inList) out += "</ul>";
-  return out || '<p class="note">No answer recorded.</p>';
-}
-function srcItem(s) {
-  const [head, url] = s.split(/\n\s*/);
-  return `<li>${esc(head)}${url ? `<br><a href="${esc(url)}" target="_blank" rel="noopener">${esc(url.replace(/^https?:\/\//, "").slice(0, 80))}${url.length > 88 ? "…" : ""}</a>` : ""}</li>`;
-}
-function detail(q) {
-  const b = q.baseline;
-  const kv = [["Source recall", f2(q.ret_source_recall), `target ${f2(T.source_recall)}`], ["MRR", f2(q.ret_mrr), ""],
-    ["Groundedness", pct(q.groundedness), ""], ["Probe coverage", f2(q.probe_recall), b ? `baseline ${f2(b.probe_recall)}` : ""],
-    ["Relevancy margin", (+q.relevancy_margin).toFixed(3), b ? `baseline ${(+b.relevancy_margin).toFixed(3)}` : ""],
-    ["Locality", q.locality, b ? `baseline ${b.locality}` : ""], ["Judge faithfulness", f2(q.judge_faithfulness), ""],
-    ["Docs retrieved / cited", `${q.n_docs} / ${q.n_cited_docs}`, ""], ["Words", q.words, b ? `baseline ${b.words}` : ""],
-    ["Latency", Math.round(q.elapsed_s) + " s", b ? `baseline ${Math.round(b.elapsed_s)} s` : ""]];
-  return `<div class="dt"><div style="min-width:0">
-      <h4>Question ${q.id} · ${esc(labelOf(q.stakeholder))}</h4><p class="q">${esc(q.question)}</p>
-      <h4>RAG answer</h4><div class="ans">${mdAnswer(q.answer)}</div>
-      ${b ? `<details class="bl"><summary>Compare with the no-retrieval baseline (${b.words} words, locality ${b.locality})</summary><div class="ans">${mdAnswer(b.answer)}</div></details>` : ""}
-    </div><div class="side">
-      <div><h4>Checks</h4>${q.problems.length ? `<ul>${q.problems.map(p => `<li class="prob">${esc(p)}</li>`).join("")}</ul>` : `<p class="ok" style="margin:0;font-size:12.5px">✓ Clears every per-question check</p>`}
-        ${(q.warnings || []).length ? `<ul style="margin-top:6px">${q.warnings.map(w => `<li style="color:var(--muted)">${esc(w)}</li>`).join("")}</ul>` : ""}</div>
-      <div><h4>Scores</h4><div class="kv num">${kv.map(([a, v, c]) => `<span>${a}</span><span>${esc(v)}</span><span>${esc(c)}</span>`).join("")}</div></div>
-      <div><h4>Expected sources (${q.expected_sources.length - q.missing_sources.length} of ${q.expected_sources.length} reached)</h4>
-        <ul>${q.expected_sources.map(s => `<li class="${q.missing_sources.includes(s) ? "prob" : "ok"}"><code>${esc(s)}</code> ${q.missing_sources.includes(s) ? "missed" : "retrieved"}</li>`).join("")}</ul></div>
-      ${(q.judge_unsupported_claims || []).length ? `<div><h4>Claims the judge could not verify</h4><ul>${q.judge_unsupported_claims.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>` : ""}
-      <div><h4>Cited sources</h4><ul class="src-l">${(q.cited_sources || []).map(srcItem).join("") || "<li>None</li>"}</ul></div>
-    </div></div>`;
-}
-function renderTable() {
-  const needle = state.q.toLowerCase();
-  const rows = Q.filter(q => (state.verdict === "all" || (state.verdict === "flag") === q.problems.length > 0)
-    && (!state.layer || q.layer === state.layer) && (!state.stake || q.stakeholder === state.stake)
-    && (!needle || (q.question + " " + q.theme + " " + q.answer + " " + labelOf(q.stakeholder)).toLowerCase().includes(needle)));
-  $("#f-count").textContent = `${rows.length} of ${Q.length} questions`;
-  const layerName = {L1: "L1", L2: "L2", "L2-addon": "L2 add-on"};
-  $("#qt tbody").innerHTML = rows.map(q => {
-    const open = state.open === q.id;
-    const verdict = q.problems.length
-      ? `<span class="pill below" title="${esc(q.problems.join("; "))}">${q.problems.length === 1 ? esc(q.problems[0].split(" (")[0].replace("hard flag: catalog_figure", "catalogue figure")) : q.problems.length + " issues"}</span>`
-      : `<span class="pill pass">Clears checks</span>`;
-    return `<tr class="row" tabindex="0" aria-expanded="${open}" data-id="${q.id}">
-      <td class="qn">${q.id}</td>
-      <td class="theme">${esc(q.theme)}<small>${layerName[q.layer] || q.layer} · ${esc(short[q.stakeholder] || q.stakeholder)}</small></td>
-      <td class="num" style="white-space:nowrap"><span class="mini"><i style="width:${q.ret_source_recall * 100}%;${q.ret_source_recall < T.source_recall ? "background:var(--bad)" : ""}"></i></span>${f2(q.ret_source_recall)}</td>
-      <td class="n num">${q.ret_hit ? "yes" : '<span style="color:var(--bad)">no</span>'}</td>
-      <td class="n num">${f2(q.probe_recall)}</td>
-      <td class="n num"${q.relevancy_margin < T.relevancy_margin ? ' style="color:var(--bad)"' : ""}>${(q.relevancy_margin >= 0 ? "+" : "") + (+q.relevancy_margin).toFixed(3)}</td>
-      <td class="n num">${q.locality}</td>
-      <td class="n num">${Math.round(q.elapsed_s)} s</td>
-      <td>${verdict}</td></tr>${open ? `<tr class="detail"><td colspan="9">${detail(q)}</td></tr>` : ""}`;
-  }).join("") || `<tr><td colspan="9" class="note" style="padding:18px">No questions match these filters.</td></tr>`;
-}
-$("#f-verdict").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  state.verdict = b.dataset.v;
-  for (const x of $("#f-verdict").querySelectorAll("button")) x.setAttribute("aria-pressed", x === b);
-  renderTable();
-});
-$("#f-layer").addEventListener("change", e => { state.layer = e.target.value; renderTable(); });
-$("#f-stake").addEventListener("change", e => { state.stake = e.target.value; renderTable(); });
-$("#f-q").addEventListener("input", e => { state.q = e.target.value; renderTable(); });
-const toggleRow = tr => { const id = +tr.dataset.id; state.open = state.open === id ? null : id; renderTable(); };
-$("#qt tbody").addEventListener("click", e => { const tr = e.target.closest("tr.row"); if (tr && !e.target.closest("a")) toggleRow(tr); });
-$("#qt tbody").addEventListener("keydown", e => { const tr = e.target.closest("tr.row"); if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggleRow(tr); $(`tr.row[data-id="${tr.dataset.id}"]`)?.focus(); } });
-renderTable();
-
-/* ---------- tooltip */
-(() => {
-  const tip = $("#tip");
-  document.addEventListener("pointermove", e => {
-    const el = e.target.closest?.("[data-tip]");
-    if (!el) { tip.hidden = true; return; }
-    tip.textContent = el.dataset.tip; tip.hidden = false;
-    const r = tip.getBoundingClientRect();
-    let x = e.clientX + 14, y = e.clientY + 14;
-    if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
-    if (y + r.height > innerHeight - 8) y = e.clientY - r.height - 14;
-    tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
-  });
-  document.addEventListener("pointerleave", () => tip.hidden = true);
+  $("#groups").innerHTML = h + "</tbody>";
 })();
 </script>
 <!--/BODY-->
