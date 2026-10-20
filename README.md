@@ -159,6 +159,14 @@ faithfulness, answer relevance), a retrieval ablation, a no-retrieval baseline, 
 whether Layer 2 answers differ by stakeholder perspective. `expected_sources` and `probes`
 in the question file are unreviewed silver labels.
 
+```bash
+python -m rag.diagnose_eval       # why the scores look the way they do -> diagnostics.md
+```
+
+Dissects a finished run without the embedding model or an LLM: label reachability, hub
+documents, query-planner and facet quality, a live BM25 ablation, and audits of the hard-flag
+and groundedness checks. `eval/reports/stakeholder/roadmap.md` turns the findings into a plan.
+
 The headline metric is **locality**: how many Columbus/Central Ohio proper nouns
 and programme names the answer uses (`Renner Road`, `COTSP`, `SFY 2026–2029 TIP`,
 `High Injury Network`). A general-purpose LLM answering the same questions from
