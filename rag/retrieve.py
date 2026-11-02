@@ -29,7 +29,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from .config import CONFIG, Config
-from .corpus import Passage
+from .corpus import EVIDENCE_KINDS, Passage
 from .index import HybridIndex
 
 
@@ -241,7 +241,7 @@ class Retriever:
         """MMR selection with a floor on how many slots hold real document text."""
         cfg = self.cfg
         passages = self.index.passages
-        chunk_pool = [i for i in pool if passages[i].kind == "chunk"]
+        chunk_pool = [i for i in pool if passages[i].kind in EVIDENCE_KINDS]
         floor = min(len(chunk_pool), int(round(k * cfg.min_chunk_fraction)))
 
         chosen: list[int] = []

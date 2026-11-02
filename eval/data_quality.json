@@ -1,0 +1,357 @@
+{
+  "n_raw_chunks": 1563,
+  "n_kept_chunks": 1389,
+  "dropped": {
+    "table_of_contents": 11,
+    "dot_leaders": 12,
+    "numeric_table": 60,
+    "too_short_or_non_prose": 88,
+    "exact_duplicate": 3
+  },
+  "chars_of_boilerplate_stripped": 148816,
+  "short_fragments_merged_into_next_chunk": 0,
+  "per_source": {
+    "morpc_tip_2026_2029_full": {
+      "raw": 740,
+      "kept": 661,
+      "share_of_corpus": 0.476,
+      "dropped": {
+        "table_of_contents": 3,
+        "dot_leaders": 1,
+        "numeric_table": 47,
+        "too_short_or_non_prose": 28
+      }
+    },
+    "csx_public_projects_manual": {
+      "raw": 169,
+      "kept": 152,
+      "share_of_corpus": 0.109,
+      "dropped": {
+        "table_of_contents": 3,
+        "too_short_or_non_prose": 8,
+        "dot_leaders": 6
+      }
+    },
+    "rtmc_mobility_study_attachment_01": {
+      "raw": 64,
+      "kept": 44,
+      "share_of_corpus": 0.032,
+      "dropped": {
+        "too_short_or_non_prose": 7,
+        "table_of_contents": 2,
+        "dot_leaders": 1,
+        "numeric_table": 10
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_12": {
+      "raw": 61,
+      "kept": 59,
+      "share_of_corpus": 0.042,
+      "dropped": {
+        "too_short_or_non_prose": 2
+      }
+    },
+    "morpc_ej_technical_appendix": {
+      "raw": 56,
+      "kept": 42,
+      "share_of_corpus": 0.03,
+      "dropped": {
+        "too_short_or_non_prose": 13,
+        "table_of_contents": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_06": {
+      "raw": 49,
+      "kept": 48,
+      "share_of_corpus": 0.035,
+      "dropped": {
+        "too_short_or_non_prose": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_08": {
+      "raw": 49,
+      "kept": 43,
+      "share_of_corpus": 0.031,
+      "dropped": {
+        "too_short_or_non_prose": 6
+      }
+    },
+    "vision_zero_action_plan_1_0": {
+      "raw": 43,
+      "kept": 39,
+      "share_of_corpus": 0.028,
+      "dropped": {
+        "table_of_contents": 1,
+        "numeric_table": 1,
+        "too_short_or_non_prose": 2
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_10": {
+      "raw": 41,
+      "kept": 36,
+      "share_of_corpus": 0.026,
+      "dropped": {
+        "numeric_table": 1,
+        "too_short_or_non_prose": 4
+      }
+    },
+    "odot_tem_rail_crossings": {
+      "raw": 38,
+      "kept": 34,
+      "share_of_corpus": 0.024,
+      "dropped": {
+        "table_of_contents": 1,
+        "dot_leaders": 2,
+        "too_short_or_non_prose": 1
+      }
+    },
+    "vision_zero_action_plan_2023_2028": {
+      "raw": 37,
+      "kept": 36,
+      "share_of_corpus": 0.026,
+      "dropped": {
+        "dot_leaders": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_11": {
+      "raw": 36,
+      "kept": 35,
+      "share_of_corpus": 0.025,
+      "dropped": {
+        "numeric_table": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_07": {
+      "raw": 34,
+      "kept": 26,
+      "share_of_corpus": 0.019,
+      "dropped": {
+        "too_short_or_non_prose": 8
+      }
+    },
+    "rtmc_appendix_k_engagement": {
+      "raw": 26,
+      "kept": 25,
+      "share_of_corpus": 0.018,
+      "dropped": {
+        "too_short_or_non_prose": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_05": {
+      "raw": 25,
+      "kept": 23,
+      "share_of_corpus": 0.017,
+      "dropped": {
+        "too_short_or_non_prose": 2
+      }
+    },
+    "morpc_guide_to_tip": {
+      "raw": 17,
+      "kept": 16,
+      "share_of_corpus": 0.012,
+      "dropped": {
+        "dot_leaders": 1
+      }
+    },
+    "morpc_mtp_2024_2050_attachment_13": {
+      "raw": 16,
+      "kept": 11,
+      "share_of_corpus": 0.008,
+      "dropped": {
+        "exact_duplicate": 3,
+        "too_short_or_non_prose": 2
+      }
+    },
+    "columbus_bike_plus_2025_report": {
+      "raw": 15,
+      "kept": 15,
+      "share_of_corpus": 0.011,
+      "dropped": {}
+    },
+    "morpc_mtp_2024_2050_attachment_09": {
+      "raw": 12,
+      "kept": 10,
+      "share_of_corpus": 0.007,
+      "dropped": {
+        "too_short_or_non_prose": 2
+      }
+    },
+    "rtmc_mobility_study_attachment_02": {
+      "raw": 10,
+      "kept": 10,
+      "share_of_corpus": 0.007,
+      "dropped": {}
+    },
+    "proj_120250_fwsac_crash_stats": {
+      "raw": 3,
+      "kept": 3,
+      "share_of_corpus": 0.002,
+      "dropped": {}
+    },
+    "morpc_mtp_2024_2050": {
+      "raw": 3,
+      "kept": 3,
+      "share_of_corpus": 0.002,
+      "dropped": {}
+    },
+    "linkus_overview": {
+      "raw": 3,
+      "kept": 3,
+      "share_of_corpus": 0.002,
+      "dropped": {}
+    },
+    "far_west_side_tip_summary": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "proj_120250_columbus_fact_sheet": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "proj_119852_columbus_fact_sheet": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "morpc_ej_overview": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "linkus_west_broad_funding": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "rtmc_mobility_study_attachment_04": {
+      "raw": 2,
+      "kept": 1,
+      "share_of_corpus": 0.001,
+      "dropped": {
+        "too_short_or_non_prose": 1
+      }
+    },
+    "proj_119852_engage_columbus": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "proj_120346_columbus_fact_sheet": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "proj_120346_engage_columbus": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    },
+    "rtmc_mobility_study": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.001,
+      "dropped": {}
+    }
+  },
+  "boilerplate_lines": {
+    "morpc_tip_2026_2029_full": [
+      "#-# morpc highway tip odot e-stip",
+      "generated by e-stip on #/#/# #:#:# am page #",
+      "odot dist(s): locale: mpo(s) / rtpo(s): performance measures: stip type:",
+      "phase stip fund type prior years # # # # future years total",
+      "pid: project name: primary work category: sponsoring agency: air quality status:",
+      "tip project comments:"
+    ],
+    "morpc_guide_to_tip": [
+      "# | guide to the transportation improvement program",
+      "guide to the transportation improvement program | #"
+    ],
+    "columbus_bike_plus_2025_report": [
+      "bike plus # annual report | #"
+    ],
+    "vision_zero_action_plan_1_0": [
+      "# \u2022 vision zero columbus",
+      "action plan #.# \u2022 #"
+    ],
+    "vision_zero_action_plan_2023_2028": [
+      "who: department of public service"
+    ],
+    "morpc_ej_technical_appendix": [
+      "environmental justice technical analysis",
+      "morpc #-# columbus area metropolitan transportation plan"
+    ],
+    "odot_tem_rail_crossings": [
+      "# rail grade crossings traffic engineering manual"
+    ],
+    "rtmc_mobility_study_attachment_01": [
+      "city of columbus \u25aa rtmc mobility study \u25aa december #, #"
+    ],
+    "morpc_mtp_2024_2050_attachment_05": [
+      "# target# target# measure",
+      "#-# columbus area",
+      "metropolitan transportation plan",
+      "table #.#: regional benchmarks and targets"
+    ],
+    "morpc_mtp_2024_2050_attachment_06": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_07": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_08": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_09": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_10": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_11": [
+      "#-# columbus area",
+      "metropolitan transportation plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_12": [
+      "#-# columbus area",
+      "#-# metropolitan transportation plan",
+      "#-# metropolitan transportation plan draft project listing",
+      "#; #=ongoing from #-#",
+      "(millions) year time period*",
+      "*time period: #=construction is on the sfy #-# tip; #=non-construction phase on the sfy #-# tip, #=construction by #, #=construction between # and #, #=construction between # and",
+      "idproject description",
+      "mapped projects - sorted by project id -",
+      "metropolitan transporta tion plan"
+    ],
+    "morpc_mtp_2024_2050_attachment_13": [
+      "# target# target# measure",
+      "#-# columbus area",
+      "metropolitan transportation plan",
+      "table #.#: regional benchmarks and targets"
+    ]
+  },
+  "sources_without_chunks": [
+    "cota_park_and_ride_locations",
+    "fhwa_railway_crossing_resources",
+    "proj_np37_hilliard_construction_update",
+    "rtmc_mobility_study_attachment_03",
+    "vision_zero_hin_map"
+  ],
+  "dominant_sources": [
+    "morpc_tip_2026_2029_full"
+  ]
+}

@@ -38,7 +38,7 @@ The five rules:
 2. BE LOCAL AND SPECIFIC. Name the actual corridors, intersections, plans, agencies and numbers that appear in the context. A generic road-safety answer that would fit any American city is a wrong answer.
 3. EXPAND ACRONYMS ONLY AS THE CONTEXT EXPANDS THEM. If a passage does not spell one out, leave it as the acronym.
 4. MARK YOUR INFERENCES. State documented findings plainly. When you reason past the documents, say so: "this suggests", "not documented, but".
-5. CATALOGUE ENTRIES ARE NOT DATA. Some passages describe a GIS dataset whose records are NOT loaded here. You may say the dataset exists, who holds it and what it could show. You may NOT report any count, rate, location or trend from it.
+5. CATALOGUE ENTRIES ARE NOT DATA. Some passages describe a GIS dataset whose records are NOT loaded here. You may say the dataset exists, who holds it and what it could show. You may NOT report any count, rate, location or trend from it. Passages labelled GIS AGGREGATE SUMMARY are different: they hold totals computed from a layer, and you may quote them along with the year, area and severity filters they state.
 
 LOCAL GLOSSARY - use these expansions and no others:
 MORPC = Mid-Ohio Regional Planning Commission | ODOT = Ohio Department of Transportation
@@ -67,6 +67,7 @@ _KIND_LABEL = {
     "chunk": "DOCUMENT EXCERPT",
     "doc_card": "SOURCE CATALOGUE ENTRY",
     "data_card": "GIS DATASET CATALOGUE ENTRY (records NOT loaded - no figures may be quoted from it)",
+    "data_summary": "GIS AGGREGATE SUMMARY (totals computed from the layer; figures may be quoted with the stated filters and date)",
 }
 
 

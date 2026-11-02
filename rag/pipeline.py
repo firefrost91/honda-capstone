@@ -9,6 +9,7 @@ from typing import Iterator
 import numpy as np
 
 from .config import CONFIG, Config
+from .corpus import EVIDENCE_KINDS
 from .attribute import (attribute, check_catalog_claims,
                         check_invented_figures, check_scope_claims, fix_glossary)
 from .index import HybridIndex
@@ -306,7 +307,7 @@ class RAGPipeline:
                 + ", ".join(catalogs[:3])
                 + ". Any count, rate or trend from them would have to be computed by "
                   "querying the service endpoint directly.")
-        docs = sorted({h.passage.title for h in kept if h.passage.kind == "chunk"})
+        docs = sorted({h.passage.title for h in kept if h.passage.kind in EVIDENCE_KINDS})
         if docs:
             bullets.append(f"- This answer rests on {len(docs)} document(s); other local "
                            "plans, project records and public feedback were not retrieved "

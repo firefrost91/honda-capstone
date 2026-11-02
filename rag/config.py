@@ -35,8 +35,16 @@ class Config:
     chunks_file: Path = DATA_DIR / "document_chunks.jsonl"
     documents_file: Path = DATA_DIR / "documents.json"
     gis_file: Path = DATA_DIR / "gis_sources.json"
+    #: aggregate statistics computed from GIS layers (rag.ingest.gis_aggregates)
+    derived_dir: Path = DATA_DIR / "derived"
+    #: candidate sources for ingestion (rag.ingest)
+    registry_file: Path = DATA_DIR / "source_registry.json"
+    #: downloaded originals; large, so kept out of git
+    originals_dir: Path = ROOT / "documents" / "originals"
     #: chunks shorter than this are page furniture (headers, page numbers)
     min_chunk_words: int = 20
+    #: strip page furniture, TOCs, duplicates and ineligible pages (rag.quality)
+    apply_quality_filters: bool = True
 
     # ---- embeddings ---------------------------------------------------
     #: bge-small is 133MB and markedly better at retrieval than MiniLM.
