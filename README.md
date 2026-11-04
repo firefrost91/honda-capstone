@@ -133,6 +133,7 @@ The workflow for growing the corpus without making answers worse:
 make install-dev
 make ingest          # fetch + chunk the sources in data/source_registry.json
 make ingest-gis      # aggregate crash counts from the ArcGIS crash layers
+make ingest-fars     # fatal-crash trends per county from NHTSA FARS (2014+)
 make quality         # what the hygiene pass kept and dropped
 make index           # re-embed; also records embedding health in index/manifest.json
 make collapse        # embedding-collapse diagnostics (fails on alarm or drift)
@@ -149,15 +150,23 @@ finally respected, and a short page-head split from its page is folded into the 
 instead of being lost. Short-but-substantive pages ("In 2019, 54 deaths occurred in 49 fatal
 crashes") are kept. `make quality` writes the per-source table to `eval/data_quality.json`.
 
-**More sources** (`rag/ingest/`). `data/source_registry.json` lists candidate documents found
-by targeted search for the known coverage gaps — MORPC's COTSP and State of Safety reports
-(trends), the 2025 Ohio SHSP, the Franklin County SS4A plan, the Vision Zero 2024 annual
-report, the Ohio trauma registry and QuickClear (post-crash care), FHWA's Columbus
-I-70/I-71 reconnection case study (King-Lincoln Bronzeville), plus retries of the two handoff
-downloads that failed. Each entry names the question/gap it targets. `make ingest` downloads,
+**More sources** (`rag/ingest/`). `data/source_registry.json` lists 32 candidate documents found
+by targeted search for the known coverage gaps: MORPC's COTSP and five State of Safety reports
+(2012–2022 trends), the 2025 Ohio SHSP and Ohio's 2022/2024 HSIP reports, the Franklin County SS4A
+plan, MORPC's 2024 Complete Streets policy, Vision Zero's 2024 annual report and 2026 updates,
+Columbus Fire's 2022/2023 annual reports and the 2023/2024 Ohio trauma reports (post-crash care),
+FHWA's Columbus I-70/I-71 reconnection case study and the Columbus Crossroads Phase 4 overview
+(King-Lincoln Bronzeville, cost), ODOT District 6's 2024 projects briefing, LinkUS, plus retries
+of the two handoff downloads that failed. Each entry names the question/gap it targets. `make ingest` downloads,
 extracts (pdfplumber / HTML main-text), chunks into the existing schema and merges
 idempotently; a failed retry never overwrites a good source. URLs are search results, not yet
 downloaded — check `eval/ingest_report.json` after the first run.
+
+**FARS fatal-crash trends** (`rag/ingest/fars.py`, `make ingest-fars`). NHTSA's Fatality Analysis
+Reporting System, via its CrashAPI, gives every fatal crash since 2010. For each of seven Central
+Ohio counties it counts fatal crashes and deaths per year (2014 onward) and writes one trend
+passage per county plus a regional total, as citable `data_summary` passages. Records are counted,
+never stored; a response without a deaths field is an error.
 
 **GIS aggregates** (`rag/ingest/gis_aggregates.py`). Field names are read from each layer's
 metadata (never assumed; pin them in `data/gis_field_map.json` if matching fails), severity
@@ -298,7 +307,7 @@ sources, groundedness and warnings.
 ```
 rag/          corpus · quality · lexical · index · embed_health · retrieve · llm ·
               prompts · postprocess · attribute · pipeline · evaluate · regress
-rag/ingest/   fetch · extract · chunk · gis_aggregates · __main__ (CLI)
+rag/ingest/   fetch · extract · chunk · gis_aggregates · fars · __main__ (CLI)
 app/          cli.py · server.py · static/index.html
 data/         documents.json · document_chunks.jsonl · gis_sources.json ·
               source_registry.json · derived/ (GIS aggregates)

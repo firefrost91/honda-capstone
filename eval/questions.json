@@ -22,7 +22,9 @@
    ],
    "aspirational_sources": [
     "columbus_vision_zero_annual_report_2024",
-    "morpc_cotsp_2019"
+    "morpc_cotsp_2019",
+    "columbus_vision_zero_newsletter_2026_06",
+    "columbus_vision_zero_exec_committee_2026"
    ],
    "must_mention_any": [
     "High Injury Network",
@@ -54,7 +56,8 @@
    ],
    "aspirational_sources": [
     "fhwa_columbus_community_connections_case_study",
-    "morpc_columbus_landmarks_letter"
+    "morpc_columbus_landmarks_letter",
+    "columbus_crossroads_phase4_infra_overview"
    ],
    "must_mention_any": [
     "Environmental Justice",
@@ -116,7 +119,11 @@
     "morpc_mtp_2024_2050_attachment_11",
     "morpc_tip_2026_2029_full"
    ],
-   "aspirational_sources": [],
+   "aspirational_sources": [
+    "columbus_crossroads_phase4_infra_overview",
+    "odot_d6_projects_overview_2024",
+    "ohio_hsip_annual_report_2024"
+   ],
    "must_mention_any": [
     "cost",
     "TIP"
@@ -149,7 +156,9 @@
    "aspirational_sources": [
     "morpc_cotsp_action_plan_2019",
     "franklin_county_ss4a_safety_action_plan_2026",
-    "odot_shsp_2025"
+    "odot_shsp_2025",
+    "ohio_hsip_annual_report_2024",
+    "morpc_complete_streets_policy_2024"
    ],
    "must_mention_any": [
     "High Injury Network",
@@ -181,7 +190,10 @@
    "aspirational_sources": [
     "morpc_state_of_safety_2018_2022",
     "morpc_state_of_safety_2015_2019",
-    "crash_trends_aggregate"
+    "crash_trends_aggregate",
+    "nhtsa_fars",
+    "morpc_state_of_safety_2013_2017",
+    "morpc_state_of_safety_2012_2016"
    ],
    "must_mention_any": [
     "fatal",
@@ -211,7 +223,9 @@
     "morpc_mtp_2024_2050_attachment_06",
     "morpc_ej_technical_appendix"
    ],
-   "aspirational_sources": [],
+   "aspirational_sources": [
+    "morpc_linkus_update_2023"
+   ],
    "must_mention_any": [
     "2050",
     "population",
@@ -241,7 +255,9 @@
    "aspirational_sources": [
     "ohio_trauma_report_2024",
     "ohio_quickclear_agreement",
-    "morpc_its_architecture_columbus_911_flows"
+    "morpc_its_architecture_columbus_911_flows",
+    "columbus_fire_annual_report_2023",
+    "ohio_trauma_report_2023"
    ],
    "must_mention_any": [
     "emergency",
@@ -303,7 +319,10 @@
     "morpc_mtp_2024_2050_attachment_10"
    ],
    "aspirational_sources": [
-    "morpc_atp_2020_2050_overview"
+    "morpc_atp_2020_2050_overview",
+    "morpc_complete_streets_policy_2024",
+    "morpc_linkus_update_2023",
+    "vrusa_midwest_comparison_2025"
    ],
    "must_mention_any": [
     "pedestrian",

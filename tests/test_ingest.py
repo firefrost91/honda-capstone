@@ -264,3 +264,61 @@ def test_figures_cited_to_a_data_summary_are_not_flagged():
                              citations=[1], support=0.8, supported=True, model_cited=[])]
     assert check_catalog_claims(a, ["data_summary"]) == []
     assert check_catalog_claims(a, ["data_card"]) == [a[0].text]
+
+
+# ---- NHTSA FARS ------------------------------------------------------------------
+
+def _fars_payload(year, deaths_per_crash):
+    rows = [{"ST_CASE": 390000 + i, "CaseYear": str(year), "FATALS": str(d), "COUNTYNAME": "FRANKLIN (49)"}
+            for i, d in enumerate(deaths_per_crash)]
+    return {"Count": len(rows), "Message": "Results returned successfully", "Results": [rows]}
+
+
+def test_fars_counts_crashes_and_deaths_per_year_and_builds_trend_passages():
+    from rag.ingest import fars
+    data = {2019: [1, 1, 2], 2020: [1, 1, 1, 1], 2021: [3, 1, 1, 1, 1]}
+    calls = []
+
+    def get(url, params):
+        calls.append(params)
+        assert params["state"] == 39 and params["format"] == "json"
+        return _fars_payload(params["fromCaseYear"], data[params["fromCaseYear"]])
+
+    s = fars.fetch_county("Franklin", 49, 2019, 2021, get)
+    assert s.years == {2019: (3, 4), 2020: (4, 4), 2021: (5, 7)}
+    assert len(calls) == 3 and all(c["county"] == 49 for c in calls)
+    rows = fars.render([s], "2026-11-04")
+    assert len(rows) == 1 and rows[0]["source_id"] == "nhtsa_fars"
+    text = rows[0]["text"]
+    assert "2019: 4 deaths in 3 fatal crashes" in text and "(+75%)" in text
+
+
+def test_fars_region_total_sums_counties():
+    from rag.ingest import fars
+    a, b = fars.CountySeries("Franklin", {2020: (10, 12)}), fars.CountySeries("Delaware", {2020: (2, 2)})
+    rows = fars.render([a, b], "2026-11-04")
+    region = next(r for r in rows if r["area"].startswith("Central Ohio"))
+    assert "2020: 14 deaths in 12 fatal crashes" in region["text"]
+
+
+def test_fars_without_a_deaths_field_fails_loudly():
+    from rag.ingest import fars
+    with pytest.raises(KeyError, match="FATALS"):
+        fars.count_rows([{"ST_CASE": 1, "SOMETHING": 2}], 2020)
+
+
+def test_fars_nested_and_flat_results_are_both_read():
+    from rag.ingest.fars import _rows
+    row = {"ST_CASE": 1, "FATALS": 1}
+    assert _rows({"Results": [[row, row]]}) == [row, row]
+    assert _rows({"Results": [row]}) == [row]
+    assert _rows([row]) == [row]
+
+
+def test_fars_summaries_load_as_data_summary_passages(tmp_path):
+    from rag.ingest import fars
+    cfg = replace(CONFIG, derived_dir=tmp_path)
+    assert fars.run(2020, 2020, cfg=cfg, counties={"Franklin": 49},
+                    get=lambda u, p: _fars_payload(2020, [1, 2])) == 0
+    ps = [p for p in load_passages(cfg) if p.source_id == "nhtsa_fars"]
+    assert ps and ps[0].kind == "data_summary" and "3 deaths in 2 fatal crashes" in ps[0].text

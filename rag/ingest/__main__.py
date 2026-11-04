@@ -5,6 +5,7 @@
     python -m rag.ingest --only odot_shsp_2025 # one source
     python -m rag.ingest --refresh             # re-download and re-chunk everything
     python -m rag.ingest --gis                 # aggregate crash statistics from GIS layers
+    python -m rag.ingest --fars                # fatal-crash trends per county from NHTSA FARS
     python -m rag.ingest --dry-run             # do everything except write data/
 
 Then rebuild the index:  python -m rag.index
@@ -171,10 +172,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--list", action="store_true", help="show the registry and its status")
     ap.add_argument("--gis", action="store_true",
                     help="compute aggregate crash statistics from GIS layers")
+    ap.add_argument("--fars", action="store_true",
+                    help="fatal-crash trends per Central Ohio county from NHTSA FARS")
     a = ap.parse_args(argv)
     if a.list:
         _list()
         return 0
+    if a.fars:
+        from .fars import run as run_fars
+        return run_fars(dry_run=a.dry_run)
     if a.gis:
         from .gis_aggregates import run as run_gis
         return run_gis(only=a.only, dry_run=a.dry_run)

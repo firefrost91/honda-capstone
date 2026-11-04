@@ -1,7 +1,7 @@
 VENV := ./.venv/bin
 
 .PHONY: install install-dev index chat serve eval test test-all quality ingest ingest-gis \
-        collapse regress regress-all baseline clean
+        ingest-fars collapse regress regress-all baseline clean
 
 install:
 	python3 -m venv .venv && $(VENV)/pip install -q -r requirements.txt
@@ -18,6 +18,9 @@ ingest:           ## fetch + extract + chunk registry sources into data/
 
 ingest-gis:       ## aggregate crash statistics from the ArcGIS crash layers
 	$(VENV)/python -m rag.ingest --gis
+
+ingest-fars:      ## fatal-crash trends 2014+ per county from NHTSA FARS
+	$(VENV)/python -m rag.ingest --fars
 
 index:
 	$(VENV)/python -m rag.index
