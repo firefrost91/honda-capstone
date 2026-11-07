@@ -38,7 +38,8 @@ The five rules:
 2. BE LOCAL AND SPECIFIC. Name the actual corridors, intersections, plans, agencies and numbers that appear in the context. A generic road-safety answer that would fit any American city is a wrong answer.
 3. EXPAND ACRONYMS ONLY AS THE CONTEXT EXPANDS THEM. If a passage does not spell one out, leave it as the acronym.
 4. MARK YOUR INFERENCES. State documented findings plainly. When you reason past the documents, say so: "this suggests", "not documented, but".
-5. CATALOGUE ENTRIES ARE NOT DATA. Some passages describe a GIS dataset whose records are NOT loaded here. You may say the dataset exists, who holds it and what it could show. You may NOT report any count, rate, location or trend from it.
+5. CATALOGUE ENTRIES ARE NOT DATA. Some passages describe a GIS dataset whose records are NOT loaded here. You may say the dataset exists, who holds it and what it could show. You may NOT report any count, rate, location or trend from it. Passages labelled GIS AGGREGATE SUMMARY are different: they hold totals computed from a layer, and you may quote them along with the year, area and severity filters they state.
+6. METRIC TOOL OUTPUT MAY BE QUOTED. Passages labelled METRIC TOOL OUTPUT hold figures a connected analytics tool computed for a stated location and year. Quote them with that location, year and unit and cite them like any passage. When the passage says its values are synthetic placeholders, say once, early in the answer, that those figures are placeholder tool output pending live data - then use them.
 
 LOCAL GLOSSARY - use these expansions and no others:
 MORPC = Mid-Ohio Regional Planning Commission | ODOT = Ohio Department of Transportation
@@ -67,10 +68,17 @@ _KIND_LABEL = {
     "chunk": "DOCUMENT EXCERPT",
     "doc_card": "SOURCE CATALOGUE ENTRY",
     "data_card": "GIS DATASET CATALOGUE ENTRY (records NOT loaded - no figures may be quoted from it)",
+    "data_summary": "GIS AGGREGATE SUMMARY (totals computed from the layer; figures may be quoted with the stated filters and date)",
+    "tool_metric": "METRIC TOOL OUTPUT (figures for the stated location and year; may be quoted with location, year and unit - note whether the tool says they are synthetic placeholders)",
 }
+
+#: Tool passages are a list of metrics, one per line, so they run longer than
+#: a document excerpt; truncating them would drop the metrics at the end.
+_KIND_MAX_CHARS = {"tool_metric": 2600}
 
 
 def render_passage(n: int, p: Passage, max_chars: int = 1150) -> str:
+    max_chars = max(max_chars, _KIND_MAX_CHARS.get(p.kind, 0))
     text = p.text if len(p.text) <= max_chars else p.text[:max_chars].rsplit(" ", 1)[0] + " ..."
     header = f"[S{n}] {_KIND_LABEL.get(p.kind, p.kind)}"
     meta = f"Title: {p.title}"
@@ -100,7 +108,7 @@ USER_TEMPLATE = """CONTEXT PASSAGES
 
 ================
 
-{coverage_note}QUESTION: {question}
+{coverage_note}{perspective}QUESTION: {question}
 
 Write the ANSWER FIRST - several paragraphs of substance, naming specific Central Ohio places, plans, agencies and figures from the passages above. Do NOT open with the "what the local evidence does not cover" heading; that section comes LAST, after the answer, and only once."""
 
@@ -125,6 +133,17 @@ def build_gap_prompt(question: str, context: str, answer: str) -> str:
     return GAP_PROMPT.format(context=context, question=question, answer=answer.strip())
 
 
-def build_user_prompt(question: str, context: str, coverage_note: str = "") -> str:
+def build_user_prompt(question: str, context: str, coverage_note: str = "",
+                      stakeholder: str | None = None) -> str:
+    """Assemble the user turn. ``stakeholder`` is a profile id from
+    :mod:`rag.tools.stakeholders`; when set, a perspective block tells the model
+    whose concerns to frame the answer around, and a literal ``[stakeholder]``
+    placeholder in the question (the shared-scenario wording) is filled in."""
     note = f"RETRIEVAL NOTE FOR YOU (do not quote verbatim): {coverage_note}\n\n" if coverage_note else ""
-    return USER_TEMPLATE.format(context=context, question=question, coverage_note=note)
+    perspective = ""
+    if stakeholder:
+        from .tools.stakeholders import STAKEHOLDERS, framing
+        perspective = framing(stakeholder) + "\n\n"
+        question = question.replace("[stakeholder]", STAKEHOLDERS[stakeholder].name)
+    return USER_TEMPLATE.format(context=context, question=question, coverage_note=note,
+                                perspective=perspective)

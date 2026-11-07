@@ -14,11 +14,14 @@ than single-fact lookups, and to be explicit about the limits of its evidence.
 
 | Layer | Count | What it is |
 |---|---|---|
-| Document chunks | 1,402 | Text from MORPC plans, Vision Zero Columbus action plans, ODOT manuals, corridor studies, project fact sheets |
+| Document chunks | 1,389 | Text from MORPC plans, Vision Zero Columbus action plans, ODOT manuals, corridor studies, project fact sheets — after the hygiene pass in `rag/quality.py` (1,563 raw) |
 | Source cards | 38 | One per catalogued document — title, publisher, topics, scope, caveats |
 | GIS data cards | 38 | One per regional dataset — ODOT crash years, AADT, speed limits, Columbus High Injury Network, sidewalks, signals, Safe Routes to School |
 
-**The GIS records themselves are not loaded — only their catalogue entries.** The
+| GIS aggregate summaries | 0 until `make ingest-gis` | Server-side year × severity × county counts from the ODOT / Columbus crash layers, as citable `data_summary` passages |
+
+**The GIS records themselves are not loaded — only their catalogue entries** (and, once
+`make ingest-gis` has run, aggregate counts computed from them). The
 system is built to respect that line: it will tell you the Columbus High Injury
 Network layer exists, who maintains it and what fields it reports, and it will
 refuse to quote a crash count from it. That distinction is enforced in the data
@@ -55,6 +58,7 @@ One-shot question:
 question
    │
    ├─ query planning ........ rule-based facets + LLM-generated sub-queries
+   │                          capped at 5 probes total (see Chunk floor below)
    │
    ├─ hybrid retrieval ...... BGE-small dense vectors ∥ BM25 (domain tokeniser)
    │                          fused with reciprocal rank fusion
@@ -83,12 +87,30 @@ facets and fusing the results reaches all of them.
 numbers); BM25 misses paraphrase. RRF combines them without needing the two score
 scales to be comparable.
 
-**Per-document caps.** The MORPC TIP is 47% of the corpus. Uncapped, it wins most
+**Per-document caps.** The MORPC TIP is the largest single source in the corpus
+(47% before the ingest sources were added, 27% after). Uncapped, it wins most
 queries on surface area alone and every answer cites one document.
 
-**Chunk floor.** Catalogue cards are short and keyword-dense, so on any question
-phrased around "data" they sweep every slot — leaving an answer that inventories
-where evidence might live without containing any.
+**Chunk floor.** Catalogue cards are short and keyword-dense (median 124 words
+against 214 for document text), so on any question phrased around "data" they
+sweep every slot — leaving an answer that inventories where evidence might live
+without containing any. `min_chunk_fraction` reserves slots against that, but it
+is a floor, not a cap: whatever it leaves over goes to whichever passages win
+fusion, which is reliably the cards.
+
+**Sub-query ceiling.** RRF scores breadth over depth. One ranking at rank 0
+contributes `1/(rrf_k+1)` = 0.016; eight rankings at rank 25 contribute 0.093 —
+5.7× more. So past a handful of probes, the passage that actually answers the
+question loses to one that places mediocrely on every facet, and the cards are
+built for exactly that. Measured on the 2,615-passage corpus, expected-source
+recall by ceiling: 13 → 0.500, 6 → 0.600, 5 → 0.700. With the chunk floor at
+0.7 as well, 0.750.
+
+Both settings were tuned against the same ten eval questions they are measured
+on, so 0.750 is in-sample. The mechanism is established independently (every
+miss is a selection failure, not a ranking one — the expected source reaches the
+candidate pool and is then dropped); the specific values are not validated, and
+want a held-out split once the remaining 27 questions exist.
 
 **Post-hoc attribution.** A 3B model will not reliably place `[S#]` markers, so
 citation is treated as verification, not generation: every factual sentence is
@@ -122,10 +144,131 @@ last-resort fallback.
 
 ---
 
+## Stakeholder perspectives and metric tools
+
+Eight stakeholder groups will use this tool, and each reads the same evidence
+through different numbers: a regional agency asks whether the five-year KSI
+average is on its 2 %/yr target, a trauma surgeon asks how long the two serious
+crashes took to reach a Level I centre, a resident asks what the 85th-percentile
+speed is outside the school. `rag/tools` carries that:
+
+* **`rag/tools/stakeholders.py`** - the eight profiles (agency, local_gov,
+  residents, drivers, vru, emergency, transit, freight), their concerns, and the
+  vocabulary that routes a bare question to one of them. The profile becomes a
+  *perspective block* in the prompt, so the answer is framed for that group and a
+  literal `[stakeholder]` in the question (the shared-scenario wording) is filled in.
+* **`rag/tools/metrics.py`** - the catalogue of ~150 metrics with unit,
+  definition and the standard each comes from (FHWA PM1 / PM3, Highway Safety
+  Manual, MORPC's EPDO weights, NFPA 1710, Level of Traffic Stress, FRA crossing
+  exposure, FHWA noise criteria ...). This is the contract a live tool must honour.
+  The research behind it, with sources, is in `docs/stakeholder_metrics.md`.
+* **`rag/tools/synthetic.py`** - fourteen stub tools (`crash_profile`,
+  `safety_targets`, `network_screening`, `traffic_operations`, `speed_profile`,
+  `vulnerable_user_profile`, `emergency_response_profile`,
+  `transit_access_profile`, `freight_rail_profile`, `infrastructure_condition`,
+  `community_impact_profile`, `growth_outlook`, `project_outcome_evaluation`, plus
+  a `countermeasure_reference` table of published FHWA reduction factors). **Every
+  value is synthetic**: deterministic for a location and year, internally
+  consistent, scaled to the Columbus / MORPC aggregates - and labelled as a
+  placeholder in the passage, the prompt, the warnings and the API.
+* **`rag/tools/registry.py`** - picks tools for a question (the stakeholder's
+  tools, led by any the question itself triggers; a "from 8 to 2" scenario calls
+  the before/after evaluator first), reads the location and year out of the
+  question, and renders each result as a `tool_metric` passage. Tool passages are
+  embedded with the corpus model and go through the same sentence-level
+  attribution as document text, so a figure the model quotes from one is verified
+  like any other citation.
+
+```bash
+./.venv/bin/python -m app.cli -s emergency -q "Based on this information, how would you evaluate ..."
+curl -s localhost:8000/ask -H 'Content-Type: application/json' \
+  -d '{"question":"...","stakeholder":"residents"}' | jq '.stakeholder, .tool_calls'
+curl -s localhost:8000/stakeholders | jq     # profiles and their tools
+curl -s localhost:8000/tools | jq            # tools and the metric catalogue
+```
+
+In the chat page the *Perspective* selector beside the composer does the same;
+left on auto-detect, the stakeholder is inferred from the question's wording.
+`CBRAG_TOOLS_ENABLED=0` turns the tools off; `CBRAG_MAX_TOOL_PASSAGES` caps how
+many tool passages join the context (default 4). The stakeholder evaluation set
+itself - three questions per group and the shared scenario - is in
+`eval/stakeholder_questions.json`.
+
+Replacing a stub with a live service means registering a function of the same
+name in `rag/tools/synthetic.py` (or a new module) that returns `MetricValue`
+rows with catalogue ids and setting `synthetic=False` on its `Tool` entry;
+nothing downstream changes.
+
+---
+
+## Data quality, sources, embedding health and regression
+
+The workflow for growing the corpus without making answers worse:
+
+```bash
+make install-dev
+make ingest          # fetch + chunk the sources in data/source_registry.json
+make ingest-gis      # aggregate crash counts from the ArcGIS crash layers
+make quality         # what the hygiene pass kept and dropped
+make index           # re-embed; also records embedding health in index/manifest.json
+make collapse        # embedding-collapse diagnostics (fails on alarm or drift)
+make regress         # corpus + retrieval gate against the committed baselines
+make baseline        # once you're happy: accept the new state, then commit eval/baseline_*.json
+```
+
+**Corpus hygiene** (`rag/quality.py`, applied at load time — the raw chunk file is never
+rewritten). Running headers and template lines that recur in ≥25% of a document's chunks are
+stripped (the MORPC TIP's `PID: Project Name: …` block alone appeared ~300 times; 149k
+characters removed in total), tables of contents and dot-leader pages are dropped, exact and
+near duplicates are removed, `index_eligible` / `indexed_page_range` from the catalogue are
+finally respected, and a short page-head split from its page is folded into the next chunk
+instead of being lost. Short-but-substantive pages ("In 2019, 54 deaths occurred in 49 fatal
+crashes") are kept. `make quality` writes the per-source table to `eval/data_quality.json`.
+
+**More sources** (`rag/ingest/`). `data/source_registry.json` lists candidate documents found
+by targeted search for the known coverage gaps — MORPC's COTSP and State of Safety reports
+(trends), the 2025 Ohio SHSP, the Franklin County SS4A plan, the Vision Zero 2024 annual
+report, the Ohio trauma registry and QuickClear (post-crash care), FHWA's Columbus
+I-70/I-71 reconnection case study (King-Lincoln Bronzeville), plus retries of the two handoff
+downloads that failed. Each entry names the question/gap it targets. `make ingest` downloads,
+extracts (pdfplumber / HTML main-text), chunks into the existing schema and merges
+idempotently; a failed retry never overwrites a good source. URLs are search results, not yet
+downloaded — check `eval/ingest_report.json` after the first run.
+
+**GIS aggregates** (`rag/ingest/gis_aggregates.py`). Field names are read from each layer's
+metadata (never assumed; pin them in `data/gis_field_map.json` if matching fails), severity
+codes are decoded only from the layer's own coded-value domains, and counts are grouped
+server-side. Every passage states the layer, grouping and date that produced it; statewide
+totals are labelled *NOT a Central Ohio figure*. A cross-year trend passage per county is
+built from the per-year layers. Figures cited to these `data_summary` passages are allowed;
+figures cited only to a catalogue `data_card` are still flagged.
+
+**Embedding collapse** (`rag/embed_health.py`). Checks the stored vectors for anisotropy
+(mean pairwise cosine), low effective rank / one dominant direction, near-duplicate rate,
+hubness (k-occurrence skew + the top hub passages by id), per-source collapse (documents whose
+passages are indistinguishable), and the query-side symptom — different eval questions
+retrieving the same passages. Absolute thresholds are in `Thresholds` (override with
+`CBRAG_HEALTH_<NAME>`), drift tolerances against `eval/embed_health_baseline.json` in
+`DRIFT_TOLERANCE`. Every `make index` records the summary in the manifest.
+
+**Regression gate** (`rag/regress.py`). Three tiers:
+
+| tier | needs | checks |
+|---|---|---|
+| `corpus` | nothing | every eligible document still has passages; passage count hasn't dropped >5%; every `expected_sources` id exists |
+| `retrieval` (default) | index + embedder | per question: recall of `expected_sources` in the final context, distinct documents, evidence share — deterministic (rule-based planning, no LLM) |
+| `all` | + LLM | locality, groundedness ≥ 85%, gap section, `must_mention_any`, `forbidden` strings |
+
+Questions live in `eval/questions.json`; the `schema` block there documents each field.
+**To add the remaining questions, append entries** — only `id` and `question` are required.
+A question with no baseline entry is held to the absolute checks and reported as *new* until
+`make baseline` is run. `aspirational_sources` names registry documents that *should* surface
+once ingested; they are reported, not gated.
+
 ## Evaluation
 
 ```bash
-./.venv/bin/python -m rag.evaluate            # all 10 prototype questions
+./.venv/bin/python -m rag.evaluate            # all prototype questions
 ./.venv/bin/python -m rag.evaluate --only 3 7 # a subset
 ```
 
@@ -208,7 +351,8 @@ sources, groundedness and warnings.
 
 - **Coverage is uneven.** Post-crash / EMS response is thin, and the
   King-Lincoln Bronzeville and Long Street Bridge history that some reference
-  answers expect is not in this corpus at all. The system says so rather than
+  answers expect is not in this corpus until the registry sources targeting
+  them are ingested (`make ingest`). The system says so rather than
   filling the hole from memory — but that means those answers are gap statements,
   not narratives.
 - **GIS records are not loaded**, so no question that needs a computed crash rate,
@@ -228,9 +372,18 @@ sources, groundedness and warnings.
 ## Layout
 
 ```
-rag/     corpus · lexical · index · retrieve · llm · prompts ·
-         postprocess · attribute · pipeline · evaluate
-app/     cli.py · server.py · static/index.html
-eval/    questions.json · local_lexicon.json · results.json · transcript.md
-tests/   test_rag.py
+rag/          corpus · quality · lexical · index · embed_health · retrieve · llm ·
+              prompts · postprocess · attribute · pipeline · evaluate · regress
+rag/ingest/   fetch · extract · chunk · gis_aggregates · __main__ (CLI)
+rag/tools/    stakeholders · metrics · synthetic (stub tools) · registry
+docs/         stakeholder_metrics.md - the metrics per stakeholder, with sources
+app/          cli.py · server.py · static/index.html
+data/         documents.json · document_chunks.jsonl · gis_sources.json ·
+              source_registry.json · derived/ (GIS aggregates)
+eval/         questions.json · stakeholder_questions.json · local_lexicon.json ·
+              results.json · transcript.md · data_quality.json · baseline_*.json ·
+              embed_health_baseline.json
+tests/        test_rag · test_tools · test_quality · test_ingest · test_embed_health ·
+              test_regression
+.github/      workflows/ci.yml — unit tests, index build, collapse check, retrieval gate
 ```

@@ -808,7 +808,7 @@
       "scope": "region_specific",
       "source_url": "https://cota.com/static/663d529041a00dacdae444f11115dc13/COTA-SID-ParkRide-1sheet-May-2024.pdf",
       "download_url": "https://www.cota.com/static/663d529041a00dacdae444f11115dc13/COTA-SID-ParkRide-1sheet-May-2024.pdf",
-      "resolved_url": null,
+      "resolved_url": "https://www.cota.com/static/663d529041a00dacdae444f11115dc13/COTA-SID-ParkRide-1sheet-May-2024.pdf",
       "description": "Confirms the Renner Rd Park & Ride location (5608 Renner Rd, Columbus), served by Lines 5 and 71.",
       "relevance": "Direct confirmation source for the transit-access claim in Project NP-102.",
       "topics": [
@@ -820,18 +820,19 @@
       ],
       "project_association_status": "inherited_from_input_not_independently_verified",
       "parent_source_id": null,
-      "catalog_verification_claim": "verified_live_2026-09",
-      "retrieved_at": "2026-09-21T17:31:19.370077+00:00",
-      "content_status": "failed",
-      "index_eligible": false,
-      "original_path": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "retrieved_at": "2026-11-02T15:53:14.355336+00:00",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/cota_park_and_ride_locations.pdf",
       "text_path": null,
       "pages_path": null,
-      "sha256": null,
-      "caveats": [
-        "Direct downloads timed out for both cota.com and www.cota.com. Browser search could read a cached PDF, but original bytes were not obtained; excluded from local corpus."
-      ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "sha256": "abae73aa640c315b3ca5a6e23bd9b65e472e311f4c01aeb7228df98631c1768e",
+      "caveats": [],
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "gap_targeted": [
+        "retry: handoff download timed out"
+      ]
     },
     {
       "source_id": "linkus_overview",
@@ -1362,6 +1363,563 @@
         "Linked from adopted MTP page; URL filename includes Draft. Retain version provenance."
       ],
       "description_provenance": "attachment_label_from_parent_page"
+    },
+    {
+      "source_id": "morpc_cotsp_2019",
+      "title": "Central Ohio Transportation Safety Plan (2019)",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "safety_plan",
+      "theme": "regional_safety_plan",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf",
+      "description": "MORPC/ODOT regional safety plan for the MPO area: goals and targets, current crash conditions, emphasis areas and implementation partners.",
+      "relevance": "The regional Safety Action Plan the corpus repeatedly references (COTSP) but does not contain.",
+      "topics": [
+        "COTSP",
+        "emphasis areas",
+        "safety targets",
+        "Six E's of safety"
+      ],
+      "published_year": 2019,
+      "gap_targeted": [
+        "Q1",
+        "Q5",
+        "Q6",
+        "COTSP referenced but missing"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf",
+      "retrieved_at": "2026-11-02T15:47:38.022656+00:00",
+      "sha256": "513e393056b772dbf54c9f94af133d3076963badbe447841c9d38f29bcd1ab93",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_cotsp_2019.pdf",
+      "caveats": [
+        "3 of 68 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "morpc_cotsp_action_plan_2019",
+      "title": "COTSP Action Plan (2019)",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "action_plan",
+      "theme": "regional_safety_plan",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Action-Plan.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Action-Plan.pdf",
+      "description": "Implementation actions of the Central Ohio Transportation Safety Plan, by emphasis area.",
+      "relevance": "Concrete regional countermeasure commitments for prioritisation questions.",
+      "topics": [
+        "COTSP",
+        "vulnerable road users",
+        "action items"
+      ],
+      "published_year": 2019,
+      "gap_targeted": [
+        "Q5"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Action-Plan.pdf",
+      "retrieved_at": "2026-11-02T15:47:40.151118+00:00",
+      "sha256": "69b6e456b337c1deb55c9e39d751ed843b9a430dc0b98c4945e20a8f4cb96820",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_cotsp_action_plan_2019.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "morpc_state_of_safety_2018_2022",
+      "title": "MORPC State of Safety Report 2018-2022",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "crash_trends",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2024/01/State-of-Safety-Report-2018-2022-FINAL.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2024/01/State-of-Safety-Report-2018-2022-FINAL.pdf",
+      "description": "Five-year regional crash trend report tracking progress against COTSP goals.",
+      "relevance": "The single best source for change-over-time in Central Ohio crashes.",
+      "topics": [
+        "crash trends",
+        "fatalities",
+        "serious injuries",
+        "COTSP progress"
+      ],
+      "published_year": 2024,
+      "gap_targeted": [
+        "Q6",
+        "trends"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/01/State-of-Safety-Report-2018-2022-FINAL.pdf",
+      "retrieved_at": "2026-11-02T15:47:41.234594+00:00",
+      "sha256": "dd135eef8ecf12e444faf662b6d710c10615f52184f4d37e16320d80dafb3788",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_state_of_safety_2018_2022.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "morpc_state_of_safety_2017_2021",
+      "title": "MORPC State of Safety Report 2017-2021",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "crash_trends",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf",
+      "description": "Earlier five-year State of Safety report; with the 2018-2022 and 2015-2019 editions gives a longer series.",
+      "relevance": "Extends the regional trend window toward the 5-10 year horizon Q6 asks about.",
+      "topics": [
+        "crash trends",
+        "fatalities",
+        "serious injuries"
+      ],
+      "published_year": 2023,
+      "gap_targeted": [
+        "Q6",
+        "trends"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf",
+      "retrieved_at": "2026-11-02T15:47:42.086474+00:00",
+      "sha256": "b7ad914030753d1a8b17b6697e683e7dcdc8b7cef1fbb47f302051069125cf5b",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_state_of_safety_2017_2021.pdf",
+      "caveats": [
+        "1 of 14 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "morpc_state_of_safety_2015_2019",
+      "title": "MORPC State of Safety Report 2015-2019",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "crash_trends",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf",
+      "description": "Five-year regional crash trend report (2015-2019).",
+      "relevance": "Pre-pandemic baseline for trend comparison.",
+      "topics": [
+        "crash trends",
+        "fatalities",
+        "serious injuries"
+      ],
+      "published_year": 2020,
+      "gap_targeted": [
+        "Q6",
+        "trends"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf",
+      "retrieved_at": "2026-11-02T15:47:43.013865+00:00",
+      "sha256": "f47d92a86a1f66a3abef3897c85e6d71481ecb6771070e6541ab2ceb60957954",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_state_of_safety_2015_2019.pdf",
+      "caveats": [
+        "1 of 12 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "columbus_vision_zero_annual_report_2024",
+      "title": "Vision Zero Columbus Annual Report 2024",
+      "organization": "City of Columbus",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "vision_zero",
+      "scope": "region_specific",
+      "source_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-service/vision-zero/vision-zero-columbus-annual-report-2024.pdf",
+      "download_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-service/vision-zero/vision-zero-columbus-annual-report-2024.pdf",
+      "description": "City of Columbus annual progress report on Vision Zero: fatalities, serious injuries, completed safety projects and funding.",
+      "relevance": "Most recent city-level outcome data; the corpus has the action plans but no progress reporting.",
+      "topics": [
+        "Vision Zero",
+        "traffic deaths",
+        "grant funding",
+        "progress"
+      ],
+      "published_year": 2024,
+      "gap_targeted": [
+        "Q1",
+        "Q5",
+        "Q6"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-service/vision-zero/vision-zero-columbus-annual-report-2024.pdf",
+      "retrieved_at": "2026-11-02T15:47:44.428720+00:00",
+      "sha256": "aab2fa9425e967c1912eb793be09c537ce87dd56c720a239ec57b805d6bd9d52",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/columbus_vision_zero_annual_report_2024.pdf",
+      "caveats": [
+        "1 of 6 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "odot_shsp_2025",
+      "title": "Ohio Strategic Highway Safety Plan (2025)",
+      "organization": "ODOT",
+      "source_kind": "document",
+      "document_type": "safety_plan",
+      "theme": "state_safety_plan",
+      "scope": "general_state_policy",
+      "source_url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf",
+      "download_url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf",
+      "description": "Statewide safety plan (Vision Zero edition) with crash trends and emphasis-area action plans for 2026-2030.",
+      "relevance": "State framework the regional and city plans align to; statewide trends give context (scope: state, not Central Ohio).",
+      "topics": [
+        "SHSP",
+        "emphasis areas",
+        "crash trends",
+        "local road safety",
+        "Safe System"
+      ],
+      "published_year": 2025,
+      "gap_targeted": [
+        "Q5",
+        "Q6"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf",
+      "retrieved_at": "2026-11-02T15:47:45.408662+00:00",
+      "sha256": "99d669624691428b068a69db5d3c14ee112ed45c9983d124e7dcc757fcb16040",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/odot_shsp_2025.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+      "title": "Franklin County SS4A Safety Action Plan (2026)",
+      "organization": "Franklin County Engineer's Office",
+      "source_kind": "document",
+      "document_type": "safety_plan",
+      "theme": "county_safety_plan",
+      "scope": "region_specific",
+      "source_url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf",
+      "download_url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf",
+      "description": "Safe Streets and Roads for All safety action plan for unincorporated Franklin County roads, adopted June 2026.",
+      "relevance": "Newest local plan; covers county/township roads outside Columbus that the corpus misses.",
+      "topics": [
+        "SS4A",
+        "Safe System",
+        "high injury network",
+        "county roads",
+        "community engagement"
+      ],
+      "published_year": 2026,
+      "gap_targeted": [
+        "Q1",
+        "Q3",
+        "Q5"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf",
+      "retrieved_at": "2026-11-02T21:38:09.712472+00:00",
+      "sha256": "17457c38ec99a5563e12f6ac7875e35d7ea5c32f8ea576fd1b8870059a2b6e97",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/franklin_county_ss4a_safety_action_plan_2026.pdf",
+      "caveats": [
+        "3 of 54 PDF pages still extract per glyph rather than per word after retrying the reading order. Those pages are dropped by rag.quality; the rest of the document is indexed normally."
+      ]
+    },
+    {
+      "source_id": "ohio_otso_annual_report_2024",
+      "title": "Ohio Traffic Safety Office 2024 Annual Report",
+      "organization": "Ohio Traffic Safety Office (ODPS)",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "behavioral_safety",
+      "scope": "general_state_policy",
+      "source_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/2024-otso-annual-report.pdf",
+      "download_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/2024-otso-annual-report.pdf",
+      "description": "State highway-safety office report on behavioural safety programmes and outcomes.",
+      "relevance": "Behavioural (non-infrastructure) side of safety; state scope.",
+      "topics": [
+        "impaired driving",
+        "occupant protection",
+        "older road users",
+        "enforcement"
+      ],
+      "published_year": 2024,
+      "gap_targeted": [
+        "Q6",
+        "Q10"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/2024-otso-annual-report.pdf",
+      "retrieved_at": "2026-11-02T15:51:40.805789+00:00",
+      "sha256": "94d679642d1a7cfce5a57f86147616213d949e9e7e200a6d10b4d6283e5f2ffd",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/ohio_otso_annual_report_2024.pdf",
+      "caveats": [
+        "1 of 30 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "ohio_hsp_ffy2024_2026",
+      "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+      "organization": "Ohio Traffic Safety Office (ODPS)",
+      "source_kind": "document",
+      "document_type": "safety_plan",
+      "theme": "behavioral_safety",
+      "scope": "general_state_policy",
+      "source_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf",
+      "download_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf",
+      "description": "NHTSA-required triennial highway safety plan with problem identification and performance targets.",
+      "relevance": "State performance targets and trend data.",
+      "topics": [
+        "performance targets",
+        "problem identification",
+        "countermeasures"
+      ],
+      "published_year": 2023,
+      "gap_targeted": [
+        "Q6"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf",
+      "retrieved_at": "2026-11-02T15:51:43.668489+00:00",
+      "sha256": "fefe5ccdcdd2cbe53d1f77c1fedd2ccb49332e547a1178ea3e32d1c64dedb60b",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/ohio_hsp_ffy2024_2026.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "ohio_trauma_report_2024",
+      "title": "Ohio Annual Trauma Report 2024",
+      "organization": "Ohio Department of Public Safety - Division of EMS",
+      "source_kind": "document",
+      "document_type": "annual_report",
+      "theme": "post_crash_care",
+      "scope": "general_state_policy",
+      "source_url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf",
+      "download_url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf",
+      "description": "Ohio Trauma Registry annual report: trauma volumes, mechanisms, transport and outcomes.",
+      "relevance": "Post-crash care is the thinnest topic in the corpus; this is the state's primary trauma data report.",
+      "topics": [
+        "trauma registry",
+        "EMS",
+        "transport times",
+        "trauma centers"
+      ],
+      "published_year": 2025,
+      "gap_targeted": [
+        "Q8",
+        "post-crash care"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf",
+      "retrieved_at": "2026-11-02T15:53:08.193697+00:00",
+      "sha256": "cf4637b425caa0fb49b67b3107074ab97fcf4b796c53a0542dc82e8d5349736c",
+      "content_status": "ready_with_caveats",
+      "index_eligible": true,
+      "original_path": "documents/originals/ohio_trauma_report_2024.pdf",
+      "caveats": [
+        "2 of 63 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+      ]
+    },
+    {
+      "source_id": "ohio_quickclear_agreement",
+      "title": "Ohio QuickClear Program (ITS architecture agreement)",
+      "organization": "ODOT / ODPS / State Fire Marshal",
+      "source_kind": "document",
+      "document_type": "program_description",
+      "theme": "post_crash_care",
+      "scope": "general_state_policy",
+      "source_url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
+      "download_url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
+      "description": "Description of Ohio's statewide traffic incident management / quick clearance agreement between responders.",
+      "relevance": "Documents incident-clearance practice that shapes post-crash response on freeways.",
+      "topics": [
+        "traffic incident management",
+        "quick clearance",
+        "secondary crashes",
+        "responder coordination"
+      ],
+      "gap_targeted": [
+        "Q8",
+        "post-crash care"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
+      "retrieved_at": "2026-11-02T15:53:12.076546+00:00",
+      "sha256": "7ea3907573810853514290e279bf0f38968233142569a48651911a8100618f39",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/ohio_quickclear_agreement.html",
+      "caveats": []
+    },
+    {
+      "source_id": "fhwa_columbus_community_connections_case_study",
+      "title": "FHWA Community Connections case study - Columbus I-70/I-71",
+      "organization": "Federal Highway Administration",
+      "source_kind": "document",
+      "document_type": "case_study",
+      "theme": "community_impacts",
+      "scope": "region_specific",
+      "source_url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus",
+      "download_url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus",
+      "description": "FHWA case study of reconnecting Columbus neighborhoods divided by the downtown interstates.",
+      "relevance": "Fills the King-Lincoln Bronzeville / Long Street Bridge gap the README flags for Q2.",
+      "topics": [
+        "I-70/I-71",
+        "neighborhood reconnection",
+        "highway caps",
+        "community impacts"
+      ],
+      "gap_targeted": [
+        "Q2",
+        "King-Lincoln Bronzeville"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus/",
+      "retrieved_at": "2026-11-02T15:53:12.839788+00:00",
+      "sha256": "0732c6a2c99043fc51453f862f157238b644dd633609be2c595f689c7645b09a",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/fhwa_columbus_community_connections_case_study.html",
+      "caveats": []
+    },
+    {
+      "source_id": "morpc_atp_2020_2050_overview",
+      "title": "MORPC 2020-2050 Active Transportation Plan - overview",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "plan_summary",
+      "theme": "active_transportation",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-One-Pager-FINAL.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-One-Pager-FINAL.pdf",
+      "description": "One-page summary of the regional Active Transportation Plan goals (safety, comfort, connectivity, access).",
+      "relevance": "Regional bike/ped priorities relevant to user-group trade-offs.",
+      "topics": [
+        "active transportation",
+        "bike network",
+        "Complete Streets",
+        "equity"
+      ],
+      "published_year": 2021,
+      "gap_targeted": [
+        "Q7",
+        "Q10"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-One-Pager-FINAL.pdf",
+      "retrieved_at": "2026-11-02T15:53:13.260665+00:00",
+      "sha256": "441674b15f56be5656843566e568430be5c961914698614dd9a9ca601b41ed32",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_atp_2020_2050_overview.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "morpc_cotsp_executive_summary_2019",
+      "title": "Central Ohio Transportation Safety Plan - Executive Summary (2019)",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "safety_plan",
+      "theme": "regional_safety_plan",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf",
+      "description": "Condensed statement of the COTSP's goals, targets and emphasis areas.",
+      "relevance": "States the regional targets compactly, without the full plan's template pages.",
+      "topics": [
+        "COTSP",
+        "emphasis areas",
+        "safety targets"
+      ],
+      "published_year": 2019,
+      "gap_targeted": [
+        "Q1",
+        "Q5",
+        "COTSP referenced but missing"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf",
+      "retrieved_at": "2026-11-02T15:53:14.866847+00:00",
+      "sha256": "4b4e201f1deaaa467f8d107eb5a5f3cb28e7e64be656cd5136e155c5888432b1",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_cotsp_executive_summary_2019.pdf",
+      "caveats": []
+    },
+    {
+      "source_id": "morpc_atp_bike_ped_safety_memo_2021",
+      "title": "Active Transportation Plan - Bicycle and Pedestrian Safety Memo (2021)",
+      "organization": "MORPC",
+      "source_kind": "document",
+      "document_type": "technical_memo",
+      "theme": "active_transportation_safety",
+      "scope": "region_specific",
+      "source_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-Safety-Memo-11.29.pdf",
+      "download_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-Safety-Memo-11.29.pdf",
+      "description": "MORPC technical memo analysing bicycle and pedestrian crashes across the region as part of the 2020-2050 Active Transportation Plan.",
+      "relevance": "Q10 asks where improving safety for one road user created problems for another; this is the regional document that treats modes against each other directly, and Q10 currently retrieves none of its expected sources.",
+      "topics": [
+        "pedestrian safety",
+        "bicycle safety",
+        "crash analysis",
+        "mode conflict"
+      ],
+      "published_year": 2021,
+      "gap_targeted": [
+        "Q10",
+        "Q5",
+        "mode-conflict evidence"
+      ],
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-Safety-Memo-11.29.pdf",
+      "retrieved_at": "2026-11-02T15:53:15.662751+00:00",
+      "sha256": "1d716938721642ec4a213cbf2fbac3921199da3ceae063ad0f04c80730f6fe94",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/morpc_atp_bike_ped_safety_memo_2021.pdf",
+      "caveats": []
     }
   ]
 }

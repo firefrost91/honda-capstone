@@ -154,19 +154,41 @@ class SentenceAttribution:
     model_cited: list[int]        # whatever the model itself claimed
 
 
-def _split_sentences(text: str) -> list[str]:
+#: A piece ending in one of these did not end a sentence: "Trabue Road & N.
+#: Wilson Road" must not be cut at "N.", or the citation lands mid-street-name.
+#: A lone capital covers compass points, initials and "U.S.".
+_ABBREV_END = re.compile(
+    r"(?:\b[A-Z]|\b(?:St|Ave|Rd|Blvd|Hwy|Pkwy|Dr|Mr|Mrs|Ms|Jr|Sr|Mt|Ft|No|vs|"
+    r"etc|approx|Inc|Co|Corp|Dept|e\.g|i\.e))\.$")
+
+
+def _split_prose(block: str) -> list[str]:
     out: list[str] = []
+    for piece in _SENT_SPLIT.split(block):
+        if out and _ABBREV_END.search(out[-1]):
+            out[-1] = f"{out[-1]} {piece}"
+        else:
+            out.append(piece)
+    return out
+
+
+def _split_blocks(text: str) -> list[list[str]]:
+    """Sentences grouped by the line they came from, so they rejoin as prose."""
+    blocks: list[list[str]] = []
     for block in text.split("\n"):
         block = block.rstrip()
         if not block.strip():
-            out.append("")
-            continue
+            blocks.append([""])
         # Keep bullets and headings whole; they are not prose sentences.
-        if _HEADING.match(block) or block.lstrip().startswith(("-", "*", "•")):
-            out.append(block)
-            continue
-        out.extend(_SENT_SPLIT.split(block))
-    return out
+        elif _HEADING.match(block) or block.lstrip().startswith(("-", "*", "•")):
+            blocks.append([block])
+        else:
+            blocks.append(_split_prose(block))
+    return blocks
+
+
+def _split_sentences(text: str) -> list[str]:
+    return [s for block in _split_blocks(text) for s in block]
 
 
 def _is_factual(sentence: str) -> bool:
@@ -185,7 +207,8 @@ def attribute(answer_text: str, passage_vectors: np.ndarray, encoder,
 
     Returns the rewritten text, per-sentence attributions, and a summary dict.
     """
-    pieces = _split_sentences(answer_text)
+    blocks = _split_blocks(answer_text)
+    pieces = [s for block in blocks for s in block]
     factual_idx = [i for i, s in enumerate(pieces) if _is_factual(s)]
     if not factual_idx or passage_vectors.size == 0:
         return answer_text, [], {"grounded": 0, "total": 0, "grounded_fraction": 1.0}
@@ -231,7 +254,12 @@ def attribute(answer_text: str, passage_vectors: np.ndarray, encoder,
         "grounded_fraction": grounded / total if total else 1.0,
         "mean_support": float(np.mean([a.support for a in attributions])) if total else 0.0,
     }
-    return "\n".join(pieces), attributions, summary
+    # Sentences from one line go back on one line, so paragraphs stay paragraphs.
+    lines, i = [], 0
+    for block in blocks:
+        lines.append(" ".join(pieces[i:i + len(block)]))
+        i += len(block)
+    return "\n".join(lines), attributions, summary
 
 
 #: Acronym expansions a small model reliably gets wrong. Similarity-based
