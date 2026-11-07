@@ -1,0 +1,113 @@
+{
+  "source_id": "columbus_coc_crash_data",
+  "title": "Columbus CoC Crash Data",
+  "source_url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/23",
+  "computed_at": "2026-11-02",
+  "scope": "City of Columbus service area",
+  "caveats": [
+    "Aggregate counts only, computed server-side; individual crash records are not loaded in this knowledge base.",
+    "The pedestrian figures count PedFatal, i.e. fatal only - not every crash involving a pedestrian. This layer publishes no plain pedestrian-involvement field, so the wider figure cannot be computed from it.",
+    "The bicycle figures count BikeFatal, i.e. fatal only - not every crash involving a bicyclist. This layer publishes no plain bicycle-involvement field, so the wider figure cannot be computed from it."
+  ],
+  "fields": {
+    "oid": "OBJECTID",
+    "severity": "SEVERITY_BY_TYPE_CD",
+    "year": "CRASH_YR",
+    "county": null,
+    "pedestrian": "PedFatal",
+    "bicycle": "BikeFatal",
+    "mode_kinds": {
+      "pedestrian": "fatal",
+      "bicycle": "fatal"
+    }
+  },
+  "counts": [
+    {
+      "area": "ALL",
+      "year": 2021,
+      "by_severity": {
+        "(4) Injury Possible": 1565,
+        "(5) PDO/No Injury": 7133,
+        "(2) Serious Injury Suspected": 340,
+        "(1) Fatal": 81,
+        "(3) Minor Injury Suspected": 2914
+      }
+    },
+    {
+      "area": "ALL",
+      "year": 2024,
+      "by_severity": {
+        "(2) Serious Injury Suspected": 263,
+        "(1) Fatal": 49,
+        "(4) Injury Possible": 1582,
+        "(5) PDO/No Injury": 8321,
+        "(3) Minor Injury Suspected": 2410
+      }
+    },
+    {
+      "area": "ALL",
+      "year": 2023,
+      "by_severity": {
+        "(3) Minor Injury Suspected": 2525,
+        "(2) Serious Injury Suspected": 304,
+        "(4) Injury Possible": 1493,
+        "(1) Fatal": 68,
+        "(5) PDO/No Injury": 8557
+      }
+    },
+    {
+      "area": "ALL",
+      "year": 2022,
+      "by_severity": {
+        "(1) Fatal": 68,
+        "(5) PDO/No Injury": 7546,
+        "(2) Serious Injury Suspected": 290,
+        "(4) Injury Possible": 1508,
+        "(3) Minor Injury Suspected": 2464
+      }
+    },
+    {
+      "area": "ALL",
+      "year": 2025,
+      "by_severity": {
+        "(2) Serious Injury Suspected": 282,
+        "(1) Fatal": 51,
+        "(5) PDO/No Injury": 8541,
+        "(3) Minor Injury Suspected": 2321,
+        "(4) Injury Possible": 1508
+      }
+    }
+  ],
+  "modes": [
+    {
+      "area": "ALL",
+      "year": 2022,
+      "pedestrian": 23,
+      "bicycle": 1
+    },
+    {
+      "area": "ALL",
+      "year": 2021,
+      "pedestrian": 25,
+      "bicycle": 4
+    },
+    {
+      "area": "ALL",
+      "year": 2023,
+      "pedestrian": 19,
+      "bicycle": 3
+    },
+    {
+      "area": "ALL",
+      "year": 2025,
+      "pedestrian": 19,
+      "bicycle": 2
+    },
+    {
+      "area": "ALL",
+      "year": 2024,
+      "pedestrian": 18,
+      "bicycle": 2
+    }
+  ]
+}

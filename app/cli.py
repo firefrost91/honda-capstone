@@ -10,6 +10,7 @@ import sys
 
 from rag.config import CONFIG
 from rag.pipeline import RAGPipeline
+from rag.tools import STAKEHOLDERS
 
 BANNER = """
   Columbus / Central Ohio Transportation Safety - local RAG
@@ -20,6 +21,8 @@ BANNER = """
   /sources   show every retrieved passage, not just the cited ones
   /why       show the sub-queries used for the last question
   /k <n>     change how many passages are retrieved (now {k})
+  /as <id>   answer from a stakeholder's perspective (/as none to auto-detect)
+  /who       list the stakeholder perspectives and their metric tools
   /quit      exit
 """
 
@@ -34,12 +37,15 @@ def main() -> int:
     ap.add_argument("--all-sources", action="store_true",
                     help="always list retrieved passages, not only cited ones")
     ap.add_argument("--no-stream", action="store_true", help="wait for the full answer")
+    ap.add_argument("-s", "--stakeholder", choices=sorted(STAKEHOLDERS), default=None,
+                    help="frame the answer for this stakeholder (default: detect from the question)")
     args = ap.parse_args()
 
     pipeline = RAGPipeline()
 
     if args.question:
-        _print_answer(pipeline.answer(args.question), args.all_sources)
+        _print_answer(pipeline.answer(args.question, stakeholder=args.stakeholder),
+                      args.all_sources)
         return 0
 
     print(BANNER.format(k=CONFIG.final_k))
@@ -48,7 +54,7 @@ def main() -> int:
     if not pipeline.llm.available:
         print("  NOTE: no language model available - answers will be extractive.\n")
 
-    k, last = CONFIG.final_k, None
+    k, last, who = CONFIG.final_k, None, args.stakeholder
     while True:
         try:
             q = input("\nask> ").strip()
@@ -68,6 +74,22 @@ def main() -> int:
                 print("  retrieval sub-queries:")
                 print("\n".join(f"    - {s}" for s in last.subqueries))
             continue
+        if q == "/who":
+            for s in STAKEHOLDERS.values():
+                print(f"  {s.id:<10} {s.name}  [{', '.join(s.tools)}]")
+            print(f"  current: {who or 'auto-detect'}")
+            continue
+        if q.startswith("/as"):
+            arg = q[3:].strip()
+            if arg in STAKEHOLDERS:
+                who = arg
+                print(f"  answering for {STAKEHOLDERS[who].name}")
+            elif arg in {"", "none", "auto"}:
+                who = None
+                print("  stakeholder auto-detected from each question")
+            else:
+                print("  usage: /as <" + "|".join(STAKEHOLDERS) + "|none>")
+            continue
         if q.startswith("/k "):
             try:
                 k = int(q.split()[1])
@@ -77,15 +99,15 @@ def main() -> int:
             continue
 
         if args.no_stream:
-            last = pipeline.answer(q, k=k)
+            last = pipeline.answer(q, k=k, stakeholder=who)
             _print_answer(last, args.all_sources)
         else:
             print()
-            for kind, payload in pipeline.stream(q, k=k):
+            for kind, payload in pipeline.stream(q, k=k, stakeholder=who):
                 if kind == "token":
                     sys.stdout.write(payload)
                     sys.stdout.flush()
-                else:
+                elif kind == "answer":
                     last = payload
             # Streamed text is pre-attribution; reprint the verified version.
             print("\n\n--- verified answer ---")

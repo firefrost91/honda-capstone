@@ -1,0 +1,19 @@
+{
+  "n_vectors": 2372,
+  "dim": 384,
+  "mean_cosine": 0.6483,
+  "effective_rank": 290.7,
+  "effective_rank_ratio": 0.757,
+  "top1_variance_share": 0.1189,
+  "top10_variance_share": 0.411,
+  "near_duplicate_rate": 0.0767,
+  "hubness_skew": 1.449,
+  "max_k_occurrence": 57,
+  "query_topk_overlap": 0.0983,
+  "query_max_pair_overlap": 0.5385,
+  "query_margin_top1_top50": 0.0713,
+  "query_min_margin": 0.0373,
+  "alarms": [
+    "a question's top-1 vs top-50 margin is only 0.037"
+  ]
+}

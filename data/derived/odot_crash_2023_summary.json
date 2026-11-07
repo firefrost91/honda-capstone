@@ -1,0 +1,133 @@
+{
+  "source_id": "odot_crash_2023",
+  "title": "ODOT Crash Data - 2023",
+  "source_url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2023_Crash_Locations/MapServer/0",
+  "computed_at": "2026-11-02",
+  "scope": "Central Ohio counties (MORPC region) with an Ohio statewide total for context",
+  "caveats": [
+    "Aggregate counts only, computed server-side; individual crash records are not loaded in this knowledge base.",
+    "Severity values are the layer's raw codes (CRASH_SEVERITY_CD); no coded-value domain was published to decode them."
+  ],
+  "fields": {
+    "oid": "OBJECTID",
+    "severity": "CRASH_SEVERITY_CD",
+    "year": "CRASH_YR",
+    "county": "COUNTY_CD",
+    "pedestrian": null,
+    "bicycle": null,
+    "mode_kinds": {}
+  },
+  "counts": [
+    {
+      "area": "OHIO (statewide)",
+      "year": 2023,
+      "by_severity": {
+        "5": 187528,
+        "2": 6059,
+        "4": 25165,
+        "3": 32668,
+        "1": 1150
+      }
+    },
+    {
+      "area": "FRANKLIN",
+      "year": 2023,
+      "by_severity": {
+        "5": 16003,
+        "3": 4121,
+        "1": 118,
+        "4": 2659,
+        "2": 545
+      }
+    },
+    {
+      "area": "UNION",
+      "year": 2023,
+      "by_severity": {
+        "5": 958,
+        "3": 167,
+        "4": 139,
+        "2": 35,
+        "1": 8
+      }
+    },
+    {
+      "area": "MADISON",
+      "year": 2023,
+      "by_severity": {
+        "5": 759,
+        "3": 148,
+        "2": 54,
+        "4": 94,
+        "1": 10
+      }
+    },
+    {
+      "area": "MORROW",
+      "year": 2023,
+      "by_severity": {
+        "4": 51,
+        "5": 639,
+        "3": 158,
+        "2": 28,
+        "1": 5
+      }
+    },
+    {
+      "area": "DELAWARE",
+      "year": 2023,
+      "by_severity": {
+        "5": 2480,
+        "3": 486,
+        "4": 419,
+        "1": 15,
+        "2": 82
+      }
+    },
+    {
+      "area": "KNOX",
+      "year": 2023,
+      "by_severity": {
+        "5": 783,
+        "2": 28,
+        "4": 97,
+        "3": 137,
+        "1": 6
+      }
+    },
+    {
+      "area": "LICKING",
+      "year": 2023,
+      "by_severity": {
+        "3": 415,
+        "5": 2360,
+        "4": 284,
+        "2": 98,
+        "1": 17
+      }
+    },
+    {
+      "area": "FAIRFIELD",
+      "year": 2023,
+      "by_severity": {
+        "3": 308,
+        "5": 1536,
+        "4": 177,
+        "2": 80,
+        "1": 15
+      }
+    },
+    {
+      "area": "PICKAWAY",
+      "year": 2023,
+      "by_severity": {
+        "3": 193,
+        "5": 870,
+        "1": 7,
+        "4": 112,
+        "2": 57
+      }
+    }
+  ],
+  "modes": []
+}

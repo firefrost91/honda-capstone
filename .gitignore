@@ -4,3 +4,6 @@ __pycache__/
 index/
 .DS_Store
 .pytest_cache/
+documents/
+eval/embed_health.json
+eval/ingest_report.json

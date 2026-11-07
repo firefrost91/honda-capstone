@@ -9,6 +9,7 @@ from typing import Iterator
 import numpy as np
 
 from .config import CONFIG, Config
+from .corpus import EVIDENCE_KINDS
 from .attribute import (attribute, check_catalog_claims,
                         check_invented_figures, check_scope_claims, fix_glossary)
 from .index import HybridIndex
@@ -17,6 +18,7 @@ from .postprocess import GAP_HEADING, clean
 from .prompts import (SYSTEM_PROMPT, build_context, build_gap_prompt,
                       build_user_prompt)
 from .retrieve import Hit, Retriever
+from .tools import TOOL_KIND, run_tools, tool_hits
 
 _CITE = re.compile(r"\[S(\d+)\]")
 #: Small models drift to [5] or [Source 5]; normalise before validating.
@@ -77,6 +79,10 @@ class Answer:
     elapsed_s: float = 0.0
     backend: str = ""
     warnings: list[str] = field(default_factory=list)
+    #: stakeholder profile id the answer was framed for (rag.tools.STAKEHOLDERS)
+    stakeholder: str | None = None
+    #: metric tool calls made for this question, as ToolResult.to_dict()
+    tool_calls: list[dict] = field(default_factory=list)
 
     def cited_sources(self) -> list[Source]:
         return [s for s in self.sources if s.cited]
@@ -89,9 +95,28 @@ class Answer:
                 f"groundedness {self.groundedness:.0%} | "
                 f"{self.n_sources} distinct documents | {self.backend} | {self.elapsed_s:.1f}s]")
         out.append(meta)
+        if self.stakeholder or self.tool_calls:
+            tools = ", ".join(f"{t['tool']} ({t['location']}, {t['year']})"
+                              for t in self.tool_calls) or "none"
+            out.append(f"[perspective: {self.stakeholder or 'none'} | metric tools: {tools}]")
         if self.warnings:
             out.append("[warnings] " + "; ".join(self.warnings))
         return "\n".join(out)
+
+
+@dataclass
+class Prepared:
+    """Everything the generator needs, built once and shared by answer/stream."""
+    prompt: str
+    sources: list[Source]
+    subqueries: list[str]
+    confidence: float
+    coverage_note: str
+    warnings: list[str]
+    kept: list[Hit]
+    context: str
+    stakeholder: str | None = None
+    tool_calls: list[dict] = field(default_factory=list)
 
 
 def _diagnose(question: str, hits: list[Hit], confidence: float) -> tuple[str, list[str]]:
@@ -143,19 +168,47 @@ class RAGPipeline:
         self.retriever = Retriever(self.index, cfg)
         self.llm = llm if llm is not None else get_llm(cfg)
 
+    # -- metric tools ------------------------------------------------------
+    def _run_tools(self, question: str, stakeholder: str | None) -> tuple[list[Hit], list[dict], str | None]:
+        """Run the stakeholder metric tools and wrap their output as hits.
+
+        Tool passages go in front of the retrieved ones: the context budget
+        truncates from the end, and a metric table the question asked for must
+        not be the thing that gets cut. They carry their own vectors, so the
+        attribution pass verifies sentences that quote them exactly as it does
+        for document text.
+        """
+        if not self.cfg.tools_enabled:
+            return [], [], stakeholder
+        results, sid = run_tools(question, stakeholder, limit=self.cfg.max_tool_passages,
+                                 auto_detect=self.cfg.tools_auto_detect)
+        hits = tool_hits(results, self._encode_batch)
+        return hits, [r.to_dict() for r in results], sid
+
     # -- shared front half ---------------------------------------------
-    def _prepare(self, question: str, k: int | None = None):
+    def _prepare(self, question: str, k: int | None = None,
+                 stakeholder: str | None = None) -> Prepared | None:
         hits, subqueries = self.retriever.retrieve(question, llm=self.llm, k=k)
-        if not hits:
+        thits, tool_calls, stakeholder = self._run_tools(question, stakeholder)
+        if not hits and not thits:
             return None
 
         qvec = self.index.encode_query(question, self.cfg)
         sims = [float(self.index.vectors[h.index] @ qvec) for h in hits]
         confidence = float(np.mean(sorted(sims, reverse=True)[:5])) if sims else 0.0
 
-        context, kept = build_context(hits, self.cfg.context_char_budget)
-        coverage_note, warnings = _diagnose(question, kept, confidence)
-        prompt = build_user_prompt(question, context, coverage_note)
+        context, kept = build_context(thits + hits, self.cfg.context_char_budget)
+        retrieved = [h for h in kept if h.passage.kind != TOOL_KIND]
+        coverage_note, warnings = _diagnose(question, retrieved, confidence)
+        if not retrieved:
+            coverage_note += (" No document passages were retrieved for this question; "
+                              "only metric tool output is available.")
+        n_synth = sum(1 for h in kept if h.passage.kind == TOOL_KIND
+                      and "synthetic placeholder values" in h.passage.caveats)
+        if n_synth:
+            warnings = warnings + [
+                f"{n_synth} metric passage(s) are synthetic placeholder tool output, not measured data"]
+        prompt = build_user_prompt(question, context, coverage_note, stakeholder)
 
         sources = [
             Source(n=i + 1, title=h.passage.title, organization=h.passage.organization,
@@ -163,11 +216,15 @@ class RAGPipeline:
                    kind=h.passage.kind, source_id=h.passage.source_id)
             for i, h in enumerate(kept)
         ]
-        return (prompt, sources, subqueries, confidence, coverage_note, warnings,
-                kept, context)
+        return Prepared(prompt, sources, subqueries, confidence, coverage_note, warnings,
+                        kept, context, stakeholder, tool_calls)
+
+    def _passage_vectors(self, kept: list[Hit]) -> np.ndarray:
+        return np.stack([h.vector if h.vector is not None else self.index.vectors[h.index]
+                         for h in kept])
 
     def _finish(self, question, text, sources, subqueries, confidence, coverage_note,
-                warnings, kept, t0, context="") -> Answer:
+                warnings, kept, t0, context="", stakeholder=None, tool_calls=None) -> Answer:
         text, clean_warnings = clean(text)
         warnings = warnings + clean_warnings
         if self.llm.available and GAP_HEADING not in text:
@@ -189,7 +246,7 @@ class RAGPipeline:
         # rest on, and rewrite the citation markers from that verification.
         groundedness, unsupported = 1.0, []
         if self.llm.available and sources:
-            pvecs = np.stack([self.index.vectors[h.index] for h in kept])
+            pvecs = self._passage_vectors(kept)
             text, attributions, summary = attribute(
                 text, pvecs, lambda xs: self._encode_batch(xs))
             groundedness = summary["grounded_fraction"]
@@ -220,54 +277,81 @@ class RAGPipeline:
             s.cited = s.n in cited
         if not cited and self.llm.available:
             warnings = warnings + ["model produced no [S#] citations"]
+        # The prompt asks the model to say once that tool figures are placeholders;
+        # a small model does not do it reliably, so the answer says it itself.
+        synthetic_cited = [f"[S{h_i + 1}]" for h_i, h in enumerate(kept)
+                           if (h_i + 1) in cited and h.passage.kind == TOOL_KIND
+                           and "synthetic placeholder values" in h.passage.caveats]
+        if synthetic_cited:
+            text = (f"Note: the figures cited to {', '.join(synthetic_cited)} are synthetic "
+                    "placeholder output from stub metric tools, not measured data.\n\n" + text)
         return Answer(
             question=question, text=text, sources=sources, subqueries=subqueries,
             confidence=confidence, groundedness=groundedness,
             unsupported_claims=unsupported, coverage_note=coverage_note,
-            n_sources=len({h.passage.source_id for h in kept}),
+            n_sources=len({h.passage.source_id for h in kept if h.passage.kind != TOOL_KIND}),
             elapsed_s=time.time() - t0, backend=self.llm.name, warnings=warnings,
+            stakeholder=stakeholder, tool_calls=list(tool_calls or []),
         )
 
     # -- public API -----------------------------------------------------
-    def answer(self, question: str, k: int | None = None) -> Answer:
+    def answer(self, question: str, k: int | None = None,
+               stakeholder: str | None = None) -> Answer:
+        """Answer ``question``; ``stakeholder`` is a profile id from
+        ``rag.tools.STAKEHOLDERS`` (auto-detected from the question when None)."""
         t0 = time.time()
-        prep = self._prepare(question, k)
-        if prep is None:
+        p = self._prepare(question, k, stakeholder)
+        if p is None:
             return Answer(question=question, text="Nothing in the knowledge base matched "
                           "that question.", sources=[], backend=self.llm.name,
                           elapsed_s=time.time() - t0)
-        prompt, sources, subqueries, confidence, note, warnings, kept, context = prep
 
         if self.llm.available:
-            text = self._generate_with_body(prompt)
+            text = self._generate_with_body(p.prompt)
         else:
-            text = self._extractive(kept)
-        return self._finish(question, text, sources, subqueries, confidence, note,
-                            warnings, kept, t0, context)
+            text = self._extractive(p.kept)
+        return self._finish(question, text, p.sources, p.subqueries, p.confidence,
+                            p.coverage_note, p.warnings, p.kept, t0, p.context,
+                            p.stakeholder, p.tool_calls)
 
-    def stream(self, question: str, k: int | None = None) -> Iterator[tuple[str, object]]:
-        """Yield ('token', str) chunks then a final ('answer', Answer)."""
+    def stream(self, question: str, k: int | None = None,
+               stakeholder: str | None = None) -> Iterator[tuple[str, object]]:
+        """Yield ('stage', dict) progress, ('token', str) chunks, then ('answer', Answer).
+
+        A full answer takes minutes on a laptop; the stages are what tell the
+        person it is still working, and on what.
+        """
         t0 = time.time()
-        prep = self._prepare(question, k)
-        if prep is None:
+        yield "stage", {"stage": "searching"}
+        p = self._prepare(question, k, stakeholder)
+        if p is None:
             yield "answer", Answer(question=question, text="Nothing in the knowledge base "
                                    "matched that question.", sources=[], backend=self.llm.name)
             return
-        prompt, sources, subqueries, confidence, note, warnings, kept, context = prep
+        kept, sources = p.kept, p.sources
+        yield "stage", {"stage": "retrieved", "passages": len(kept),
+                        "documents": len({h.passage.source_id for h in kept
+                                          if h.passage.kind != TOOL_KIND}),
+                        "titles": list(dict.fromkeys(s.title for s in sources)),
+                        "stakeholder": p.stakeholder,
+                        "tools": [t["tool"] for t in p.tool_calls]}
 
         parts: list[str] = []
         if self.llm.available:
-            for tok in self.llm.stream(prompt, system=SYSTEM_PROMPT):
+            yield "stage", {"stage": "writing"}
+            for tok in self.llm.stream(p.prompt, system=SYSTEM_PROMPT):
                 parts.append(tok)
                 yield "token", tok
             if not self._has_body("".join(parts)):
-                parts = [self._generate_with_body(prompt)]
+                parts = [self._generate_with_body(p.prompt)]
         else:
             text = self._extractive(kept)
             parts.append(text)
             yield "token", text
-        yield "answer", self._finish(question, "".join(parts), sources, subqueries,
-                                     confidence, note, warnings, kept, t0, context)
+        yield "stage", {"stage": "checking"}
+        yield "answer", self._finish(question, "".join(parts), sources, p.subqueries,
+                                     p.confidence, p.coverage_note, p.warnings, kept, t0,
+                                     p.context, p.stakeholder, p.tool_calls)
 
     def _generate_gaps(self, question: str, context: str, answer: str) -> str:
         """Ask for the gap section on its own.
@@ -306,7 +390,7 @@ class RAGPipeline:
                 + ", ".join(catalogs[:3])
                 + ". Any count, rate or trend from them would have to be computed by "
                   "querying the service endpoint directly.")
-        docs = sorted({h.passage.title for h in kept if h.passage.kind == "chunk"})
+        docs = sorted({h.passage.title for h in kept if h.passage.kind in EVIDENCE_KINDS})
         if docs:
             bullets.append(f"- This answer rests on {len(docs)} document(s); other local "
                            "plans, project records and public feedback were not retrieved "

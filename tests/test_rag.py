@@ -6,6 +6,7 @@ Run:  ./.venv/bin/python -m pytest tests -q
 from __future__ import annotations
 
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -15,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from rag.attribute import (attribute, check_catalog_claims,
                            check_invented_figures, check_scope_claims,
                            fix_glossary, _split_sentences, SentenceAttribution)
+from rag.config import CONFIG
 from rag.corpus import load_passages, _informative, _clean
 from rag.lexical import BM25, tokenize, expand_query
 from rag.postprocess import clean
@@ -33,9 +35,12 @@ def test_clean_collapses_pdf_linebreaks():
     assert _clean("speed  \n  limits\n\napply") == "speed\nlimits\n\napply"
 
 
-def test_corpus_has_all_three_passage_kinds():
+def test_corpus_has_all_the_catalogue_passage_kinds():
+    # data_summary appears only once `make ingest-gis` has written data/derived,
+    # so it is expected-if-present rather than required.
     kinds = {p.kind for p in load_passages()}
-    assert kinds == {"chunk", "doc_card", "data_card"}
+    assert {"chunk", "doc_card", "data_card"} <= kinds
+    assert kinds <= {"chunk", "doc_card", "data_card", "data_summary"}
 
 
 def test_data_cards_declare_records_are_absent():
@@ -95,6 +100,23 @@ def test_planner_expands_analytical_questions():
     assert len(qs) > 1 and qs[0].startswith("How have")
 
 
+def test_planner_obeys_the_subquery_ceiling_and_keeps_the_question():
+    """Past the ceiling, fusion prefers passages that place on every facet."""
+    # a question that trips several facet rules at once
+    q = ("Based on local evidence and data, what improvements should Columbus "
+         "prioritize to reduce crashes, and what information is still missing?")
+    assert len(plan_subqueries(q)) == CONFIG.max_subqueries
+    assert plan_subqueries(q)[0] == q
+    assert plan_subqueries(q, cfg=replace(CONFIG, max_subqueries=1)) == [q]
+
+
+def test_the_chunk_floor_reserves_most_slots_for_document_text():
+    assert CONFIG.min_chunk_fraction >= 0.6, (
+        "below this, catalogue cards take the majority of the context: "
+        "measured 6 chunks + 8 cards out of 14 at 0.4")
+    assert round(CONFIG.final_k * CONFIG.min_chunk_fraction) >= 9
+
+
 # ---- answer hygiene -------------------------------------------------------
 
 def test_glossary_fixes_local_acronyms():
@@ -150,6 +172,24 @@ def test_attribution_cites_the_supporting_passage_and_flags_invention():
 def test_sentence_splitter_keeps_bullets_intact():
     pieces = _split_sentences("- One bullet. Still the bullet.\nPlain text. More text.")
     assert pieces[0] == "- One bullet. Still the bullet."
+
+
+def test_sentence_splitter_does_not_cut_at_abbreviations():
+    pieces = _split_sentences("Crashes cluster at Trabue Road & N. Wilson Road. "
+                              "The U.S. Census counts residents. Speeds are high.")
+    assert pieces == ["Crashes cluster at Trabue Road & N. Wilson Road.",
+                      "The U.S. Census counts residents.", "Speeds are high."]
+
+
+def test_attribution_keeps_paragraphs_on_one_line():
+    vecs = np.array([[1, 0]], dtype=np.float32)
+    text = ("Lowering speed reduces crash severity in the city centre. "
+            "Lower speed also shortens stopping distances for drivers.\n\nNext paragraph.")
+    out, _, _ = attribute(text, vecs, lambda xs: np.array([[1, 0]] * len(xs), dtype=np.float32))
+    assert out.split("\n") == [
+        "Lowering speed reduces crash severity in the city centre [S1]. "
+        "Lower speed also shortens stopping distances for drivers [S1].",
+        "", "Next paragraph."]
 
 
 def test_gap_dedupe_preserves_the_answer_when_the_heading_comes_first():
