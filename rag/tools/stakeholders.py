@@ -29,6 +29,10 @@ class Stakeholder:
     signals: tuple[str, ...]
     #: what "good" looks like, for the framing instruction
     lens: str
+    #: retrieval probes, in the vocabulary of the documents this group would
+    #: consult. Without these the retriever sees only the question, so a
+    #: question shared across groups retrieves the same passages for all of them.
+    focus: tuple[str, ...] = ()
 
 
 STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
@@ -46,7 +50,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\bagenc"),
         "Judge outcomes against the adopted five-year safety targets and network "
         "screening: does the location still rank, and is the investment justified "
-        "relative to alternatives?"),
+        "relative to alternatives?",
+        focus=(
+            'adopted safety targets and network screening of high injury corridors',
+            'project prioritization criteria and benefit-cost of safety investment')),
     Stakeholder(
         LOCAL_GOV, "Local government / public works",
         "City and township teams who plan, build, operate and maintain streets and "
@@ -60,7 +67,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\butilit", r"\bsustain", r"\bgeometry\b"),
         "Judge outcomes by whether the design can be built, maintained and kept "
         "effective as volumes grow, and what each remaining crash says about a "
-        "fixable infrastructure or maintenance cause."),
+        "fixable infrastructure or maintenance cause.",
+        focus=(
+            'roadway maintenance and infrastructure condition of signals and pavement',
+            'design feasibility right-of-way and implementation constraints')),
     Stakeholder(
         RESIDENTS, "Nearby residents / local communities",
         "People who live near the road and use it daily for commuting, shopping, "
@@ -72,7 +82,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\bcommunit", r"\bquality of life\b", r"\bdetour", r"\bcomplaint"),
         "Judge outcomes by what they mean on the block: two serious crashes near "
         "homes are not an acceptable residual, and perceived safety, speed, noise and "
-        "diverted traffic count as much as the crash count."),
+        "diverted traffic count as much as the crash count.",
+        focus=(
+            'neighborhood residents noise speeding and cut-through traffic',
+            'community engagement construction impacts and public comments')),
     Stakeholder(
         DRIVERS, "Drivers / daily commuters",
         "People who drive the road, intersection or corridor every day.",
@@ -85,7 +98,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\brear-?end\b", r"\bcongestion\b"),
         "Judge outcomes by whether the trip is safer and more predictable: delay, "
         "queues, reliability and whether the design makes the expected manoeuvre "
-        "obvious."),
+        "obvious.",
+        focus=(
+            'traffic delay congestion queues and travel time reliability',
+            'signal timing intersection design and driver behavior')),
     Stakeholder(
         VRU, "Pedestrians / cyclists / vulnerable road users",
         "People who walk, cycle or use micromobility, including older adults and "
@@ -99,7 +115,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\bolder adults\b", r"\bdisabilit", r"\bmicromobility\b"),
         "Judge outcomes by exposure and comfort for people outside a vehicle: "
         "remaining pedestrian concerns are the headline, not a footnote, and crossing "
-        "distance, speed and separation decide whether the place feels safe."),
+        "distance, speed and separation decide whether the place feels safe.",
+        focus=(
+            'pedestrian and bicyclist crashes crossing safety and sidewalk gaps',
+            'vulnerable road users vehicle speed and separation')),
     Stakeholder(
         EMERGENCY, "Emergency responders / healthcare providers",
         "Fire, EMS, police and trauma staff who reach crash scenes, transport the "
@@ -113,7 +132,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\binjur(y|ies) severity\b"),
         "Judge outcomes by severity and by what happens after the crash: two serious "
         "injuries with difficult access or long transport times are a significant "
-        "concern regardless of the total count."),
+        "concern regardless of the total count.",
+        focus=(
+            'emergency response time EMS access to crash locations',
+            'crash severity trauma care and post-crash response')),
     Stakeholder(
         TRANSIT, "Public transit / mobility providers",
         "COTA and other operators running buses, Park & Ride lots and mobility "
@@ -125,7 +147,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\bfirst[/ -]?(and )?last[- ]mile\b", r"\bmobility\b", r"\bLinkUS\b",
          r"\bboarding", r"\bstops?\b"),
         "Judge outcomes by whether riders can reach the stop safely and the bus can "
-        "move: sidewalk and crossing access to stops, stop accessibility and bus delay."),
+        "move: sidewalk and crossing access to stops, stop accessibility and bus delay.",
+        focus=(
+            'transit stops first-mile last-mile access and Park & Ride',
+            'COTA bus service and pedestrian access to transit')),
     Stakeholder(
         FREIGHT, "Freight / rail operators",
         "Trucking firms and railroads that need safe, reliable freight movement.",
@@ -138,7 +163,10 @@ STAKEHOLDERS: dict[str, Stakeholder] = {s.id: s for s in [
          r"\bindustrial\b", r"\bdesign vehicle\b", r"\bturning radi"),
         "Judge outcomes by whether trucks and trains can still operate: turning "
         "paths, access, reliability and crossing conflicts, and whether the design "
-        "shifts truck conflicts somewhere else."),
+        "shifts truck conflicts somewhere else.",
+        focus=(
+            'freight truck routes and design vehicle turning movements',
+            'at-grade rail crossings and truck-involved crashes')),
 ]}
 
 assert tuple(STAKEHOLDERS) == ALL

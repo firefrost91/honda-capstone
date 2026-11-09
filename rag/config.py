@@ -80,6 +80,17 @@ class Config:
     #: Q9 legitimately expects one, so 0.7 is the stopping point. Combined with
     #: ``max_subqueries`` the measured recall is 0.750.
     min_chunk_fraction: float = 0.7
+    #: Ceiling on catalogue cards (doc_card + data_card) among the selected
+    #: passages. Cards are short and keyword-dense, so they win every slot the
+    #: chunk floor leaves open, and the same few (the High Injury Network, HSIP)
+    #: turn up in questions that are not about data at all. Of the 10 eval
+    #: questions only Q9 expects a card.
+    max_catalog_cards: int = 2
+    #: The ceiling for questions that are about data or sources, where an
+    #: inventory of datasets is part of the answer.
+    max_catalog_cards_data_question: int = 4
+    #: A card on a non-data question must rank this high under the question itself.
+    catalog_card_rank: int = 20
     #: How many sub-queries the LLM planner is ASKED for. The rule-based
     #: facets in ``retrieve._FACET_RULES`` are not counted against it.
     n_subqueries: int = 4
@@ -93,6 +104,20 @@ class Config:
     #: a dense-rank-0 passage to fused rank 45. Recall by ceiling: 13 -> 0.500,
     #: 6 -> 0.600, 5 -> 0.700, 4 -> 0.700.
     max_subqueries: int = 5
+    #: Slots (inside ``max_subqueries``) given to the selected stakeholder's
+    #: own retrieval probes, so the group's concerns steer which passages come
+    #: back and not only how the answer is framed.
+    max_stakeholder_probes: int = 2
+    #: Fusion bonus for a passage that ranks in the top ``stakeholder_boost_rank``
+    #: of one of the role's own probes, so role-specific evidence beats the
+    #: passages every audience's question already retrieves.
+    stakeholder_boost: float = 0.15
+    stakeholder_boost_rank: int = 10
+    #: Tell the LLM planner whom the answer is for. OFF: with the 3B model it
+    #: made retrieval no more role-specific (transit, emergency and local
+    #: government all got the same generic probe) and measured worse than the
+    #: plain prompt on cross-stakeholder overlap. Retest with a stronger model.
+    stakeholder_aware_planner: bool = False
     use_query_planner: bool = True
 
     # ---- generation ---------------------------------------------------

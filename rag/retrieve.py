@@ -98,37 +98,149 @@ _FACET_RULES: list[tuple[str, tuple[str, ...]]] = [
       "public comments objections to design changes")),
 ]
 
-_PLANNER_PROMPT = """You are planning retrieval for a transportation-safety knowledge base covering Columbus and Central Ohio (MORPC plans, Vision Zero Columbus, ODOT documents, project records, and GIS dataset catalogues).
+_PLANNER_PROMPT = """You write search queries for a transportation-safety document collection (MORPC plans, Vision Zero action plans, ODOT manuals, project records, GIS dataset catalogues).
 
-Break the user's question into {n} short, distinct search queries. Each should target a DIFFERENT facet or a different document that would need to be consulted. Use the vocabulary a transportation planner would use in a document, not conversational phrasing.
+Break the user's question into {n} short, distinct search queries. Each must target a DIFFERENT facet or a different document that would need to be consulted.
 
-Return one query per line, no numbering, no commentary.
+{role}Rules:
+- 4 to 12 words each, written in the vocabulary a planner would use in a document, not conversational phrasing.
+- Do NOT mention Columbus, Central Ohio, Ohio or the region. Every document already covers it, so it adds nothing to a search.
+- Use concrete topic words (program names, metrics, road types, agencies, document types) that are not already the question's own wording.
+- Output only the queries, one per line. No numbering, bullets, quotes, labels or commentary.
 
-Question: {question}"""
+Example question: Why are pedestrian deaths rising on arterial roads?
+Example output:
+pedestrian fatality counts by roadway functional class
+arterial corridor speed limits and crossing spacing
+high injury network pedestrian crash locations
+signalized intersection countermeasures leading pedestrian interval
+
+Question: {question}
+Output:"""
+
+#: Region boilerplate the planner tends to append. Stripped from planned
+#: queries: a phrase present in every document discriminates between none.
+_REGION_BOILERPLATE = re.compile(
+    r"\b(?:in|for|across|within|of)?\s*"
+    r"(?:columbus\s*(?:/|,|and|&)\s*(?:the\s+)?central\s+ohio|central\s+ohio(?:\s+region)?"
+    r"|columbus,?\s+ohio|the\s+columbus\s+region)\b"
+    # ... but not when it is the start of a name: Central Ohio Transit Authority
+    # (COTA), Central Ohio Transportation Safety Plan (COTSP), Central Ohio Greenways
+    r"(?!\s+(?:transit|transportation|greenways?|regional|rail|mobility|traffic\s+incident))", re.I)
+#: A bare "Columbus" is just as uninformative, but it is also part of real
+#: names ("Vision Zero Columbus", "City of Columbus", "Columbus Division of
+#: Police"), which must survive.
+_BARE_COLUMBUS = re.compile(
+    r"(?<!Vision Zero )(?<!City of )(?<!vision zero )(?<!city of )"
+    r"\bcolumbus(?:[- ]area)?\b(?!\s+(?:Division|Department|Metropolitan|Zero|Police|Fire))", re.I)
+_PREAMBLE = re.compile(
+    r"^(?:here\s+(?:are|is)|sure|certainly|okay|below|these|the following|queries?\b|search queries)", re.I)
+_LABEL = re.compile(r"^\s*(?:query|q|search|probe)\s*\d*\s*[:.\-)]\s*", re.I)
+_STOP = frozenset(
+    "a an and are as at be by for from how in is it of on or that the this to was what "
+    "when where which who why with does did do has have had can could should would will "
+    "been being their there than then these those into over about across between".split())
 
 
-def plan_subqueries(question: str, llm=None, cfg: Config = CONFIG) -> list[str]:
-    """Return the original question plus distinct retrieval probes."""
+def _content_tokens(text: str) -> frozenset[str]:
+    return frozenset(w for w in re.findall(r"[a-z0-9][a-z0-9\-]*", text.lower()) if w not in _STOP)
+
+
+def _clean_planned_query(line: str) -> str | None:
+    """Return a usable retrieval probe from one line of planner output, or None.
+
+    Small local models emit preambles ("Here are 4 queries:"), numbering,
+    quotes, labels and region boilerplate. Anything that does not survive
+    cleaning as a short phrase of real topic words is dropped rather than
+    issued as a probe, because every probe adds a ranking to the fusion.
+    """
+    line = re.sub(r"^\s*(?:[-*\u2022#>]+|\d+[.)\]:])\s*", "", line)
+    line = _LABEL.sub("", line)
+    line = line.replace("**", "").replace("`", "").strip().strip("\"'\u201c\u201d\u2018\u2019").strip()
+    if not line or _PREAMBLE.match(line) or line.endswith(":"):
+        return None
+    if re.search(r"[{}\[\]<>|=]", line):
+        return None
+    line = _REGION_BOILERPLATE.sub(" ", line)
+    line = _BARE_COLUMBUS.sub(" ", line)
+    line = re.sub(r"\s+", " ", line).strip(" ,;:-/")
+    words = line.split()
+    if not 3 <= len(words) <= 16:
+        return None
+    if sum(c.isalpha() for c in line) < 0.7 * len(line.replace(" ", "")):
+        return None
+    if len(_content_tokens(line)) < 2:
+        return None
+    return line
+
+
+def _is_near_duplicate(candidate: str, accepted: list[str], threshold: float = 0.75) -> bool:
+    ct = _content_tokens(candidate)
+    for other in accepted:
+        ot = _content_tokens(other)
+        if ct and ot and len(ct & ot) / min(len(ct), len(ot)) >= threshold:
+            return True
+    return False
+
+
+def _role_block(stakeholder_context: str) -> str:
+    if not stakeholder_context:
+        return ""
+    return (f"The answer is for this audience: {stakeholder_context}\n"
+            "Make the queries reach the evidence THIS audience would want, which may differ "
+            "from what another audience asking the same question would need.\n\n")
+
+
+def plan_subqueries(question: str, llm=None, cfg: Config = CONFIG,
+                    stakeholder_probes: tuple[str, ...] = (),
+                    stakeholder_context: str = "") -> list[str]:
+    """Return the original question plus distinct retrieval probes.
+
+    The ceiling (``cfg.max_subqueries``) is small, so the order decides which
+    probes survive:
+
+    1. the question itself, always;
+    2. up to ``cfg.max_stakeholder_probes`` probes for the stakeholder's own
+       concerns, so a question shared across stakeholders does not retrieve the
+       same passages for each;
+    3. LLM-planned probes and rule-based facets, alternating. Appending every
+       rule facet first left the planner 0.7 slots on average across the eval
+       questions, and none at all on six of ten.
+    """
     queries: list[str] = [question]
 
+    rule_probes: list[str] = []
     lowered = question.lower()
     for pattern, facets in _FACET_RULES:
         if re.search(pattern, lowered):
-            queries.extend(facets)
+            rule_probes.extend(facets)
 
+    llm_probes: list[str] = []
     if llm is not None and cfg.use_query_planner and llm.available:
         try:
             raw = llm.generate(
-                _PLANNER_PROMPT.format(n=cfg.n_subqueries, question=question),
+                _PLANNER_PROMPT.format(n=cfg.n_subqueries, question=question,
+                                       role=_role_block(stakeholder_context)),
                 max_tokens=180,
-                temperature=0.3,
+                temperature=0.2,
             )
             for line in raw.splitlines():
-                line = re.sub(r"^\s*[-*\d.)\]]+\s*", "", line).strip()
-                if 3 <= len(line.split()) <= 25:
-                    queries.append(line)
+                cleaned = _clean_planned_query(line)
+                # Skip probes that merely restate the question or a probe
+                # already queued: they add a ranking, not a facet.
+                if cleaned and not _is_near_duplicate(cleaned, [question, *llm_probes]):
+                    llm_probes.append(cleaned)
         except Exception:
             pass  # rule-based facets already give usable coverage
+
+    queries.extend(stakeholder_probes[: max(0, cfg.max_stakeholder_probes)])
+
+    # LLM probe first in each pair; with no LLM this is just the rule order.
+    for i in range(max(len(llm_probes), len(rule_probes))):
+        if i < len(llm_probes):
+            queries.append(llm_probes[i])
+        if i < len(rule_probes):
+            queries.append(rule_probes[i])
 
     # de-duplicate, preserving order
     seen, out = set(), []
@@ -193,15 +305,36 @@ def _mmr(candidates: list[int], relevance: dict[int, float], vectors: np.ndarray
     return selected
 
 
+#: Questions that are about what data exists, as opposed to questions that
+#: merely touch a topic a dataset also covers.
+_DATA_QUESTION = re.compile(
+    r"\b(?:data|datasets?|data ?sources?|gis|layers?|records|catalogu?e?s?|databases?)\b", re.I)
+CATALOG_KINDS = frozenset({"doc_card", "data_card"})
+
+
 class Retriever:
     def __init__(self, index: HybridIndex, cfg: Config = CONFIG):
         self.index = index
         self.cfg = cfg
 
-    def retrieve(self, question: str, llm=None, k: int | None = None) -> tuple[list[Hit], list[str]]:
+    def retrieve(self, question: str, llm=None, k: int | None = None,
+                 stakeholder: str | None = None) -> tuple[list[Hit], list[str]]:
         cfg = self.cfg
         k = k or cfg.final_k
-        subqueries = plan_subqueries(question, llm=llm, cfg=cfg)
+        probes: tuple[str, ...] = ()
+        context = ""
+        if stakeholder:
+            from .tools.stakeholders import STAKEHOLDERS
+            if stakeholder in STAKEHOLDERS:
+                st = STAKEHOLDERS[stakeholder]
+                probes = st.focus
+                if cfg.stakeholder_aware_planner:
+                    context = f"{st.name}. They care about: {', '.join(st.concerns)}."
+        subqueries = plan_subqueries(question, llm=llm, cfg=cfg, stakeholder_probes=probes,
+                                     stakeholder_context=context)
+        focus = {q for q in subqueries[1:] if q in probes}
+        focus_hit: set[int] = set()
+        question_rank: dict[int, int] = {}      # best rank under the question itself
 
         rankings: list[list[tuple[int, float]]] = []
         dense_rank: dict[int, int] = {}
@@ -217,9 +350,17 @@ class Retriever:
             for r, (i, _) in enumerate(dense):
                 dense_rank[i] = min(dense_rank.get(i, 10**9), r)
                 matched.setdefault(i, set()).add(sq)
+                if sq in focus and r < cfg.stakeholder_boost_rank:
+                    focus_hit.add(i)
+                if sq == question:
+                    question_rank[i] = min(question_rank.get(i, 10**9), r)
             for r, (i, _) in enumerate(sparse):
                 sparse_rank[i] = min(sparse_rank.get(i, 10**9), r)
                 matched.setdefault(i, set()).add(sq)
+                if sq in focus and r < cfg.stakeholder_boost_rank:
+                    focus_hit.add(i)
+                if sq == question:
+                    question_rank[i] = min(question_rank.get(i, 10**9), r)
 
         fused = rrf_fuse(rankings, cfg.rrf_k)
         if not fused:
@@ -230,9 +371,15 @@ class Retriever:
         for i in fused:
             fused[i] *= 1.0 + 0.12 * (len(matched.get(i, ())) - 1)
 
+        # Passages near the top of the role's own probes outrank the shared core
+        # that every audience's question retrieves.
+        for i in focus_hit:
+            fused[i] *= 1.0 + cfg.stakeholder_boost
+
         ordered = sorted(fused, key=lambda i: fused[i], reverse=True)
         pool = _cap_per_source(ordered[: 25 * k], self.index.passages, cfg.max_per_source)
         pool = pool[: 8 * k]
+        pool = self._admit_catalog_cards(pool, fused, question_rank, question)
         chosen = self._select(pool, fused, k)
 
         hits = [
@@ -247,6 +394,34 @@ class Retriever:
             for i in chosen
         ]
         return hits, subqueries
+
+    def _admit_catalog_cards(self, pool: list[int], fused: dict[int, float],
+                             question_rank: dict[int, int], question: str) -> list[int]:
+        """Keep catalogue cards only where they earn a slot, and no more than the cap.
+
+        A card is admitted if the question is about data, or if the question
+        itself (not just a facet probe) ranked it in its top
+        ``cfg.catalog_card_rank`` (the retrievers return 60 per list, so merely
+        appearing in them is too weak a signal). Probes such as "high
+        injury network corridors" exist to find document text, but they match
+        the cards for the same datasets just as well. Admitted cards are then
+        trimmed to the best ``cap`` by fused score.
+        """
+        cfg = self.cfg
+        passages = self.index.passages
+        data_q = bool(_DATA_QUESTION.search(question))
+        cap = cfg.max_catalog_cards_data_question if data_q else cfg.max_catalog_cards
+        kept_cards = 0
+        out: list[int] = []
+        for i in sorted(pool, key=lambda j: fused[j], reverse=True):
+            if passages[i].kind in CATALOG_KINDS:
+                if not (data_q or question_rank.get(i, 10**9) < cfg.catalog_card_rank) or kept_cards >= cap:
+                    continue
+                kept_cards += 1
+            out.append(i)
+        # keep the original pool order for everything that survived
+        keep = set(out)
+        return [i for i in pool if i in keep]
 
     def _select(self, pool: list[int], fused: dict[int, float], k: int) -> list[int]:
         """MMR selection with a floor on how many slots hold real document text."""
