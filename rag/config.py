@@ -62,9 +62,11 @@ class Config:
     final_k: int = 14          # passages handed to the generator
     #: Hard cap on passages from any single source_id. The MORPC TIP alone is
     #: 47% of the corpus; without this it drowns out every other document.
-    max_per_source: int = 3
+    max_per_source: int = 2
     #: MMR trade-off: 1.0 = pure relevance, 0.0 = pure diversity.
     mmr_lambda: float = 0.65
+    #: Small preference for passages from sources not yet represented.
+    source_diversity_bonus: float = 0.05
     #: Fraction of the final slots reserved for real document text. Catalog
     #: cards are short and dense, so they out-score prose on catalog-flavoured
     #: questions and can take every slot - leaving an answer with no evidence,

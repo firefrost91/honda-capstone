@@ -165,7 +165,7 @@ def _cap_per_source(ordered: list[int], passages: list[Passage], cap: int) -> li
         kept.append(i)
     return kept
 
-
+'''
 def _mmr(candidates: list[int], relevance: dict[int, float], vectors: np.ndarray,
          k: int, lam: float) -> list[int]:
     if not candidates:
@@ -191,7 +191,72 @@ def _mmr(candidates: list[int], relevance: dict[int, float], vectors: np.ndarray
         selected.append(best)
         pool.remove(best)
     return selected
+'''
 
+def _mmr(
+    candidates: list[int],
+    relevance: dict[int, float],
+    vectors: np.ndarray,
+    k: int,
+    lam: float,
+    source_ids: dict[int, str] | None = None,
+    source_diversity_bonus: float = 0.0,
+    initially_selected: list[int] | None = None,
+) -> list[int]:
+
+    if not candidates:
+        return []
+
+    raw = np.array([relevance[i] for i in candidates], dtype=np.float32)
+    span = float(raw.max() - raw.min())
+    norm = (raw - raw.min()) / span if span > 1e-9 else np.ones_like(raw)
+    rel = {i: float(v) for i, v in zip(candidates, norm)}
+
+    selected: list[int] = []
+    reference = list(initially_selected or [])
+
+    represented_sources = {
+        source_ids[i]
+        for i in reference
+    } if source_ids is not None else set()
+
+    pool = list(candidates)
+
+    while pool and len(selected) < k:
+
+        if not reference and not selected:
+            best = max(pool, key=lambda i: rel[i])
+
+        else:
+            comparison = reference + selected
+
+            redundancy = (
+                vectors[pool] @ vectors[comparison].T
+            ).max(axis=1)
+
+            scores = np.array([
+                lam * rel[i] - (1 - lam) * redundancy[j]
+                for j, i in enumerate(pool)
+            ])
+
+            if source_ids is not None:
+                scores += np.array([
+                    source_diversity_bonus
+                    if source_ids[i] not in represented_sources
+                    else 0.0
+                    for i in pool
+                ])
+
+            best = pool[int(np.argmax(scores))]
+
+        selected.append(best)
+
+        if source_ids is not None:
+            represented_sources.add(source_ids[best])
+
+        pool.remove(best)
+
+    return selected
 
 class Retriever:
     def __init__(self, index: HybridIndex, cfg: Config = CONFIG):
@@ -248,6 +313,7 @@ class Retriever:
         ]
         return hits, subqueries
 
+    '''
     def _select(self, pool: list[int], fused: dict[int, float], k: int) -> list[int]:
         """MMR selection with a floor on how many slots hold real document text."""
         cfg = self.cfg
@@ -260,4 +326,54 @@ class Retriever:
             chosen = _mmr(chunk_pool, fused, self.index.vectors, floor, cfg.mmr_lambda)
         rest = [i for i in pool if i not in set(chosen)]
         chosen += _mmr(rest, fused, self.index.vectors, k - len(chosen), cfg.mmr_lambda)
+        return sorted(chosen, key=lambda i: fused[i], reverse=True)
+    '''
+
+    def _select(self, pool: list[int], fused: dict[int, float], k: int) -> list[int]:
+        """MMR selection with document-text and source-diversity preferences."""
+
+        cfg = self.cfg
+        passages = self.index.passages
+
+        source_ids = {
+            i: passages[i].source_id
+            for i in pool
+        }
+
+        chunk_pool = [
+            i for i in pool
+            if passages[i].kind == "chunk"
+        ]
+
+        floor = min(
+            len(chunk_pool),
+            int(round(k * cfg.min_chunk_fraction))
+        )
+
+        chosen: list[int] = []
+
+        if floor:
+            chosen = _mmr(
+                chunk_pool,
+                fused,
+                self.index.vectors,
+                floor,
+                cfg.mmr_lambda,
+                source_ids=source_ids,
+                source_diversity_bonus=cfg.source_diversity_bonus,
+            )
+
+        rest = [i for i in pool if i not in set(chosen)]
+
+        chosen += _mmr(
+            rest,
+            fused,
+            self.index.vectors,
+            k - len(chosen),
+            cfg.mmr_lambda,
+            source_ids=source_ids,
+            source_diversity_bonus=cfg.source_diversity_bonus,
+            initially_selected=chosen,
+        )
+
         return sorted(chosen, key=lambda i: fused[i], reverse=True)
