@@ -66,7 +66,7 @@ class Config:
     #: MMR trade-off: 1.0 = pure relevance, 0.0 = pure diversity.
     mmr_lambda: float = 0.65
     #: Small preference for passages from sources not yet represented.
-    source_diversity_bonus: float = 0.05
+    source_diversity_bonus: float = 0.20
     #: Fraction of the final slots reserved for real document text. Catalog
     #: cards are short and dense, so they out-score prose on catalog-flavoured
     #: questions and can take every slot - leaving an answer with no evidence,
