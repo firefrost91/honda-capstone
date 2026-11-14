@@ -530,6 +530,123 @@
       "url_provenance": "linked_from_morpc_active_transportation_plan_page_2026-11-02",
       "published_year": 2021,
       "expected_media_type": "pdf"
+    },
+    {
+      "source_id": "fhwa_long_street_2017",
+      "title": "Long Street Bridge community connections case",
+      "organization": "Federal Highway Administration",
+      "source_url": "https://www.fhwa.dot.gov/innovation/everydaycounts/edcnews/20171026.cfm",
+      "download_url": "https://www.fhwa.dot.gov/innovation/everydaycounts/edcnews/20171026.cfm",
+      "expected_media_type": "html",
+      "topics": [
+        "historical community outcomes"
+      ],
+      "scope": "region_specific",
+      "theme": "historical community outcomes",
+      "document_type": "official_webpage",
+      "status": "candidate",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ],
+      "gap_targeted": [
+        "historical community outcomes"
+      ],
+      "last_attempt_status": "not_ingested",
+      "last_attempt_date": "2026-11-14",
+      "last_attempt_note": "Fetch/extraction did not yield usable evidence; candidate only, excluded from answer-source expectations."
+    },
+    {
+      "source_id": "fhwa_rail_handbook_3",
+      "title": "Highway Rail Crossing Handbook Third Edition",
+      "organization": "Federal Highway Administration",
+      "source_url": "https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/fhwasa19039.pdf",
+      "download_url": "https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/fhwasa19039.pdf",
+      "expected_media_type": "pdf",
+      "topics": [
+        "rail crossing guidance"
+      ],
+      "scope": "general_federal_policy",
+      "theme": "rail crossing guidance",
+      "document_type": "report",
+      "status": "candidate",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ],
+      "gap_targeted": [
+        "rail crossing guidance"
+      ],
+      "last_attempt_status": "not_ingested",
+      "last_attempt_date": "2026-11-14",
+      "last_attempt_note": "Fetch/extraction did not yield usable evidence; candidate only, excluded from answer-source expectations."
+    },
+    {
+      "source_id": "cota_reroutes",
+      "title": "COTA service reroutes and construction disruptions",
+      "organization": "COTA",
+      "source_url": "https://www.cota.com/reroutes/",
+      "download_url": "https://www.cota.com/reroutes/",
+      "expected_media_type": "html",
+      "topics": [
+        "transit construction impacts"
+      ],
+      "scope": "region_specific",
+      "theme": "transit construction impacts",
+      "document_type": "official_webpage",
+      "status": "candidate",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ],
+      "gap_targeted": [
+        "transit construction impacts"
+      ]
+    },
+    {
+      "source_id": "columbus_i70_i71",
+      "title": "Columbus I70 I71 project history and construction phases",
+      "organization": "City of Columbus",
+      "source_url": "https://www.columbus.gov/Business-Development/Design-Construction/Street-Road-Projects/I-70-and-I-71-Project",
+      "download_url": "https://www.columbus.gov/Business-Development/Design-Construction/Street-Road-Projects/I-70-and-I-71-Project",
+      "expected_media_type": "html",
+      "topics": [
+        "historical construction impacts"
+      ],
+      "scope": "region_specific",
+      "theme": "historical construction impacts",
+      "document_type": "official_webpage",
+      "status": "candidate",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ],
+      "gap_targeted": [
+        "historical construction impacts"
+      ],
+      "last_attempt_status": "not_ingested",
+      "last_attempt_date": "2026-11-14",
+      "last_attempt_note": "Fetch/extraction did not yield usable evidence; candidate only, excluded from answer-source expectations."
+    },
+    {
+      "source_id": "fhwa_transit_access",
+      "title": "Pedestrian safety guide for transit agencies Chapter 3",
+      "organization": "Federal Highway Administration",
+      "source_url": "https://highways.dot.gov/safety/pedestrian-bicyclist/pedestrian-safety-guide-transit-agencies/chapter-3-actions-increase",
+      "download_url": "https://highways.dot.gov/safety/pedestrian-bicyclist/pedestrian-safety-guide-transit-agencies/chapter-3-actions-increase",
+      "expected_media_type": "html",
+      "topics": [
+        "transit first last mile access"
+      ],
+      "scope": "general_federal_policy",
+      "theme": "transit first last mile access",
+      "document_type": "official_webpage",
+      "status": "candidate",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ],
+      "gap_targeted": [
+        "transit first last mile access"
+      ],
+      "last_attempt_status": "not_ingested",
+      "last_attempt_date": "2026-11-14",
+      "last_attempt_note": "Fetch/extraction did not yield usable evidence; candidate only, excluded from answer-source expectations."
     }
   ]
 }

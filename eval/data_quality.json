@@ -1,12 +1,12 @@
 {
-  "n_raw_chunks": 2580,
-  "n_kept_chunks": 2273,
+  "n_raw_chunks": 2584,
+  "n_kept_chunks": 2280,
   "dropped": {
     "table_of_contents": 18,
     "dot_leaders": 16,
     "numeric_table": 70,
     "too_short_or_non_prose": 146,
-    "garbled_text_extraction": 39,
+    "garbled_text_extraction": 36,
     "exact_duplicate": 5,
     "near_duplicate": 13
   },
@@ -16,7 +16,7 @@
     "morpc_tip_2026_2029_full": {
       "raw": 740,
       "kept": 647,
-      "share_of_corpus": 0.285,
+      "share_of_corpus": 0.284,
       "dropped": {
         "table_of_contents": 3,
         "dot_leaders": 1,
@@ -28,7 +28,7 @@
     "ohio_hsp_ffy2024_2026": {
       "raw": 203,
       "kept": 199,
-      "share_of_corpus": 0.088,
+      "share_of_corpus": 0.087,
       "dropped": {
         "too_short_or_non_prose": 2,
         "table_of_contents": 1,
@@ -38,7 +38,7 @@
     "franklin_county_ss4a_safety_action_plan_2026": {
       "raw": 197,
       "kept": 158,
-      "share_of_corpus": 0.07,
+      "share_of_corpus": 0.069,
       "dropped": {
         "too_short_or_non_prose": 10,
         "table_of_contents": 1,
@@ -47,12 +47,12 @@
       }
     },
     "odot_shsp_2025": {
-      "raw": 194,
-      "kept": 185,
-      "share_of_corpus": 0.081,
+      "raw": 192,
+      "kept": 186,
+      "share_of_corpus": 0.082,
       "dropped": {
         "too_short_or_non_prose": 4,
-        "garbled_text_extraction": 4,
+        "garbled_text_extraction": 1,
         "dot_leaders": 1
       }
     },
@@ -307,6 +307,12 @@
       "dropped": {
         "too_short_or_non_prose": 2
       }
+    },
+    "cota_reroutes": {
+      "raw": 6,
+      "kept": 6,
+      "share_of_corpus": 0.003,
+      "dropped": {}
     },
     "fhwa_columbus_community_connections_case_study": {
       "raw": 4,

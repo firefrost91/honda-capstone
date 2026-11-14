@@ -1,0 +1,56 @@
+{
+  "scope": "BM25-only smoke check; not hybrid retrieval or answer evaluation",
+  "results": [
+    {
+      "query": "Hilliard Rome Renner crash counts 2021 2025",
+      "expected_source": "west_columbus_crash_snapshot",
+      "source_in_top_10": true,
+      "top_10": [
+        "site_9998d539b0",
+        "site_3dc312e1c6",
+        "site_729389bca8",
+        "site_a153e72b51",
+        "site_d86b078109",
+        "site_3fb071c61d",
+        "site_549c81e849",
+        "site_c7d1a81388",
+        "site_fd8d7f9a99",
+        "site_3b3c0d4c40"
+      ]
+    },
+    {
+      "query": "COTA MLK Mt Vernon construction stop closures",
+      "expected_source": "cota_reroutes",
+      "source_in_top_10": true,
+      "top_10": [
+        "cota_reroutes__p0000__c003",
+        "cota_reroutes__p0000__c004",
+        "morpc_tip_2026_2029_full__p0212__c001",
+        "vision_zero_action_plan_2023_2028__p0013__c002",
+        "morpc_ej_technical_appendix__p0012__c002",
+        "columbus_bike_plus_2025_report__p0012__c001",
+        "cota_reroutes__p0000__c005",
+        "morpc_tip_2026_2029_full__p0464__c001",
+        "cota_reroutes__p0000__c006",
+        "cota_reroutes__p0000__c001"
+      ]
+    },
+    {
+      "query": "Long Street Bridge Cultural Wall King Lincoln",
+      "expected_source": "fhwa_columbus_community_connections_case_study",
+      "source_in_top_10": true,
+      "top_10": [
+        "fhwa_columbus_community_connections_case_study__p0000__c001",
+        "fhwa_columbus_community_connections_case_study__p0000__c003",
+        "fhwa_columbus_community_connections_case_study__p0000__c002",
+        "morpc_tip_2026_2029_full__p0346__c001",
+        "morpc_tip_2026_2029_full__p0212__c001",
+        "doccard::fhwa_columbus_community_connections_case_study",
+        "morpc_tip_2026_2029_full__p0481__c001",
+        "cota_reroutes__p0000__c003",
+        "morpc_tip_2026_2029_full__p0031__c001",
+        "csx_public_projects_manual__p0082__c002"
+      ]
+    }
+  ]
+}

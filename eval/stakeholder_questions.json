@@ -33,6 +33,7 @@
     {"id": 24, "stakeholder": "freight", "theme": "Freight access & operational impact", "question": "How could planned safety improvements in Columbus / Central Ohio affect freight access and operations, particularly for large trucks? Could changes such as lane reconfiguration, reduced roadway width, turning restrictions, or other design changes create challenges for freight movement? What local evidence should be considered when evaluating these impacts?"}
   ],
   "layer_2": {
+    "evidence_status": "hypothetical_scenario_not_observed_project_data",
     "scenario": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.",
     "question": "Based on this information, how would you evaluate the outcome of this safety improvement project from the perspective of [stakeholder]? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
     "ask_every_stakeholder": true,

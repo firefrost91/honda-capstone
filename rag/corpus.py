@@ -120,6 +120,12 @@ def read_chunk_rows(cfg: Config = CONFIG) -> list[dict]:
         return [json.loads(line) for line in fh if line.strip()]
 
 
+def _eligible(meta: dict) -> bool:
+    return (meta.get("index_eligible") is not False
+            and meta.get("content_status") != "excluded_source_mismatch"
+            and meta.get("project_association_status") != "original_association_rejected")
+
+
 def _chunk_passages(cfg: Config, catalog: dict[str, dict],
                     report: QualityReport | None = None) -> Iterable[Passage]:
     rows = read_chunk_rows(cfg)
@@ -134,6 +140,8 @@ def _chunk_passages(cfg: Config, catalog: dict[str, dict],
     for r in rows:
         text = r["text"]
         meta = catalog.get(r["source_id"], {})
+        if not _eligible(meta):
+            continue
         yield Passage(
             passage_id=r["chunk_id"],
             kind="chunk",
@@ -168,6 +176,8 @@ def load_summary_rows(cfg: Config = CONFIG) -> list[dict]:
 def _summary_passages(cfg: Config, gis: dict[str, dict]) -> Iterable[Passage]:
     for r in load_summary_rows(cfg):
         meta = gis.get(r["source_id"], {})
+        if not _eligible(meta):
+            continue
         text = _clean(r["text"])
         yield Passage(
             passage_id=r["chunk_id"],
@@ -182,13 +192,15 @@ def _summary_passages(cfg: Config, gis: dict[str, dict]) -> Iterable[Passage]:
             document_type="dataset_summary",
             caveats=tuple(r.get("caveats") or ()),
             word_count=len(text.split()),
-            scope="region_specific",
+            scope=r.get("scope", r.get("area", "scope_unspecified")),
             published_year=r.get("year"),
         )
 
 
 def _doc_card_passages(catalog: dict[str, dict]) -> Iterable[Passage]:
     for sid, d in catalog.items():
+        if not _eligible(d):
+            continue
         lines = [
             f"Source document: {d.get('title','')}",
             f"Published by: {d.get('organization','')}",
@@ -225,6 +237,8 @@ def _doc_card_passages(catalog: dict[str, dict]) -> Iterable[Passage]:
 def _data_card_passages(gis: dict[str, dict],
                         summarised: set[str] = frozenset()) -> Iterable[Passage]:
     for sid, d in gis.items():
+        if not _eligible(d):
+            continue
         lines = [
             f"Dataset: {d.get('title','')}",
             f"Maintained by: {d.get('organization','')}",
@@ -236,17 +250,23 @@ def _data_card_passages(gis: dict[str, dict],
         if d.get("relevance"):
             lines.append(f"What it can be used for in safety analysis: {d['relevance']}")
         if d.get("reported_key_fields"):
-            lines.append("Reported fields: " + ", ".join(d["reported_key_fields"]))
+            lines.append(("Verified fields: " if d.get("field_schema_verified") else "Unverified reported fields: ") + ", ".join(d.get("verified_fields", d["reported_key_fields"])))
         if d.get("source_url"):
             lines.append(f"Service endpoint: {d['source_url']}")
         # This line is load-bearing: it stops the generator from reporting
         # dataset contents it has never seen.
         if sid in summarised:
             lines.append(
-                "AGGREGATE SUMMARY AVAILABLE: year/severity totals computed from this "
-                "layer are indexed separately as 'aggregate summary' passages. Quote "
-                "figures from those passages only; individual records are still NOT loaded.")
-        if not d.get("records_included", False):
+                "AGGREGATE SUMMARY AVAILABLE: computed findings are indexed separately "
+                "as data_summary passages. Quote figures from those passages only, "
+                "preserving their geography, dates and limitations.")
+        if d.get("records_included", False):
+            lines.append(f"LOCAL SNAPSHOT: records are stored at {d.get('local_path', 'the documented local path')}. "
+                         "Use the documented query API for new counts; this catalogue card is not numerical evidence.")
+        elif sid in summarised:
+            lines.append("Individual records are NOT loaded. Only the published aggregate queries are available here; "
+                         "new spatial queries or rates require additional data.")
+        else:
             lines.append(
                 "IMPORTANT DATA STATUS: this knowledge base holds only the catalog "
                 "entry for this dataset. The underlying records are NOT loaded, so no "

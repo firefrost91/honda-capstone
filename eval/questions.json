@@ -20,10 +20,7 @@
     "vision_zero_action_plan_1_0",
     "morpc_mtp_2024_2050_attachment_08"
    ],
-   "aspirational_sources": [
-    "columbus_vision_zero_annual_report_2024",
-    "morpc_cotsp_2019"
-   ],
+   "aspirational_sources": [],
    "must_mention_any": [
     "High Injury Network",
     "Vision Zero"
@@ -31,7 +28,11 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "columbus_vision_zero_annual_report_2024",
+    "morpc_cotsp_2019"
+   ]
   },
   {
    "id": 2,
@@ -45,15 +46,13 @@
     "connectivity"
    ],
    "expects_gap_honesty": true,
-   "note": "Reference answer cites King-Lincoln Bronzeville / Long Street Bridge, which are NOT in this corpus. A good answer uses what IS here (EJ appendix, corridor impacts) and flags the rest as missing.",
+   "note": "The FHWA Columbus case documents Long Street/King-Lincoln connectivity history. Do not infer measured before/after crash effectiveness from this qualitative case.",
    "category": "community_impacts",
    "expected_sources": [
-    "morpc_ej_technical_appendix",
-    "rtmc_mobility_study_attachment_01",
-    "morpc_mtp_2024_2050_attachment_06"
+    "fhwa_columbus_community_connections_case_study",
+    "morpc_ej_technical_appendix"
    ],
    "aspirational_sources": [
-    "fhwa_columbus_community_connections_case_study",
     "morpc_columbus_landmarks_letter"
    ],
    "must_mention_any": [
@@ -64,7 +63,10 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "fhwa_columbus_community_connections_case_study"
+   ]
   },
   {
    "id": 3,
@@ -85,9 +87,7 @@
     "rtmc_mobility_study_attachment_01",
     "vision_zero_action_plan_1_0"
    ],
-   "aspirational_sources": [
-    "franklin_county_ss4a_safety_action_plan_2026"
-   ],
+   "aspirational_sources": [],
    "must_mention_any": [
     "crash",
     "volume"
@@ -95,7 +95,10 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "franklin_county_ss4a_safety_action_plan_2026"
+   ]
   },
   {
    "id": 4,
@@ -124,7 +127,8 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": []
   },
   {
    "id": 5,
@@ -146,11 +150,7 @@
     "vision_zero_action_plan_1_0",
     "vision_zero_action_plan_2023_2028"
    ],
-   "aspirational_sources": [
-    "morpc_cotsp_action_plan_2019",
-    "franklin_county_ss4a_safety_action_plan_2026",
-    "odot_shsp_2025"
-   ],
+   "aspirational_sources": [],
    "must_mention_any": [
     "High Injury Network",
     "speed"
@@ -158,7 +158,12 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "morpc_cotsp_action_plan_2019",
+    "franklin_county_ss4a_safety_action_plan_2026",
+    "odot_shsp_2025"
+   ]
   },
   {
    "id": 6,
@@ -179,8 +184,6 @@
     "morpc_mtp_2024_2050_attachment_08"
    ],
    "aspirational_sources": [
-    "morpc_state_of_safety_2018_2022",
-    "morpc_state_of_safety_2015_2019",
     "crash_trends_aggregate"
    ],
    "must_mention_any": [
@@ -190,7 +193,11 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "morpc_state_of_safety_2018_2022",
+    "morpc_state_of_safety_2015_2019"
+   ]
   },
   {
    "id": 7,
@@ -220,7 +227,8 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": []
   },
   {
    "id": 8,
@@ -233,14 +241,12 @@
     "ems"
    ],
    "expects_gap_honesty": true,
-   "note": "Post-Crash Care is thinly covered in this corpus; honesty about that is the correct behaviour.",
+   "note": "State-level trauma reporting and QuickClear guidance are available. Local dispatch times, route-specific delays and project-level emergency impacts remain unavailable.",
    "category": "post_crash_care",
    "expected_sources": [
     "vision_zero_action_plan_2023_2028"
    ],
    "aspirational_sources": [
-    "ohio_trauma_report_2024",
-    "ohio_quickclear_agreement",
     "morpc_its_architecture_columbus_911_flows"
    ],
    "must_mention_any": [
@@ -250,7 +256,11 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "ohio_trauma_report_2024",
+    "ohio_quickclear_agreement"
+   ]
   },
   {
    "id": 9,
@@ -269,9 +279,9 @@
    "note": "Tests synthesis across the GIS catalogue plus document evidence.",
    "category": "data_synthesis",
    "expected_sources": [
-    "columbus_high_injury_network",
     "odot_crash_2023",
-    "morpc_mtp_2024_2050_attachment_10"
+    "morpc_mtp_2024_2050_attachment_10",
+    "west_columbus_crash_snapshot"
    ],
    "aspirational_sources": [],
    "must_mention_any": [
@@ -281,7 +291,12 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "unavailable_expected_sources": [
+    "columbus_high_injury_network"
+   ],
+   "label_audit_note": "Unavailable expectations retained for coverage tracking, excluded from retrieval recall. This does not establish answer completeness.",
+   "available_supplemental_sources": []
   },
   {
    "id": 10,
@@ -302,9 +317,7 @@
     "vision_zero_action_plan_2023_2028",
     "morpc_mtp_2024_2050_attachment_10"
    ],
-   "aspirational_sources": [
-    "morpc_atp_2020_2050_overview"
-   ],
+   "aspirational_sources": [],
    "must_mention_any": [
     "pedestrian",
     "bicycle"
@@ -312,7 +325,10 @@
    "forbidden": [
     "High Impact Neighborhood"
    ],
-   "min_distinct_sources": 3
+   "min_distinct_sources": 3,
+   "available_supplemental_sources": [
+    "morpc_atp_2020_2050_overview"
+   ]
   }
  ],
  "schema": {
