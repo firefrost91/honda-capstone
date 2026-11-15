@@ -80,8 +80,8 @@ def corpus_snapshot(cfg: Config = CONFIG) -> dict:
         "evidence_by_source": dict(sorted(by_source.items())),
         "eligible_without_passages": sorted(
             sid for sid, d in docs.items() if d.get("index_eligible") and not by_source.get(sid)),
-        "known_source_ids": sorted(set(docs) | set(load_gis_catalog(cfg))
-                                   | {p.source_id for p in passages}),
+        # Catalogue membership alone does not make a source retrievable.
+        "known_source_ids": sorted({p.source_id for p in passages}),
     }
 
 

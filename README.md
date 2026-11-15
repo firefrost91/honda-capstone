@@ -189,7 +189,7 @@ curl -s localhost:8000/tools | jq            # tools and the metric catalogue
 
 In the chat page the *Perspective* selector beside the composer does the same;
 left on auto-detect, the stakeholder is inferred from the question's wording.
-`CBRAG_TOOLS_ENABLED=0` turns the tools off; `CBRAG_MAX_TOOL_PASSAGES` caps how
+Synthetic metric tools are **off by default**. `CBRAG_TOOLS_ENABLED=1` enables demo placeholders; `CBRAG_MAX_TOOL_PASSAGES` caps how
 many tool passages join the context (default 4). The stakeholder evaluation set
 itself - three questions per group and the shared scenario - is in
 `eval/stakeholder_questions.json`.
@@ -349,15 +349,15 @@ sources, groundedness and warnings.
 
 ## Known limits
 
-- **Coverage is uneven.** Post-crash / EMS response is thin, and the
-  King-Lincoln Bronzeville and Long Street Bridge history that some reference
-  answers expect is not in this corpus until the registry sources targeting
-  them are ingested (`make ingest`). The system says so rather than
-  filling the hole from memory — but that means those answers are gap statements,
-  not narratives.
-- **GIS records are not loaded**, so no question that needs a computed crash rate,
-  count or hotspot can be answered here. Answers point at the service endpoint
-  instead.
+- **Coverage is uneven.** Historical Long Street Bridge evidence, state-level emergency guidance,
+  transit-access planning and a dated COTA reroute snapshot are available. Project-level causal
+  before/after studies, local dispatch times and measured construction impacts remain gaps.
+- **GIS coverage is selective.** Regional aggregates plus a dated West Columbus snapshot support
+  counts and 127 exploratory hotspot summaries. Most other GIS datasets remain metadata only.
+  No matched exposure denominators are available for rates. Eleven unresolved/mismatched GIS
+  entries are excluded from retrieval.
+- **Audited data and handoff:** see [the data repair report](docs/DATA_REPAIR_REPORT.md), including
+  scope, validation, remaining collection tasks and index rebuild instructions.
 - **PDF extraction is imperfect.** Tables and figure-heavy pages come through
   ragged; some numbers live only in images and are invisible to retrieval.
 - **A 3B model is the weak link**, not retrieval. It occasionally writes flat,

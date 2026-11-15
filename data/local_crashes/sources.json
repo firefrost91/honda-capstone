@@ -1,0 +1,155 @@
+{
+  "retrieved_on": "2026-09-25",
+  "feature_sources": [
+    {
+      "source_id": "odot_2021",
+      "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2021_Crash_Locations/MapServer/0",
+      "retrieved_at": "2026-09-25T13:22:57.137134+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 1254,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "odot_2023",
+      "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2023_Crash_Locations/MapServer/0",
+      "retrieved_at": "2026-09-25T13:22:57.157319+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 1423,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "odot_2022",
+      "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2022_Crash_Locations/MapServer/0",
+      "retrieved_at": "2026-09-25T13:22:57.168309+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 1433,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "odot_2024",
+      "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2024_Crash_Locations/MapServer/0",
+      "retrieved_at": "2026-09-25T13:22:57.377979+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 1506,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "odot_2025",
+      "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2025_Crash_Locations/MapServer/0",
+      "retrieved_at": "2026-09-25T13:22:57.698197+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 1551,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "columbus_hin",
+      "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/28",
+      "retrieved_at": "2026-09-25T13:22:57.722232+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 13,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "columbus_crashes",
+      "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/23",
+      "retrieved_at": "2026-09-25T13:22:59.075898+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 2212,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    },
+    {
+      "source_id": "lbrs",
+      "url": "https://maps.hilliardohio.gov/arcgis/rest/services/LBRSWebEditing/LBRScenterlines_Fra/FeatureServer/0",
+      "retrieved_at": "2026-09-25T13:24:06.564572+00:00",
+      "bbox": "-83.205,39.972,-83.06,40.045",
+      "records": 5618,
+      "status": "downloaded",
+      "query_method": "spatial envelope ID query, then batches of 500 IDs; count reconciled"
+    }
+  ],
+  "supporting_documents": [
+    {
+      "source_id": "police_windflower_2025",
+      "url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-safety/police/press-releases/2025/december/fatal-traffic-accident-roberts-rd.pdf",
+      "retrieved_at": "2026-09-25T13:27:52.195733+00:00",
+      "status": "downloaded",
+      "local_path": "evidence/police_windflower_2025.pdf",
+      "pages": 1
+    },
+    {
+      "source_id": "rtmc_appendix_e",
+      "url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-service/mobility/rtmc/appendix-e-crash-history.pdf",
+      "retrieved_at": "2026-09-25T13:27:52.196023+00:00",
+      "status": "downloaded",
+      "local_path": "evidence/rtmc_appendix_e.pdf",
+      "pages": 23
+    },
+    {
+      "source_id": "franklin_high_crash_map",
+      "url": "https://www.franklincountyengineer.org/wp-content/uploads/2016/04/County-Road-High-Crash-Locations_Franklin-County.pdf",
+      "retrieved_at": "2026-09-25T13:27:52.196107+00:00",
+      "status": "downloaded",
+      "local_path": "evidence/franklin_high_crash_map.pdf",
+      "pages": 1
+    },
+    {
+      "source_id": "odot_crash_dictionary",
+      "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/Crash-Analysis-Tools/safetyapptool/CrashDataDictionary.pdf",
+      "retrieved_at": "2026-09-25T13:27:52.196181+00:00",
+      "status": "downloaded",
+      "local_path": "evidence/odot_crash_dictionary.pdf",
+      "pages": 13
+    },
+    {
+      "source_id": "police_renner_2026",
+      "url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-safety/police/press-releases/2026/march/serious-injury-crash-renner-rd.pdf",
+      "status": "downloaded",
+      "local_path": "evidence/police_renner_2026.pdf",
+      "pages": 1
+    }
+  ],
+  "news_context_sources": [
+    {
+      "event_id": "roberts_windflower_2025_12_24",
+      "primary_source_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-safety/police/press-releases/2025/december/fatal-traffic-accident-roberts-rd.pdf",
+      "news_url": "https://abc6onyourside.com/news/local/traffic-accident-in-south-hilliard-sends-one-victim-to-hospitalc-columbus-ohio-central-news"
+    },
+    {
+      "event_id": "renner_hilliard_2026_03_24",
+      "primary_source_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-safety/police/press-releases/2026/march/serious-injury-crash-renner-rd.pdf",
+      "news_url": "https://www.yahoo.com/news/articles/pedestrian-suffers-serious-injuries-another-114059062.html"
+    },
+    {
+      "event_id": "roberts_potts_2026_08_28",
+      "primary_source_url": "https://myfox28columbus.com/news/19-year-old-aaden-own-elswick-killed-fatal-crash-roberts-road-potts-place-columbus-hilliard-green-august-28-2026",
+      "news_url": "https://myfox28columbus.com/news/19-year-old-aaden-own-elswick-killed-fatal-crash-roberts-road-potts-place-columbus-hilliard-green-august-28-2026"
+    }
+  ],
+  "methodology_sources": [
+    {
+      "title": "FHWA Using Safety Analyses for Planning",
+      "url": "https://highways.dot.gov/safety/zero-deaths/applying-safety-data-and-analysis-performance-based-transportation-planning/50"
+    },
+    {
+      "title": "FHWA Screening Your Network to Improve Roadway Safety Performance",
+      "url": "https://highways.dot.gov/safety/data-analysis-tools/systemic/screening-your-network-improve-roadway-safety-performance"
+    }
+  ],
+  "catalog_correction": {
+    "old_source_id": "columbus_road_centerlines",
+    "old_url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/21",
+    "observed_layer_name": "Roadway Mowing",
+    "replacement_url": "https://maps.hilliardohio.gov/arcgis/rest/services/LBRSWebEditing/LBRScenterlines_Fra/FeatureServer/0"
+  },
+  "rejected_secondary_narrative": {
+    "url": "https://hoodline.com/2026/08/teen-killed-thrown-from-vehicle-in-roberts-road-crash-near-hilliard/",
+    "reason": "Historical December 2025 Windflower description conflicts with primary police release. Not used as event evidence."
+  }
+}

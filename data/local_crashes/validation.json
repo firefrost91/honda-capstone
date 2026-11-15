@@ -1,0 +1,18 @@
+{
+  "unique_odot_ids": 7167,
+  "corridor_rows": 1802,
+  "hotspot_count_and_severity_checks": "passed for all candidates",
+  "download_id_count_reconciliation": "passed for all 8 feature downloads",
+  "city_odot_severity_conflicts": [],
+  "frazell_spindler_union_crashes": 21,
+  "frazell_spindler_shared_crashes": 21,
+  "corridor_records_with_unknown_functional_class": 40,
+  "geometry_coordinate_units": "EPSG:4326 longitude/latitude; distance calculations EPSG:26917 metres",
+  "limitations": [
+    "Counts reflect the public layer snapshot, not guaranteed final completeness.",
+    "No 2026 annual data was retrieved.",
+    "Nearest corridor is a spatial label, not confirmed collision roadway.",
+    "Candidate-site buffers can overlap; do not sum site totals.",
+    "News event matching is separate from crash census."
+  ]
+}

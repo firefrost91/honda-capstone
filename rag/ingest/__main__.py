@@ -137,6 +137,7 @@ def merge(entries: list[dict], rows: list[dict], cfg: Config = CONFIG) -> tuple[
     """Upsert catalogue entries and replace each source's chunks. Idempotent."""
     catalog = _read_catalog(cfg)
     by_id = {s["source_id"]: i for i, s in enumerate(catalog["sources"])}
+    replaced = set()
     for e in entries:
         if e["source_id"] in by_id:
             # a failed retry must not wipe out a source that was ingested before
@@ -146,13 +147,15 @@ def merge(entries: list[dict], rows: list[dict], cfg: Config = CONFIG) -> tuple[
             catalog["sources"][by_id[e["source_id"]]] = {**old, **e}
         else:
             catalog["sources"].append(e)
+        replaced.add(e["source_id"])
     Path(cfg.documents_file).write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 
-    replaced = {r["source_id"] for r in rows}
     existing = [r for r in _read_chunks(cfg) if r["source_id"] not in replaced]
     seen = {r["content_sha256"] for r in existing if r.get("content_sha256")}
     added = 0
     for r in rows:
+        if r["source_id"] not in replaced:
+            continue
         if r["content_sha256"] in seen:
             continue
         seen.add(r["content_sha256"])

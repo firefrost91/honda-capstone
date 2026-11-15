@@ -111,7 +111,7 @@ class Config:
     # ---- stakeholder metric tools --------------------------------------
     #: Run the metric tools (rag.tools) and hand their output to the generator
     #: as citable passages. Today every tool is a synthetic stub.
-    tools_enabled: bool = True
+    tools_enabled: bool = False
     #: Guess the stakeholder from the question when none is given explicitly.
     tools_auto_detect: bool = True
     #: Ceiling on tool passages per question. Each is ~1.5k characters, so four

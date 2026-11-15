@@ -27,7 +27,7 @@
         "NP-125",
         "NP-102"
       ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.630301+00:00",
@@ -40,7 +40,9 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "morpc_guide_to_tip",
@@ -102,7 +104,7 @@
         "NP-125",
         "NP-102"
       ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.630859+00:00",
@@ -113,7 +115,9 @@
       "pages_path": "documents/pages/far_west_side_tip_summary.json",
       "sha256": "a318e25a688dead4e5779af27a7980bd7952803060a503733e421b0783df5fc9",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_120250_columbus_fact_sheet",
@@ -136,7 +140,7 @@
       "related_project_ids": [
         "120250"
       ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.630939+00:00",
@@ -147,7 +151,9 @@
       "pages_path": "documents/pages/proj_120250_columbus_fact_sheet.json",
       "sha256": "28a88c0a7a87c564fb24bcfbceca3f36d5edde88ae51ccfa029061da7c04822e",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_120250_fwsac_crash_stats",
@@ -170,7 +176,7 @@
       "related_project_ids": [
         "120250"
       ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.631048+00:00",
@@ -181,7 +187,9 @@
       "pages_path": "documents/pages/proj_120250_fwsac_crash_stats.json",
       "sha256": "44a6c70bb26724b25e8d2229973ced81d63c315dea14f2ca7d45b7f9b8e60bcb",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_119852_columbus_fact_sheet",
@@ -204,7 +212,7 @@
       "related_project_ids": [
         "119852"
       ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.631120+00:00",
@@ -215,7 +223,9 @@
       "pages_path": "documents/pages/proj_119852_columbus_fact_sheet.json",
       "sha256": "0771325c0321315c1e935dc7b98200c57ea10f7a224d522b103be104857a363d",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_119852_engage_columbus",
@@ -234,10 +244,8 @@
         "high crash list",
         "development-driven need"
       ],
-      "related_project_ids": [
-        "119852"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.961299+00:00",
@@ -248,7 +256,11 @@
       "pages_path": "documents/pages/proj_119852_engage_columbus.json",
       "sha256": "b92fd4db683a335b9c14b982ea64962772c1cf92e261d545cdb2ab4b85431495",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "119852"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_np37_hilliard_construction_update",
@@ -301,10 +313,8 @@
         "ODOT-let project",
         "funding partnership"
       ],
-      "related_project_ids": [
-        "120346"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:00.976072+00:00",
@@ -318,7 +328,11 @@
         "Fact sheet identifies PID 105498. Crosswalk supported by full TIP PDF page 216: project 120346 states preliminary engineering is included with PID 105498. Preserve both identifiers; they are related, not interchangeable. Page 2 is a map with no extracted text.",
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "120346"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "proj_120346_engage_columbus",
@@ -337,10 +351,8 @@
         "public engagement",
         "project scope"
       ],
-      "related_project_ids": [
-        "120346"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:01.911403+00:00",
@@ -351,7 +363,11 @@
       "pages_path": "documents/pages/proj_120346_engage_columbus.json",
       "sha256": "ba3ade2495ee31a93ed0a5363a182352c64385c16e6f6d9afe76e405a461f491",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "120346"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_mobility_study",
@@ -371,11 +387,8 @@
         "multimodal planning",
         "conceptual recommendations"
       ],
-      "related_project_ids": [
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:02.137757+00:00",
@@ -388,7 +401,12 @@
       "caveats": [
         "Landing-page overview only. Full report and selected linked appendices are provided separately."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_appendix_k_engagement",
@@ -408,10 +426,8 @@
         "community feedback",
         "stakeholder input"
       ],
-      "related_project_ids": [
-        "NP-125"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:02.742449+00:00",
@@ -424,7 +440,11 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-125"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "columbus_bike_plus_2025_report",
@@ -444,10 +464,8 @@
         "shared-use path inventory",
         "program tracking"
       ],
-      "related_project_ids": [
-        "NP-125"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:03.022626+00:00",
@@ -460,7 +478,11 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-125"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "morpc_mtp_2024_2050",
@@ -515,15 +537,8 @@
         "safety goal",
         "policy adoption"
       ],
-      "related_project_ids": [
-        "120250",
-        "119852",
-        "NP-37",
-        "120346",
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:03.087223+00:00",
@@ -541,7 +556,16 @@
       "indexed_page_range": [
         1,
         42
-      ]
+      ],
+      "unverified_related_project_ids": [
+        "120250",
+        "119852",
+        "NP-37",
+        "120346",
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "vision_zero_action_plan_2023_2028",
@@ -560,15 +584,8 @@
         "Vision Zero implementation",
         "action strategies"
       ],
-      "related_project_ids": [
-        "120250",
-        "119852",
-        "NP-37",
-        "120346",
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:04.020709+00:00",
@@ -581,7 +598,16 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "120250",
+        "119852",
+        "NP-37",
+        "120346",
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "vision_zero_hin_map",
@@ -601,10 +627,8 @@
         "crash concentration",
         "prioritization mapping"
       ],
-      "related_project_ids": [
-        "119852"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09_manual_check",
       "retrieved_at": "2026-09-21T17:30:06.276862+00:00",
@@ -617,7 +641,11 @@
       "caveats": [
         "Interactive map: no useful static text. Use GIS catalog entry columbus_high_injury_network; relationship is thematic, underlying layer identity not revalidated."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "119852"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "morpc_ej_technical_appendix",
@@ -703,10 +731,8 @@
         "feasibility study process",
         "signal preemption"
       ],
-      "related_project_ids": [
-        "NP-125"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09_manual_check",
       "retrieved_at": "2026-09-21T17:30:06.637051+00:00",
@@ -717,14 +743,18 @@
       "pages_path": "documents/pages/odot_tem_rail_crossings.json",
       "sha256": "b82b740c06f67c7e7ea5f0723c31dddd7b8d3c33a1e8f522967728bc3a35cdc8",
       "caveats": [
-        "Downloaded file contains Parts 8–15, not just rail crossings. Default chunks restricted to Part 8. Dated material: URL identifies a 2015 compilation; do not treat as verified current requirements. Project-specific applicability to NP-125 is unconfirmed.",
+        "Downloaded file contains Parts 8\u201315, not just rail crossings. Default chunks restricted to Part 8. Dated material: URL identifies a 2015 compilation; do not treat as verified current requirements. Project-specific applicability to NP-125 is unconfirmed.",
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
       "description_provenance": "input_catalog_summary_not_primary_evidence",
       "indexed_page_range": [
         1,
         22
-      ]
+      ],
+      "unverified_related_project_ids": [
+        "NP-125"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "csx_public_projects_manual",
@@ -744,10 +774,8 @@
         "public project process",
         "Quiet Zone"
       ],
-      "related_project_ids": [
-        "NP-125"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:09.488490+00:00",
@@ -761,7 +789,11 @@
         "Cover says last revised April 8, 2015. Historical reference, not verified current requirements. Project-specific applicability to NP-125 is unconfirmed.",
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-125"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "fhwa_railway_crossing_resources",
@@ -780,10 +812,8 @@
         "federal rail safety guidance",
         "crossing handbook"
       ],
-      "related_project_ids": [
-        "NP-125"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:11.664249+00:00",
@@ -796,7 +826,11 @@
       "caveats": [
         "Direct download returned HTTP 403. Browser search could read the page, but it was not captured as a complete local original; excluded from local corpus."
       ],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-125"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "cota_park_and_ride_locations",
@@ -815,13 +849,11 @@
         "Park and Ride",
         "transit routes"
       ],
-      "related_project_ids": [
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "ingested_by_rag.ingest",
-      "retrieved_at": "2026-11-02T15:53:14.355336+00:00",
+      "retrieved_at": "2026-11-14T13:30:07.235507+00:00",
       "content_status": "ready",
       "index_eligible": true,
       "original_path": "documents/originals/cota_park_and_ride_locations.pdf",
@@ -832,7 +864,11 @@
       "description_provenance": "registry_summary_not_primary_evidence",
       "gap_targeted": [
         "retry: handoff download timed out"
-      ]
+      ],
+      "unverified_related_project_ids": [
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "linkus_overview",
@@ -852,10 +888,8 @@
         "bus rapid transit",
         "regional transit expansion"
       ],
-      "related_project_ids": [
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:15.140889+00:00",
@@ -866,7 +900,11 @@
       "pages_path": "documents/pages/linkus_overview.json",
       "sha256": "43e4e897dc215032fa22adbd16aca6ef1419ff478bc5ed0bbaf5a5709febf306",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "linkus_west_broad_funding",
@@ -885,10 +923,8 @@
         "federal transit funding",
         "West Broad corridor"
       ],
-      "related_project_ids": [
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": null,
       "catalog_verification_claim": "verified_live_2026-09",
       "retrieved_at": "2026-09-21T17:30:15.369492+00:00",
@@ -899,7 +935,11 @@
       "pages_path": "documents/pages/linkus_west_broad_funding.json",
       "sha256": "9beec7062e854a8c7621922c01141c689bbab8a2a9a6b3f495a3a84c8c65ba8f",
       "caveats": [],
-      "description_provenance": "input_catalog_summary_not_primary_evidence"
+      "description_provenance": "input_catalog_summary_not_primary_evidence",
+      "unverified_related_project_ids": [
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_mobility_study_attachment_01",
@@ -919,11 +959,8 @@
         "multimodal planning",
         "conceptual recommendations"
       ],
-      "related_project_ids": [
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": "rtmc_mobility_study",
       "catalog_verification_claim": "discovered_during_collection",
       "retrieved_at": "2026-09-21T17:31:58.680693+00:00",
@@ -934,7 +971,12 @@
       "pages_path": "documents/pages/rtmc_mobility_study_attachment_01.json",
       "sha256": "bec00622e51c773ffbd3b8e05ac353f4a5d2fa3a1ce32bf5a445f33214413d24",
       "caveats": [],
-      "description_provenance": "attachment_label_from_parent_page"
+      "description_provenance": "attachment_label_from_parent_page",
+      "unverified_related_project_ids": [
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_mobility_study_attachment_02",
@@ -954,11 +996,8 @@
         "multimodal planning",
         "conceptual recommendations"
       ],
-      "related_project_ids": [
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": "rtmc_mobility_study",
       "catalog_verification_claim": "discovered_during_collection",
       "retrieved_at": "2026-09-21T17:31:58.680912+00:00",
@@ -971,7 +1010,12 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "attachment_label_from_parent_page"
+      "description_provenance": "attachment_label_from_parent_page",
+      "unverified_related_project_ids": [
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_mobility_study_attachment_03",
@@ -991,11 +1035,8 @@
         "multimodal planning",
         "conceptual recommendations"
       ],
-      "related_project_ids": [
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": "rtmc_mobility_study",
       "catalog_verification_claim": "discovered_during_collection",
       "retrieved_at": "2026-09-21T17:31:58.681001+00:00",
@@ -1008,7 +1049,12 @@
       "caveats": [
         "Image-heavy demographics appendix; very little text is extractable. Retained for visual reference, excluded from default text index."
       ],
-      "description_provenance": "attachment_label_from_parent_page"
+      "description_provenance": "attachment_label_from_parent_page",
+      "unverified_related_project_ids": [
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "rtmc_mobility_study_attachment_04",
@@ -1028,11 +1074,8 @@
         "multimodal planning",
         "conceptual recommendations"
       ],
-      "related_project_ids": [
-        "NP-125",
-        "NP-102"
-      ],
-      "project_association_status": "inherited_from_input_not_independently_verified",
+      "related_project_ids": [],
+      "project_association_status": "audited_per_link",
       "parent_source_id": "rtmc_mobility_study",
       "catalog_verification_claim": "discovered_during_collection",
       "retrieved_at": "2026-09-21T17:31:58.681114+00:00",
@@ -1045,11 +1088,16 @@
       "caveats": [
         "Some PDF pages contain little/no extractable text; see collection_status.json. Maps, figures, and table alignment require original-PDF review."
       ],
-      "description_provenance": "attachment_label_from_parent_page"
+      "description_provenance": "attachment_label_from_parent_page",
+      "unverified_related_project_ids": [
+        "NP-125",
+        "NP-102"
+      ],
+      "project_association_audit": "data/project_link_audit.json"
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_05",
-      "title": "Chapter 1 – Plan Purpose & Development",
+      "title": "Chapter 1 \u2013 Plan Purpose & Development",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1058,7 +1106,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-1-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-1-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-1-Draft.pdf",
-      "description": "Linked attachment: Chapter 1 – Plan Purpose & Development",
+      "description": "Linked attachment: Chapter 1 \u2013 Plan Purpose & Development",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1084,7 +1132,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_06",
-      "title": "Chapter 2 – Regional Trends",
+      "title": "Chapter 2 \u2013 Regional Trends",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1093,7 +1141,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf",
-      "description": "Linked attachment: Chapter 2 – Regional Trends",
+      "description": "Linked attachment: Chapter 2 \u2013 Regional Trends",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1119,7 +1167,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_07",
-      "title": "Chapter 3 – The Transportation System",
+      "title": "Chapter 3 \u2013 The Transportation System",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1128,7 +1176,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-3-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-3-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-3-Draft.pdf",
-      "description": "Linked attachment: Chapter 3 – The Transportation System",
+      "description": "Linked attachment: Chapter 3 \u2013 The Transportation System",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1155,7 +1203,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_08",
-      "title": "Chapter 4 – System Management",
+      "title": "Chapter 4 \u2013 System Management",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1164,7 +1212,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf",
-      "description": "Linked attachment: Chapter 4 – System Management",
+      "description": "Linked attachment: Chapter 4 \u2013 System Management",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1190,7 +1238,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_09",
-      "title": "Chapter 5 – Demand Management",
+      "title": "Chapter 5 \u2013 Demand Management",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1199,7 +1247,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-5-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-5-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-5-Draft.pdf",
-      "description": "Linked attachment: Chapter 5 – Demand Management",
+      "description": "Linked attachment: Chapter 5 \u2013 Demand Management",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1225,7 +1273,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_10",
-      "title": "Chapter 6 – System Development",
+      "title": "Chapter 6 \u2013 System Development",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1234,7 +1282,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf",
-      "description": "Linked attachment: Chapter 6 – System Development",
+      "description": "Linked attachment: Chapter 6 \u2013 System Development",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1260,7 +1308,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_11",
-      "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+      "title": "Chapter 7 \u2013 Project Evaluation & Fiscal Constraint",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1269,7 +1317,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf",
-      "description": "Linked attachment: Chapter 7 – Project Evaluation & Fiscal Constraint",
+      "description": "Linked attachment: Chapter 7 \u2013 Project Evaluation & Fiscal Constraint",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1295,7 +1343,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_12",
-      "title": "Chapter 8 – Summary of Strategies & Projects",
+      "title": "Chapter 8 \u2013 Summary of Strategies & Projects",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1304,7 +1352,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/08/MTP2024-2025-Chapter-8-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/08/MTP2024-2025-Chapter-8-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/08/MTP2024-2025-Chapter-8-Draft.pdf",
-      "description": "Linked attachment: Chapter 8 – Summary of Strategies & Projects",
+      "description": "Linked attachment: Chapter 8 \u2013 Summary of Strategies & Projects",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1330,7 +1378,7 @@
     },
     {
       "source_id": "morpc_mtp_2024_2050_attachment_13",
-      "title": "Chapter 9 – Plan Implementation & Monitoring",
+      "title": "Chapter 9 \u2013 Plan Implementation & Monitoring",
       "organization": "MORPC",
       "source_kind": "document",
       "document_type": "linked_report",
@@ -1339,7 +1387,7 @@
       "source_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-9-Draft.pdf",
       "download_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-9-Draft.pdf",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-9-Draft.pdf",
-      "description": "Linked attachment: Chapter 9 – Plan Implementation & Monitoring",
+      "description": "Linked attachment: Chapter 9 \u2013 Plan Implementation & Monitoring",
       "relevance": "Supporting attachment to 2024-2050 Metropolitan Transportation Plan (main page + chapters)",
       "topics": [
         "long-range planning",
@@ -1393,7 +1441,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf",
-      "retrieved_at": "2026-11-02T15:47:38.022656+00:00",
+      "retrieved_at": "2026-11-14T13:29:28.198797+00:00",
       "sha256": "513e393056b772dbf54c9f94af133d3076963badbe447841c9d38f29bcd1ab93",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1427,7 +1475,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Action-Plan.pdf",
-      "retrieved_at": "2026-11-02T15:47:40.151118+00:00",
+      "retrieved_at": "2026-11-14T13:29:27.646429+00:00",
       "sha256": "69b6e456b337c1deb55c9e39d751ed843b9a430dc0b98c4945e20a8f4cb96820",
       "content_status": "ready",
       "index_eligible": true,
@@ -1461,7 +1509,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2024/01/State-of-Safety-Report-2018-2022-FINAL.pdf",
-      "retrieved_at": "2026-11-02T15:47:41.234594+00:00",
+      "retrieved_at": "2026-11-14T13:29:27.939811+00:00",
       "sha256": "dd135eef8ecf12e444faf662b6d710c10615f52184f4d37e16320d80dafb3788",
       "content_status": "ready",
       "index_eligible": true,
@@ -1494,7 +1542,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf",
-      "retrieved_at": "2026-11-02T15:47:42.086474+00:00",
+      "retrieved_at": "2026-11-14T13:29:28.197224+00:00",
       "sha256": "b7ad914030753d1a8b17b6697e683e7dcdc8b7cef1fbb47f302051069125cf5b",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1529,7 +1577,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf",
-      "retrieved_at": "2026-11-02T15:47:43.013865+00:00",
+      "retrieved_at": "2026-11-14T13:29:27.942305+00:00",
       "sha256": "f47d92a86a1f66a3abef3897c85e6d71481ecb6771070e6541ab2ceb60957954",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1566,7 +1614,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.columbus.gov/files/sharedassets/city/v/1/public-service/vision-zero/vision-zero-columbus-annual-report-2024.pdf",
-      "retrieved_at": "2026-11-02T15:47:44.428720+00:00",
+      "retrieved_at": "2026-11-14T13:29:32.689028+00:00",
       "sha256": "aab2fa9425e967c1912eb793be09c537ce87dd56c720a239ec57b805d6bd9d52",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1603,7 +1651,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf",
-      "retrieved_at": "2026-11-02T15:47:45.408662+00:00",
+      "retrieved_at": "2026-11-14T13:29:32.403961+00:00",
       "sha256": "99d669624691428b068a69db5d3c14ee112ed45c9983d124e7dcc757fcb16040",
       "content_status": "ready",
       "index_eligible": true,
@@ -1639,7 +1687,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf",
-      "retrieved_at": "2026-11-02T21:38:09.712472+00:00",
+      "retrieved_at": "2026-11-14T13:29:34.828177+00:00",
       "sha256": "17457c38ec99a5563e12f6ac7875e35d7ea5c32f8ea576fd1b8870059a2b6e97",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1675,7 +1723,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/2024-otso-annual-report.pdf",
-      "retrieved_at": "2026-11-02T15:51:40.805789+00:00",
+      "retrieved_at": "2026-11-14T13:29:45.901624+00:00",
       "sha256": "94d679642d1a7cfce5a57f86147616213d949e9e7e200a6d10b4d6283e5f2ffd",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
@@ -1709,7 +1757,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf",
-      "retrieved_at": "2026-11-02T15:51:43.668489+00:00",
+      "retrieved_at": "2026-11-14T13:29:32.891828+00:00",
       "sha256": "fefe5ccdcdd2cbe53d1f77c1fedd2ccb49332e547a1178ea3e32d1c64dedb60b",
       "content_status": "ready",
       "index_eligible": true,
@@ -1743,13 +1791,13 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf",
-      "retrieved_at": "2026-11-02T15:53:08.193697+00:00",
+      "retrieved_at": "2026-11-14T13:29:36.526673+00:00",
       "sha256": "cf4637b425caa0fb49b67b3107074ab97fcf4b796c53a0542dc82e8d5349736c",
       "content_status": "ready_with_caveats",
       "index_eligible": true,
       "original_path": "documents/originals/ohio_trauma_report_2024.pdf",
       "caveats": [
-        "2 of 63 PDF pages contain little/no extractable text. Maps, figures, and table alignment require original-PDF review."
+        "1 of 63 PDF pages still extract per glyph rather than per word after retrying the reading order. Those pages are dropped by rag.quality; the rest of the document is indexed normally."
       ]
     },
     {
@@ -1778,7 +1826,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
-      "retrieved_at": "2026-11-02T15:53:12.076546+00:00",
+      "retrieved_at": "2026-11-14T13:29:55.726279+00:00",
       "sha256": "7ea3907573810853514290e279bf0f38968233142569a48651911a8100618f39",
       "content_status": "ready",
       "index_eligible": true,
@@ -1845,7 +1893,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-One-Pager-FINAL.pdf",
-      "retrieved_at": "2026-11-02T15:53:13.260665+00:00",
+      "retrieved_at": "2026-11-14T13:30:03.648572+00:00",
       "sha256": "441674b15f56be5656843566e568430be5c961914698614dd9a9ca601b41ed32",
       "content_status": "ready",
       "index_eligible": true,
@@ -1879,7 +1927,7 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf",
-      "retrieved_at": "2026-11-02T15:53:14.866847+00:00",
+      "retrieved_at": "2026-11-14T13:30:08.985556+00:00",
       "sha256": "4b4e201f1deaaa467f8d107eb5a5f3cb28e7e64be656cd5136e155c5888432b1",
       "content_status": "ready",
       "index_eligible": true,
@@ -1914,12 +1962,40 @@
       "catalog_verification_claim": "ingested_by_rag.ingest",
       "description_provenance": "registry_summary_not_primary_evidence",
       "resolved_url": "https://www.morpc.org/wp-content/uploads/2023/01/ATP-Safety-Memo-11.29.pdf",
-      "retrieved_at": "2026-11-02T15:53:15.662751+00:00",
+      "retrieved_at": "2026-11-14T13:30:15.458453+00:00",
       "sha256": "1d716938721642ec4a213cbf2fbac3921199da3ceae063ad0f04c80730f6fe94",
-      "content_status": "ready",
+      "content_status": "ready_with_caveats",
       "index_eligible": true,
       "original_path": "documents/originals/morpc_atp_bike_ped_safety_memo_2021.pdf",
-      "caveats": []
+      "caveats": [
+        "1 of 21 PDF pages still extract per glyph rather than per word after retrying the reading order. Those pages are dropped by rag.quality; the rest of the document is indexed normally."
+      ]
+    },
+    {
+      "source_id": "cota_reroutes",
+      "title": "COTA service reroutes and construction disruptions",
+      "organization": "COTA",
+      "document_type": "official_webpage",
+      "theme": "transit construction impacts",
+      "scope": "region_specific",
+      "source_url": "https://www.cota.com/reroutes/",
+      "download_url": "https://www.cota.com/reroutes/",
+      "topics": [
+        "transit construction impacts"
+      ],
+      "source_kind": "document",
+      "parent_source_id": null,
+      "catalog_verification_claim": "ingested_by_rag.ingest",
+      "description_provenance": "registry_summary_not_primary_evidence",
+      "resolved_url": "https://www.cota.com/reroutes/",
+      "retrieved_at": "2026-11-14T13:33:03.421340+00:00",
+      "sha256": "6c03b926fb4ed711b609b1b5977ad7b9c10274d203ae9a4e815be53dbfda8ee1",
+      "content_status": "ready",
+      "index_eligible": true,
+      "original_path": "documents/originals/cota_reroutes.html",
+      "caveats": [
+        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+      ]
     }
   ]
 }
