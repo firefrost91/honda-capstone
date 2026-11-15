@@ -1,0 +1,240 @@
+{
+  "case_id": "hilliard_rome_renner",
+  "project_id": "119852",
+  "title": "Hilliard Rome Road at Renner Road: planning evidence demonstration",
+  "project_status": "planned improvement per dated project sources; no completed-treatment claim",
+  "hotspot_id": "site_9998d539b0",
+  "location": {
+    "longitude": -83.1508454293867,
+    "latitude": 39.981197510215985,
+    "analysis_radius_m": 100,
+    "distance_crs": "EPSG:26917",
+    "output_crs": "EPSG:4326"
+  },
+  "crash_snapshot_date": "2026-09-25",
+  "infrastructure_snapshot_date": "2026-11-14",
+  "crashes": {
+    "total_crashes": 131,
+    "fatal_crashes": 0,
+    "serious_injury_crashes": 2,
+    "annual_counts": {
+      "2021": 30,
+      "2022": 27,
+      "2023": 24,
+      "2024": 23,
+      "2025": 27
+    },
+    "scope": "HILLIARD & ROME / RENNER: 100 metre buffer",
+    "snapshot_date": "2026-09-25",
+    "source_urls": [
+      "https://tims.dot.state.oh.us/ags/rest/services/Safety/2021_Crash_Locations/MapServer/0",
+      "https://tims.dot.state.oh.us/ags/rest/services/Safety/2022_Crash_Locations/MapServer/0",
+      "https://tims.dot.state.oh.us/ags/rest/services/Safety/2023_Crash_Locations/MapServer/0",
+      "https://tims.dot.state.oh.us/ags/rest/services/Safety/2024_Crash_Locations/MapServer/0",
+      "https://tims.dot.state.oh.us/ags/rest/services/Safety/2025_Crash_Locations/MapServer/0"
+    ],
+    "rate": null,
+    "rate_unavailable_reason": "No matched exposure denominator.",
+    "limitations": [
+      "Crash counts are not injury-person counts.",
+      "Overlapping site buffers must not be summed.",
+      "Descriptive frequency, not statistical significance or causal effect."
+    ]
+  },
+  "radius_sensitivity_crashes": {
+    "75m": 117,
+    "100m": 131,
+    "150m": 150
+  },
+  "crash_type_counts": {
+    "Rear End": 36,
+    "Angle": 32,
+    "Left Turn": 26,
+    "Sideswipe - Passing": 14,
+    "Right Turn": 9,
+    "Head On": 4,
+    "Backing": 4,
+    "Parked Vehicle": 3,
+    "Fixed Object": 2,
+    "Other Non-Collision": 1
+  },
+  "nearby_infrastructure_100m": {
+    "odot_traffic_volume": [
+      {
+        "distance_m": 0.84,
+        "attributes": {
+          "OBJECTID": 100881,
+          "STATION_ID_NBR": "104025",
+          "NLFID": "CFRACR00027**C",
+          "AADT_YEAR": 2025,
+          "AADT_TOTAL": 13851
+        }
+      },
+      {
+        "distance_m": 0.94,
+        "attributes": {
+          "OBJECTID": 104628,
+          "STATION_ID_NBR": "104025",
+          "NLFID": "CFRACR00027**C",
+          "AADT_YEAR": 2025,
+          "AADT_TOTAL": 13851
+        }
+      },
+      {
+        "distance_m": 16.83,
+        "attributes": {
+          "OBJECTID": 62154,
+          "STATION_ID_NBR": "50225",
+          "NLFID": "CFRACR00003**C",
+          "AADT_YEAR": 2025,
+          "AADT_TOTAL": 48624
+        }
+      }
+    ],
+    "odot_speed_limit": [
+      {
+        "distance_m": 16.83,
+        "attributes": {
+          "OBJECTID": 16252658,
+          "NLFID": "CFRACR00003**C",
+          "BEG_POINT_DESCRIPTION_TXT": "Feder Rd",
+          "ENDING_POINT_DESC_TXT": "Westchester Woods Blvd",
+          "STREET_NAME": "Hilliard Rome Road",
+          "WITHDRAWL_REMOVAL_DT": null,
+          "APPROVED_SPEED": 45,
+          "STATUS_OF_REQUEST": "Approved",
+          "AADT_TOTAL": 48184
+        }
+      }
+    ],
+    "odot_road_inventory": [
+      {
+        "distance_m": 0.0,
+        "attributes": {
+          "OBJECTID": 2988890,
+          "PERP_YEAR": 2025,
+          "NLF_ID": "CFRACR00027**C",
+          "LANES_NBR": 2,
+          "SPEED_LIMIT_NBR": 45,
+          "STREET_NAME": "RENNER",
+          "THROUGH_LANES": null
+        }
+      },
+      {
+        "distance_m": 0.0,
+        "attributes": {
+          "OBJECTID": 2988096,
+          "PERP_YEAR": 2025,
+          "NLF_ID": "CFRACR00003**N",
+          "LANES_NBR": 3,
+          "SPEED_LIMIT_NBR": 45,
+          "STREET_NAME": "HILLIARD & ROME",
+          "THROUGH_LANES": null
+        }
+      },
+      {
+        "distance_m": 0.0,
+        "attributes": {
+          "OBJECTID": 2988889,
+          "PERP_YEAR": 2025,
+          "NLF_ID": "CFRACR00027**C",
+          "LANES_NBR": 2,
+          "SPEED_LIMIT_NBR": 45,
+          "STREET_NAME": "RENNER",
+          "THROUGH_LANES": null
+        }
+      },
+      {
+        "distance_m": 16.53,
+        "attributes": {
+          "OBJECTID": 2988018,
+          "PERP_YEAR": 2025,
+          "NLF_ID": "CFRACR00003**C",
+          "LANES_NBR": 3,
+          "SPEED_LIMIT_NBR": 45,
+          "STREET_NAME": "HILLIARD & ROME",
+          "THROUGH_LANES": null
+        }
+      }
+    ],
+    "columbus_crosswalks_sidewalks": [
+      {
+        "distance_m": 9.5,
+        "attributes": {
+          "OBJECTID": 13568,
+          "LSN": "HILLIARD ROME RD",
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      },
+      {
+        "distance_m": 13.2,
+        "attributes": {
+          "OBJECTID": 13569,
+          "LSN": "RENNER RD",
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      },
+      {
+        "distance_m": 16.45,
+        "attributes": {
+          "OBJECTID": 13571,
+          "LSN": "RENNER RD",
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      },
+      {
+        "distance_m": 27.07,
+        "attributes": {
+          "OBJECTID": 13570,
+          "LSN": "HILLIARD ROME RD",
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      },
+      {
+        "distance_m": 74.68,
+        "attributes": {
+          "OBJECTID": 13573,
+          "LSN": null,
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      },
+      {
+        "distance_m": 93.91,
+        "attributes": {
+          "OBJECTID": 13567,
+          "LSN": null,
+          "ADACOMPLY": null,
+          "NLFID": null,
+          "StatusLifeCycle": "Active"
+        }
+      }
+    ]
+  },
+  "hin_features_100m": [
+    {
+      "OBJECTID": 419,
+      "street_name": "HILLIARD-ROME",
+      "distance_m": 9.44
+    }
+  ],
+  "interpretation_limits": [
+    "Crash records describe 2021\u20132025 selected-corridor history, not post-project outcomes.",
+    "A feature intersecting the 100m buffer is nearby context; not every field applies to every intersection approach.",
+    "Do not add adjacent AADT segments or treat a single 2025 AADT as five years of intersection exposure.",
+    "Speed-zone approval, roadway inventory and current posted signs are different forms of evidence.",
+    "LANES_NBR is not a count of all intersection turning lanes; THROUGH_LANES is null in the selected inventory records.",
+    "Crosswalk ADACOMPLY null means unknown, not noncompliant or accessible.",
+    "The HIN layer version and crash-attribute periods are not independently established as current.",
+    "The COTA Renner Park & Ride facility notice is a separate activity, not proof that PID 119852 construction started."
+  ]
+}

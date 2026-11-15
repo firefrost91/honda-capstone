@@ -32,7 +32,9 @@
    "available_supplemental_sources": [
     "columbus_vision_zero_annual_report_2024",
     "morpc_cotsp_2019"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Current attention can be described from dated sources; do not equate old plans with current conditions."
   },
   {
    "id": 2,
@@ -66,7 +68,9 @@
    "min_distinct_sources": 3,
    "available_supplemental_sources": [
     "fhwa_columbus_community_connections_case_study"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Qualitative historical impacts are supported; causal crash effects are not."
   },
   {
    "id": 3,
@@ -98,7 +102,9 @@
    "min_distinct_sources": 3,
    "available_supplemental_sources": [
     "franklin_county_ss4a_safety_action_plan_2026"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Gap-identification question; missing data is a valid finding."
   },
   {
    "id": 4,
@@ -128,7 +134,9 @@
     "High Impact Neighborhood"
    ],
    "min_distinct_sources": 3,
-   "available_supplemental_sources": []
+   "available_supplemental_sources": [],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "No verified planned-versus-actual cost/schedule series. Plans and budget amendments do not alone establish overruns."
   },
   {
    "id": 5,
@@ -163,7 +171,9 @@
     "morpc_cotsp_action_plan_2019",
     "franklin_county_ss4a_safety_action_plan_2026",
     "odot_shsp_2025"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Evidence can support candidate interventions, not a definitive citywide optimal ranking."
   },
   {
    "id": 6,
@@ -197,7 +207,9 @@
    "available_supplemental_sources": [
     "morpc_state_of_safety_2018_2022",
     "morpc_state_of_safety_2015_2019"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Regional reports and 2021–2025 study-area counts support bounded trends; periods and geographies must stay separate."
   },
   {
    "id": 7,
@@ -228,7 +240,9 @@
     "High Impact Neighborhood"
    ],
    "min_distinct_sources": 3,
-   "available_supplemental_sources": []
+   "available_supplemental_sources": [],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Projections are scenarios, not observed future crash outcomes."
   },
   {
    "id": 8,
@@ -260,7 +274,9 @@
    "available_supplemental_sources": [
     "ohio_trauma_report_2024",
     "ohio_quickclear_agreement"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Policy/trauma evidence is available; local dispatch-to-arrival measurements are missing."
   },
   {
    "id": 9,
@@ -296,7 +312,9 @@
     "columbus_high_injury_network"
    ],
    "label_audit_note": "Unavailable expectations retained for coverage tracking, excluded from retrieval recall. This does not establish answer completeness.",
-   "available_supplemental_sources": []
+   "available_supplemental_sources": [],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Explain loaded records, computed summaries and catalogue-only datasets separately."
   },
   {
    "id": 10,
@@ -328,7 +346,9 @@
    "min_distinct_sources": 3,
    "available_supplemental_sources": [
     "morpc_atp_2020_2050_overview"
-   ]
+   ],
+   "answerability": "partial_or_evidence_gap",
+   "answerability_limit": "Design trade-offs can be discussed; observed harm to another group requires measured evidence."
   }
  ],
  "schema": {
@@ -342,6 +362,7 @@
   "must_mention_any": "answer must contain at least one of these (case-insensitive; LLM tier only)",
   "forbidden": "strings that must never appear in an answer (LLM tier only)",
   "min_distinct_sources": "minimum distinct source documents in the final context",
-  "note": "what a good answer looks like"
+  "note": "what a good answer looks like",
+  "answerability_limit": "Predeclared evidence boundary, not an instruction to fabricate an answer or relax the score."
  }
 }

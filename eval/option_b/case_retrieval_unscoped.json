@@ -1,0 +1,240 @@
+{
+  "index_manifest": {
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "n_passages": 2523,
+    "dim": 384,
+    "corpus_fingerprint": "1130990f84aa7d32",
+    "passages_by_kind": {
+      "chunk": 2299,
+      "data_summary": 139,
+      "doc_card": 56,
+      "data_card": 29
+    },
+    "built_at": "2026-11-14T14:17:24",
+    "embedding_health": {
+      "n_vectors": 2523,
+      "dim": 384,
+      "mean_cosine": 0.649,
+      "effective_rank": 289.55,
+      "effective_rank_ratio": 0.754,
+      "top1_variance_share": 0.1232,
+      "top10_variance_share": 0.419,
+      "near_duplicate_rate": 0.1217,
+      "hubness_skew": 1.444,
+      "max_k_occurrence": 57,
+      "query_topk_overlap": 0.0972,
+      "query_max_pair_overlap": 0.5385,
+      "query_margin_top1_top50": 0.0715,
+      "query_min_margin": 0.0388,
+      "alarms": [
+        "sources with near-identical passages: west_columbus_crash_snapshot",
+        "a question's top-1 vs top-50 margin is only 0.039"
+      ]
+    }
+  },
+  "questions": {
+    "1": {
+      "expected_recall": 0.0,
+      "missing_expected": [
+        "west_columbus_crash_snapshot",
+        "proj_119852_columbus_fact_sheet"
+      ],
+      "aspirational_recall": null,
+      "n_distinct_sources": 9,
+      "evidence_fraction": 0.929,
+      "kinds": {
+        "chunk": 13,
+        "doc_card": 1
+      },
+      "passage_ids": [
+        "odot_shsp_2025__p0067__c001",
+        "rtmc_mobility_study_attachment_01__p0018__c001",
+        "doccard::proj_119852_engage_columbus",
+        "morpc_mtp_2024_2050_attachment_08__p0021__c001",
+        "odot_shsp_2025__p0060__c001",
+        "odot_shsp_2025__p0056__c001",
+        "rtmc_appendix_k_engagement__p0014__c001",
+        "rtmc_appendix_k_engagement__p0010__c001",
+        "morpc_cotsp_2019__p0065__c001",
+        "franklin_county_ss4a_safety_action_plan_2026__p0033__c001",
+        "vision_zero_action_plan_1_0__p0033__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0021__c001",
+        "franklin_county_ss4a_safety_action_plan_2026__p0024__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0001__c001"
+      ]
+    },
+    "2": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 10,
+      "evidence_fraction": 0.929,
+      "kinds": {
+        "data_summary": 6,
+        "chunk": 7,
+        "doc_card": 1
+      },
+      "passage_ids": [
+        "site_9998d539b0",
+        "site_3dc312e1c6",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "site_729389bca8",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "doccard::proj_119852_engage_columbus",
+        "rtmc_mobility_study_attachment_02__p0006__c001",
+        "proj_119852_columbus_fact_sheet__p0002__c001",
+        "cota_line_71_2026__p0002__c001",
+        "rtmc_appendix_k_engagement__p0012__c001"
+      ]
+    },
+    "3": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 9,
+      "evidence_fraction": 0.857,
+      "kinds": {
+        "data_summary": 5,
+        "chunk": 7,
+        "doc_card": 1,
+        "data_card": 1
+      },
+      "passage_ids": [
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "rtmc_mobility_study_attachment_01__p0017__c002",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "doccard::proj_119852_engage_columbus",
+        "datacard::odot_traffic_volume",
+        "proj_119852_columbus_fact_sheet__p0002__c001",
+        "rtmc_appendix_k_engagement__p0012__c001",
+        "rtmc_mobility_study_attachment_01__p0018__c001",
+        "site_9998d539b0",
+        "site_3dc312e1c6"
+      ]
+    },
+    "4": {
+      "expected_recall": 0.0,
+      "missing_expected": [
+        "cota_reroutes",
+        "cota_line_71_2026"
+      ],
+      "aspirational_recall": null,
+      "n_distinct_sources": 11,
+      "evidence_fraction": 0.714,
+      "kinds": {
+        "data_card": 4,
+        "chunk": 9,
+        "data_summary": 1
+      },
+      "passage_ids": [
+        "datacard::morpc_traffic_counts",
+        "datacard::odot_traffic_count_stations",
+        "datacard::odot_traffic_volume",
+        "datacard::columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026__p0026__c002",
+        "rtmc_mobility_study_attachment_01__p0017__c002",
+        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "rtmc_mobility_study_attachment_01__p0008__c001",
+        "odot_shsp_2025__p0044__c001",
+        "rtmc_appendix_k_engagement__p0012__c001",
+        "odot_shsp_2025__p0128__c001",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "morpc_mtp_2024_2050_attachment_10__p0003__c001",
+        "rtmc_mobility_study_attachment_01__p0044__c001"
+      ]
+    },
+    "5": {
+      "expected_recall": 0.5,
+      "missing_expected": [
+        "proj_119852_columbus_fact_sheet"
+      ],
+      "aspirational_recall": null,
+      "n_distinct_sources": 9,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "chunk": 14
+      },
+      "passage_ids": [
+        "morpc_mtp_2024_2050_attachment_11__p0022__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0004__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0002__c001",
+        "morpc_tip_2026_2029_full__p0607__c001",
+        "morpc_tip_2026_2029_full__p0048__c001",
+        "csx_public_projects_manual__p0010__c001",
+        "morpc_tip_2026_2029_full__p0608__c001",
+        "morpc_guide_to_tip__p0004__c001",
+        "csx_public_projects_manual__p0009__c002",
+        "morpc_mtp_2024_2050_attachment_12__p0008__c001",
+        "morpc_mtp_2024_2050_attachment_06__p0036__c001",
+        "morpc_mtp_2024_2050_attachment_13__p0013__c001",
+        "rtmc_mobility_study_attachment_01__p0042__c001",
+        "proj_120346_engage_columbus__p0000__c001"
+      ]
+    },
+    "6": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 11,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "data_summary": 4,
+        "chunk": 10
+      },
+      "passage_ids": [
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "cota_line_71_2026__p0002__c001",
+        "proj_119852_columbus_fact_sheet__p0002__c001",
+        "rtmc_mobility_study_attachment_01__p0015__c001",
+        "rtmc_appendix_k_engagement__p0012__c001",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "rtmc_mobility_study_attachment_01__p0018__c001",
+        "rtmc_mobility_study_attachment_02__p0006__c001",
+        "morpc_tip_2026_2029_full__p0353__c001"
+      ]
+    },
+    "7": {
+      "expected_recall": 0.0,
+      "missing_expected": [
+        "proj_119852_columbus_fact_sheet",
+        "west_columbus_crash_snapshot"
+      ],
+      "aspirational_recall": null,
+      "n_distinct_sources": 9,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "chunk": 14
+      },
+      "passage_ids": [
+        "odot_shsp_2025__p0067__c001",
+        "franklin_county_ss4a_safety_action_plan_2026__p0023__c003",
+        "franklin_county_ss4a_safety_action_plan_2026__p0006__c002",
+        "morpc_mtp_2024_2050_attachment_08__p0021__c001",
+        "franklin_county_ss4a_safety_action_plan_2026__p0022__c001",
+        "morpc_mtp_2024_2050_attachment_13__p0005__c001",
+        "odot_shsp_2025__p0062__c001",
+        "vision_zero_action_plan_1_0__p0033__c001",
+        "vision_zero_action_plan_2023_2028__p0018__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0021__c001",
+        "morpc_cotsp_2019__p0029__c001",
+        "odot_shsp_2025__p0057__c001",
+        "morpc_mtp_2024_2050_attachment_12__p0004__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0001__c001"
+      ]
+    }
+  },
+  "note": "Case reference answers were not indexed. Exact source recall is a diagnostic, not a factual correctness score."
+}

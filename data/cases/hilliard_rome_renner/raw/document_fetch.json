@@ -1,0 +1,23 @@
+[
+  {
+    "source_id": "hilliard_rome_fact_current",
+    "url": "https://www.columbus.gov/files/sharedassets/city/v/2/public-service/design-and-construction/fact-sheet-files/design/hilliard-rome-road-at-renner-road-intersection-improvements.pdf",
+    "http_status": "200",
+    "retrieved_on": "2026-11-14",
+    "sha256": "0771325c0321315c1e935dc7b98200c57ea10f7a224d522b103be104857a363d"
+  },
+  {
+    "source_id": "cota_line_71_2026",
+    "url": "https://www.cota.com/timetables/71.pdf",
+    "http_status": "200",
+    "retrieved_on": "2026-11-14",
+    "sha256": "e166ebc56b19a22785e91367176ee7e87eff24693707f2992ed46472fadbb494"
+  },
+  {
+    "source_id": "cota_line_5_2026",
+    "url": "https://www.cota.com/timetables/5.pdf",
+    "http_status": "200",
+    "retrieved_on": "2026-11-14",
+    "sha256": "078da53e302e364d42b6667bc7ba27137e77e4f9a6a53a9c161a961e0391e231"
+  }
+]

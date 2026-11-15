@@ -1,0 +1,214 @@
+{
+  "index_manifest": {
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "n_passages": 2523,
+    "dim": 384,
+    "corpus_fingerprint": "1130990f84aa7d32",
+    "passages_by_kind": {
+      "chunk": 2299,
+      "data_summary": 139,
+      "doc_card": 56,
+      "data_card": 29
+    },
+    "built_at": "2026-11-14T14:17:24",
+    "embedding_health": {
+      "n_vectors": 2523,
+      "dim": 384,
+      "mean_cosine": 0.649,
+      "effective_rank": 289.55,
+      "effective_rank_ratio": 0.754,
+      "top1_variance_share": 0.1232,
+      "top10_variance_share": 0.419,
+      "near_duplicate_rate": 0.1217,
+      "hubness_skew": 1.444,
+      "max_k_occurrence": 57,
+      "query_topk_overlap": 0.0972,
+      "query_max_pair_overlap": 0.5385,
+      "query_margin_top1_top50": 0.0715,
+      "query_min_margin": 0.0388,
+      "alarms": [
+        "sources with near-identical passages: west_columbus_crash_snapshot",
+        "a question's top-1 vs top-50 margin is only 0.039"
+      ]
+    }
+  },
+  "questions": {
+    "1": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "chunk": 6,
+        "data_summary": 6
+      },
+      "passage_ids": [
+        "proj_119852_engage_columbus__p0000__c001",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "columbus_hin_webmap_features__coverage",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "cota_reroutes__p0000__c002",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "site_9998d539b0",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "cota_line_71_2026__p0002__c001",
+        "cota_line_5_2026__p0002__c001"
+      ]
+    },
+    "2": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "data_summary": 6,
+        "chunk": 6
+      },
+      "passage_ids": [
+        "site_9998d539b0",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "columbus_hin_webmap_features__coverage",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "cota_line_71_2026__p0002__c001",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "cota_line_5_2026__p0002__c001",
+        "cota_reroutes__p0000__c002"
+      ]
+    },
+    "3": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "data_summary": 6,
+        "chunk": 6
+      },
+      "passage_ids": [
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "site_9998d539b0",
+        "columbus_hin_webmap_features__coverage",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "cota_line_71_2026__p0002__c001",
+        "cota_line_5_2026__p0002__c001",
+        "cota_reroutes__p0000__c002"
+      ]
+    },
+    "4": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "data_summary": 6,
+        "chunk": 6
+      },
+      "passage_ids": [
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "columbus_hin_webmap_features__coverage",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "site_9998d539b0",
+        "cota_reroutes__p0000__c002",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "cota_line_71_2026__p0002__c001",
+        "cota_line_5_2026__p0002__c001"
+      ]
+    },
+    "5": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "chunk": 6,
+        "data_summary": 6
+      },
+      "passage_ids": [
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "cota_reroutes__p0000__c002",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "cota_line_71_2026__p0002__c001",
+        "columbus_hin_webmap_features__coverage",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "site_9998d539b0",
+        "cota_line_5_2026__p0002__c001"
+      ]
+    },
+    "6": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "data_summary": 6,
+        "chunk": 6
+      },
+      "passage_ids": [
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "proj_119852_engage_columbus__p0000__c001",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "cota_line_71_2026__p0002__c001",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "cota_line_5_2026__p0002__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "odot_speed_limit__hilliard_rome_renner_context",
+        "site_9998d539b0",
+        "cota_reroutes__p0000__c002",
+        "columbus_hin_webmap_features__coverage"
+      ]
+    },
+    "7": {
+      "expected_recall": 1.0,
+      "missing_expected": [],
+      "aspirational_recall": null,
+      "n_distinct_sources": 12,
+      "evidence_fraction": 1.0,
+      "kinds": {
+        "chunk": 6,
+        "data_summary": 6
+      },
+      "passage_ids": [
+        "proj_119852_engage_columbus__p0000__c001",
+        "morpc_tip_2026_2029_full__p0202__c001",
+        "proj_119852_columbus_fact_sheet__p0001__c001",
+        "columbus_hin_webmap_features__coverage",
+        "odot_traffic_volume__hilliard_rome_renner_context",
+        "site_9998d539b0",
+        "odot_road_inventory__hilliard_rome_renner_context",
+        "columbus_crosswalks_sidewalks__hilliard_rome_renner_context",
+        "cota_reroutes__p0000__c002",
+        "cota_line_71_2026__p0002__c001",
+        "cota_line_5_2026__p0002__c001",
+        "odot_speed_limit__hilliard_rome_renner_context"
+      ]
+    }
+  },
+  "scope": "Explicit audited case evidence; no gold-label-based filtering",
+  "note": "Case reference answers were not indexed. Exact source recall is a diagnostic, not a factual correctness score."
+}

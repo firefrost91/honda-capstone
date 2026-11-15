@@ -14,18 +14,20 @@ than single-fact lookups, and to be explicit about the limits of its evidence.
 
 | Layer | Count | What it is |
 |---|---|---|
-| Document chunks | 1,389 | Text from MORPC plans, Vision Zero Columbus action plans, ODOT manuals, corridor studies, project fact sheets — after the hygiene pass in `rag/quality.py` (1,563 raw) |
-| Source cards | 38 | One per catalogued document — title, publisher, topics, scope, caveats |
-| GIS data cards | 38 | One per regional dataset — ODOT crash years, AADT, speed limits, Columbus High Injury Network, sidewalks, signals, Safe Routes to School |
+| Document chunks | 2,299 retained / 2,603 raw | Planning documents, historical reports, checked demographic tables, project evidence and dated transit material |
+| Source cards | 56 eligible / 59 catalogued | Unavailable, map-only and mismatched originals stay excluded; replacements have separate provenance |
+| GIS data cards | 29 eligible / 40 catalogued | Audited services, references and explicitly scoped local snapshots; 11 unresolved/mismatched entries remain excluded |
+| Computed summaries | 139 | Regional aggregates, 127 local crash-site summaries, recovered HIN coverage and four local infrastructure summaries |
 
-| GIS aggregate summaries | 0 until `make ingest-gis` | Server-side year × severity × county counts from the ODOT / Columbus crash layers, as citable `data_summary` passages |
+Loaded records include 7,167 dated West Columbus crash records, 509 features from the
+catalogued HIN webmap, and local traffic-volume, speed-zone, road-inventory and crosswalk
+subsets around Hilliard Rome/Renner. **Other GIS coverage remains catalogue-only.**
+Counts are supported within the snapshots' boundaries; exposure-adjusted rates and causal
+before/after claims are not established.
 
-**The GIS records themselves are not loaded — only their catalogue entries** (and, once
-`make ingest-gis` has run, aggregate counts computed from them). The
-system is built to respect that line: it will tell you the Columbus High Injury
-Network layer exists, who maintains it and what fields it reports, and it will
-refuse to quote a crash count from it. That distinction is enforced in the data
-cards, the system prompt, and the tests.
+See the [current Option A/B handoff](docs/OPTION_AB_HANDOFF.md),
+[source recovery review](docs/OPTION_A_SOURCE_REVIEW.md), and
+[Hilliard Rome/Renner demonstration](data/cases/hilliard_rome_renner/README.md).
 
 ---
 

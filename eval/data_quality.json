@@ -1,6 +1,6 @@
 {
-  "n_raw_chunks": 2584,
-  "n_kept_chunks": 2280,
+  "n_raw_chunks": 2603,
+  "n_kept_chunks": 2299,
   "dropped": {
     "table_of_contents": 18,
     "dot_leaders": 16,
@@ -16,7 +16,7 @@
     "morpc_tip_2026_2029_full": {
       "raw": 740,
       "kept": 647,
-      "share_of_corpus": 0.284,
+      "share_of_corpus": 0.281,
       "dropped": {
         "table_of_contents": 3,
         "dot_leaders": 1,
@@ -49,7 +49,7 @@
     "odot_shsp_2025": {
       "raw": 192,
       "kept": 186,
-      "share_of_corpus": 0.082,
+      "share_of_corpus": 0.081,
       "dropped": {
         "too_short_or_non_prose": 4,
         "garbled_text_extraction": 1,
@@ -59,7 +59,7 @@
     "csx_public_projects_manual": {
       "raw": 169,
       "kept": 152,
-      "share_of_corpus": 0.067,
+      "share_of_corpus": 0.066,
       "dropped": {
         "table_of_contents": 3,
         "too_short_or_non_prose": 7,
@@ -196,7 +196,7 @@
     "morpc_state_of_safety_2018_2022": {
       "raw": 30,
       "kept": 24,
-      "share_of_corpus": 0.011,
+      "share_of_corpus": 0.01,
       "dropped": {
         "too_short_or_non_prose": 5,
         "table_of_contents": 1
@@ -300,6 +300,12 @@
       "share_of_corpus": 0.004,
       "dropped": {}
     },
+    "fhwa_rail_handbook_3": {
+      "raw": 10,
+      "kept": 10,
+      "share_of_corpus": 0.004,
+      "dropped": {}
+    },
     "columbus_vision_zero_annual_report_2024": {
       "raw": 9,
       "kept": 7,
@@ -312,6 +318,12 @@
       "raw": 6,
       "kept": 6,
       "share_of_corpus": 0.003,
+      "dropped": {}
+    },
+    "rtmc_mobility_study_attachment_03": {
+      "raw": 5,
+      "kept": 5,
+      "share_of_corpus": 0.002,
       "dropped": {}
     },
     "fhwa_columbus_community_connections_case_study": {
@@ -388,19 +400,13 @@
       "share_of_corpus": 0.001,
       "dropped": {}
     },
-    "proj_119852_engage_columbus": {
-      "raw": 1,
-      "kept": 1,
-      "share_of_corpus": 0.0,
+    "proj_np37_hilliard_cip_2025": {
+      "raw": 2,
+      "kept": 2,
+      "share_of_corpus": 0.001,
       "dropped": {}
     },
     "proj_120346_columbus_fact_sheet": {
-      "raw": 1,
-      "kept": 1,
-      "share_of_corpus": 0.0,
-      "dropped": {}
-    },
-    "proj_120346_engage_columbus": {
       "raw": 1,
       "kept": 1,
       "share_of_corpus": 0.0,
@@ -413,6 +419,30 @@
       "dropped": {}
     },
     "ohio_quickclear_agreement": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.0,
+      "dropped": {}
+    },
+    "proj_119852_engage_columbus": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.0,
+      "dropped": {}
+    },
+    "proj_120346_engage_columbus": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.0,
+      "dropped": {}
+    },
+    "cota_line_5_2026": {
+      "raw": 1,
+      "kept": 1,
+      "share_of_corpus": 0.0,
+      "dropped": {}
+    },
+    "cota_line_71_2026": {
       "raw": 1,
       "kept": 1,
       "share_of_corpus": 0.0,
@@ -535,7 +565,6 @@
   "sources_without_chunks": [
     "fhwa_railway_crossing_resources",
     "proj_np37_hilliard_construction_update",
-    "rtmc_mobility_study_attachment_03",
     "vision_zero_hin_map"
   ],
   "dominant_sources": []

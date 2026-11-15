@@ -1,0 +1,20 @@
+{
+  "snapshot_date": "2026-11-14",
+  "webmap_url": "https://vision-zero-columbus.hub.arcgis.com/maps/10084bf09a9e4180838832300dba4da7",
+  "feature_service_url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+  "query": {
+    "where": "1=1",
+    "outFields": "*",
+    "returnGeometry": "true",
+    "outSR": 4326,
+    "f": "geojson"
+  },
+  "expected_count": 509,
+  "returned_count": 509,
+  "unique_object_ids": 509,
+  "sha256": "b5498f0e7bab7501183b9b1cd0e819201ab95ef765d7b6c3d5f5a6a3a726ae05",
+  "limitations": [
+    "This is the layer referenced by the catalogued webmap, not a claim that it is the newest HIN policy version.",
+    "The period/weighting of crash-derived attributes is not established here. Do not present their sums as 2021\u20132025 crash counts."
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+  "backend": "llamacpp",
+  "answers": [
+    {
+      "id": 3,
+      "question": "Can we calculate a five-year crash rate for Hilliard Rome Road and Renner Road using the available AADT?",
+      "text": "No pedestrian volume counts exist for this corridor, so crash totals cannot be turned into a rate per crossing [S1][S4][S9]. Additionally, crash records after 2023 are not in this knowledge base; they would have to be queried from ODOT TIMS [S5]. The crash records describe 2021\u20132025 selected-corridor history, not post-project outcomes [S5]. The available AADT values are segment AADT values, not matched five-year intersection entering volumes, and do not sum adjacent AADT segments [S1]. These limitations prevent calculating a five-year crash rate for Hilliard Rome Road and Renner Road using the available AADT data [S1].\n\n**What the local evidence does not cover**\n- The crash records describe 2021\u20132025 selected-corridor history, not post-project outcomes [S5].\n- The available AADT values are segment AADT values, not matched five-year intersection entering volumes, and do not sum adjacent AADT segments [S1].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Traffic Volume (AADT)",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_traffic_volume",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Traffic_Count_Segments/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_traffic_volume",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Hilliard Rome Road at Renner Road - Intersection Safety Improvements",
+          "organization": "Engage Columbus",
+          "locator": "Web text segment 1",
+          "url": "https://engage.columbus.gov/hilliardromerennerintersection",
+          "kind": "chunk",
+          "source_id": "proj_119852_engage_columbus",
+          "cited": false
+        },
+        {
+          "n": 3,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Speed Limit",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_speed_limit",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Speed_Zones/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_speed_limit",
+          "cited": false
+        },
+        {
+          "n": 4,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Road Inventory",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_road_inventory",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Road_Inventory/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_road_inventory",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "West Columbus 2021\u20132025 crash frequency screening",
+          "organization": "ODOT TIMS; CMU study-area processing",
+          "locator": "data/local_crashes/hotspot_candidates.json; site_9998d539b0",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2021_Crash_Locations/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "west_columbus_crash_snapshot",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Columbus HIN map feature recovery",
+          "organization": "City of Columbus",
+          "locator": "data/local_hin/manifest.json",
+          "url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+          "kind": "data_summary",
+          "source_id": "columbus_hin_webmap_features",
+          "cited": false
+        },
+        {
+          "n": 7,
+          "title": "Hilliard-Rome Road at Renner Road Intersection Improvements - Fact Sheet",
+          "organization": "City of Columbus",
+          "locator": "PDF page 1",
+          "url": "https://www.columbus.gov/files/sharedassets/city/v/2/public-service/design-and-construction/fact-sheet-files/design/hilliard-rome-road-at-renner-road-intersection-improvements.pdf#page=1",
+          "kind": "chunk",
+          "source_id": "proj_119852_columbus_fact_sheet",
+          "cited": false
+        },
+        {
+          "n": 8,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 202",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=202",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": false
+        },
+        {
+          "n": 9,
+          "title": "Hilliard Rome / Renner \u2014 Columbus Crosswalks",
+          "organization": "City of Columbus",
+          "locator": "data/cases/hilliard_rome_renner/case.json; columbus_crosswalks_sidewalks",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/40",
+          "kind": "data_summary",
+          "source_id": "columbus_crosswalks_sidewalks",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "COTA Line 71 route map \u2014 effective May 4, 2026",
+          "organization": "COTA",
+          "locator": "PDF page 2",
+          "url": "https://www.cota.com/timetables/71.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "cota_line_71_2026",
+          "cited": false
+        },
+        {
+          "n": 11,
+          "title": "COTA Line 5 route map \u2014 effective May 4, 2026",
+          "organization": "COTA",
+          "locator": "PDF page 2",
+          "url": "https://www.cota.com/timetables/5.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "cota_line_5_2026",
+          "cited": false
+        },
+        {
+          "n": 12,
+          "title": "COTA service reroutes and construction disruptions",
+          "organization": "COTA",
+          "locator": "Web text segment 2",
+          "url": "https://www.cota.com/reroutes/",
+          "kind": "chunk",
+          "source_id": "cota_reroutes",
+          "cited": false
+        }
+      ],
+      "subqueries": [
+        "Can we calculate a five-year crash rate for Hilliard Rome Road and Renner Road using the available AADT?"
+      ],
+      "confidence": 0.7769879102706909,
+      "groundedness": 1.0,
+      "unsupported_claims": [],
+      "coverage_note": "",
+      "n_sources": 12,
+      "elapsed_s": 406.96616411209106,
+      "backend": "llamacpp",
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "stakeholder": null,
+      "tool_calls": []
+    },
+    {
+      "id": 5,
+      "question": "What do the TIP and city documents say about PID 119852 cost and schedule differences?",
+      "text": "The TIP and city documents provide specific details about the cost and schedule differences for the PID 119852 project at Hilliard Rome Road at Renner Road [S2][S3].\n\nIn the TIP document, the cost breakdown for the project is as follows: [S1][S2][S9]\n- Design: $2.0 million\n- Right-of-Way: $1.5 million\n- Utility Relocations: $350,000\n- Construction: $8.0 million\n\nThe city documents also provide a similar breakdown, though with slightly different figures: [S4][S6]\n- Design: $2.0 million\n- Right-of-Way: $1.5 million\n- Utility Relocations: $350,000\n- Construction: $8.0 million\n\nThe cost differences are minor, with the city documents slightly higher in the right-of-way and construction phases [S2][S3]. However, the primary difference lies in the construction phase, where the city documents show a higher cost of $8.0 million compared to the TIP's $8.163 million [S1][S2][S3].\n\nRegarding the schedule, the city documents provide a more detailed timeline for each phase: [S2][S5][S8]\n- Design: Early 2024 - Summer 2028 [S2][S8][S12]\n- Right-of-Way: Spring 2027 - Summer 2028 [S8][S12]\n- Utility Relocations: Early 2027 - Early 2028 [S2][S5][S12]\n- Construction: Late 2028* - Spring 2031* [S1][S8][S12]\n\nThe TIP document also provides a similar schedule, though with slightly different phases: [S2][S4][S5]\n- Design: Early 2024 - Summer 2028 [S2][S8][S12]\n- Right-of-Way: Spring 2027 - Summer 2028 [S8][S12]\n- Utility Relocations: Early 2027 - Early 2028 [S2][S5][S12]\n- Construction: Late 2028* - Spring 2031* [S1][S8][S12]\n\nThe schedule differences are minor, with the city documents slightly earlier in the design and right-of-way phases, and the TIP slightly earlier in the utility relocations phase [S2]. The construction phase is the same for both documents [S2][S4].\n\nIn summary, the TIP and city documents provide consistent cost and schedule information for the PID 119852 project, with minor differences in the construction phase and a slight earlier schedule in the design and right-of-way phases [S2].\n\n**What the local evidence does not cover**\n- The documents do not specify the exact number of crosswalks or ADA compliance status, so ramp, surface, signal and accessible-route conditions cannot be established [S6].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 202",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=202",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Hilliard-Rome Road at Renner Road Intersection Improvements - Fact Sheet",
+          "organization": "City of Columbus",
+          "locator": "PDF page 1",
+          "url": "https://www.columbus.gov/files/sharedassets/city/v/2/public-service/design-and-construction/fact-sheet-files/design/hilliard-rome-road-at-renner-road-intersection-improvements.pdf#page=1",
+          "kind": "chunk",
+          "source_id": "proj_119852_columbus_fact_sheet",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Hilliard Rome Road at Renner Road - Intersection Safety Improvements",
+          "organization": "Engage Columbus",
+          "locator": "Web text segment 1",
+          "url": "https://engage.columbus.gov/hilliardromerennerintersection",
+          "kind": "chunk",
+          "source_id": "proj_119852_engage_columbus",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Traffic Volume (AADT)",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_traffic_volume",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Traffic_Count_Segments/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_traffic_volume",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "COTA service reroutes and construction disruptions",
+          "organization": "COTA",
+          "locator": "Web text segment 2",
+          "url": "https://www.cota.com/reroutes/",
+          "kind": "chunk",
+          "source_id": "cota_reroutes",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Hilliard Rome / Renner \u2014 Columbus Crosswalks",
+          "organization": "City of Columbus",
+          "locator": "data/cases/hilliard_rome_renner/case.json; columbus_crosswalks_sidewalks",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/40",
+          "kind": "data_summary",
+          "source_id": "columbus_crosswalks_sidewalks",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Road Inventory",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_road_inventory",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Road_Inventory/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_road_inventory",
+          "cited": false
+        },
+        {
+          "n": 8,
+          "title": "COTA Line 71 route map \u2014 effective May 4, 2026",
+          "organization": "COTA",
+          "locator": "PDF page 2",
+          "url": "https://www.cota.com/timetables/71.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "cota_line_71_2026",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Columbus HIN map feature recovery",
+          "organization": "City of Columbus",
+          "locator": "data/local_hin/manifest.json",
+          "url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+          "kind": "data_summary",
+          "source_id": "columbus_hin_webmap_features",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Hilliard Rome / Renner \u2014 ODOT Speed Limit",
+          "organization": "ODOT",
+          "locator": "data/cases/hilliard_rome_renner/case.json; odot_speed_limit",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Speed_Zones/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "odot_speed_limit",
+          "cited": false
+        },
+        {
+          "n": 11,
+          "title": "West Columbus 2021\u20132025 crash frequency screening",
+          "organization": "ODOT TIMS; CMU study-area processing",
+          "locator": "data/local_crashes/hotspot_candidates.json; site_9998d539b0",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety/2021_Crash_Locations/MapServer/0",
+          "kind": "data_summary",
+          "source_id": "west_columbus_crash_snapshot",
+          "cited": false
+        },
+        {
+          "n": 12,
+          "title": "COTA Line 5 route map \u2014 effective May 4, 2026",
+          "organization": "COTA",
+          "locator": "PDF page 2",
+          "url": "https://www.cota.com/timetables/5.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "cota_line_5_2026",
+          "cited": true
+        }
+      ],
+      "subqueries": [
+        "What do the TIP and city documents say about PID 119852 cost and schedule differences?",
+        "project cost estimate and funding programme",
+        "project schedule phasing and construction timeline",
+        "fiscal constraint and cost inflation"
+      ],
+      "confidence": 0.5942034006118775,
+      "groundedness": 1.0,
+      "unsupported_claims": [],
+      "coverage_note": "",
+      "n_sources": 12,
+      "elapsed_s": 439.44330167770386,
+      "backend": "llamacpp",
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "stakeholder": null,
+      "tool_calls": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Only needed to rebuild the spatial case and its map, not to run the chatbot.
+shapely>=2.0
+pyproj>=3.6
+matplotlib>=3.8

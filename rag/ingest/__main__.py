@@ -26,7 +26,7 @@ from .fetch import fetch
 _CATALOG_FIELDS = ("source_id", "title", "organization", "source_kind", "document_type",
                    "theme", "scope", "source_url", "download_url", "description",
                    "relevance", "topics", "related_project_ids", "parent_source_id",
-                   "published_year", "gap_targeted")
+                   "published_year", "gap_targeted", "selected_pdf_pages")
 
 
 def load_registry(cfg: Config = CONFIG) -> list[dict]:
@@ -73,6 +73,10 @@ def ingest_source(src: dict, cfg: Config = CONFIG, refresh: bool = False,
         return entry, [], report
 
     ex = extract(res.path, res.content_type)
+    if src.get("selected_pdf_pages"):
+        selected = set(src["selected_pdf_pages"])
+        ex.pages = [(n, text) for n, text in ex.pages if n in selected]
+        caveats.append("Selected PDF pages only: " + ", ".join(map(str, sorted(selected))) + ".")
     status, extra = content_status(ex)
     try:
         original_path = str(res.path.relative_to(ROOT))
@@ -144,6 +148,13 @@ def merge(entries: list[dict], rows: list[dict], cfg: Config = CONFIG) -> tuple[
             old = catalog["sources"][by_id[e["source_id"]]]
             if e.get("content_status") == "failed" and old.get("index_eligible"):
                 continue
+            # Registry refreshes must not reinstate unverified associations.
+            if old.get("project_association_audit") and not e.get("project_association_audit"):
+                e = dict(e)
+                for key in ("related_project_ids", "context_project_ids", "unverified_related_project_ids",
+                            "project_association_audit", "project_association_status", "project_link_note"):
+                    if key in old:
+                        e[key] = old[key]
             catalog["sources"][by_id[e["source_id"]]] = {**old, **e}
         else:
             catalog["sources"].append(e)
@@ -156,6 +167,8 @@ def merge(entries: list[dict], rows: list[dict], cfg: Config = CONFIG) -> tuple[
     for r in rows:
         if r["source_id"] not in replaced:
             continue
+        source = next(s for s in catalog["sources"] if s["source_id"] == r["source_id"])
+        r["related_project_ids"] = source.get("related_project_ids", [])
         if r["content_sha256"] in seen:
             continue
         seen.add(r["content_sha256"])
