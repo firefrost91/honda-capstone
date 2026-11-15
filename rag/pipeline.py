@@ -81,6 +81,7 @@ class Answer:
     warnings: list[str] = field(default_factory=list)
     #: stakeholder profile id the answer was framed for (rag.tools.STAKEHOLDERS)
     stakeholder: str | None = None
+    contexts: list[str] = field(default_factory=list)
     #: metric tool calls made for this question, as ToolResult.to_dict()
     tool_calls: list[dict] = field(default_factory=list)
 
@@ -292,6 +293,7 @@ class RAGPipeline:
             n_sources=len({h.passage.source_id for h in kept if h.passage.kind != TOOL_KIND}),
             elapsed_s=time.time() - t0, backend=self.llm.name, warnings=warnings,
             stakeholder=stakeholder, tool_calls=list(tool_calls or []),
+            contexts=[h.passage.text for h in kept],
         )
 
     # -- public API -----------------------------------------------------
