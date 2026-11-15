@@ -115,6 +115,13 @@ def load_gis_catalog(cfg: Config = CONFIG) -> dict[str, dict]:
     return {s["source_id"]: s for s in raw["sources"]}
 
 
+def _eligible_document(meta: dict) -> bool:
+    """Keep unavailable documents in the catalogue, outside answer retrieval."""
+    return (meta.get("index_eligible") is not False
+            and meta.get("content_status") != "excluded_source_mismatch"
+            and meta.get("project_association_status") != "original_association_rejected")
+
+
 def read_chunk_rows(cfg: Config = CONFIG) -> list[dict]:
     with Path(cfg.chunks_file).open() as fh:
         return [json.loads(line) for line in fh if line.strip()]
@@ -134,6 +141,8 @@ def _chunk_passages(cfg: Config, catalog: dict[str, dict],
     for r in rows:
         text = r["text"]
         meta = catalog.get(r["source_id"], {})
+        if not _eligible_document(meta):
+            continue
         yield Passage(
             passage_id=r["chunk_id"],
             kind="chunk",
@@ -189,6 +198,8 @@ def _summary_passages(cfg: Config, gis: dict[str, dict]) -> Iterable[Passage]:
 
 def _doc_card_passages(catalog: dict[str, dict]) -> Iterable[Passage]:
     for sid, d in catalog.items():
+        if not _eligible_document(d):
+            continue
         lines = [
             f"Source document: {d.get('title','')}",
             f"Published by: {d.get('organization','')}",
