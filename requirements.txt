@@ -3,10 +3,14 @@ sentence-transformers>=3.0.0
 numpy>=1.26
 scikit-learn>=1.4
 
+# Ingestion (PDF text extraction)
+pdfplumber>=0.11
+pypdf>=4.0
+
 # Serving
 fastapi>=0.110
 uvicorn[standard]>=0.27
 pydantic>=2.6
 
 # Open-source LLM backend (Apple Silicon native). Swap for ollama/llama-cpp if preferred.
-mlx-lm>=0.20.0
+mlx-lm>=0.20.0; sys_platform == "darwin" and platform_machine == "arm64"

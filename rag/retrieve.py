@@ -8,18 +8,23 @@ each stage below exists to fix one of them:
 
 1. ``plan_subqueries``  - one embedding of a broad question sits in the middle
    of several topic clusters and retrieves the centroid of nothing. Splitting
-   into facets and fusing the results reaches all of them.
+   into facets and fusing the results reaches all of them. Only up to
+   ``cfg.max_subqueries`` of them: past that, fusion starts preferring
+   passages that place on every facet over the one that actually answers the
+   question. See the note on that setting.
 2. ``rrf_fuse``         - dense and sparse retrievers fail differently. Dense
    misses exact identifiers (SR-161, PID numbers); sparse misses paraphrase.
    Reciprocal rank fusion needs no score calibration between them.
-3. ``_cap_per_source``  - the MORPC TIP is 47% of the corpus. Uncapped, it
-   wins most queries on sheer surface area and the answer cites one document.
+3. ``_cap_per_source``  - the MORPC TIP is the largest single source in the
+   corpus. Uncapped, it wins most queries on sheer surface area and the answer
+   cites one document.
 4. ``_mmr``             - adjacent PDF pages are near-duplicates. Without a
    diversity penalty, 14 slots get spent on 3 distinct facts.
-5. ``_balance_kinds``   - catalog cards are short and keyword-dense, so on any
+5. ``_select``          - catalog cards are short and keyword-dense, so on any
    question phrased around "data" or "sources" they sweep every slot and the
    answer becomes an inventory with no evidence in it. A floor on document
-   text keeps both in the context.
+   text keeps both in the context. The floor only reserves slots, it does not
+   cap the cards, so ``cfg.min_chunk_fraction`` alone decides the split.
 """
 from __future__ import annotations
 
@@ -29,7 +34,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from .config import CONFIG, Config
-from .corpus import Passage
+from .corpus import EVIDENCE_KINDS, Passage
 from .index import HybridIndex
 
 
@@ -41,6 +46,9 @@ class Hit:
     dense_rank: int | None = None
     sparse_rank: int | None = None
     matched_subqueries: tuple[str, ...] = ()
+    #: Set for passages that are not in the index (metric tool output); the
+    #: pipeline reads this instead of ``index.vectors[index]`` when ``index < 0``.
+    vector: np.ndarray | None = None
 
 
 # --------------------------------------------------------------------------
@@ -129,7 +137,10 @@ def plan_subqueries(question: str, llm=None, cfg: Config = CONFIG) -> list[str]:
         if key and key not in seen:
             seen.add(key)
             out.append(q)
-    return out[: 1 + 3 * cfg.n_subqueries]
+    # Every extra probe dilutes the fused ranking (see cfg.max_subqueries), so
+    # the ceiling is a hard total rather than a per-source allowance. The
+    # question itself is out[0] and always survives.
+    return out[: max(1, cfg.max_subqueries)]
 
 
 # --------------------------------------------------------------------------
@@ -241,7 +252,7 @@ class Retriever:
         """MMR selection with a floor on how many slots hold real document text."""
         cfg = self.cfg
         passages = self.index.passages
-        chunk_pool = [i for i in pool if passages[i].kind == "chunk"]
+        chunk_pool = [i for i in pool if passages[i].kind in EVIDENCE_KINDS]
         floor = min(len(chunk_pool), int(round(k * cfg.min_chunk_fraction)))
 
         chosen: list[int] = []

@@ -1,54 +1,331 @@
 {
-  "description": "Columbus / Central Ohio Local RAG prototype test set. The objective is whether a locally-grounded RAG gives more locally relevant and meaningful safety insight than a general LLM.",
-  "questions": [
-    {"id": 1, "question": "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
-     "probes": ["speed", "pedestrian", "vision zero", "high injury network", "fatal", "corridor"],
-     "expects_gap_honesty": false,
-     "note": "Must name specific local examples, not generic US safety issues."},
-
-    {"id": 2, "question": "Are there examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities? What can we learn from them?",
-     "probes": ["community", "neighborhood", "environmental justice", "i-70", "i-71", "connectivity"],
-     "expects_gap_honesty": true,
-     "note": "Reference answer cites King-Lincoln Bronzeville / Long Street Bridge, which are NOT in this corpus. A good answer uses what IS here (EJ appendix, corridor impacts) and flags the rest as missing."},
-
-    {"id": 3, "question": "Based on available local evidence, what information is still missing before recommending a safety improvement for a specific area in Columbus?",
-     "probes": ["crash", "volume", "speed", "pedestrian", "engagement", "cost", "data"],
-     "expects_gap_honesty": true,
-     "note": "Core test of gap-identification rather than invention."},
-
-    {"id": 4, "question": "Are there past transportation projects in Columbus that took longer or cost more than originally expected? What can we learn from these cases about local factors that should be considered in future projects?",
-     "probes": ["cost", "schedule", "funding", "phasing", "construction", "estimate"],
-     "expects_gap_honesty": true,
-     "note": "Must separate documented causes from inference."},
-
-    {"id": 5, "question": "If Columbus wants to reduce serious crashes, what types of transportation improvements should it prioritize based on local evidence?",
-     "probes": ["speed", "intersection", "crossing", "pedestrian", "bicycle", "signal", "separation", "high injury network"],
-     "expects_gap_honesty": true,
-     "note": "Should avoid an unsupported citywide priority claim."},
-
-    {"id": 6, "question": "How have transportation safety trends in Central Ohio changed over the past 5-10 years, and what emerging patterns should planners be aware of?",
-     "probes": ["trend", "increase", "decrease", "year", "fatalit", "pattern"],
-     "expects_gap_honesty": true,
-     "note": "Requires change-over-time analysis, not a snapshot."},
-
-    {"id": 7, "question": "How might projected population, employment, and development growth in Central Ohio change future transportation safety risks?",
-     "probes": ["population", "employment", "growth", "2050", "development", "vmt", "demand"],
-     "expects_gap_honesty": true,
-     "note": "Connects directly to MORPC projected growth."},
-
-    {"id": 8, "question": "What factors affect the time and quality of post-crash emergency response in Central Ohio, and where are the major gaps?",
-     "probes": ["emergency", "response", "incident", "responder", "ems"],
-     "expects_gap_honesty": true,
-     "note": "Post-Crash Care is thinly covered in this corpus; honesty about that is the correct behaviour."},
-
-    {"id": 9, "question": "What different types of local data can be combined to understand transportation safety, and what unique information does each type provide?",
-     "probes": ["crash", "traffic", "volume", "speed limit", "roadway", "sidewalk", "signal", "dataset"],
-     "expects_gap_honesty": true,
-     "note": "Tests synthesis across the GIS catalogue plus document evidence."},
-
-    {"id": 10, "question": "Are there examples in Central Ohio where improving safety for one type of road user created new challenges for another, and what does the evidence show?",
-     "probes": ["pedestrian", "bicycle", "transit", "freight", "truck", "vehicle", "lane"],
-     "expects_gap_honesty": true,
-     "note": "Trade-offs between user groups."}
-  ]
+ "description": "Columbus / Central Ohio Local RAG prototype test set. The objective is whether a locally-grounded RAG gives more locally relevant and meaningful safety insight than a general LLM. To add the remaining questions, append entries with the fields described in 'schema'; only id and question are required.",
+ "questions": [
+  {
+   "id": 1,
+   "question": "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
+   "probes": [
+    "speed",
+    "pedestrian",
+    "vision zero",
+    "high injury network",
+    "fatal",
+    "corridor"
+   ],
+   "expects_gap_honesty": false,
+   "note": "Must name specific local examples, not generic US safety issues.",
+   "category": "current_issues",
+   "expected_sources": [
+    "vision_zero_action_plan_2023_2028",
+    "vision_zero_action_plan_1_0",
+    "morpc_mtp_2024_2050_attachment_08"
+   ],
+   "aspirational_sources": [
+    "columbus_vision_zero_annual_report_2024",
+    "morpc_cotsp_2019"
+   ],
+   "must_mention_any": [
+    "High Injury Network",
+    "Vision Zero"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 2,
+   "question": "Are there examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities? What can we learn from them?",
+   "probes": [
+    "community",
+    "neighborhood",
+    "environmental justice",
+    "i-70",
+    "i-71",
+    "connectivity"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Reference answer cites King-Lincoln Bronzeville / Long Street Bridge, which are NOT in this corpus. A good answer uses what IS here (EJ appendix, corridor impacts) and flags the rest as missing.",
+   "category": "community_impacts",
+   "expected_sources": [
+    "morpc_ej_technical_appendix",
+    "rtmc_mobility_study_attachment_01",
+    "morpc_mtp_2024_2050_attachment_06"
+   ],
+   "aspirational_sources": [
+    "fhwa_columbus_community_connections_case_study",
+    "morpc_columbus_landmarks_letter"
+   ],
+   "must_mention_any": [
+    "Environmental Justice",
+    "I-70",
+    "I-71"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 3,
+   "question": "Based on available local evidence, what information is still missing before recommending a safety improvement for a specific area in Columbus?",
+   "probes": [
+    "crash",
+    "volume",
+    "speed",
+    "pedestrian",
+    "engagement",
+    "cost",
+    "data"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Core test of gap-identification rather than invention.",
+   "category": "evidence_gaps",
+   "expected_sources": [
+    "rtmc_mobility_study_attachment_01",
+    "vision_zero_action_plan_1_0"
+   ],
+   "aspirational_sources": [
+    "franklin_county_ss4a_safety_action_plan_2026"
+   ],
+   "must_mention_any": [
+    "crash",
+    "volume"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 4,
+   "question": "Are there past transportation projects in Columbus that took longer or cost more than originally expected? What can we learn from these cases about local factors that should be considered in future projects?",
+   "probes": [
+    "cost",
+    "schedule",
+    "funding",
+    "phasing",
+    "construction",
+    "estimate"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Must separate documented causes from inference.",
+   "category": "cost_schedule",
+   "expected_sources": [
+    "morpc_mtp_2024_2050_attachment_12",
+    "morpc_mtp_2024_2050_attachment_11",
+    "morpc_tip_2026_2029_full"
+   ],
+   "aspirational_sources": [],
+   "must_mention_any": [
+    "cost",
+    "TIP"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 5,
+   "question": "If Columbus wants to reduce serious crashes, what types of transportation improvements should it prioritize based on local evidence?",
+   "probes": [
+    "speed",
+    "intersection",
+    "crossing",
+    "pedestrian",
+    "bicycle",
+    "signal",
+    "separation",
+    "high injury network"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Should avoid an unsupported citywide priority claim.",
+   "category": "prioritisation",
+   "expected_sources": [
+    "vision_zero_action_plan_1_0",
+    "vision_zero_action_plan_2023_2028"
+   ],
+   "aspirational_sources": [
+    "morpc_cotsp_action_plan_2019",
+    "franklin_county_ss4a_safety_action_plan_2026",
+    "odot_shsp_2025"
+   ],
+   "must_mention_any": [
+    "High Injury Network",
+    "speed"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 6,
+   "question": "How have transportation safety trends in Central Ohio changed over the past 5-10 years, and what emerging patterns should planners be aware of?",
+   "probes": [
+    "trend",
+    "increase",
+    "decrease",
+    "year",
+    "fatalit",
+    "pattern"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Requires change-over-time analysis, not a snapshot.",
+   "category": "trends",
+   "expected_sources": [
+    "vision_zero_action_plan_2023_2028",
+    "morpc_mtp_2024_2050_attachment_08"
+   ],
+   "aspirational_sources": [
+    "morpc_state_of_safety_2018_2022",
+    "morpc_state_of_safety_2015_2019",
+    "crash_trends_aggregate"
+   ],
+   "must_mention_any": [
+    "fatal",
+    "year"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 7,
+   "question": "How might projected population, employment, and development growth in Central Ohio change future transportation safety risks?",
+   "probes": [
+    "population",
+    "employment",
+    "growth",
+    "2050",
+    "development",
+    "vmt",
+    "demand"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Connects directly to MORPC projected growth.",
+   "category": "growth",
+   "expected_sources": [
+    "morpc_mtp_2024_2050_attachment_06",
+    "morpc_ej_technical_appendix"
+   ],
+   "aspirational_sources": [],
+   "must_mention_any": [
+    "2050",
+    "population",
+    "employment"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 8,
+   "question": "What factors affect the time and quality of post-crash emergency response in Central Ohio, and where are the major gaps?",
+   "probes": [
+    "emergency",
+    "response",
+    "incident",
+    "responder",
+    "ems"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Post-Crash Care is thinly covered in this corpus; honesty about that is the correct behaviour.",
+   "category": "post_crash_care",
+   "expected_sources": [
+    "vision_zero_action_plan_2023_2028"
+   ],
+   "aspirational_sources": [
+    "ohio_trauma_report_2024",
+    "ohio_quickclear_agreement",
+    "morpc_its_architecture_columbus_911_flows"
+   ],
+   "must_mention_any": [
+    "emergency",
+    "response"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 9,
+   "question": "What different types of local data can be combined to understand transportation safety, and what unique information does each type provide?",
+   "probes": [
+    "crash",
+    "traffic",
+    "volume",
+    "speed limit",
+    "roadway",
+    "sidewalk",
+    "signal",
+    "dataset"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Tests synthesis across the GIS catalogue plus document evidence.",
+   "category": "data_synthesis",
+   "expected_sources": [
+    "columbus_high_injury_network",
+    "odot_crash_2023",
+    "morpc_mtp_2024_2050_attachment_10"
+   ],
+   "aspirational_sources": [],
+   "must_mention_any": [
+    "crash",
+    "dataset"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  },
+  {
+   "id": 10,
+   "question": "Are there examples in Central Ohio where improving safety for one type of road user created new challenges for another, and what does the evidence show?",
+   "probes": [
+    "pedestrian",
+    "bicycle",
+    "transit",
+    "freight",
+    "truck",
+    "vehicle",
+    "lane"
+   ],
+   "expects_gap_honesty": true,
+   "note": "Trade-offs between user groups.",
+   "category": "user_tradeoffs",
+   "expected_sources": [
+    "vision_zero_action_plan_2023_2028",
+    "morpc_mtp_2024_2050_attachment_10"
+   ],
+   "aspirational_sources": [
+    "morpc_atp_2020_2050_overview"
+   ],
+   "must_mention_any": [
+    "pedestrian",
+    "bicycle"
+   ],
+   "forbidden": [
+    "High Impact Neighborhood"
+   ],
+   "min_distinct_sources": 3
+  }
+ ],
+ "schema": {
+  "id": "stable integer id; never reuse",
+  "question": "the question as a user would ask it",
+  "probes": "lower-case substrings counted (not gated) as topical coverage",
+  "expects_gap_honesty": "answer must carry a 'what the local evidence does not cover' section",
+  "category": "free-text grouping for reporting",
+  "expected_sources": "source_ids that retrieval should surface in the final context (gated: recall may not drop vs baseline)",
+  "aspirational_sources": "source_ids from data/source_registry.json that SHOULD surface once ingested (reported, not gated)",
+  "must_mention_any": "answer must contain at least one of these (case-insensitive; LLM tier only)",
+  "forbidden": "strings that must never appear in an answer (LLM tier only)",
+  "min_distinct_sources": "minimum distinct source documents in the final context",
+  "note": "what a good answer looks like"
+ }
 }

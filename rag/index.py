@@ -1,9 +1,11 @@
 """Build and load the hybrid index (dense vectors + BM25)."""
 from __future__ import annotations
 
+import hashlib
 import json
 import pickle
 import time
+from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -26,6 +28,15 @@ def _load_encoder(cfg: Config):
         print(f"[index] {cfg.embed_model} unavailable ({exc}); "
               f"falling back to {cfg.embed_fallback_model}")
         return SentenceTransformer(cfg.embed_fallback_model), cfg.embed_fallback_model
+
+
+def corpus_fingerprint(passages: list[Passage]) -> str:
+    """Short hash of what was indexed, so baselines know which corpus they describe."""
+    h = hashlib.sha256()
+    for p in passages:
+        h.update(p.passage_id.encode())
+        h.update(hashlib.sha256(p.text.encode()).digest())
+    return h.hexdigest()[:16]
 
 
 class HybridIndex:
@@ -72,6 +83,8 @@ class HybridIndex:
             "embed_model": self.embed_model,
             "n_passages": len(self.passages),
             "dim": int(self.vectors.shape[1]),
+            "corpus_fingerprint": corpus_fingerprint(self.passages),
+            "passages_by_kind": dict(Counter(p.kind for p in self.passages)),
             "built_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }, indent=2))
 
@@ -111,8 +124,42 @@ def build(cfg: Config = CONFIG) -> HybridIndex:
 
     index = HybridIndex(passages, vectors, bm25, model_name)
     index.save(cfg)
+    _record_health(index, encoder, cfg)
     print(f"[index] done in {time.time()-t0:.1f}s -> {cfg.index_dir}")
     return index
+
+
+def _record_health(index: HybridIndex, encoder, cfg: Config) -> None:
+    """Run the collapse diagnostics once at build time and keep the numbers.
+
+    A rebuild that quietly collapses (a new source full of templated pages, a
+    model swap, a chunker change) then shows up in the manifest diff instead
+    of only as worse answers weeks later.
+    """
+    from .config import EVAL_DIR
+    from .embed_health import Thresholds, analyse, summary
+    try:
+        qv = None
+        qfile = EVAL_DIR / "questions.json"
+        if qfile.exists():
+            qs = [q["question"] for q in json.loads(qfile.read_text())["questions"]]
+            prefix = cfg.query_instruction if "bge" in index.embed_model.lower() else ""
+            qv = encoder.encode([prefix + q for q in qs], normalize_embeddings=True,
+                                show_progress_bar=False)
+        rep = analyse(index.vectors, [p.passage_id for p in index.passages],
+                      [p.source_id for p in index.passages], qv, Thresholds.from_config(cfg))
+    except Exception as exc:  # diagnostics must never break a build
+        print(f"[index] embedding health check skipped: {exc}")
+        return
+    manifest_path = cfg.index_dir / _MANIFEST
+    manifest = json.loads(manifest_path.read_text())
+    manifest["embedding_health"] = summary(rep)
+    manifest_path.write_text(json.dumps(manifest, indent=2))
+    status = "; ".join(rep["alarms"]) if rep["alarms"] else "no alarms"
+    print(f"[index] embedding health: mean cos {rep['mean_cosine']:.3f}, "
+          f"eff. rank {rep['effective_rank']:.0f}/{rep['dim']}, "
+          f"near-dup {rep['near_duplicate_rate']:.1%}, hub skew {rep['hubness_skew']:.2f} "
+          f"-> {status}")
 
 
 if __name__ == "__main__":

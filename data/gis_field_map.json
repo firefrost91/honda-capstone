@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional per-layer field pins for rag.ingest.gis_aggregates. Roles: severity, year, county, pedestrian, bicycle. Unpinned roles are matched from the layer's own metadata. The Columbus fields below are the ones the catalogue reports for that layer.",
+  "columbus_coc_crash_data": {"year": "CRASH_YR", "severity": "SEVERITY_BY_TYPE_CD"}
+}

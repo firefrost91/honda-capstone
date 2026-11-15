@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CBRAG_LLM_BACKEND: none
+      HF_HOME: ~/.cache/huggingface
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install (CPU torch)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt -r requirements-dev.txt
+      - name: Unit tests (no model, no index)
+        run: python -m pytest tests -q -m "not index and not llm"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-bge-small-en-v1.5
+      - name: Build index
+        run: python -m rag.index
+      - name: Embedding-collapse check
+        run: python -m rag.embed_health --baseline eval/embed_health_baseline.json
+      - name: Retrieval regression gate
+        run: python -m rag.regress
