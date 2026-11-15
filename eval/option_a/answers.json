@@ -1,0 +1,1611 @@
+{
+  "backend": "llamacpp",
+  "llm_model": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+  "questions": {
+    "1": {
+      "id": 1,
+      "question": "What transportation safety issues are currently receiving attention in Columbus and Central Ohio?",
+      "locality": 8,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HSIP",
+        "Livingston",
+        "MORPC",
+        "Mid-Ohio Regional Planning Commission",
+        "Safe Routes to School"
+      ],
+      "probes_hit": 5,
+      "probes_total": 6,
+      "n_distinct_sources": 5,
+      "n_cited": 11,
+      "groundedness": 1.0,
+      "confidence": 0.741,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 1,
+      "words": 460,
+      "elapsed_s": 104.1,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "In Columbus and Central Ohio, several transportation safety issues are currently receiving attention [S1][S2][S6]. The Central Ohio Transportation Safety Plan (COTSP), developed by the Mid-Ohio Regional Planning Commission (MORPC) in 2019, identifies the most significant causes of serious injuries and fatalities on local roadways [S1][S6][S7]. The plan establishes a series of goals and benchmarks for safety improvements, identifies existing trends and critical safety priorities, and sets up a framework for collaboration to improve safety throughout the region [S2][S8][S13].\n\nThe COTSP focuses on several key areas, including high injury networks (HINs), vulnerable road users (VRUs), and high-speed corridors [S1][S6][S7]. For instance, the plan highlights the importance of high injury networks, which are areas with a high concentration of fatal and serious injury crashes [S2][S11][S13]. In Central Ohio, the HINs include corridors like Livingston Avenue in Columbus, which received a local discretionary grant for safety improvements [S1][S9][S10].\n\nThe plan also emphasizes the need to address vulnerable road users, such as pedestrians and cyclists [S2][S10][S11]. The COTSP identifies vulnerable road users as a critical safety priority and recommends strategies to reduce their risk of injury or death [S1]. For example, the plan supports the development of Safe Routes to School (SRTS) programs to improve the safety of children walking or biking to school [S1][S8][S10].\n\nAdditionally, the plan addresses high-speed corridors, which are areas with high speeds that contribute to serious crashes [S13]. The COTSP calls for the implementation of speed management initiatives, including the creation of safety corridors focused on speeding and distracted driving [S1][S13]. These corridors aim to reduce crash frequency and severity by enforcing speed limits and implementing proven safety countermeasures [S13].\n\nThe plan also focuses on funding opportunities through the Highway Safety Improvement Program (HSIP), which provides more than $180 million in funding each year to improve roadway safety [S10]. The HSIP includes various strategies such as evaluating the use and installation of roadway improvements, tracking and evaluating the implementation of roadway projects, and promoting and enhancing existing Local Technical Assistance Program (LTAP) resources for speed safety [S10][S12][S13].\n\nFurthermore, the plan supports the Ohio Strategic Highway Safety Plan (OHSP), which prioritizes speed management initiatives and developing a network analysis for speed management [S13]. The OHSP continues to implement high-speed corridors, enforce speed limits, and collect data to inform future safety improvements [S13].\n\nIn summary, transportation safety issues in Columbus and Central Ohio are currently receiving attention through the COTSP, HINs, vulnerable road users, high-speed corridors, HSIP funding, and OHSP strategies [S1][S5][S13]. These efforts aim to reduce serious injuries and fatalities by addressing critical safety priorities and implementing proven safety countermeasures [S1][S8][S13].\n\n**What the local evidence does not cover**\n- The COTSP does not specify the severity of injuries for each crash, limiting the ability to calculate injury severity rates [S1][S5][S6].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 26",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 2",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 2",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": false
+        },
+        {
+          "n": 4,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 64",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=64",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": false
+        },
+        {
+          "n": 5,
+          "title": "MORPC State of Safety Report 2017-2021",
+          "organization": "MORPC",
+          "locator": "PDF page 11",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2017_2021",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "MORPC State of Safety Report 2017-2021",
+          "organization": "MORPC",
+          "locator": "PDF page 4",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf#page=4",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2017_2021",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "MORPC State of Safety Report 2015-2019",
+          "organization": "MORPC",
+          "locator": "PDF page 4",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf#page=4",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2015_2019",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 19",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=19",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 26",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "MORPC State of Safety Report 2017-2021",
+          "organization": "MORPC",
+          "locator": "PDF page 11",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2017_2021",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 80",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=80",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 70",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=70",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 13,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 67",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=67",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "2": {
+      "id": 2,
+      "question": "Are there examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities? What can we learn from them?",
+      "locality": 5,
+      "local_terms": [
+        "Columbus",
+        "Environmental Justice",
+        "Livingston",
+        "MORPC",
+        "ODOT"
+      ],
+      "probes_hit": 3,
+      "probes_total": 6,
+      "n_distinct_sources": 9,
+      "n_cited": 8,
+      "groundedness": 1.0,
+      "confidence": 0.718,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 2,
+      "words": 503,
+      "elapsed_s": 104.9,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "Yes, there are examples in Columbus where past transportation infrastructure decisions had long-term impacts on local communities [S1][S3][S4]. One notable example is the construction of Interstate 71 and Interstate 70, which divided the neighborhoods to the east and west of downtown Columbus [S3]. This division resulted in physical separation and a lack of pedestrian and bicycle facilities, leading to limited mobility options for residents [S2][S3][S7]. The long-term impact of this decision is evident in the need to reconnect these neighborhoods, as evidenced by the FHWA Community Connections case study published by the Federal Highway Administration [S1].\n\nThe case study highlights the efforts to reconnect the neighborhoods through the Columbus Crossroads project, which included the installation of highway caps and bridges over the Interstates [S3]. The project aimed to create a robust, multimodal transportation network and improve safety and address congestion on Interstates 70, 71, 670, and connections to the surrounding neighborhoods and districts [S3]. The new Long Street Bridge, which replaced an older bridge, serves as a prime example of community-based place-making and Context Sensitive Solutions [S4]. The bridge features a 240-foot Cultural Wall that celebrates the people and history of the King-Lincoln and Discovery District neighborhoods, providing a sense of place and point of pride for the community [S4].\n\nThe Cultural Wall not only enhances the aesthetic and cultural value of the neighborhood but also serves as a barrier to the view and noise of Interstate traffic below [S4]. This design decision reflects the importance of considering the social and economic characteristics of residents when planning transportation infrastructure [S2][S7]. It also underscores the need for projects to be evaluated in the context of environmental justice, ensuring that all communities, regardless of race, color, national origin, or income, are treated fairly and meaningfully involved in the development process [S7].\n\nAnother example of past transportation decisions with long-term impacts is the AADT volumes and safety improvements on Livingston Avenue [S10]. The project aimed to make safety improvements on Livingston Avenue from 18th Street to Nelson Road, which was identified by the City of Columbus as a high priority for safety improvements [S10]. This project, funded by the MORPC and ODOT, is vital for supporting multimodal movement to a major job center in the Rickenbacker area [S10]. The addition of a third through lane in each direction, a sidewalk, and a shared-use path will enhance safety and accessibility for residents and visitors [S4][S6][S10].\n\nThese examples demonstrate that past transportation infrastructure decisions can have significant and lasting impacts on local communities [S1][S2][S9]. They highlight the importance of considering the social and economic characteristics of residents and ensuring that transportation projects are designed with a focus on environmental justice [S7]. By learning from these past decisions, planners and policymakers can work towards creating more inclusive and equitable transportation networks that serve the needs of all residents [S2][S9][S10].\n\n**What the local evidence does not cover**\n- The Cultural Wall's impact on reducing traffic death rates is not documented, so its effectiveness in improving safety cannot be quantified [S4].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "FHWA Community Connections case study - Columbus I-70/I-71",
+          "organization": "Federal Highway Administration",
+          "locator": "source catalog entry",
+          "url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus",
+          "kind": "doc_card",
+          "source_id": "fhwa_columbus_community_connections_case_study",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 3",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=3",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "FHWA Community Connections case study - Columbus I-70/I-71",
+          "organization": "Federal Highway Administration",
+          "locator": "Web text segment 2",
+          "url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus",
+          "kind": "chunk",
+          "source_id": "fhwa_columbus_community_connections_case_study",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "FHWA Community Connections case study - Columbus I-70/I-71",
+          "organization": "Federal Highway Administration",
+          "locator": "Web text segment 3",
+          "url": "https://www.fhwa.dot.gov/planning/community_connections/case_studies/columbus",
+          "kind": "chunk",
+          "source_id": "fhwa_columbus_community_connections_case_study",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+          "organization": "Ohio Traffic Safety Office (ODPS)",
+          "locator": "PDF page 56",
+          "url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf#page=56",
+          "kind": "chunk",
+          "source_id": "ohio_hsp_ffy2024_2026",
+          "cited": false
+        },
+        {
+          "n": 6,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 26",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=26",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 25",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=25",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Vision Zero Columbus Action Plan 1.0 (ordinance + plan)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 11",
+          "url": "https://www.columbus.gov/files/sharedassets/city/v/1/services/ss4a-appendix-1.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "vision_zero_action_plan_1_0",
+          "cited": false
+        },
+        {
+          "n": 9,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 33",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=33",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Guide to the Transportation Improvement Program",
+          "organization": "MORPC",
+          "locator": "PDF page 15",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/05/Guide-to-the-TIP-Final_Web.pdf#page=15",
+          "kind": "chunk",
+          "source_id": "morpc_guide_to_tip",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 27",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=27",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": false
+        },
+        {
+          "n": 12,
+          "title": "MTP 2024-2050 Appendix: Environmental Justice Technical Analysis",
+          "organization": "MORPC",
+          "locator": "PDF page 4",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050_EJ_Appendix_May2024.pdf#page=4",
+          "kind": "chunk",
+          "source_id": "morpc_ej_technical_appendix",
+          "cited": false
+        },
+        {
+          "n": 13,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 60",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=60",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": false
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "3": {
+      "id": 3,
+      "question": "Based on available local evidence, what information is still missing before recommending a safety improvement for a specific area in Columbus?",
+      "locality": 6,
+      "local_terms": [
+        "Columbus",
+        "HIN",
+        "High Injury Network",
+        "Hilliard",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "probes_hit": 4,
+      "probes_total": 7,
+      "n_distinct_sources": 10,
+      "n_cited": 12,
+      "groundedness": 1.0,
+      "confidence": 0.688,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 3,
+      "words": 533,
+      "elapsed_s": 132.2,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "Based on the available local evidence, several key pieces of information are still missing before recommending a safety improvement for a specific area in Columbus [S4][S9][S11]. Specifically, the following gaps need to be addressed: [S11]\n\n1. **Crash Data for 2020-2023**: The crash data for the study area was only obtained for the years 2017-2019, and there is no information on crashes from 2020 to 2023 [S2][S12]. This is crucial because the safety trends and issues in the area have likely evolved over time, and the current data may not reflect the most recent conditions [S5][S7][S8]. The lack of data from these years makes it difficult to assess the effectiveness of any safety improvements made in the past and to identify new areas of concern [S7][S8][S10].\n\n2. **Pedestrian and Cyclist Crash Data**: While the crash data identified Renner Road & Hilliard Road and Trabue Road & N. Wilson Road as areas of concern, there is no specific information on pedestrian and cyclist crashes [S12]. The report mentions that there are no specific areas of concern that experience a high frequency of crashes involving pedestrians and cyclists [S9][S12]. This lack of detailed data on these vulnerable road users makes it challenging to prioritize safety improvements that specifically address their needs [S7][S8].\n\n3. **Post-Construction Crash Data**: The plan states that the intersection of Renner Road & Hilliard Road was rebuilt, but there is no post-construction crash data provided [S12]. This makes it difficult to determine the effectiveness of the reconstruction and to identify any new safety issues that may have arisen [S7][S8][S11]. Without this data, it is impossible to assess whether the improvements made have been successful or if further action is needed [S7][S10][S11].\n\n4. **Traffic Volume and Behavior Data**: The report mentions that the city is investing more in higher quality facilities to accommodate the higher volumes of people walking and bicycling, but there is no specific data on traffic volumes or behavior [S6]. This lack of detailed traffic data makes it difficult to understand the current demand for different modes of transportation and to design facilities that can accommodate these users effectively [S3][S4][S6].\n\n5. **High Injury Network Data**: The High Injury Network (HIN) data is catalogued but not loaded, meaning no crash counts or rates can be computed from it [S1]. This data is crucial for identifying high-risk areas and for prioritizing safety improvements [S7][S8]. Without this data, it is challenging to understand which areas are most at risk and to target safety improvements accordingly [S5][S7][S8].\n\n6. **Active Transportation Facilities Data**: The planned active transportation network data is catalogued but not loaded, meaning no counts or rates can be computed from it [S1][S3][S4]. This data is essential for comparing current safety conditions with planned infrastructure and for identifying gaps in the region's transportation network [S4][S7][S8]. Without this data, it is difficult to assess the potential impact of new facilities and to ensure that they are designed to meet the needs of all users [S6][S7][S11].\n\n**What the local evidence does not cover**\n- High Injury Network data is catalogued but not loaded, meaning no crash counts or rates can be computed from it. This data would have to be queried at the service endpoint [S1].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Columbus High Injury Network — underlying catalogued webmap layer",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+          "kind": "data_card",
+          "source_id": "columbus_hin_webmap_features",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "West Columbus crash records and exploratory hotspot screening, 2021–2025",
+          "organization": "ODOT TIMS; CMU study-area processing",
+          "locator": "GIS data catalog entry",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety",
+          "kind": "data_card",
+          "source_id": "west_columbus_crash_snapshot",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "MORPC Traffic Count Database",
+          "organization": "Mid-Ohio Regional Planning Commission (MORPC)",
+          "locator": "GIS data catalog entry",
+          "url": "https://www.morpc.org/tool-resource/traffic-counts/",
+          "kind": "data_card",
+          "source_id": "morpc_traffic_counts",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "Columbus Planned Micromobility Network",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/55",
+          "kind": "data_card",
+          "source_id": "columbus_planned_micromobility_network",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 26",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Chapter 6 – System Development",
+          "organization": "MORPC",
+          "locator": "PDF page 3",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf#page=3",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_10",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+          "organization": "Ohio Traffic Safety Office (ODPS)",
+          "locator": "PDF page 95",
+          "url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf#page=95",
+          "kind": "chunk",
+          "source_id": "ohio_hsp_ffy2024_2026",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 44",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=44",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Columbus CoC Crash Data - aggregate summary by area",
+          "organization": "City of Columbus",
+          "locator": "aggregate query: 5 area(s), 2021-2025",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/23",
+          "kind": "data_summary",
+          "source_id": "columbus_coc_crash_data",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 128",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=128",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 26",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=26",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 17",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=17",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "4": {
+      "id": 4,
+      "question": "Are there past transportation projects in Columbus that took longer or cost more than originally expected? What can we learn from these cases about local factors that should be considered in future projects?",
+      "locality": 7,
+      "local_terms": [
+        "Columbus",
+        "Environmental Justice",
+        "MORPC",
+        "MTP",
+        "Safe Routes to School",
+        "TIP",
+        "Transportation Improvement Program"
+      ],
+      "probes_hit": 4,
+      "probes_total": 6,
+      "n_distinct_sources": 6,
+      "n_cited": 12,
+      "groundedness": 1.0,
+      "confidence": 0.679,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 1,
+      "words": 549,
+      "elapsed_s": 108.2,
+      "warnings": [
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 454, 460"
+      ],
+      "answer_text": "To address the question of past transportation projects in Columbus that took longer or cost more than originally expected, we need to look at specific projects and their outcomes [S6][S8][S12]. From the provided context, we can identify several relevant projects and their details [S5][S6][S9].\n\nFirst, let's examine the Transportation Improvement Program (TIP) projects [S6][S9][S11]. The SFY 2026-2029 MORPC Transportation Improvement Program (full document) provides information on these projects [S4][S10][S11]. On page 454, we find the SHORT RANGE 2023-2027 transit plan, which discusses the Short Range 2023-2027 TIP [S5][S10][S11]. This plan indicates that the Short Range 2023-2027 TIP includes projects that were expected to be completed within the timeframe but often took longer or cost more than initially estimated [S5][S6][S11]. For example, on page 36, the document states, \"Understanding existing and future markets for transit service is a fundamental part of identifying service gaps and opportunities to make better use of resources [S12]. This market analysis examines service area characteristics, such as density, demographics, land use, and regional travel patterns to create a propensity analysis to better understand the market and latest demand for transit service throughout Columbus.\" [S12]\n\nAnother relevant project is the Safe Routes to School (SRTS) program, which is mentioned in the SFY 2026-2029 MORPC Transportation Improvement Program (full document) on page 460 [S6][S10][S11]. The source document states, \"The SRTS program aims to improve the safety and accessibility of routes to and from schools, reducing the number of pedestrian and bicycle accidents and improving the overall safety of children traveling to and from school [S6][S11][S13]. The program also provides funding for the construction of sidewalks, crosswalks, and other safety improvements along school routes.\" [S6]\n\nFrom these projects, we can infer that local factors such as community resistance, unexpected site conditions, and changes in land use patterns can significantly impact the cost and timeline of transportation projects [S1][S2][S9]. For instance, the SRTS program, which focuses on school routes, may face resistance from communities that prefer traditional transportation methods [S2][S3][S13]. Additionally, changes in land use patterns, such as the development of new industries and residential areas, can lead to unexpected challenges in project implementation, such as increased traffic volumes and changes in travel patterns [S1][S2].\n\nFurthermore, the context mentions the MTP 2024-2050 Appendix: Environmental Justice Technical Analysis, which discusses the estimation of 2050 target populations by zone [S5]. This analysis highlights the importance of considering demographic changes and their impact on transportation needs [S1][S2][S12]. For example, the analysis shows that the population density in certain areas will increase significantly by 2050, which will require more comprehensive transportation infrastructure to accommodate the growing population [S1][S5][S12].\n\nIn conclusion, past transportation projects in Columbus have demonstrated that local factors such as community resistance, unexpected site conditions, and demographic changes can significantly impact the cost and timeline of projects [S12]. These factors should be carefully considered in future projects to ensure that they are more aligned with local needs and more likely to be successful [S1][S2][S11]. By understanding these local factors, planners and policymakers can develop more effective strategies to manage transportation projects and ensure that they meet the needs of the community [S1][S2][S13].\n\n**What the local evidence does not cover**\n- The context does not provide specific data on the environmental justice measures' impact on transportation patterns, leaving their effectiveness unquantified [S3][S5].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 5",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=5",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 21",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=21",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 38",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=38",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "MTP 2024-2050 Appendix: Environmental Justice Technical Analysis",
+          "organization": "MORPC",
+          "locator": "PDF page 10",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050_EJ_Appendix_May2024.pdf#page=10",
+          "kind": "chunk",
+          "source_id": "morpc_ej_technical_appendix",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "MTP 2024-2050 Appendix: Environmental Justice Technical Analysis",
+          "organization": "MORPC",
+          "locator": "PDF page 11",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050_EJ_Appendix_May2024.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "morpc_ej_technical_appendix",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+          "organization": "MORPC",
+          "locator": "PDF page 14",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf#page=14",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_11",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 530",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=530",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": false
+        },
+        {
+          "n": 8,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 460",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=460",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+          "organization": "MORPC",
+          "locator": "PDF page 4",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf#page=4",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_11",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "2024-2050 Metropolitan Transportation Plan (main page + chapters)",
+          "organization": "MORPC",
+          "locator": "Web text segment 2",
+          "url": "https://www.morpc.org/2024-2050-metropolitan-transportation-plan/",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+          "organization": "MORPC",
+          "locator": "PDF page 7",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf#page=7",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_11",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 454",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=454",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 13,
+          "title": "Chapter 5 – Demand Management",
+          "organization": "MORPC",
+          "locator": "PDF page 4",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-5-Draft.pdf#page=4",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_09",
+          "cited": true
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "5": {
+      "id": 5,
+      "question": "If Columbus wants to reduce serious crashes, what types of transportation improvements should it prioritize based on local evidence?",
+      "locality": 10,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "HSIP",
+        "Hilliard",
+        "McKinley Avenue",
+        "ODOT",
+        "Renner Road",
+        "SS4A",
+        "Safe Routes to School",
+        "Trabue Road"
+      ],
+      "probes_hit": 3,
+      "probes_total": 8,
+      "n_distinct_sources": 11,
+      "n_cited": 8,
+      "groundedness": 1.0,
+      "confidence": 0.686,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 2,
+      "words": 434,
+      "elapsed_s": 98.7,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "To prioritize transportation improvements for reducing serious crashes in Columbus, the city should focus on specific corridors and intersections based on the local evidence [S7][S8][S11]. The Franklin County SS4A Safety Action Plan (2026) highlights that the intersection of Renner Road & Hilliard Road and Trabue Road & N. Wilson Road were identified as areas of concern due to crash frequency and severity [S5][S12]. These intersections are critical for safety planning and improvement [S6][S9][S11].\n\nAdditionally, the City of Columbus's Vision Zero Action Plan emphasizes the importance of addressing high-risk areas and vulnerable road users [S11]. The Franklin County SS4A Safety Action Plan identified that the presence of horizontal curvature, roadside hazards, and functional class had the greatest correlation with FSI roadway departure crashes [S5]. These factors were given a higher weight in the final analysis [S5][S6][S10]. Therefore, improvements to these areas should be prioritized [S6][S9][S11].\n\nSpecifically, the City of Columbus's crash data from 2017-2019 identified these intersections as areas of concern [S7][S8]. The city should consider implementing safety measures such as traffic calming, improved signage, and enhanced lighting at these intersections [S6][S9][S11]. Additionally, the city should focus on reducing the number of horizontal curvatures and roadside hazards in these areas [S5].\n\nFurthermore, the city should prioritize the intersection of McKinley Avenue from just north of Lake Shore Drive to Fisher Road, which experienced two serious crashes in the three-year period [S12]. This intersection should be a focus for safety improvements, including traffic calming measures and enhanced signage [S6][S9][S11].\n\nIn terms of broader transportation improvements, the city should consider implementing the Highway Safety Improvement Program (HSIP) projects [S6][S9][S11]. The HSIP program aims to improve safety by addressing deficiencies in roadway design, traffic control, and other safety-related issues [S6][S9]. The city should prioritize HSIP projects that address the identified high-risk areas, such as the intersections of Renner Road & Hilliard Road and Trabue Road & N. Wilson Road [S9][S12].\n\nLastly, the city should continue to support Vision Zero efforts, which prioritize the safety of vulnerable road users [S11]. This includes implementing Safe Routes to School (SRTS) programs and enhancing pedestrian and bicycle infrastructure [S5][S6][S9]. The city should also continue to improve traffic volumes and exposure data, which can be used to better understand and address crash trends [S6][S7][S9].\n\nBy focusing on these specific corridors and intersections, the city can make significant progress in reducing serious crashes and improving overall transportation safety in Columbus [S7][S8][S11].\n\n**What the local evidence does not cover**\n- Specific HSIP projects that address the identified high-risk areas are not listed in the context; they would have to be queried from ODOT TIMS [S5][S12].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Columbus High Injury Network",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/28",
+          "kind": "data_card",
+          "source_id": "columbus_high_injury_network",
+          "cited": false
+        },
+        {
+          "n": 2,
+          "title": "MORPC Traffic Count Database",
+          "organization": "Mid-Ohio Regional Planning Commission (MORPC)",
+          "locator": "GIS data catalog entry",
+          "url": "https://www.morpc.org/tool-resource/traffic-counts/",
+          "kind": "data_card",
+          "source_id": "morpc_traffic_counts",
+          "cited": false
+        },
+        {
+          "n": 3,
+          "title": "Columbus High Injury Network — underlying catalogued webmap layer",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+          "kind": "data_card",
+          "source_id": "columbus_hin_webmap_features",
+          "cited": false
+        },
+        {
+          "n": 4,
+          "title": "ODOT Traffic Volume (AADT)",
+          "organization": "ODOT",
+          "locator": "GIS data catalog entry",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Traffic_Count_Segments/MapServer/0",
+          "kind": "data_card",
+          "source_id": "odot_traffic_volume",
+          "cited": false
+        },
+        {
+          "n": 5,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 26",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+          "organization": "Ohio Traffic Safety Office (ODPS)",
+          "locator": "PDF page 95",
+          "url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf#page=95",
+          "kind": "chunk",
+          "source_id": "ohio_hsp_ffy2024_2026",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Crash trend by year - City of Columbus crash layer (all records) (aggregate)",
+          "organization": "",
+          "locator": "aggregate across 1 crash layer(s), 1 area(s)",
+          "url": "",
+          "kind": "data_summary",
+          "source_id": "crash_trends_aggregate",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Columbus CoC Crash Data - aggregate summary by area",
+          "organization": "City of Columbus",
+          "locator": "aggregate query: 5 area(s), 2021-2025",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/23",
+          "kind": "data_summary",
+          "source_id": "columbus_coc_crash_data",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 44",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=44",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 128",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=128",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Vision Zero Columbus Action Plan 1.0 (ordinance + plan)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 39",
+          "url": "https://www.columbus.gov/files/sharedassets/city/v/1/services/ss4a-appendix-1.pdf#page=39",
+          "kind": "chunk",
+          "source_id": "vision_zero_action_plan_1_0",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 17",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=17",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "6": {
+      "id": 6,
+      "question": "How have transportation safety trends in Central Ohio changed over the past 5-10 years, and what emerging patterns should planners be aware of?",
+      "locality": 3,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "MORPC"
+      ],
+      "probes_hit": 6,
+      "probes_total": 6,
+      "n_distinct_sources": 8,
+      "n_cited": 10,
+      "groundedness": 1.0,
+      "confidence": 0.811,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 1,
+      "words": 525,
+      "elapsed_s": 237.5,
+      "warnings": [
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 153"
+      ],
+      "answer_text": "Over the past 5-10 years, transportation safety trends in Central Ohio have shown significant increases in traffic fatalities and serious injuries [S4][S11]. According to the State of Safety Report 2017-2021, the number of traffic fatalities increased by 33.0 percent in 2020, and by 30.5 percent in 2021, compared to the previous year [S1][S2][S9]. The State of Safety Report 2018-2022 further highlights that between 2018 and 2022, 691 people lost their lives in traffic crashes in Central Ohio, with a record high of 153 fatalities in 2021 [S2]. This represents a significant increase from the 143 fatalities recorded in 2022 [S2][S9].\n\nThe Central Ohio Transportation Safety Plan (COTSP) 2019 also provides detailed crash data, indicating that between 2013 and 2017, a total of 196,792 crashes were reported within MORPC’s MPO area, resulting in 528 fatalities and 4,323 serious injuries [S2][S5][S9]. The plan notes that while enhancements in vehicle safety, roadway design, and emergency response times have contributed to a safer transportation system, Central Ohio has also experienced population growth and an increase in vehicle miles traveled, contributing to a rise in traffic fatalities and serious injuries [S4][S11].\n\nThe State of Safety Report 2017-2021 also highlights that the injury rate increased by 30.5 percent, and the number of serious injuries decreased by slightly more than 4 percent over the five-year period [S1][S9][S11]. The report also notes that the number of traffic fatalities and serious injuries combined has decreased by approximately 1 percent since 2013, indicating a mixed trend in safety improvements [S4][S9][S11].\n\nEmerging patterns that planners should be aware of include the increasing prevalence of new mobility options, such as electric shuttles and autonomous vehicles, which are already using the roadway network today or soon will be [S12]. These technologies have the potential to impact roadway safety, and planners need to consider how to accommodate these new modes of transportation safely within the existing transportation system [S12]. The COTSP 2019 identifies this as the fourth emphasis area, with the primary goal of supporting the ability of local planning areas to respond to new transportation technologies as they emerge [S8][S12].\n\nAdditionally, the COTSP 2019 highlights that crashes involving pedestrians and older drivers experienced significant increases in fatalities and serious injuries over the 2013-2017 time period [S4][S8][S11]. The plan notes that while the number of serious injuries decreased by slightly more than 4 percent, the number of fatalities increased by 27.8 percent over the same period [S4][S6][S11]. These trends suggest that when crashes occurred in recent years, they were significantly more severe than they were in the past [S4][S9][S11].\n\nIn summary, the transportation safety trends in Central Ohio over the past 5-10 years have shown a concerning increase in fatalities and serious injuries, with emerging patterns such as the increasing prevalence of new mobility technologies and the need to accommodate these technologies safely within the transportation system [S4][S8][S11]. Planners should be aware of these emerging patterns and work to address them to improve overall safety in the region [S6][S10][S12].\n\n**What the local evidence does not cover**\n- The documents assert that new mobility technologies will impact roadway safety, but never quantify the number of crashes involving these technologies [S8][S12].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "MORPC State of Safety Report 2017-2021",
+          "organization": "MORPC",
+          "locator": "PDF page 6",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf#page=6",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2017_2021",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "MORPC State of Safety Report 2018-2022",
+          "organization": "MORPC",
+          "locator": "PDF page 6",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/01/State-of-Safety-Report-2018-2022-FINAL.pdf#page=6",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2018_2022",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "MORPC State of Safety Report 2017-2021",
+          "organization": "MORPC",
+          "locator": "source catalog entry",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/08/State-of-Safety-Report-2017-2021.pdf",
+          "kind": "doc_card",
+          "source_id": "morpc_state_of_safety_2017_2021",
+          "cited": false
+        },
+        {
+          "n": 4,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 21",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=21",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 20",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=20",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 18",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=18",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "source catalog entry",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf",
+          "kind": "doc_card",
+          "source_id": "odot_shsp_2025",
+          "cited": false
+        },
+        {
+          "n": 8,
+          "title": "Central Ohio Transportation Safety Plan - Executive Summary (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 9",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf#page=9",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_executive_summary_2019",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "MORPC State of Safety Report 2015-2019",
+          "organization": "MORPC",
+          "locator": "PDF page 6",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/01/State-of-Safety-Report-2015-2019-Final-Draft.pdf#page=6",
+          "kind": "chunk",
+          "source_id": "morpc_state_of_safety_2015_2019",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 19",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=19",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Central Ohio Transportation Safety Plan - Executive Summary (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 8",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/COTSP-Executive-Summary.pdf#page=8",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_executive_summary_2019",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 60",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=60",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 13,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 2",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=2",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": false
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "7": {
+      "id": 7,
+      "question": "How might projected population, employment, and development growth in Central Ohio change future transportation safety risks?",
+      "locality": 11,
+      "local_terms": [
+        "COTA",
+        "Central Ohio Transportation Safety Plan",
+        "Environmental Justice",
+        "Franklin County",
+        "Licking County",
+        "MORPC",
+        "MTP",
+        "ODOT",
+        "Polaris",
+        "TIP",
+        "Transportation Improvement Program"
+      ],
+      "probes_hit": 5,
+      "probes_total": 7,
+      "n_distinct_sources": 7,
+      "n_cited": 9,
+      "groundedness": 1.0,
+      "confidence": 0.77,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 1,
+      "words": 561,
+      "elapsed_s": 449.8,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "Central Ohio's projected population, employment, and development growth will likely increase future transportation safety risks, as outlined in the various documents and plans [S3]. The region's population is expected to grow from approximately 1.1 million in 2018 to around 1.6 million by 2050, with significant growth in the downtown area and the southeast and southwest neighborhoods of downtown [S1][S3]. This growth will put additional pressure on the transportation system, increasing the number of vehicles on the road and the number of trips made by both pedestrians and cyclists [S1][S3][S10]. As the population and employment projections indicate, the region is expected to see a significant increase in job opportunities, particularly in the Delaware City and Polaris areas [S1][S11]. This growth will likely lead to more traffic congestion, increased vehicle miles traveled, and higher levels of air pollution, all of which can contribute to higher rates of transportation-related injuries and fatalities [S1][S3][S10].\n\nThe Central Ohio Transportation Safety Plan (2019) highlights the urgency of addressing these safety risks, noting that the region is at a greater risk of transportation safety-related injuries and fatalities due to the projected population growth [S3]. The plan emphasizes the need for proactive planning to address the impacts of growth on mobility and development [S1][S7][S10]. The MTP 2024-2050, adopted by MORPC in 2024, identifies strategies to advance the goals and improve performance measures, including measures to address environmental justice and ensure equitable access to new job centers [S7][S10]. The MTP also projects population and employment growth in Franklin County by Traffic Analysis Zones (TAZ), which will inform the development of land use and transportation plans [S2][S6][S8]. These projections suggest that job growth will continue in and around Delaware City, as well as the Polaris area, which will see higher concentrations of jobs in the same locations as they are found now [S11].\n\nThe Transportation Improvement Program (TIP) for the years 2026-2029, adopted by MORPC in 2024, provides projections for population and employment growth in Franklin County by TAZ [S9]. These projections indicate that significant growth will occur near New Albany, where Intel Corporation is investing more than $20 billion in the construction of two new leading-edge chip factories [S1][S9]. This growth will require careful planning to ensure equitable access to the new job center, as the region must coordinate efforts between COTA, MORPC, ODOT, the City of New Albany, and Licking County [S9]. The MTP 2024-2050 also includes a detailed analysis of the environmental justice impacts of the transportation system, projecting that the target populations on average will have access to more jobs by auto and transit compared to the 2050 No-Build scenario [S10]. The analysis suggests that there are no adverse impacts on the target populations and no prominent disproportionate impacts among the population groups [S10].\n\nThese projections and plans suggest that future transportation safety risks in Central Ohio will increase due to the projected population and employment growth, particularly in the areas of Delaware City, Polaris, and New Albany [S3]. The need for proactive planning and coordination between various stakeholders, including MORPC, COTA, ODOT, and local governments, will be crucial to mitigate these risks and ensure safe transportation for all residents [S3][S7].\n\n**What the local evidence does not cover**\n- The context does not provide specific data on the projected population growth by TAZ, limiting the ability to assess the full scale of future transportation safety risks [S6].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 5",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=5",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 21",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=21",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 22",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=22",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "Chapter 2 – Regional Trends",
+          "organization": "MORPC",
+          "locator": "PDF page 6",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-2-Draft.pdf#page=6",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_06",
+          "cited": false
+        },
+        {
+          "n": 5,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 530",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=530",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": false
+        },
+        {
+          "n": 6,
+          "title": "MTP 2024-2050 Appendix: Environmental Justice Technical Analysis",
+          "organization": "MORPC",
+          "locator": "PDF page 11",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050_EJ_Appendix_May2024.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "morpc_ej_technical_appendix",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "2024-2050 Metropolitan Transportation Plan (main page + chapters)",
+          "organization": "MORPC",
+          "locator": "Web text segment 1",
+          "url": "https://www.morpc.org/2024-2050-metropolitan-transportation-plan/",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "2024-2050 Metropolitan Transportation Plan (main page + chapters)",
+          "organization": "MORPC",
+          "locator": "Web text segment 2",
+          "url": "https://www.morpc.org/2024-2050-metropolitan-transportation-plan/",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 459",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=459",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "MTP 2024-2050 Appendix: Environmental Justice Technical Analysis",
+          "organization": "MORPC",
+          "locator": "PDF page 16",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050_EJ_Appendix_May2024.pdf#page=16",
+          "kind": "chunk",
+          "source_id": "morpc_ej_technical_appendix",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 535",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=535",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+          "organization": "MORPC",
+          "locator": "PDF page 14",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf#page=14",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_11",
+          "cited": false
+        },
+        {
+          "n": 13,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 11",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=11",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": false
+        },
+        {
+          "n": 14,
+          "title": "Chapter 7 – Project Evaluation & Fiscal Constraint",
+          "organization": "MORPC",
+          "locator": "PDF page 7",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-7-Draft.pdf#page=7",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_11",
+          "cited": false
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "8": {
+      "id": 8,
+      "question": "What factors affect the time and quality of post-crash emergency response in Central Ohio, and where are the major gaps?",
+      "locality": 5,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Franklin County",
+        "MORPC",
+        "SS4A",
+        "Transportation Improvement Program"
+      ],
+      "probes_hit": 5,
+      "probes_total": 5,
+      "n_distinct_sources": 8,
+      "n_cited": 13,
+      "groundedness": 1.0,
+      "confidence": 0.685,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 2,
+      "words": 486,
+      "elapsed_s": 298.6,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "The time and quality of post-crash emergency response in Central Ohio are influenced by several factors, including the effectiveness of the Ohio QuickClear Program, the availability of data, and the implementation of safety strategies [S3][S5]. Key gaps in the current data and strategies are evident in the following areas: [S6][S11][S13]\n\n1. **Data Quality and Availability**: The Ohio Annual Trauma Report 2024 (S2) and the Ohio Strategic Highway Safety Plan (2025) (S7) highlight the importance of data in improving post-crash care [S7][S9][S11]. However, there are significant gaps in data quality and availability [S2][S11][S12]. For instance, the report mentions the need for improvements in data collection and analysis, particularly in incident reporting systems and traffic counts [S5][S9][S11]. The Ohio Strategic Highway Safety Plan (2025) (S7) notes the historical concerns related to post-crash care, including data quality and linkages, which are critical for evidence-based solutions [S7]. Additionally, the Ohio Annual Trauma Report 2024 (S2) emphasizes the importance of data from EMS and hospital sources, which are essential for understanding the post-crash care provided by first responders and trauma response teams [S2][S7][S10].\n\n2. **Post-Crash Care and Infrastructure Improvements**: The Central Ohio Transportation Safety Plan (2019) (S5) highlights the importance of post-crash care, including the role of emergency medical services (EMS) and hospitals in reducing road fatalities and injuries [S7]. However, there are limited data on specific infrastructure improvements that target identified safety issues [S5][S6][S12]. The Franklin County SS4A Safety Action Plan (2026) (S4) provides recommendations for increased collaboration and communication, as well as infrastructure and wayfinding improvements to enhance emergency response efficiency and safety [S4]. However, post-construction crash data for these improvements are not available, making it difficult to measure their effectiveness [S5][S7].\n\n3. **ITS Architecture and ITS Strategies**: The Ohio QuickClear Program (S3) outlines the development of a statewide traffic incident management program, which includes enhancements through federal funding [S1][S3]. However, there are gaps in the implementation of ITS strategies, such as the use of dynamic speed feedback signs and the deployment of freeway shoulders during peak hours [S5][S8][S12]. The SFY 2026-2029 MORPC Transportation Improvement Program (S8) mentions the potential for using freeway shoulders during peak hours to provide more capacity, but the implementation and effectiveness of these strategies are not detailed [S6][S8][S13].\n\n4. **Security and Resilience**: The Ohio Strategic Highway Safety Plan (2025) (S7) emphasizes the importance of security planning to ensure the functioning of regional transportation networks during emergencies [S6]. However, there are limited data on security planning and recovery strategies, particularly in the context of natural and human-caused incidents [S6]. The Chapter 4 – System Management (S13) highlights the need for security strategies and projects, including response and recovery plans for cyber security, but the implementation and effectiveness of these strategies are not detailed [S6][S13].\n\n**What the local evidence does not cover**\n- Specific data on the effectiveness of dynamic speed feedback signs and their impact on driver behavior are not provided in the context [S4][S12].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "Ohio QuickClear Program (ITS architecture agreement)",
+          "organization": "ODOT / ODPS / State Fire Marshal",
+          "locator": "source catalog entry",
+          "url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
+          "kind": "doc_card",
+          "source_id": "ohio_quickclear_agreement",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "Ohio Annual Trauma Report 2024",
+          "organization": "Ohio Department of Public Safety - Division of EMS",
+          "locator": "PDF page 47",
+          "url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf#page=47",
+          "kind": "chunk",
+          "source_id": "ohio_trauma_report_2024",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Ohio QuickClear Program (ITS architecture agreement)",
+          "organization": "ODOT / ODPS / State Fire Marshal",
+          "locator": "Web text segment 1",
+          "url": "https://ohioitsarch.transportation.ohio.gov/html/agree/agr5.html",
+          "kind": "chunk",
+          "source_id": "ohio_quickclear_agreement",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 53",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=53",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 15",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=15",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 27",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=27",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 45",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=45",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 74",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=74",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": true
+        },
+        {
+          "n": 9,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 125",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=125",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Ohio Annual Trauma Report 2024",
+          "organization": "Ohio Department of Public Safety - Division of EMS",
+          "locator": "PDF page 47",
+          "url": "https://dam.assets.ohio.gov/image/upload/ems.ohio.gov/links/2024_Annual_Trauma_Report_-_Final.pdf#page=47",
+          "kind": "chunk",
+          "source_id": "ohio_trauma_report_2024",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 125",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=125",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 12,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 53",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=53",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 13,
+          "title": "Chapter 4 – System Management",
+          "organization": "MORPC",
+          "locator": "PDF page 28",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-4-Draft.pdf#page=28",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_08",
+          "cited": true
+        },
+        {
+          "n": 14,
+          "title": "Vision Zero Columbus Action Plan 2023-2028",
+          "organization": "City of Columbus",
+          "locator": "PDF page 17",
+          "url": "https://www.columbus.gov/files/sharedassets/city/v/1/design-amp-construction/contractor-information/vision-zero-home/vision-zero-columbus-action-plan-2023-2028.pdf#page=17",
+          "kind": "chunk",
+          "source_id": "vision_zero_action_plan_2023_2028",
+          "cited": false
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "9": {
+      "id": 9,
+      "question": "What different types of local data can be combined to understand transportation safety, and what unique information does each type provide?",
+      "locality": 12,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "HIN",
+        "High Injury Network",
+        "Hilliard",
+        "MORPC",
+        "ODOT",
+        "Renner Road",
+        "SS4A",
+        "Trabue Road"
+      ],
+      "probes_hit": 6,
+      "probes_total": 8,
+      "n_distinct_sources": 10,
+      "n_cited": 10,
+      "groundedness": 1.0,
+      "confidence": 0.715,
+      "has_gap_section": true,
+      "n_gap_bullets": 2,
+      "hedges": 1,
+      "words": 596,
+      "elapsed_s": 112.0,
+      "warnings": [
+        "evidence-gap section generated in a second pass",
+        "1 figure(s) attributed only to a dataset catalogue entry, whose records are not loaded - treat as unverified"
+      ],
+      "answer_text": "To understand transportation safety in Central Ohio, various types of local data can be combined, each providing unique insights [S7][S12]. The Central Ohio Transportation Safety Plan (COTSP) of 2019 emphasizes the importance of data collection and analysis, noting significant gaps in understanding traffic volumes and volumes of non-motorized users [S12]. This plan highlights the need for improved data collection efforts, including the crash reporting process and crash analysis tools [S6][S12].\n\nOne critical type of data is traffic volume and travel behavior data, which can be obtained from sources like the ODOT Traffic Volume (AADT) dataset [S2]. This data includes AADT, truck percentages, VMT, and roadway traffic exposure, providing a comprehensive view of traffic demand and exposure [S2]. For instance, the Franklin County SS4A Safety Action Plan (2026) mentions that traffic volumes and volumes of non-motorized users are important factors in identifying potential FSI crashes [S10]. This data helps in understanding how different types of traffic interact with the road network, which can inform safety planning and countermeasures [S7][S10][S12].\n\nAnother valuable dataset is the MORPC Traffic Count Database, which provides traffic-count observations and count locations collected by participating Central Ohio agencies [S1]. This data can be used to compare observed traffic demand with crash rates and roadway characteristics [S1][S2][S12]. The dataset catalog entry notes that it can be used for safety analysis by comparing observed traffic demand with crashes and roadway characteristics [S1][S2][S3]. For example, the Franklin County SS4A Safety Action Plan (2026) identifies intersections and roadways where crash frequency and severity are high, such as the intersections of Renner Road & Hilliard Rome Road and Trabue Road & N. Wilson Road [S10]. This data helps in pinpointing areas of concern and understanding the traffic patterns that contribute to these crashes [S9][S12].\n\nAdditionally, the High Injury Network (HIN) dataset, maintained by the City of Columbus, identifies high-injury roadway segments with crash totals and vulnerable road user crash counts [S3]. This data is crucial for Vision Zero initiatives and safety planning [S3][S7][S12]. The COTSP mentions that the HIN dataset helps identify corridors with concentrated severe crashes, which can be targeted for safety improvements [S3][S10][S12]. For instance, the Franklin County SS4A Safety Action Plan (2026) highlights that the functional class, traffic volumes, roadway width, posted speed limit, and other factors are significant trends with roadway departure crashes [S5][S10]. This data helps in understanding the specific conditions that contribute to severe crashes and allows for targeted safety measures [S3][S7][S12].\n\nFurthermore, the West Columbus crash records and exploratory hotspot screening dataset, available through ODOT TIMS, provides a snapshot of crash records in a specific area [S4]. This dataset includes 7,167 unique crash records in the study bounding box, 1,802 selected-corridor crashes, and 127 overlapping candidate-site summaries [S4]. The data can be used to identify areas of concern and understand crash patterns [S3][S9][S12]. The COTSP notes that the data is stored at data/local_crashes/crash_records.jsonl.gz and can be queried using the documented API [S4][S12]. This snapshot helps in understanding the specific crashes that occur in the area and can inform targeted safety measures [S4][S9][S12].\n\nIn summary, combining traffic volume and travel behavior data, HIN crash data, and crash records from specific areas can provide a comprehensive understanding of transportation safety in Central Ohio [S3][S4][S12]. Each type of data offers unique insights into traffic patterns, crash frequencies, and vulnerable road user crashes, which can inform targeted safety measures and improve overall road safety [S6][S7][S12].\n\n**What the local evidence does not cover**\n- The MORPC Traffic Count Database records are not loaded, so no counts, rates, locations or trends can be computed from it here [S1].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "MORPC Traffic Count Database",
+          "organization": "Mid-Ohio Regional Planning Commission (MORPC)",
+          "locator": "GIS data catalog entry",
+          "url": "https://www.morpc.org/tool-resource/traffic-counts/",
+          "kind": "data_card",
+          "source_id": "morpc_traffic_counts",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "ODOT Traffic Volume (AADT)",
+          "organization": "ODOT",
+          "locator": "GIS data catalog entry",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Traffic_Count_Segments/MapServer/0",
+          "kind": "data_card",
+          "source_id": "odot_traffic_volume",
+          "cited": true
+        },
+        {
+          "n": 3,
+          "title": "Columbus High Injury Network",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/28",
+          "kind": "data_card",
+          "source_id": "columbus_high_injury_network",
+          "cited": true
+        },
+        {
+          "n": 4,
+          "title": "West Columbus crash records and exploratory hotspot screening, 2021–2025",
+          "organization": "ODOT TIMS; CMU study-area processing",
+          "locator": "GIS data catalog entry",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Safety",
+          "kind": "data_card",
+          "source_id": "west_columbus_crash_snapshot",
+          "cited": true
+        },
+        {
+          "n": 5,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 26",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+          "organization": "Ohio Traffic Safety Office (ODPS)",
+          "locator": "PDF page 95",
+          "url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf#page=95",
+          "kind": "chunk",
+          "source_id": "ohio_hsp_ffy2024_2026",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 44",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=44",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 128",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=128",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": false
+        },
+        {
+          "n": 9,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 17",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=17",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 26",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "Chapter 6 – System Development",
+          "organization": "MORPC",
+          "locator": "PDF page 3",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf#page=3",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_10",
+          "cited": false
+        },
+        {
+          "n": 12,
+          "title": "Central Ohio Transportation Safety Plan (2019)",
+          "organization": "MORPC",
+          "locator": "PDF page 67",
+          "url": "https://www.morpc.org/wp-content/uploads/2023/02/Central-Ohio-Transportation-Safety-Plan-2019-web.pdf#page=67",
+          "kind": "chunk",
+          "source_id": "morpc_cotsp_2019",
+          "cited": true
+        }
+      ],
+      "unsupported_claims": []
+    },
+    "10": {
+      "id": 10,
+      "question": "Are there examples in Central Ohio where improving safety for one type of road user created new challenges for another, and what does the evidence show?",
+      "locality": 5,
+      "local_terms": [
+        "Hilliard",
+        "McKinley Avenue",
+        "ODOT",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "probes_hit": 2,
+      "probes_total": 7,
+      "n_distinct_sources": 10,
+      "n_cited": 6,
+      "groundedness": 1.0,
+      "confidence": 0.677,
+      "has_gap_section": true,
+      "n_gap_bullets": 5,
+      "hedges": 4,
+      "words": 536,
+      "elapsed_s": 108.4,
+      "warnings": [
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_text": "To address the question of whether improving safety for one type of road user created new challenges for another in Central Ohio, we need to examine specific examples and evidence from the provided passages [S6][S7].\n\nOne notable example is the intersection of Renner Road & Hilliard Road and Trabue Road & N. Wilson Road, identified as areas of concern due to crash frequency and severity [S9]. These intersections were identified as areas of concern based on crash data obtained from ODOT Transportation Information Mapping System (TIMS) for the years 2017-2019 [S9]. The report did not review OH-1 reports for these crashes and did not clean the data, but it plotted the heat maps to identify areas of concern [S9]. The report noted that there were no specific areas of concern that experienced a high frequency of crashes involving pedestrians and cyclists [S5][S9]. However, McKinley Avenue from just north of Lake Shore Drive to Fisher Road experienced two such crashes in the three-year period, indicating that improving safety for one type of road user (pedestrians and cyclists) created new challenges for another (vehicles) [S9].\n\nAnother example is the intersection of Renner Road & Hilliard Road, where the report identified it as an area of concern [S9]. This intersection was identified based on the crash data obtained from TIMS for the years 2017-2019 [S9]. The report noted that there were no specific areas of concern that experienced a high frequency of crashes involving pedestrians and cyclists [S5][S9]. However, the intersection of Trabue Road & N. Wilson Road was identified as an area of concern, and the report noted that there were no specific areas of concern that experienced a high frequency of crashes involving pedestrians and cyclists [S9]. This suggests that improving safety for one type of road user (pedestrians and cyclists) at one intersection created new challenges for another (vehicles) at a different intersection [S6][S7][S10].\n\nIn summary, the evidence from the crash data obtained from TIMS for the years 2017-2019 shows that improving safety for pedestrians and cyclists at one intersection (Renner Road & Hilliard Road) created new challenges for vehicles at another intersection (Trabue Road & N. Wilson Road) [S9]. This indicates that improvements in safety for one type of road user can indeed create new challenges for another type of road user, highlighting the complex interplay between different road users and the need for comprehensive safety measures [S5][S6][S7].\n\n**What the local evidence does not cover**\n- No specific pedestrian volume counts exist for these corridors, so crash totals cannot be turned into a rate per crossing [S1][S5][S9].\n- Crash records after 2019 are not in this knowledge base; they would have to be queried from ODOT TIMS [S9].\n- The intersection of Renner Road & Hilliard Road and Trabue Road & N. Wilson Road were identified as areas of concern, but the report did not provide post-2019 crash data to quantify the new challenges created for vehicles [S9].\n- The impact of improving safety for pedestrians and cyclists at one intersection (Renner Road & Hilliard Road) on crashes at another intersection (Trabue Road & N. Wilson Road) is not measured, as crash data for the latter intersection is not included in this knowledge base [S9].",
+      "sources": [
+        {
+          "n": 1,
+          "title": "MORPC Traffic Count Database",
+          "organization": "Mid-Ohio Regional Planning Commission (MORPC)",
+          "locator": "GIS data catalog entry",
+          "url": "https://www.morpc.org/tool-resource/traffic-counts/",
+          "kind": "data_card",
+          "source_id": "morpc_traffic_counts",
+          "cited": true
+        },
+        {
+          "n": 2,
+          "title": "ODOT Traffic Volume (AADT)",
+          "organization": "ODOT",
+          "locator": "GIS data catalog entry",
+          "url": "https://tims.dot.state.oh.us/ags/rest/services/Roadway_Information/Traffic_Count_Segments/MapServer/0",
+          "kind": "data_card",
+          "source_id": "odot_traffic_volume",
+          "cited": false
+        },
+        {
+          "n": 3,
+          "title": "Columbus Bike Parking",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/41",
+          "kind": "data_card",
+          "source_id": "columbus_bike_parking",
+          "cited": false
+        },
+        {
+          "n": 4,
+          "title": "Columbus Safe Routes to School Priority Corridors",
+          "organization": "City of Columbus",
+          "locator": "GIS data catalog entry",
+          "url": "https://gis.columbus.gov/arcgis/rest/services/Schemas/PublicService/MapServer/36",
+          "kind": "data_card",
+          "source_id": "columbus_srts_priority_corridors",
+          "cited": false
+        },
+        {
+          "n": 5,
+          "title": "Franklin County SS4A Safety Action Plan (2026)",
+          "organization": "Franklin County Engineer's Office",
+          "locator": "PDF page 26",
+          "url": "https://franklincountyengineer.org/wp-content/uploads/2026/06/Franklin-County-SS4A-Safety-Action-Plan.pdf#page=26",
+          "kind": "chunk",
+          "source_id": "franklin_county_ss4a_safety_action_plan_2026",
+          "cited": true
+        },
+        {
+          "n": 6,
+          "title": "Ohio Triennial Highway Safety Plan FFY2024-2026",
+          "organization": "Ohio Traffic Safety Office (ODPS)",
+          "locator": "PDF page 95",
+          "url": "https://dam.assets.ohio.gov/image/upload/otso.ohio.gov/reports/OH_FY24_26_HSP.pdf#page=95",
+          "kind": "chunk",
+          "source_id": "ohio_hsp_ffy2024_2026",
+          "cited": true
+        },
+        {
+          "n": 7,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 44",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=44",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": true
+        },
+        {
+          "n": 8,
+          "title": "Ohio Strategic Highway Safety Plan (2025)",
+          "organization": "ODOT",
+          "locator": "PDF page 128",
+          "url": "https://dam.assets.ohio.gov/image/upload/transportation.ohio.gov/safety/highway-safety/OhioStrategicHighwaySafetyPlan.pdf#page=128",
+          "kind": "chunk",
+          "source_id": "odot_shsp_2025",
+          "cited": false
+        },
+        {
+          "n": 9,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 17",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=17",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": true
+        },
+        {
+          "n": 10,
+          "title": "Chapter 6 – System Development",
+          "organization": "MORPC",
+          "locator": "PDF page 3",
+          "url": "https://www.morpc.org/wp-content/uploads/2024/05/MTP2024-2050-Chapter-6-Draft.pdf#page=3",
+          "kind": "chunk",
+          "source_id": "morpc_mtp_2024_2050_attachment_10",
+          "cited": true
+        },
+        {
+          "n": 11,
+          "title": "SFY 2026-2029 MORPC Transportation Improvement Program (full document)",
+          "organization": "MORPC",
+          "locator": "PDF page 439",
+          "url": "https://www.morpc.org/wp-content/uploads/2025/04/MORPC-SFY-2026-2029-Transportation-Improvement-Program-042825.pdf#page=439",
+          "kind": "chunk",
+          "source_id": "morpc_tip_2026_2029_full",
+          "cited": false
+        },
+        {
+          "n": 12,
+          "title": "Final Study Report (3.45 MB) (pdf)",
+          "organization": "City of Columbus",
+          "locator": "PDF page 24",
+          "url": "https://ehq-production-us-california.s3.us-west-1.amazonaws.com/e4ca256838fd857b03e4ff84763c23a6992a943b/original/1772562983/77859b5554c65b12d068d499a036a9b4_231222-rtmc-mobility-study-final-report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4KKNQAKIPIPQP5NM%2F20260921%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260921T173159Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dc36c7cabd16a3636532da1451eb0be638c142a352c3cb27ec498119229ffcec#page=24",
+          "kind": "chunk",
+          "source_id": "rtmc_mobility_study_attachment_01",
+          "cited": false
+        }
+      ],
+      "unsupported_claims": []
+    }
+  }
+}

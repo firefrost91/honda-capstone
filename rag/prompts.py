@@ -15,10 +15,8 @@ from __future__ import annotations
 
 from .corpus import Passage
 
-#: Exemplar gap bullets. They teach the FORM of a good gap statement, but a
-#: small model will sometimes copy them out verbatim instead of writing its
-#: own - so ``postprocess`` filters these exact sentences back out. The two
-#: modules must use the same list, hence the shared constant.
+#: Legacy exemplar sentences retained only for postprocessing old copied output.
+#: Do not inject these unsupported corpus-wide assertions into new prompts.
 GAP_EXAMPLES: tuple[str, ...] = (
     "No pedestrian volume counts exist for this corridor, so crash totals cannot be "
     "turned into a rate per crossing.",
@@ -32,7 +30,7 @@ SYSTEM_PROMPT = """You are a transportation-safety research assistant for Columb
 
 Answer ONLY from the numbered CONTEXT passages you are given.
 
-The five rules:
+The rules:
 
 1. NO OUTSIDE FACTS. If it is not in the context, it does not go in the answer. Never invent a statistic, date, project name, dollar figure or programme.
 2. BE LOCAL AND SPECIFIC. Name the actual corridors, intersections, plans, agencies and numbers that appear in the context. A generic road-safety answer that would fit any American city is a wrong answer.
@@ -57,17 +55,13 @@ Clear prose, using short headed sections or bullets when the question has parts.
 
 **What the local evidence does not cover**
 
-Under that heading put two to four bullets, each naming a specific gap. Write them the way these are written:
-
-{_gap_examples}
-
-These are examples of FORM only. Write your own bullets about this specific question - copying any example sentence above is an error.
-""".replace("{_gap_examples}", "\n".join("- " + e for e in GAP_EXAMPLES))
+Under that heading describe only limitations supported by the supplied passages. State the source and scope of each limitation. An older document lacking newer records does not establish that the entire knowledge base lacks those records. Do not invent missing evidence to fill a required bullet count. If no additional limitation is established, say so.
+"""
 
 _KIND_LABEL = {
     "chunk": "DOCUMENT EXCERPT",
     "doc_card": "SOURCE CATALOGUE ENTRY",
-    "data_card": "GIS DATASET CATALOGUE ENTRY (records NOT loaded - no figures may be quoted from it)",
+    "data_card": "GIS DATASET CATALOGUE ENTRY (metadata only; quote measured figures from evidence passages)",
     "data_summary": "GIS AGGREGATE SUMMARY (totals computed from the layer; figures may be quoted with the stated filters and date)",
     "tool_metric": "METRIC TOOL OUTPUT (figures for the stated location and year; may be quoted with location, year and unit - note whether the tool says they are synthetic placeholders)",
 }
@@ -86,14 +80,17 @@ def render_passage(n: int, p: Passage, max_chars: int = 1150) -> str:
         meta += f" | Organisation: {p.organization}"
     if p.locator:
         meta += f" | Location: {p.locator}"
-    return f"{header}\n{meta}\n{text}"
+    if p.scope:
+        meta += f" | Scope: {p.scope}"
+    caveats = "\nEvidence limitations: " + " ".join(p.caveats) if p.caveats else ""
+    return f"{header}\n{meta}{caveats}\n{text}"
 
 
-def build_context(hits, char_budget: int) -> tuple[str, list]:
+def build_context(hits, char_budget: int, max_passage_chars: int = 1150) -> tuple[str, list]:
     """Render hits into a numbered context block within the character budget."""
     blocks, used, kept = [], 0, []
     for h in hits:
-        block = render_passage(len(kept) + 1, h.passage)
+        block = render_passage(len(kept) + 1, h.passage, max_chars=max_passage_chars)
         if used + len(block) > char_budget and kept:
             break
         blocks.append(block)

@@ -345,10 +345,11 @@
       "project_association_status": "not_assessed",
       "catalog_verification_claim": "url_corrected_2026-09",
       "verification_status": "not_rechecked_in_this_handoff",
-      "records_included": false,
+      "records_included": true,
       "caveats": [
         "Catalog metadata only. No GIS records or GPS trajectories included.",
-        "Reported field names and service-layer identity must be checked before querying."
+        "Reported field names and service-layer identity must be checked before querying.",
+        "Only the Hilliard Rome/Renner study envelope is loaded, from November 14, 2026. Other areas still require service queries."
       ],
       "field_schema_checked_at": "2026-11-14T13:29:47.636520+00:00",
       "field_schema_status": "schema_retrieved",
@@ -378,7 +379,10 @@
       ],
       "live_layer_name": "Traffic Count Segments",
       "index_eligible": true,
-      "layer_identity_status": "verified_live_name"
+      "layer_identity_status": "verified_live_name",
+      "local_path": "data/cases/hilliard_rome_renner/raw/odot_traffic_volume.geojson",
+      "record_snapshot_date": "2026-11-14",
+      "records_scope": "Local Hilliard Rome/Renner envelope only; not the complete service"
     },
     {
       "source_id": "odot_traffic_count_stations",
@@ -468,10 +472,11 @@
       "project_association_status": "not_assessed",
       "catalog_verification_claim": "url_corrected_2026-09",
       "verification_status": "not_rechecked_in_this_handoff",
-      "records_included": false,
+      "records_included": true,
       "caveats": [
         "Catalog metadata only. No GIS records or GPS trajectories included.",
-        "Reported field names and service-layer identity must be checked before querying."
+        "Reported field names and service-layer identity must be checked before querying.",
+        "Only the Hilliard Rome/Renner study envelope is loaded, from November 14, 2026. Other areas still require service queries."
       ],
       "field_schema_checked_at": "2026-11-14T13:29:47.636620+00:00",
       "field_schema_status": "schema_retrieved",
@@ -543,7 +548,10 @@
       ],
       "live_layer_name": "Speed Zones",
       "index_eligible": true,
-      "layer_identity_status": "verified_live_name"
+      "layer_identity_status": "verified_live_name",
+      "local_path": "data/cases/hilliard_rome_renner/raw/odot_speed_limit.geojson",
+      "record_snapshot_date": "2026-11-14",
+      "records_scope": "Local Hilliard Rome/Renner envelope only; not the complete service"
     },
     {
       "source_id": "odot_functional_class",
@@ -627,10 +635,11 @@
       "project_association_status": "not_assessed",
       "catalog_verification_claim": "url_corrected_2026-09",
       "verification_status": "not_rechecked_in_this_handoff",
-      "records_included": false,
+      "records_included": true,
       "caveats": [
         "Catalog metadata only. No GIS records or GPS trajectories included.",
-        "Reported field names and service-layer identity must be checked before querying."
+        "Reported field names and service-layer identity must be checked before querying.",
+        "Only the Hilliard Rome/Renner study envelope is loaded, from November 14, 2026. Other areas still require service queries."
       ],
       "field_schema_checked_at": "2026-11-14T13:29:47.804070+00:00",
       "field_schema_status": "schema_retrieved",
@@ -744,7 +753,10 @@
       ],
       "live_layer_name": "Road Inventory",
       "index_eligible": true,
-      "layer_identity_status": "verified_live_name"
+      "layer_identity_status": "verified_live_name",
+      "local_path": "data/cases/hilliard_rome_renner/raw/odot_road_inventory.geojson",
+      "record_snapshot_date": "2026-11-14",
+      "records_scope": "Local Hilliard Rome/Renner envelope only; not the complete service"
     },
     {
       "source_id": "odot_bridge_inventory",
@@ -1227,10 +1239,11 @@
       "project_association_status": "not_assessed",
       "catalog_verification_claim": "verified_live",
       "verification_status": "not_rechecked_in_this_handoff",
-      "records_included": false,
+      "records_included": true,
       "caveats": [
         "Catalog metadata only. No GIS records or GPS trajectories included.",
-        "Reported field names and service-layer identity must be checked before querying."
+        "Reported field names and service-layer identity must be checked before querying.",
+        "Only the Hilliard Rome/Renner study envelope is loaded, from November 14, 2026. Other areas still require service queries."
       ],
       "field_schema_checked_at": "2026-11-14T13:29:48.038069+00:00",
       "field_schema_status": "schema_retrieved",
@@ -1281,7 +1294,10 @@
       ],
       "live_layer_name": "Crosswalks",
       "index_eligible": true,
-      "layer_identity_status": "verified_live_name"
+      "layer_identity_status": "verified_live_name",
+      "local_path": "data/cases/hilliard_rome_renner/raw/columbus_crosswalks_sidewalks.geojson",
+      "record_snapshot_date": "2026-11-14",
+      "records_scope": "Local Hilliard Rome/Renner envelope only; not the complete service"
     },
     {
       "source_id": "columbus_active_micromobility_network",
@@ -2741,6 +2757,54 @@
         "No matched exposure denominator or causal before/after evaluation.",
         "Candidate buffers overlap and cannot be summed."
       ]
+    },
+    {
+      "source_id": "columbus_hin_webmap_features",
+      "title": "Columbus High Injury Network — underlying catalogued webmap layer",
+      "organization": "City of Columbus",
+      "source_url": "https://services1.arcgis.com/9yy6msODkIBzkUXU/arcgis/rest/services/HIN_PROPOSED3_gdb/FeatureServer/0",
+      "data_type": "GIS features",
+      "geometry": "esriGeometryPolyline",
+      "access_type": "ArcGIS FeatureServer and dated local GeoJSON",
+      "theme": "High Injury Network",
+      "records_included": true,
+      "local_path": "data/local_hin/network.geojson",
+      "snapshot_date": "2026-11-14",
+      "field_schema_verified": true,
+      "field_schema_status": "schema_retrieved",
+      "verified_fields": [
+        "OBJECTID",
+        "NLFID",
+        "SUM_c_segm",
+        "SUM_w_segm",
+        "ynmotorcyc",
+        "ynpedestri",
+        "ynbicycle",
+        "ynvehiclek",
+        "STREET_NAM",
+        "Shape_Leng",
+        "Shape__Length"
+      ],
+      "reported_key_fields": [
+        "OBJECTID",
+        "NLFID",
+        "SUM_c_segm",
+        "SUM_w_segm",
+        "ynmotorcyc",
+        "ynpedestri",
+        "ynbicycle",
+        "ynvehiclek",
+        "STREET_NAM",
+        "Shape_Leng",
+        "Shape__Length"
+      ],
+      "index_eligible": true,
+      "layer_identity_status": "verified_webmap_reference",
+      "caveats": [
+        "This is the layer referenced by the catalogued webmap, not a claim that it is the newest HIN policy version.",
+        "The period/weighting of crash-derived attributes is not established here. Do not present their sums as 2021–2025 crash counts."
+      ],
+      "description": "509 line features, reconciled to source count; a direct replacement for the map-only evidence gap. Geometry is available for spatial context, not proof of project effect."
     }
   ]
 }

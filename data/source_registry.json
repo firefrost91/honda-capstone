@@ -559,25 +559,34 @@
       "source_id": "fhwa_rail_handbook_3",
       "title": "Highway Rail Crossing Handbook Third Edition",
       "organization": "Federal Highway Administration",
-      "source_url": "https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/fhwasa19039.pdf",
-      "download_url": "https://highways.dot.gov/sites/fhwa.dot.gov/files/2022-06/fhwasa19039.pdf",
+      "source_url": "https://rosap.ntl.bts.gov/view/dot/43668/dot_43668_DS1.pdf",
+      "download_url": "https://rosap.ntl.bts.gov/view/dot/43668/dot_43668_DS1.pdf",
       "expected_media_type": "pdf",
       "topics": [
         "rail crossing guidance"
       ],
-      "scope": "general_federal_policy",
+      "scope": "general_national_policy",
       "theme": "rail crossing guidance",
       "document_type": "report",
       "status": "candidate",
       "caveats": [
-        "Historical or snapshot evidence; do not infer present operations or causal safety effects."
+        "2019 historical background guidance, not current regulations or project-specific local evidence.",
+        "Only PDF pages 2, 3, 19, 145 and 146 are ingested."
       ],
       "gap_targeted": [
         "rail crossing guidance"
       ],
-      "last_attempt_status": "not_ingested",
+      "last_attempt_status": "ingested_selected_pages",
       "last_attempt_date": "2026-11-14",
-      "last_attempt_note": "Fetch/extraction did not yield usable evidence; candidate only, excluded from answer-source expectations."
+      "last_attempt_note": "Recovered from official USDOT repository; selected pages are explicit in catalogue.",
+      "selected_pdf_pages": [
+        2,
+        3,
+        19,
+        145,
+        146
+      ],
+      "published_year": 2019
     },
     {
       "source_id": "cota_reroutes",

@@ -104,6 +104,8 @@ class Config:
     temperature: float = 0.2
     #: Rough budget for retrieved context, in characters.
     context_char_budget: int = 16000
+    #: Per-passage body limit; focused cases may need complete phase/cost tables.
+    context_passage_chars: int = 1150
     #: Request the evidence-gap section in its own pass. Roughly doubles
     #: latency and markedly sharpens the gaps; set false for speed.
     gap_second_pass: bool = True

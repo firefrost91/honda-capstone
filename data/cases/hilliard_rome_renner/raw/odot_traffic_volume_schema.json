@@ -1,0 +1,568 @@
+{
+  "currentVersion": 11.5,
+  "cimVersion": "3.5.0",
+  "id": 0,
+  "name": "Traffic Count Segments",
+  "type": "Feature Layer",
+  "description": "Sections of the Road Inventory with traffic monitoring data, including Average Annual Daily Traffic (AADT).",
+  "geometryType": "esriGeometryPolyline",
+  "sourceSpatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857,
+    "xyTolerance": 0.001,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -20037700,
+    "falseY": -30241100,
+    "xyUnits": 10000,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": 0,
+    "mUnits": 1
+  },
+  "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857,
+    "xyTolerance": 0.001,
+    "zTolerance": 2,
+    "mTolerance": 0.001,
+    "falseX": -23061810.000000004,
+    "falseY": -33265210.000000004,
+    "xyUnits": 135384674.48035032,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": -100000,
+    "mUnits": 10000
+  },
+  "copyrightText": "ODOT Office of Technical Services",
+  "parentLayer": null,
+  "subLayers": [],
+  "minScale": 288895,
+  "maxScale": 0,
+  "referenceScale": 0.0,
+  "drawingInfo": {
+    "renderer": {
+      "type": "classBreaks",
+      "authoringInfo": {
+        "type": "classedColor",
+        "colorRamp": {
+          "type": "multipart",
+          "colorRamps": [
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                194,
+                82,
+                60,
+                255
+              ],
+              "toColor": [
+                237,
+                161,
+                19,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                237,
+                161,
+                19,
+                255
+              ],
+              "toColor": [
+                255,
+                255,
+                0,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                255,
+                255,
+                0,
+                255
+              ],
+              "toColor": [
+                0,
+                219,
+                0,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                0,
+                219,
+                0,
+                255
+              ],
+              "toColor": [
+                32,
+                153,
+                143,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                32,
+                153,
+                143,
+                255
+              ],
+              "toColor": [
+                11,
+                44,
+                122,
+                255
+              ]
+            }
+          ]
+        },
+        "classificationMethod": "esriClassifyManual"
+      },
+      "field": "AADT_TOTAL",
+      "classificationMethod": "esriClassifyManual",
+      "minValue": 0,
+      "classBreakInfos": [
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              0,
+              77,
+              168,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 500,
+          "label": "0 - 500"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              30,
+              144,
+              148,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 1000,
+          "label": "501 - 1,000"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              14,
+              196,
+              65,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 5000,
+          "label": "1,001 - 5,000"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              123,
+              237,
+              0,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 25000,
+          "label": "5,001 - 25,000"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              247,
+              215,
+              7,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 50000,
+          "label": "25,001 - 50,000"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              230,
+              142,
+              28,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 100000,
+          "label": "50,001 - 100,000"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              230,
+              0,
+              0,
+              255
+            ],
+            "width": 3.4
+          },
+          "classMaxValue": 200000,
+          "label": "100,001 - 200,000"
+        }
+      ],
+      "legendOptions": {
+        "order": "ascendingValues"
+      }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": [
+      {
+        "labelExpression": "[AADT_TOTAL]",
+        "labelPlacement": "esriServerLinePlacementCenterAlong",
+        "textLayout": "straight",
+        "deconflictionStrategy": "dynamic",
+        "allowOverrun": true,
+        "repeatLabel": false,
+        "lineConnection": "minimizeLabels",
+        "useClippedGeometry": true,
+        "stackLabel": true,
+        "stackAlignment": "dynamic",
+        "removeDuplicates": "all",
+        "removeDuplicatesDistance": 0,
+        "stackRowLength": 24,
+        "useCodedValues": true,
+        "maxScale": 0,
+        "minScale": 36112,
+        "name": "Default",
+        "priority": 5,
+        "symbol": {
+          "type": "esriTS",
+          "color": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "backgroundColor": null,
+          "borderLineColor": null,
+          "borderLineSize": null,
+          "verticalAlignment": "baseline",
+          "horizontalAlignment": "left",
+          "rightToLeft": false,
+          "angle": 0,
+          "xoffset": 0,
+          "yoffset": 0,
+          "kerning": true,
+          "haloColor": [
+            78,
+            78,
+            78,
+            255
+          ],
+          "haloSize": 1.7,
+          "font": {
+            "family": "Arial",
+            "size": 11,
+            "style": "normal",
+            "weight": "normal",
+            "decoration": "none"
+          }
+        }
+      }
+    ]
+  },
+  "defaultVisibility": false,
+  "extent": {
+    "xmin": -9442157.2922,
+    "ymin": 4636721.718599997,
+    "xmax": -8963318.2571,
+    "ymax": 5156075.177699998,
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857,
+      "xyTolerance": 0.001,
+      "zTolerance": 2,
+      "mTolerance": 0.001,
+      "falseX": -23061810.000000004,
+      "falseY": -33265210.000000004,
+      "xyUnits": 135384674.48035032,
+      "falseZ": 0,
+      "zUnits": 1,
+      "falseM": -100000,
+      "mUnits": 10000
+    }
+  },
+  "hasAttachments": false,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "displayField": "NLFID",
+  "typeIdField": null,
+  "subtypeFieldName": null,
+  "subtypeField": null,
+  "defaultSubtypeCode": null,
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "domain": null
+    },
+    {
+      "name": "ID",
+      "type": "esriFieldTypeInteger",
+      "alias": "ID",
+      "domain": null
+    },
+    {
+      "name": "STATION_ID_NBR",
+      "type": "esriFieldTypeString",
+      "alias": "STATION_ID_NBR",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "NLFID",
+      "type": "esriFieldTypeString",
+      "alias": "NLFID",
+      "length": 14,
+      "domain": null
+    },
+    {
+      "name": "COUNTY_CD",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_CD",
+      "length": 3,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_TYPE",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_TYPE",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_NBR",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_NBR",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "CTL_BEGIN_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "CTL_BEGIN_NBR",
+      "domain": null
+    },
+    {
+      "name": "CTL_END_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "CTL_END_NBR",
+      "domain": null
+    },
+    {
+      "name": "SEGMENT_LENGTH",
+      "type": "esriFieldTypeDouble",
+      "alias": "SEGMENT_LENGTH",
+      "domain": null
+    },
+    {
+      "name": "AADT_YEAR",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_YEAR",
+      "domain": null
+    },
+    {
+      "name": "AADT_TOTAL",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_TOTAL",
+      "domain": null
+    },
+    {
+      "name": "AADT_CARS",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_CARS",
+      "domain": null
+    },
+    {
+      "name": "AADT_TRUCKS",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_TRUCKS",
+      "domain": null
+    },
+    {
+      "name": "AADT_SINGLE_UNIT_TRUCKS",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_SINGLE_UNIT_TRUCKS",
+      "domain": null
+    },
+    {
+      "name": "AADT_COMBINATION_TRUCKS",
+      "type": "esriFieldTypeInteger",
+      "alias": "AADT_COMBINATION_TRUCKS",
+      "domain": null
+    },
+    {
+      "name": "VMT_TOTAL",
+      "type": "esriFieldTypeDouble",
+      "alias": "VMT_TOTAL",
+      "domain": null
+    },
+    {
+      "name": "VMT_CARS",
+      "type": "esriFieldTypeDouble",
+      "alias": "VMT_CARS",
+      "domain": null
+    },
+    {
+      "name": "VMT_TRUCKS",
+      "type": "esriFieldTypeDouble",
+      "alias": "VMT_TRUCKS",
+      "domain": null
+    },
+    {
+      "name": "TRAFFIC_REPORTS",
+      "type": "esriFieldTypeString",
+      "alias": "TRAFFIC_REPORTS",
+      "length": 255,
+      "domain": null
+    },
+    {
+      "name": "SHAPE",
+      "type": "esriFieldTypeGeometry",
+      "alias": "Shape",
+      "domain": null
+    }
+  ],
+  "geometryField": {
+    "name": "SHAPE",
+    "type": "esriFieldTypeGeometry",
+    "alias": "Shape"
+  },
+  "indexes": [
+    {
+      "name": "S142_idx",
+      "fields": "SHAPE",
+      "isAscending": true,
+      "isUnique": true,
+      "description": ""
+    }
+  ],
+  "subtypes": [],
+  "relationships": [],
+  "canModifyLayer": true,
+  "canScaleSymbols": false,
+  "hasLabels": true,
+  "capabilities": "Query,Map,Data",
+  "maxRecordCount": 200000,
+  "maxSelectionCount": 2000,
+  "supportsStatistics": true,
+  "supportsExceedsLimitStatistics": true,
+  "supportsAdvancedQueries": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "isDataVersioned": false,
+  "ownershipBasedAccessControlForFeatures": {
+    "allowOthersToQuery": true
+  },
+  "useStandardizedQueries": true,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+  ],
+  "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsPagination": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsTrueCurve": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsSqlFormat": false,
+    "supportsQueryAnalytic": true,
+    "supportsCurrentUserQueries": true
+  },
+  "supportsDatumTransformation": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": false,
+    "supportsPercentileAnalytic": true
+  },
+  "dateFieldsTimeReference": {
+    "timeZone": "Eastern Standard Time",
+    "timeZoneIANA": "America/New_York",
+    "respectsDaylightSaving": true
+  },
+  "preferredTimeReference": {
+    "timeZone": "Eastern Standard Time",
+    "timeZoneIANA": "America/New_York",
+    "respectsDaylightSaving": true
+  },
+  "datesInUnknownTimezone": false,
+  "hasGeometryProperties": true,
+  "geometryProperties": {
+    "shapeLengthFieldName": "SHAPE.STLength()",
+    "units": "esriMeters",
+    "mapUnits": {
+      "uwkid": 9001
+    }
+  },
+  "hasMetadata": true,
+  "isDataArchived": false,
+  "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+  },
+  "supportsCoordinatesQuantization": true,
+  "supportsDynamicLegends": true,
+  "serviceItemId": "1090e648388d4443802d9bf661ad950c"
+}

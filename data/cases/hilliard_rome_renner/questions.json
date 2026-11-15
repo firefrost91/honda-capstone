@@ -1,0 +1,112 @@
+{
+  "description": "Case-specific source expectations and reference-answer boundaries, declared before case retrieval evaluation. Numbers are checked separately by deterministic record tests.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Why consider safety improvements at Hilliard Rome Road and Renner Road?",
+      "expected_sources": [
+        "west_columbus_crash_snapshot",
+        "proj_119852_columbus_fact_sheet"
+      ],
+      "reference_terms": [
+        "131",
+        "100",
+        "2021",
+        "2025"
+      ],
+      "unsupported_claim_examples": [
+        "highest risk in Columbus",
+        "most dangerous intersection"
+      ]
+    },
+    {
+      "id": 2,
+      "question": "How did crash counts at Hilliard Rome Road and Renner Road change from 2021 through 2025?",
+      "expected_sources": [
+        "west_columbus_crash_snapshot"
+      ],
+      "reference_terms": [
+        "30",
+        "27",
+        "24",
+        "23"
+      ],
+      "unsupported_claim_examples": [
+        "caused a reduction"
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Can we calculate a five-year crash rate for Hilliard Rome Road and Renner Road using the available AADT?",
+      "expected_sources": [
+        "odot_traffic_volume",
+        "west_columbus_crash_snapshot"
+      ],
+      "reference_terms": [
+        "2025",
+        "exposure"
+      ],
+      "unsupported_claim_examples": [
+        "crashes per million entering vehicles:"
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What evidence describes transit connections and the Renner Road Park and Ride construction impacts?",
+      "expected_sources": [
+        "cota_reroutes",
+        "cota_line_71_2026"
+      ],
+      "reference_terms": [
+        "Renner",
+        "2026"
+      ],
+      "unsupported_claim_examples": [
+        "PID 119852 construction started"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What do the TIP and city documents say about PID 119852 cost and schedule differences?",
+      "expected_sources": [
+        "morpc_tip_2026_2029_full",
+        "proj_119852_columbus_fact_sheet"
+      ],
+      "reference_terms": [
+        "construction",
+        "estimate"
+      ],
+      "unsupported_claim_examples": [
+        "confirmed cost overrun"
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Does the crosswalk inventory establish ADA accessibility at Hilliard Rome Road and Renner Road?",
+      "expected_sources": [
+        "columbus_crosswalks_sidewalks"
+      ],
+      "reference_terms": [
+        "unknown"
+      ],
+      "unsupported_claim_examples": [
+        "all crossings are ADA compliant"
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Did PID 119852 reduce crashes after completion?",
+      "expected_sources": [
+        "proj_119852_columbus_fact_sheet",
+        "west_columbus_crash_snapshot"
+      ],
+      "reference_terms": [
+        "before",
+        "after"
+      ],
+      "unsupported_claim_examples": [
+        "the project reduced crashes by"
+      ]
+    }
+  ]
+}

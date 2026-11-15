@@ -1,0 +1,21 @@
+{
+  "review_type": "Targeted manual factual review, not exhaustive answer grading",
+  "general_failures": {
+    "Q4": "Treats planned estimates as actual overruns without actual-outcome evidence.",
+    "Q10": "Infers causal harm to other road users from descriptive crash observations; no treatment comparison establishes this."
+  },
+  "case_answers": [
+    {
+      "id": 3,
+      "status": "fail",
+      "reason": "Correctly declines unmatched five-year exposure calculation but falsely claims post-2023 crashes are absent despite included 2021\u20132025 records."
+    },
+    {
+      "id": 5,
+      "status": "fail",
+      "reason": "Misattributes city phase estimates to TIP, invents/miscompares construction figures, and fails to explain dated schedule differences accurately.",
+      "reference": "TIP: RW 1850000 plus CO 7313541 equals 9163541. City fact sheet: design 2000000, RW 1500000, utility 350000, construction 8000000. Different phases/versions are not proof of an overrun."
+    }
+  ],
+  "release_guidance": "Evidence-only local case and reviewed case README usable; generated answers have not passed factual acceptance."
+}

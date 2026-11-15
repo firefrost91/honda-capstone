@@ -1,0 +1,1466 @@
+{
+  "currentVersion": 11.5,
+  "cimVersion": "3.5.0",
+  "id": 0,
+  "name": "Road Inventory",
+  "type": "Feature Layer",
+  "description": "Inventory of various physical and administrative data related to the roadway networks that are either maintained by or are of special interest to the Ohio Department of Transportation, maintained by the Transportation Information Management Section of the Office of Technical Services, and considered the State\u2019s \u201cofficial\u201d source for certified mileage, lane miles, Federal Aid eligibility, and HPMS.",
+  "geometryType": "esriGeometryPolyline",
+  "sourceSpatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857,
+    "xyTolerance": 0.001,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -20037700,
+    "falseY": -30241100,
+    "xyUnits": 10000,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": -100000,
+    "mUnits": 10000
+  },
+  "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857,
+    "xyTolerance": 0.001,
+    "zTolerance": 2,
+    "mTolerance": 0.001,
+    "falseX": -23061810.000000004,
+    "falseY": -33265210.000000004,
+    "xyUnits": 135384674.48035032,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": -100000,
+    "mUnits": 10000
+  },
+  "copyrightText": "ODOT Office of Technical Services",
+  "parentLayer": null,
+  "subLayers": [],
+  "minScale": 0,
+  "maxScale": 0,
+  "drawingInfo": {
+    "renderer": {
+      "type": "uniqueValue",
+      "field1": "JURISDICTION_CD",
+      "field2": "ROUTE_TYPE",
+      "uniqueValueGroups": [
+        {
+          "heading": "JURISDICTION_CD,ROUTE_TYPE",
+          "classes": [
+            {
+              "label": "Interstate",
+              "description": "Interstate",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  0,
+                  92,
+                  230,
+                  255
+                ],
+                "width": 5
+              },
+              "values": [
+                [
+                  "S",
+                  "IR"
+                ]
+              ]
+            },
+            {
+              "label": "US Route",
+              "description": "US Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  230,
+                  0,
+                  0,
+                  255
+                ],
+                "width": 3.4
+              },
+              "values": [
+                [
+                  "S",
+                  "US"
+                ]
+              ]
+            },
+            {
+              "label": "State Route",
+              "description": "State Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  255,
+                  170,
+                  0,
+                  255
+                ],
+                "width": 3.4
+              },
+              "values": [
+                [
+                  "S",
+                  "SR"
+                ]
+              ]
+            },
+            {
+              "label": "County Route",
+              "description": "County Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  0,
+                  115,
+                  76,
+                  255
+                ],
+                "width": 2
+              },
+              "values": [
+                [
+                  "C",
+                  "CR"
+                ]
+              ]
+            },
+            {
+              "label": "Township Route",
+              "description": "Township Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  115,
+                  223,
+                  255,
+                  255
+                ],
+                "width": 1.2
+              },
+              "values": [
+                [
+                  "T",
+                  "TR"
+                ]
+              ]
+            },
+            {
+              "label": "Municipal Route",
+              "description": "Municipal Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  132,
+                  0,
+                  168,
+                  255
+                ],
+                "width": 1
+              },
+              "values": [
+                [
+                  "M",
+                  "MR"
+                ]
+              ]
+            },
+            {
+              "label": "Ramp",
+              "description": "Ramp",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  156,
+                  156,
+                  156,
+                  255
+                ],
+                "width": 1.5
+              },
+              "values": [
+                [
+                  "S",
+                  "RA"
+                ]
+              ]
+            },
+            {
+              "label": "Private Route",
+              "description": "Private Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  232,
+                  190,
+                  255,
+                  255
+                ],
+                "width": 1
+              },
+              "values": [
+                [
+                  "P",
+                  "MR"
+                ],
+                [
+                  "P",
+                  "TR"
+                ]
+              ]
+            },
+            {
+              "label": "Bike Route",
+              "description": "Bike Route",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSDashDot",
+                "color": [
+                  76,
+                  230,
+                  0,
+                  255
+                ],
+                "width": 1
+              },
+              "values": [
+                [
+                  "P",
+                  "BK"
+                ]
+              ]
+            },
+            {
+              "label": "Other",
+              "description": "Other",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [
+                  168,
+                  112,
+                  0,
+                  255
+                ],
+                "width": 0.5
+              },
+              "values": [
+                [
+                  "S",
+                  "NR"
+                ],
+                [
+                  "F",
+                  "DD"
+                ],
+                [
+                  "F",
+                  "FR"
+                ],
+                [
+                  "F",
+                  "NP"
+                ],
+                [
+                  "S",
+                  "CN"
+                ],
+                [
+                  "S",
+                  "RE"
+                ],
+                [
+                  "S",
+                  "SP"
+                ],
+                [
+                  "S",
+                  "WS"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "uniqueValueInfos": [
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              0,
+              92,
+              230,
+              255
+            ],
+            "width": 5
+          },
+          "value": "S,IR",
+          "label": "Interstate"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              230,
+              0,
+              0,
+              255
+            ],
+            "width": 3.4
+          },
+          "value": "S,US",
+          "label": "US Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              255,
+              170,
+              0,
+              255
+            ],
+            "width": 3.4
+          },
+          "value": "S,SR",
+          "label": "State Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              0,
+              115,
+              76,
+              255
+            ],
+            "width": 2
+          },
+          "value": "C,CR",
+          "label": "County Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              115,
+              223,
+              255,
+              255
+            ],
+            "width": 1.2
+          },
+          "value": "T,TR",
+          "label": "Township Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              132,
+              0,
+              168,
+              255
+            ],
+            "width": 1
+          },
+          "value": "M,MR",
+          "label": "Municipal Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              156,
+              156,
+              156,
+              255
+            ],
+            "width": 1.5
+          },
+          "value": "S,RA",
+          "label": "Ramp"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              232,
+              190,
+              255,
+              255
+            ],
+            "width": 1
+          },
+          "value": "P,MR",
+          "label": "Private Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              232,
+              190,
+              255,
+              255
+            ],
+            "width": 1
+          },
+          "value": "P,TR",
+          "label": "Private Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSDashDot",
+            "color": [
+              76,
+              230,
+              0,
+              255
+            ],
+            "width": 1
+          },
+          "value": "P,BK",
+          "label": "Bike Route"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "S,NR",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "F,DD",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "F,FR",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "F,NP",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "S,CN",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "S,RE",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "S,SP",
+          "label": "Other"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSSolid",
+            "color": [
+              168,
+              112,
+              0,
+              255
+            ],
+            "width": 0.5
+          },
+          "value": "S,WS",
+          "label": "Other"
+        }
+      ],
+      "fieldDelimiter": ",",
+      "authoringInfo": {
+        "colorRamp": {
+          "type": "multipart",
+          "colorRamps": [
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                112,
+                153,
+                89,
+                255
+              ],
+              "toColor": [
+                242,
+                238,
+                162,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                242,
+                238,
+                162,
+                255
+              ],
+              "toColor": [
+                242,
+                206,
+                133,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriHSVAlgorithm",
+              "fromColor": [
+                242,
+                206,
+                133,
+                255
+              ],
+              "toColor": [
+                194,
+                140,
+                124,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                204,
+                158,
+                143,
+                255
+              ],
+              "toColor": [
+                252,
+                245,
+                252,
+                255
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "scaleSymbols": false,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "defaultVisibility": false,
+  "extent": {
+    "xmin": -9442157.8137,
+    "ymin": 4636681.473200001,
+    "xmax": -8963318.6501,
+    "ymax": 5156723.256300002,
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857,
+      "xyTolerance": 0.001,
+      "zTolerance": 2,
+      "mTolerance": 0.001,
+      "falseX": -23061810.000000004,
+      "falseY": -33265210.000000004,
+      "xyUnits": 135384674.48035032,
+      "falseZ": 0,
+      "zUnits": 1,
+      "falseM": -100000,
+      "mUnits": 10000
+    }
+  },
+  "hasAttachments": false,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "displayField": "NLF_ID",
+  "typeIdField": null,
+  "subtypeFieldName": null,
+  "subtypeField": null,
+  "defaultSubtypeCode": null,
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "ObjectID",
+      "domain": null
+    },
+    {
+      "name": "PERP_YEAR",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "PERP_YEAR",
+      "domain": null
+    },
+    {
+      "name": "LAST_MODIFIED_DATE",
+      "type": "esriFieldTypeDate",
+      "alias": "LAST_MODIFIED_DATE",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "ODOT_DISTRICT",
+      "type": "esriFieldTypeString",
+      "alias": "ODOT_DISTRICT",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "NLF_ID",
+      "type": "esriFieldTypeString",
+      "alias": "NLF_ID",
+      "length": 14,
+      "domain": null
+    },
+    {
+      "name": "JURISDICTION_CD",
+      "type": "esriFieldTypeString",
+      "alias": "JURISDICTION_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "COUNTY_CD",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_CD",
+      "length": 3,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_TYPE",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_TYPE",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_NBR",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_NBR",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_SUFFIX",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_SUFFIX",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "ROUTE_EXTENSION_CD",
+      "type": "esriFieldTypeString",
+      "alias": "ROUTE_EXTENSION_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "CARDINALITY_CD",
+      "type": "esriFieldTypeString",
+      "alias": "CARDINALITY_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "CTL_BEGIN_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "CTL_BEGIN_NBR",
+      "domain": null
+    },
+    {
+      "name": "CTL_END_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "CTL_END_NBR",
+      "domain": null
+    },
+    {
+      "name": "SEGMENT_LENGTH_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "SEGMENT_LENGTH_NBR",
+      "domain": null
+    },
+    {
+      "name": "LEAVE_IND",
+      "type": "esriFieldTypeString",
+      "alias": "LEAVE_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "REENTER_IND",
+      "type": "esriFieldTypeString",
+      "alias": "REENTER_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "GAP_LEAVE_IND",
+      "type": "esriFieldTypeString",
+      "alias": "GAP_LEAVE_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "GAP_REENTER_IND",
+      "type": "esriFieldTypeString",
+      "alias": "GAP_REENTER_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "OVERLAP_INDICATOR",
+      "type": "esriFieldTypeString",
+      "alias": "OVERLAP_INDICATOR",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "COUNTY_SPLIT_INDICATOR",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_SPLIT_INDICATOR",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "FUNCTION_CLASS_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "FUNCTION_CLASS_CD",
+      "domain": null
+    },
+    {
+      "name": "AREA_CODE_NBR",
+      "type": "esriFieldTypeString",
+      "alias": "AREA_CODE_NBR",
+      "length": 9,
+      "domain": null
+    },
+    {
+      "name": "NHS_CD",
+      "type": "esriFieldTypeString",
+      "alias": "NHS_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "STRAHNET_CD",
+      "type": "esriFieldTypeString",
+      "alias": "STRAHNET_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "NHS_INTERMODAL_FACILITY_CD",
+      "type": "esriFieldTypeString",
+      "alias": "NHS_INTERMODAL_FACILITY_CD",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "DIVIDED_HWY_IND",
+      "type": "esriFieldTypeString",
+      "alias": "DIVIDED_HWY_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "MEDIAN_TYPE_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "MEDIAN_TYPE_CD",
+      "domain": null
+    },
+    {
+      "name": "MEDIAN_WIDTH_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "MEDIAN_WIDTH_NBR",
+      "domain": null
+    },
+    {
+      "name": "LANES_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "LANES_NBR",
+      "domain": null
+    },
+    {
+      "name": "LANE_WIDTH_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "LANE_WIDTH_NBR",
+      "domain": null
+    },
+    {
+      "name": "SPEED_LIMIT_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "SPEED_LIMIT_NBR",
+      "domain": null
+    },
+    {
+      "name": "ACCESS_CONTROL_CD",
+      "type": "esriFieldTypeString",
+      "alias": "ACCESS_CONTROL_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "ACCESS_CONTROL_OPNL_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "ACCESS_CONTROL_OPNL_CD",
+      "domain": null
+    },
+    {
+      "name": "DIRECTION_OF_TRAVEL_CD",
+      "type": "esriFieldTypeString",
+      "alias": "DIRECTION_OF_TRAVEL_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "FACILITY_TYPE_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "FACILITY_TYPE_CD",
+      "domain": null
+    },
+    {
+      "name": "FAP_IND",
+      "type": "esriFieldTypeString",
+      "alias": "FAP_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "PRIORITY_SYSTEM_CD",
+      "type": "esriFieldTypeString",
+      "alias": "PRIORITY_SYSTEM_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "SEGMENT_DESCRIPTION_TXT",
+      "type": "esriFieldTypeString",
+      "alias": "SEGMENT_DESCRIPTION_TXT",
+      "length": 255,
+      "domain": null
+    },
+    {
+      "name": "MILEAGE_CLASS",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "MILEAGE_CLASS",
+      "domain": null
+    },
+    {
+      "name": "ROADWAY_CLASS",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "ROADWAY_CLASS",
+      "domain": null
+    },
+    {
+      "name": "STATE_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "STATE_CODE_LEFT",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "STATE_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "STATE_CODE_RIGHT",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "COUNTY_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_CODE_LEFT",
+      "length": 3,
+      "domain": null
+    },
+    {
+      "name": "COUNTY_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "COUNTY_CODE_RIGHT",
+      "length": 3,
+      "domain": null
+    },
+    {
+      "name": "TWP_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "TWP_CODE_LEFT",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "TWP_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "TWP_CODE_RIGHT",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "MUNI_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "MUNI_CODE_LEFT",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "MUNI_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "MUNI_CODE_RIGHT",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "MUNI_POPULATION_LEFT_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "MUNI_POPULATION_LEFT_NBR",
+      "domain": null
+    },
+    {
+      "name": "MUNI_POPULATION_RIGHT_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "MUNI_POPULATION_RIGHT_NBR",
+      "domain": null
+    },
+    {
+      "name": "TAG_REVENUE_ELIGIBLE",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "TAG_REVENUE_ELIGIBLE",
+      "domain": null
+    },
+    {
+      "name": "SCENIC_BYWAY_CD",
+      "type": "esriFieldTypeString",
+      "alias": "SCENIC_BYWAY_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "SCENIC_ROUTE_NUMBER",
+      "type": "esriFieldTypeString",
+      "alias": "SCENIC_ROUTE_NUMBER",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_TYPE_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_TYPE_CD",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_TOTAL_WIDTH_LT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_TOTAL_WIDTH_LT",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_TOTAL_WIDTH_RT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_TOTAL_WIDTH_RT",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_PVD_WIDTH_IN_LT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_PVD_WIDTH_IN_LT",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_PVD_WIDTH_IN_RT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_PVD_WIDTH_IN_RT",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_PVD_WIDTH_OUT_LT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_PVD_WIDTH_OUT_LT",
+      "domain": null
+    },
+    {
+      "name": "SHOULDER_PVD_WIDTH_OUT_RT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SHOULDER_PVD_WIDTH_OUT_RT",
+      "domain": null
+    },
+    {
+      "name": "STREET_PREFIX_DIR_CD",
+      "type": "esriFieldTypeString",
+      "alias": "STREET_PREFIX_DIR_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "STREET_NAME",
+      "type": "esriFieldTypeString",
+      "alias": "STREET_NAME",
+      "length": 100,
+      "domain": null
+    },
+    {
+      "name": "STREET_SUFFIX_CD",
+      "type": "esriFieldTypeString",
+      "alias": "STREET_SUFFIX_CD",
+      "length": 4,
+      "domain": null
+    },
+    {
+      "name": "STREET_DIR_SUFFIX_CD",
+      "type": "esriFieldTypeString",
+      "alias": "STREET_DIR_SUFFIX_CD",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "BASE_TYPE_LEFT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "BASE_TYPE_LEFT_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "BASE_TYPE_RIGHT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "BASE_TYPE_RIGHT_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "SURFACE_TYPE_LEFT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "SURFACE_TYPE_LEFT_CD",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "SURFACE_TYPE_RIGHT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "SURFACE_TYPE_RIGHT_CD",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "SURFACE_WIDTH_LEFT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SURFACE_WIDTH_LEFT",
+      "domain": null
+    },
+    {
+      "name": "SURFACE_WIDTH_RIGHT",
+      "type": "esriFieldTypeInteger",
+      "alias": "SURFACE_WIDTH_RIGHT",
+      "domain": null
+    },
+    {
+      "name": "PVMT_TYPE_LEFT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "PVMT_TYPE_LEFT_CD",
+      "length": 10,
+      "domain": null
+    },
+    {
+      "name": "PVMT_TYPE_RIGHT_CD",
+      "type": "esriFieldTypeString",
+      "alias": "PVMT_TYPE_RIGHT_CD",
+      "length": 10,
+      "domain": null
+    },
+    {
+      "name": "ROADWAY_WIDTH",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "ROADWAY_WIDTH",
+      "domain": null
+    },
+    {
+      "name": "TRUCK_ROUTE_IND",
+      "type": "esriFieldTypeString",
+      "alias": "TRUCK_ROUTE_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "RESURFACE_YEAR",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "RESURFACE_YEAR",
+      "domain": null
+    },
+    {
+      "name": "ADJ_NLF_ID",
+      "type": "esriFieldTypeString",
+      "alias": "ADJ_NLF_ID",
+      "length": 14,
+      "domain": null
+    },
+    {
+      "name": "ADJ_CTL_BEGIN_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "ADJ_CTL_BEGIN_NBR",
+      "domain": null
+    },
+    {
+      "name": "ADJ_CTL_END_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "ADJ_CTL_END_NBR",
+      "domain": null
+    },
+    {
+      "name": "HPMS_SAMPLE_ID",
+      "type": "esriFieldTypeString",
+      "alias": "HPMS_SAMPLE_ID",
+      "length": 12,
+      "domain": null
+    },
+    {
+      "name": "ADT_PSNGR_CAR_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "ADT_PSNGR_CAR_NBR",
+      "domain": null
+    },
+    {
+      "name": "ADT_TRUCK_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "ADT_TRUCK_NBR",
+      "domain": null
+    },
+    {
+      "name": "ADT_TOTAL_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "ADT_TOTAL_NBR",
+      "domain": null
+    },
+    {
+      "name": "ADT_YEAR_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "ADT_YEAR_NBR",
+      "domain": null
+    },
+    {
+      "name": "ROADWAY_INVENTORY_ID",
+      "type": "esriFieldTypeString",
+      "alias": "ROADWAY_INVENTORY_ID",
+      "length": 40,
+      "domain": null
+    },
+    {
+      "name": "LEAVE_REENTER_TYPE_CD",
+      "type": "esriFieldTypeString",
+      "alias": "LEAVE_REENTER_TYPE_CD",
+      "length": 25,
+      "domain": null
+    },
+    {
+      "name": "OVERLAP_INVERSE_IND",
+      "type": "esriFieldTypeString",
+      "alias": "OVERLAP_INVERSE_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "SPLIT_JUR_INVERSE_IND",
+      "type": "esriFieldTypeString",
+      "alias": "SPLIT_JUR_INVERSE_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "SPLIT_JUR_OVERLAP_ID",
+      "type": "esriFieldTypeString",
+      "alias": "SPLIT_JUR_OVERLAP_ID",
+      "length": 40,
+      "domain": null
+    },
+    {
+      "name": "PRIMARY_OVERLAP_ID",
+      "type": "esriFieldTypeString",
+      "alias": "PRIMARY_OVERLAP_ID",
+      "length": 40,
+      "domain": null
+    },
+    {
+      "name": "STL_BEGIN_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "STL_BEGIN_NBR",
+      "domain": null
+    },
+    {
+      "name": "STL_END_NBR",
+      "type": "esriFieldTypeDouble",
+      "alias": "STL_END_NBR",
+      "domain": null
+    },
+    {
+      "name": "NLF_ID_ST",
+      "type": "esriFieldTypeString",
+      "alias": "NLF_ID_ST",
+      "length": 25,
+      "domain": null
+    },
+    {
+      "name": "PRIMARY_IND",
+      "type": "esriFieldTypeString",
+      "alias": "PRIMARY_IND",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "MUNI_FIPS_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "MUNI_FIPS_CODE_LEFT",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "MUNI_FIPS_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "MUNI_FIPS_CODE_RIGHT",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "TWP_FIPS_CODE_LEFT",
+      "type": "esriFieldTypeString",
+      "alias": "TWP_FIPS_CODE_LEFT",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "TWP_FIPS_CODE_RIGHT",
+      "type": "esriFieldTypeString",
+      "alias": "TWP_FIPS_CODE_RIGHT",
+      "length": 5,
+      "domain": null
+    },
+    {
+      "name": "BIKE_LANE_TYPE_CD",
+      "type": "esriFieldTypeString",
+      "alias": "BIKE_LANE_TYPE_CD",
+      "length": 1,
+      "domain": null
+    },
+    {
+      "name": "BIKE_LANE_WIDTH_NBR",
+      "type": "esriFieldTypeInteger",
+      "alias": "BIKE_LANE_WIDTH_NBR",
+      "domain": null
+    },
+    {
+      "name": "FREIGHT_NETWORK_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "FREIGHT_NETWORK_CD",
+      "domain": null
+    },
+    {
+      "name": "SEGMENT_DIRECTION",
+      "type": "esriFieldTypeString",
+      "alias": "SEGMENT_DIRECTION",
+      "length": 2,
+      "domain": null
+    },
+    {
+      "name": "THROUGH_LANES",
+      "type": "esriFieldTypeInteger",
+      "alias": "THROUGH_LANES",
+      "domain": null
+    },
+    {
+      "name": "TURN_LANE_LT_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "TURN_LANE_LT_CD",
+      "domain": null
+    },
+    {
+      "name": "TURN_LANE_RT_CD",
+      "type": "esriFieldTypeInteger",
+      "alias": "TURN_LANE_RT_CD",
+      "domain": null
+    },
+    {
+      "name": "SHAPE",
+      "type": "esriFieldTypeGeometry",
+      "alias": "SHAPE",
+      "domain": null
+    }
+  ],
+  "geometryField": {
+    "name": "SHAPE",
+    "type": "esriFieldTypeGeometry",
+    "alias": "SHAPE"
+  },
+  "indexes": [
+    {
+      "name": "S232_idx",
+      "fields": "SHAPE",
+      "isAscending": true,
+      "isUnique": true,
+      "description": ""
+    }
+  ],
+  "subtypes": [],
+  "relationships": [],
+  "canModifyLayer": true,
+  "canScaleSymbols": false,
+  "hasLabels": true,
+  "capabilities": "Map,Query,Data",
+  "maxRecordCount": 200000,
+  "maxSelectionCount": 2000,
+  "supportsStatistics": true,
+  "supportsExceedsLimitStatistics": true,
+  "supportsAdvancedQueries": true,
+  "hasM": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "isDataVersioned": false,
+  "ownershipBasedAccessControlForFeatures": {
+    "allowOthersToQuery": true
+  },
+  "useStandardizedQueries": true,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+  ],
+  "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsPagination": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsTrueCurve": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsSqlFormat": false,
+    "supportsQueryAnalytic": true,
+    "supportsCurrentUserQueries": true
+  },
+  "supportsDatumTransformation": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": false,
+    "supportsPercentileAnalytic": true
+  },
+  "dateFieldsTimeReference": null,
+  "preferredTimeReference": null,
+  "datesInUnknownTimezone": false,
+  "hasGeometryProperties": true,
+  "geometryProperties": {
+    "shapeLengthFieldName": "SHAPE.STLength()",
+    "units": "esriMeters",
+    "mapUnits": {
+      "uwkid": 9001
+    }
+  },
+  "hasMetadata": true,
+  "isDataArchived": false,
+  "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+  },
+  "supportsCoordinatesQuantization": true,
+  "supportsDynamicLegends": true,
+  "serviceItemId": "8999c0f518cc46b99b454c9fa51ce409"
+}

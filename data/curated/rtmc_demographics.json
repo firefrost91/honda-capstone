@@ -1,0 +1,539 @@
+{
+  "source_id": "rtmc_mobility_study_attachment_03",
+  "source_url": "https://engage.columbus.gov/31893/widgets/112423/documents/78516",
+  "review_date": "2026-11-14",
+  "method": "Manual transcription checked against all four rendered data pages; no automatic OCR. Original labels retained.",
+  "scope": "RTMC study appendix, not citywide demographics",
+  "limitations": [
+    "The five-page appendix does not state sample size, collection dates, weighting, or full category definitions.",
+    "Do not interpret these percentages as crash involvement or as current Census population shares.",
+    "Family subcategories overlap; Hispanic is listed separately from race categories. Do not sum all listed categories.",
+    "Published rounding retained; some distributions total 99.99 or 100.01."
+  ],
+  "tables": [
+    {
+      "pdf_page": 2,
+      "printed_page": "B2 of 5",
+      "title": "Traffic by Education of Head of Household",
+      "groups": [
+        {
+          "group": "All Travelers",
+          "values": [
+            {
+              "category": "No High School Diploma",
+              "percent": 10.31
+            },
+            {
+              "category": "High School Diploma",
+              "percent": 27.17
+            },
+            {
+              "category": "Some College",
+              "percent": 26.6
+            },
+            {
+              "category": "Bachelor's Degree",
+              "percent": 23.55
+            },
+            {
+              "category": "Graduate Degree",
+              "percent": 12.38
+            }
+          ]
+        },
+        {
+          "group": "Residents Only",
+          "values": [
+            {
+              "category": "No High School Diploma",
+              "percent": 5.99
+            },
+            {
+              "category": "High School Diploma",
+              "percent": 24.11
+            },
+            {
+              "category": "Some College",
+              "percent": 34.01
+            },
+            {
+              "category": "Bachelor's Degree",
+              "percent": 25.9
+            },
+            {
+              "category": "Graduate Degree",
+              "percent": 9.99
+            }
+          ]
+        },
+        {
+          "group": "Visitors Only",
+          "values": [
+            {
+              "category": "No High School Diploma",
+              "percent": 10.32
+            },
+            {
+              "category": "High School Diploma",
+              "percent": 27.18
+            },
+            {
+              "category": "Some College",
+              "percent": 26.58
+            },
+            {
+              "category": "Bachelor's Degree",
+              "percent": 23.54
+            },
+            {
+              "category": "Graduate Degree",
+              "percent": 12.38
+            }
+          ]
+        },
+        {
+          "group": "Workers Only",
+          "values": [
+            {
+              "category": "No High School Diploma",
+              "percent": 8.94
+            },
+            {
+              "category": "High School Diploma",
+              "percent": 26.4
+            },
+            {
+              "category": "Some College",
+              "percent": 30.76
+            },
+            {
+              "category": "Bachelor's Degree",
+              "percent": 23.48
+            },
+            {
+              "category": "Graduate Degree",
+              "percent": 10.43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "printed_page": "B3 of 5",
+      "title": "Traffic by Family Status",
+      "groups": [
+        {
+          "group": "All Travelers",
+          "values": [
+            {
+              "category": "With Kids",
+              "percent": 36.99
+            },
+            {
+              "category": "With No Kids",
+              "percent": 63.01
+            },
+            {
+              "category": "With Kids under 6 years",
+              "percent": 17.39
+            },
+            {
+              "category": "With Kids between 6-17 years",
+              "percent": 27.56
+            }
+          ]
+        },
+        {
+          "group": "Residents Only",
+          "values": [
+            {
+              "category": "With Kids",
+              "percent": 37.71
+            },
+            {
+              "category": "With No Kids",
+              "percent": 62.29
+            },
+            {
+              "category": "With Kids under 6 years",
+              "percent": 19.99
+            },
+            {
+              "category": "With Kids between 6-17 years",
+              "percent": 25.74
+            }
+          ]
+        },
+        {
+          "group": "Visitors Only",
+          "values": [
+            {
+              "category": "With Kids",
+              "percent": 36.99
+            },
+            {
+              "category": "With No Kids",
+              "percent": 63.01
+            },
+            {
+              "category": "With Kids under 6 years",
+              "percent": 17.38
+            },
+            {
+              "category": "With Kids between 6-17 years",
+              "percent": 27.57
+            }
+          ]
+        },
+        {
+          "group": "Workers Only",
+          "values": [
+            {
+              "category": "With Kids",
+              "percent": 39.1
+            },
+            {
+              "category": "With No Kids",
+              "percent": 60.9
+            },
+            {
+              "category": "With Kids under 6 years",
+              "percent": 19.1
+            },
+            {
+              "category": "With Kids between 6-17 years",
+              "percent": 27.92
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "printed_page": "B4 of 5",
+      "title": "Traffic by Household Income",
+      "groups": [
+        {
+          "group": "All Travelers",
+          "values": [
+            {
+              "category": "Income Less than 20K",
+              "percent": 15.41
+            },
+            {
+              "category": "Income 20K to 35K",
+              "percent": 14.16
+            },
+            {
+              "category": "Income 35K to 50K",
+              "percent": 13.95
+            },
+            {
+              "category": "Income 50K to 75K",
+              "percent": 20.86
+            },
+            {
+              "category": "Income 75K to 100K",
+              "percent": 13.48
+            },
+            {
+              "category": "Income 100K to 125K",
+              "percent": 8.94
+            },
+            {
+              "category": "Income 125K to 150K",
+              "percent": 5.3
+            },
+            {
+              "category": "Income 150K to 200K",
+              "percent": 4.27
+            },
+            {
+              "category": "Income More than 200K",
+              "percent": 3.63
+            }
+          ]
+        },
+        {
+          "group": "Residents Only",
+          "values": [
+            {
+              "category": "Income Less than 20K",
+              "percent": 8.68
+            },
+            {
+              "category": "Income 20K to 35K",
+              "percent": 10.74
+            },
+            {
+              "category": "Income 35K to 50K",
+              "percent": 16.1
+            },
+            {
+              "category": "Income 50K to 75K",
+              "percent": 29.03
+            },
+            {
+              "category": "Income 75K to 100K",
+              "percent": 16.68
+            },
+            {
+              "category": "Income 100K to 125K",
+              "percent": 8.94
+            },
+            {
+              "category": "Income 125K to 150K",
+              "percent": 5.41
+            },
+            {
+              "category": "Income 150K to 200K",
+              "percent": 2.96
+            },
+            {
+              "category": "Income More than 200K",
+              "percent": 1.46
+            }
+          ]
+        },
+        {
+          "group": "Visitors Only",
+          "values": [
+            {
+              "category": "Income Less than 20K",
+              "percent": 15.42
+            },
+            {
+              "category": "Income 20K to 35K",
+              "percent": 14.17
+            },
+            {
+              "category": "Income 35K to 50K",
+              "percent": 13.94
+            },
+            {
+              "category": "Income 50K to 75K",
+              "percent": 20.85
+            },
+            {
+              "category": "Income 75K to 100K",
+              "percent": 13.48
+            },
+            {
+              "category": "Income 100K to 125K",
+              "percent": 8.94
+            },
+            {
+              "category": "Income 125K to 150K",
+              "percent": 5.3
+            },
+            {
+              "category": "Income 150K to 200K",
+              "percent": 4.27
+            },
+            {
+              "category": "Income More than 200K",
+              "percent": 3.63
+            }
+          ]
+        },
+        {
+          "group": "Workers Only",
+          "values": [
+            {
+              "category": "Income Less than 20K",
+              "percent": 11.9
+            },
+            {
+              "category": "Income 20K to 35K",
+              "percent": 13.91
+            },
+            {
+              "category": "Income 35K to 50K",
+              "percent": 14.91
+            },
+            {
+              "category": "Income 50K to 75K",
+              "percent": 23.14
+            },
+            {
+              "category": "Income 75K to 100K",
+              "percent": 15.07
+            },
+            {
+              "category": "Income 100K to 125K",
+              "percent": 8.36
+            },
+            {
+              "category": "Income 125K to 150K",
+              "percent": 5.89
+            },
+            {
+              "category": "Income 150K to 200K",
+              "percent": 3.38
+            },
+            {
+              "category": "Income More than 200K",
+              "percent": 3.42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "printed_page": "B5 of 5",
+      "title": "Traffic by Race",
+      "groups": [
+        {
+          "group": "All Travelers",
+          "values": [
+            {
+              "category": "White",
+              "percent": 82.32
+            },
+            {
+              "category": "Black",
+              "percent": 8.26
+            },
+            {
+              "category": "Indian",
+              "percent": 0.21
+            },
+            {
+              "category": "Asian",
+              "percent": 4.21
+            },
+            {
+              "category": "Islander",
+              "percent": 0.08
+            },
+            {
+              "category": "Other Race",
+              "percent": 2.4
+            },
+            {
+              "category": "Multiple Races",
+              "percent": 2.52
+            },
+            {
+              "category": "Hispanic",
+              "percent": 4.73
+            }
+          ]
+        },
+        {
+          "group": "Residents Only",
+          "values": [
+            {
+              "category": "White",
+              "percent": 80.29
+            },
+            {
+              "category": "Black",
+              "percent": 8.15
+            },
+            {
+              "category": "Indian",
+              "percent": 0.15
+            },
+            {
+              "category": "Asian",
+              "percent": 5.79
+            },
+            {
+              "category": "Islander",
+              "percent": 0.15
+            },
+            {
+              "category": "Other Race",
+              "percent": 2.57
+            },
+            {
+              "category": "Multiple Races",
+              "percent": 2.91
+            },
+            {
+              "category": "Hispanic",
+              "percent": 4.87
+            }
+          ]
+        },
+        {
+          "group": "Visitors Only",
+          "values": [
+            {
+              "category": "White",
+              "percent": 82.32
+            },
+            {
+              "category": "Black",
+              "percent": 8.26
+            },
+            {
+              "category": "Indian",
+              "percent": 0.21
+            },
+            {
+              "category": "Asian",
+              "percent": 4.21
+            },
+            {
+              "category": "Islander",
+              "percent": 0.08
+            },
+            {
+              "category": "Other Race",
+              "percent": 2.4
+            },
+            {
+              "category": "Multiple Races",
+              "percent": 2.52
+            },
+            {
+              "category": "Hispanic",
+              "percent": 4.72
+            }
+          ]
+        },
+        {
+          "group": "Workers Only",
+          "values": [
+            {
+              "category": "White",
+              "percent": 80.28
+            },
+            {
+              "category": "Black",
+              "percent": 9.2
+            },
+            {
+              "category": "Indian",
+              "percent": 0.2
+            },
+            {
+              "category": "Asian",
+              "percent": 4.06
+            },
+            {
+              "category": "Islander",
+              "percent": 0.11
+            },
+            {
+              "category": "Other Race",
+              "percent": 3.4
+            },
+            {
+              "category": "Multiple Races",
+              "percent": 2.75
+            },
+            {
+              "category": "Hispanic",
+              "percent": 5.89
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

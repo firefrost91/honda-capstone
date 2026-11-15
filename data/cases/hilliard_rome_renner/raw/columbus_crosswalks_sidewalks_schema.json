@@ -1,0 +1,1730 @@
+{
+  "currentVersion": 11.5,
+  "cimVersion": "3.5.0",
+  "id": 40,
+  "name": "Crosswalks",
+  "type": "Feature Layer",
+  "description": "This sidewalk dataset is a comprehensive transportation network of over 221,000 features representing existing sidewalks, existing crosswalks (marked/unmarked), and sidewalk gaps and matches the cardinality of unique Location-Based Reference System (LBRS) road centerline databases for Franklin, Delaware, Fairfield, and Licking Counties in Ohio. All data was digitized in Esri ArcGIS 10.2.1 software in the Ohio South State Plane (NAD 83), feet projection. This sidewalk inventory is intended for planning purposes only. TranSystems does not warrant the accurateness of the sidewalks or crosswalks depiected in this dataset. None of the sidewalk or crosswalk segments have been field verified. Every reasonable effort has been made to reflect the correct GIS segmentation of all sidewalks, crosswalks, and sidewalk gaps.MORPC will facilitate the maintenance of this data by engaging local governments.",
+  "geometryType": "esriGeometryPolyline",
+  "sourceSpatialReference": {
+    "wkid": 103130,
+    "latestWkid": 6551,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -119670700,
+    "falseY": -95612900,
+    "xyUnits": 3048.0060960121928,
+    "falseZ": 0,
+    "zUnits": 1,
+    "falseM": 0,
+    "mUnits": 1
+  },
+  "spatialReference": {
+    "wkid": 103130,
+    "latestWkid": 6551,
+    "xyTolerance": 0.003280833333333333,
+    "zTolerance": 0.001,
+    "mTolerance": 0.001,
+    "falseX": -119670700,
+    "falseY": -95612900,
+    "xyUnits": 37024245.69851244,
+    "falseZ": -100000,
+    "zUnits": 10000,
+    "falseM": -100000,
+    "mUnits": 10000
+  },
+  "copyrightText": "Mid-Ohio Regional Planning Commission\nTranSystems Corporation of Ohio",
+  "parentLayer": null,
+  "subLayers": [],
+  "minScale": 0,
+  "maxScale": 0,
+  "referenceScale": 0.0,
+  "drawingInfo": {
+    "renderer": {
+      "type": "uniqueValue",
+      "field1": "FACILITYTYPE",
+      "uniqueValueGroups": [
+        {
+          "heading": "Crosswalk Type",
+          "classes": [
+            {
+              "label": "Marked Crosswalk",
+              "description": "Marked Crosswalk",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSDash",
+                "color": [
+                  230,
+                  0,
+                  0,
+                  255
+                ],
+                "width": 2
+              },
+              "values": [
+                [
+                  "MC"
+                ]
+              ]
+            },
+            {
+              "label": "Unmarked Crosswalk",
+              "description": "Unmarked Crosswalk",
+              "symbol": {
+                "type": "esriSLS",
+                "style": "esriSLSDash",
+                "color": [
+                  255,
+                  127,
+                  127,
+                  255
+                ],
+                "width": 2
+              },
+              "values": [
+                [
+                  "UC"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "uniqueValueInfos": [
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSDash",
+            "color": [
+              230,
+              0,
+              0,
+              255
+            ],
+            "width": 2
+          },
+          "value": "MC",
+          "label": "Marked Crosswalk"
+        },
+        {
+          "symbol": {
+            "type": "esriSLS",
+            "style": "esriSLSDash",
+            "color": [
+              255,
+              127,
+              127,
+              255
+            ],
+            "width": 2
+          },
+          "value": "UC",
+          "label": "Unmarked Crosswalk"
+        }
+      ],
+      "fieldDelimiter": ",",
+      "authoringInfo": {
+        "colorRamp": {
+          "type": "multipart",
+          "colorRamps": [
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                231,
+                215,
+                252,
+                255
+              ],
+              "toColor": [
+                231,
+                215,
+                252,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                202,
+                252,
+                179,
+                255
+              ],
+              "toColor": [
+                202,
+                252,
+                179,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                187,
+                252,
+                249,
+                255
+              ],
+              "toColor": [
+                187,
+                252,
+                249,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                252,
+                206,
+                184,
+                255
+              ],
+              "toColor": [
+                252,
+                206,
+                184,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                252,
+                179,
+                205,
+                255
+              ],
+              "toColor": [
+                252,
+                179,
+                205,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                248,
+                252,
+                212,
+                255
+              ],
+              "toColor": [
+                248,
+                252,
+                212,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                249,
+                182,
+                252,
+                255
+              ],
+              "toColor": [
+                249,
+                182,
+                252,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                182,
+                217,
+                252,
+                255
+              ],
+              "toColor": [
+                182,
+                217,
+                252,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                194,
+                179,
+                252,
+                255
+              ],
+              "toColor": [
+                194,
+                179,
+                252,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                199,
+                252,
+                215,
+                255
+              ],
+              "toColor": [
+                199,
+                252,
+                215,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                252,
+                212,
+                221,
+                255
+              ],
+              "toColor": [
+                252,
+                212,
+                221,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                252,
+                250,
+                179,
+                255
+              ],
+              "toColor": [
+                252,
+                250,
+                179,
+                255
+              ]
+            },
+            {
+              "type": "algorithmic",
+              "algorithm": "esriCIELabAlgorithm",
+              "fromColor": [
+                252,
+                202,
+                242,
+                255
+              ],
+              "toColor": [
+                252,
+                202,
+                242,
+                255
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "defaultVisibility": false,
+  "extent": {
+    "xmin": 1777192.0719058812,
+    "ymin": 660685.8684536368,
+    "xmax": 1892214.5465848893,
+    "ymax": 786106.6441863924,
+    "spatialReference": {
+      "wkid": 103130,
+      "latestWkid": 6551,
+      "xyTolerance": 0.003280833333333333,
+      "zTolerance": 0.001,
+      "mTolerance": 0.001,
+      "falseX": -119670700,
+      "falseY": -95612900,
+      "xyUnits": 37024245.69851244,
+      "falseZ": -100000,
+      "zUnits": 10000,
+      "falseM": -100000,
+      "mUnits": 10000
+    }
+  },
+  "hasAttachments": false,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "displayField": "FACILITYID",
+  "typeIdField": null,
+  "subtypeFieldName": null,
+  "subtypeField": null,
+  "defaultSubtypeCode": null,
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "domain": null
+    },
+    {
+      "name": "FACILITYID",
+      "type": "esriFieldTypeString",
+      "alias": "Facility Identifier",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "LBRSCL_SEG_ID",
+      "type": "esriFieldTypeDouble",
+      "alias": "LBRScenterline SegID",
+      "domain": null
+    },
+    {
+      "name": "STATUS",
+      "type": "esriFieldTypeString",
+      "alias": "Status",
+      "length": 4,
+      "domain": {
+        "type": "codedValue",
+        "name": "Status_1",
+        "description": "Status of asset per DPS Standards",
+        "codedValues": [
+          {
+            "name": "Active",
+            "code": "A"
+          },
+          {
+            "name": "Inactive",
+            "code": "I"
+          },
+          {
+            "name": "Proposed",
+            "code": "P"
+          },
+          {
+            "name": "Retired",
+            "code": "R"
+          },
+          {
+            "name": "Cancelled",
+            "code": "C"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "BUFFERZONE",
+      "type": "esriFieldTypeString",
+      "alias": "BufferZone",
+      "length": 4,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_Bufferzone",
+        "description": "Buffer area around sidewalk",
+        "codedValues": [
+          {
+            "name": "Tree Lawn",
+            "code": "TL"
+          },
+          {
+            "name": "Planters",
+            "code": "P"
+          },
+          {
+            "name": "Brick",
+            "code": "BR"
+          },
+          {
+            "name": "Barrier(fence,wall)",
+            "code": "BA"
+          },
+          {
+            "name": "Other",
+            "code": "O"
+          },
+          {
+            "name": "None",
+            "code": "X"
+          },
+          {
+            "name": "Unknown",
+            "code": "UNK"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "LSN",
+      "type": "esriFieldTypeString",
+      "alias": "Road Name",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "BEG_STREET",
+      "type": "esriFieldTypeString",
+      "alias": "BeginStreet",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "SIGNALIZED",
+      "type": "esriFieldTypeString",
+      "alias": "Signalized",
+      "length": 2,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_YesNo",
+        "description": "A yes/no indicator",
+        "codedValues": [
+          {
+            "name": "Yes",
+            "code": "Y"
+          },
+          {
+            "name": "No",
+            "code": "N"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "CREATED",
+      "type": "esriFieldTypeDate",
+      "alias": "Created",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "SURFTYPE",
+      "type": "esriFieldTypeString",
+      "alias": "Surface Type",
+      "length": 20,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_PavementSurfaceType",
+        "description": "The type of pavement surface",
+        "codedValues": [
+          {
+            "name": "Concrete",
+            "code": "CON"
+          },
+          {
+            "name": "Asphalt",
+            "code": "ASP"
+          },
+          {
+            "name": "Chip and Seal",
+            "code": "CS"
+          },
+          {
+            "name": "Gravel",
+            "code": "GRA"
+          },
+          {
+            "name": "Brickpaver",
+            "code": "BRI"
+          },
+          {
+            "name": "Cobblestone",
+            "code": "COB"
+          },
+          {
+            "name": "Other",
+            "code": "OTH"
+          },
+          {
+            "name": "Unknown",
+            "code": "UNK"
+          },
+          {
+            "name": "Athletic Track",
+            "code": "TRA"
+          },
+          {
+            "name": "Hardcourt",
+            "code": "HC"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "CONDITION",
+      "type": "esriFieldTypeString",
+      "alias": "Condition",
+      "length": 50,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_Condition",
+        "description": "The condition of the asset",
+        "codedValues": [
+          {
+            "name": "Excellent",
+            "code": "E"
+          },
+          {
+            "name": "Very Good",
+            "code": "VG"
+          },
+          {
+            "name": "Good",
+            "code": "G"
+          },
+          {
+            "name": "Fair",
+            "code": "F"
+          },
+          {
+            "name": "Poor",
+            "code": "P"
+          },
+          {
+            "name": "Very Poor",
+            "code": "VP"
+          },
+          {
+            "name": "Unknown",
+            "code": "UNK"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDuplicate"
+      }
+    },
+    {
+      "name": "ADACOMPLY",
+      "type": "esriFieldTypeString",
+      "alias": "ADA Compliant",
+      "length": 5,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_YesNo",
+        "description": "A yes/no indicator",
+        "codedValues": [
+          {
+            "name": "Yes",
+            "code": "Y"
+          },
+          {
+            "name": "No",
+            "code": "N"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "INSTALLDATE",
+      "type": "esriFieldTypeDate",
+      "alias": "Install Date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "OWNEDBY",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Owned By",
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_AssetOwner",
+        "description": "The owner of the asset",
+        "codedValues": [
+          {
+            "name": "Our Agency",
+            "code": 1
+          },
+          {
+            "name": "Private",
+            "code": 2
+          },
+          {
+            "name": "Other",
+            "code": 99
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "MAINTBY",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Managed By",
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_AssetManager",
+        "description": "The manager of the asset",
+        "codedValues": [
+          {
+            "name": "Columbus",
+            "code": 1
+          },
+          {
+            "name": "Dublin",
+            "code": 2
+          },
+          {
+            "name": "Gahanna",
+            "code": 3
+          },
+          {
+            "name": "Grove City",
+            "code": 4
+          },
+          {
+            "name": "Hilliard",
+            "code": 5
+          },
+          {
+            "name": "Westerville",
+            "code": 6
+          },
+          {
+            "name": "Worthington",
+            "code": 7
+          },
+          {
+            "name": "Canal Winchester",
+            "code": 8
+          },
+          {
+            "name": "Delaware City",
+            "code": 9
+          },
+          {
+            "name": "Powell",
+            "code": 10
+          },
+          {
+            "name": "FCEO",
+            "code": 11
+          },
+          {
+            "name": "Bexley",
+            "code": 12
+          },
+          {
+            "name": "Brice",
+            "code": 13
+          },
+          {
+            "name": "Grandview Heights",
+            "code": 14
+          },
+          {
+            "name": "Groveport",
+            "code": 15
+          },
+          {
+            "name": "Marble Cliff",
+            "code": 16
+          },
+          {
+            "name": "Minerva Park",
+            "code": 17
+          },
+          {
+            "name": "New Albany",
+            "code": 18
+          },
+          {
+            "name": "Obetz",
+            "code": 19
+          },
+          {
+            "name": "Reynoldsburg",
+            "code": 20
+          },
+          {
+            "name": "Riverlea",
+            "code": 21
+          },
+          {
+            "name": "Upper Arlington",
+            "code": 22
+          },
+          {
+            "name": "Urbancrest",
+            "code": 23
+          },
+          {
+            "name": "Whitehall",
+            "code": 24
+          },
+          {
+            "name": "Galena",
+            "code": 25
+          },
+          {
+            "name": "Sunbury",
+            "code": 26
+          },
+          {
+            "name": "Ashley",
+            "code": 27
+          },
+          {
+            "name": "Ostrander",
+            "code": 28
+          },
+          {
+            "name": "Shawnee Hills",
+            "code": 29
+          },
+          {
+            "name": "Lithopolis",
+            "code": 30
+          },
+          {
+            "name": "Pickerington",
+            "code": 31
+          },
+          {
+            "name": "Pataskala",
+            "code": 32
+          },
+          {
+            "name": "OSU",
+            "code": 33
+          },
+          {
+            "name": "Del Co RPC",
+            "code": 34
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "LASTUPDATE",
+      "type": "esriFieldTypeDate",
+      "alias": "Last Update Date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "LASTEDITOR",
+      "type": "esriFieldTypeString",
+      "alias": "Last Editor",
+      "length": 50,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_Editor",
+        "description": "Agency editing segment",
+        "codedValues": [
+          {
+            "name": "Columbus",
+            "code": "COC"
+          },
+          {
+            "name": "Dublin",
+            "code": "DUB"
+          },
+          {
+            "name": "Gahanna",
+            "code": "GAH"
+          },
+          {
+            "name": "Grove City",
+            "code": "GRO"
+          },
+          {
+            "name": "Westerville",
+            "code": "WEST"
+          },
+          {
+            "name": "FCEO",
+            "code": "FCEO"
+          },
+          {
+            "name": "Franklin Co Auditor",
+            "code": "FCA"
+          },
+          {
+            "name": "MORPC",
+            "code": "MORP"
+          },
+          {
+            "name": "Worthington",
+            "code": "WOR"
+          },
+          {
+            "name": "Hilliard",
+            "code": "HILL"
+          },
+          {
+            "name": "OSU",
+            "code": "OSU"
+          },
+          {
+            "name": "Del Co RPC",
+            "code": "DPRC"
+          },
+          {
+            "name": "Delaware City",
+            "code": "DEL"
+          },
+          {
+            "name": "Transystems",
+            "code": "TRAN"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "CREATEDBY",
+      "type": "esriFieldTypeString",
+      "alias": "CreatedBy",
+      "length": 50,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_Editor",
+        "description": "Agency editing segment",
+        "codedValues": [
+          {
+            "name": "Columbus",
+            "code": "COC"
+          },
+          {
+            "name": "Dublin",
+            "code": "DUB"
+          },
+          {
+            "name": "Gahanna",
+            "code": "GAH"
+          },
+          {
+            "name": "Grove City",
+            "code": "GRO"
+          },
+          {
+            "name": "Westerville",
+            "code": "WEST"
+          },
+          {
+            "name": "FCEO",
+            "code": "FCEO"
+          },
+          {
+            "name": "Franklin Co Auditor",
+            "code": "FCA"
+          },
+          {
+            "name": "MORPC",
+            "code": "MORP"
+          },
+          {
+            "name": "Worthington",
+            "code": "WOR"
+          },
+          {
+            "name": "Hilliard",
+            "code": "HILL"
+          },
+          {
+            "name": "OSU",
+            "code": "OSU"
+          },
+          {
+            "name": "Del Co RPC",
+            "code": "DPRC"
+          },
+          {
+            "name": "Delaware City",
+            "code": "DEL"
+          },
+          {
+            "name": "Transystems",
+            "code": "TRAN"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "WIDTH",
+      "type": "esriFieldTypeString",
+      "alias": "Width",
+      "length": 4,
+      "domain": {
+        "type": "codedValue",
+        "name": "SI_Width",
+        "description": "Approx. width of sidewalk",
+        "codedValues": [
+          {
+            "name": "<4'",
+            "code": "3"
+          },
+          {
+            "name": "4'",
+            "code": "4"
+          },
+          {
+            "name": "5-7'",
+            "code": "5"
+          },
+          {
+            "name": "8+'",
+            "code": "8"
+          },
+          {
+            "name": "0",
+            "code": "0"
+          },
+          {
+            "name": "Unknown",
+            "code": "UNK"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "WIDTHNUM",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Width Measurement",
+      "domain": null
+    },
+    {
+      "name": "COUNTY",
+      "type": "esriFieldTypeString",
+      "alias": "County",
+      "length": 50,
+      "domain": {
+        "type": "codedValue",
+        "name": "CountyNameCode",
+        "description": "CountyNameCode",
+        "codedValues": [
+          {
+            "name": "Adams",
+            "code": "ADA"
+          },
+          {
+            "name": "Allen",
+            "code": "ALL"
+          },
+          {
+            "name": "Ashland",
+            "code": "ASD"
+          },
+          {
+            "name": "Ashtabula",
+            "code": "ATB"
+          },
+          {
+            "name": "Athens",
+            "code": "ATH"
+          },
+          {
+            "name": "Auglaize",
+            "code": "AUG"
+          },
+          {
+            "name": "Belmont",
+            "code": "BEL"
+          },
+          {
+            "name": "Brown",
+            "code": "BRO"
+          },
+          {
+            "name": "Butler",
+            "code": "BUT"
+          },
+          {
+            "name": "Carroll",
+            "code": "CAR"
+          },
+          {
+            "name": "Champaign",
+            "code": "CHP"
+          },
+          {
+            "name": "Clark",
+            "code": "CLA"
+          },
+          {
+            "name": "Clermont",
+            "code": "CLE"
+          },
+          {
+            "name": "Clinton",
+            "code": "CLI"
+          },
+          {
+            "name": "Columbiana",
+            "code": "COL"
+          },
+          {
+            "name": "Coshocton",
+            "code": "COS"
+          },
+          {
+            "name": "Crawford",
+            "code": "CRA"
+          },
+          {
+            "name": "Cuyahoga",
+            "code": "CUY"
+          },
+          {
+            "name": "Darke",
+            "code": "DAR"
+          },
+          {
+            "name": "Defiance",
+            "code": "DEF"
+          },
+          {
+            "name": "Delaware",
+            "code": "DEL"
+          },
+          {
+            "name": "Erie",
+            "code": "ERI"
+          },
+          {
+            "name": "Fairfield",
+            "code": "FAI"
+          },
+          {
+            "name": "Fayette",
+            "code": "FAY"
+          },
+          {
+            "name": "Franklin",
+            "code": "FRA"
+          },
+          {
+            "name": "Fulton",
+            "code": "FUL"
+          },
+          {
+            "name": "Gallia",
+            "code": "GAL"
+          },
+          {
+            "name": "Geauga",
+            "code": "GEA"
+          },
+          {
+            "name": "Greene",
+            "code": "GRE"
+          },
+          {
+            "name": "Guernsey",
+            "code": "GUE"
+          },
+          {
+            "name": "Hamilton",
+            "code": "HAM"
+          },
+          {
+            "name": "Hancock",
+            "code": "HAN"
+          },
+          {
+            "name": "Hardin",
+            "code": "HAR"
+          },
+          {
+            "name": "Harrison",
+            "code": "HAS"
+          },
+          {
+            "name": "Henry",
+            "code": "HEN"
+          },
+          {
+            "name": "Highland",
+            "code": "HIG"
+          },
+          {
+            "name": "Hocking",
+            "code": "HOC"
+          },
+          {
+            "name": "Holmes",
+            "code": "HOL"
+          },
+          {
+            "name": "Huron",
+            "code": "HUR"
+          },
+          {
+            "name": "Jackson",
+            "code": "JAC"
+          },
+          {
+            "name": "Jefferson",
+            "code": "JEF"
+          },
+          {
+            "name": "Knox",
+            "code": "KNO"
+          },
+          {
+            "name": "Lake",
+            "code": "LAK"
+          },
+          {
+            "name": "Lawrence",
+            "code": "LAW"
+          },
+          {
+            "name": "Licking",
+            "code": "LIC"
+          },
+          {
+            "name": "Logan",
+            "code": "LOG"
+          },
+          {
+            "name": "Lorain",
+            "code": "LOR"
+          },
+          {
+            "name": "Lucas",
+            "code": "LUC"
+          },
+          {
+            "name": "Madison",
+            "code": "MAD"
+          },
+          {
+            "name": "Mahoning",
+            "code": "MAH"
+          },
+          {
+            "name": "Marion",
+            "code": "MAR"
+          },
+          {
+            "name": "Medina",
+            "code": "MED"
+          },
+          {
+            "name": "Meigs",
+            "code": "MEG"
+          },
+          {
+            "name": "Mercer",
+            "code": "MER"
+          },
+          {
+            "name": "Miami",
+            "code": "MIA"
+          },
+          {
+            "name": "Monroe",
+            "code": "MOE"
+          },
+          {
+            "name": "Montgomery",
+            "code": "MOT"
+          },
+          {
+            "name": "Morgan",
+            "code": "MRG"
+          },
+          {
+            "name": "Morrow",
+            "code": "MRW"
+          },
+          {
+            "name": "Muskingum",
+            "code": "MUS"
+          },
+          {
+            "name": "Noble",
+            "code": "NOB"
+          },
+          {
+            "name": "Ottawa",
+            "code": "OTT"
+          },
+          {
+            "name": "Paulding",
+            "code": "PAU"
+          },
+          {
+            "name": "Perry",
+            "code": "PER"
+          },
+          {
+            "name": "Pickaway",
+            "code": "PIC"
+          },
+          {
+            "name": "Pike",
+            "code": "PIK"
+          },
+          {
+            "name": "Portage",
+            "code": "POR"
+          },
+          {
+            "name": "Preble",
+            "code": "PRE"
+          },
+          {
+            "name": "Putnam",
+            "code": "PUT"
+          },
+          {
+            "name": "Richland",
+            "code": "RIC"
+          },
+          {
+            "name": "Ross",
+            "code": "ROS"
+          },
+          {
+            "name": "Sandusky",
+            "code": "SAN"
+          },
+          {
+            "name": "Scioto",
+            "code": "SCI"
+          },
+          {
+            "name": "Seneca",
+            "code": "SEN"
+          },
+          {
+            "name": "Shelby",
+            "code": "SHE"
+          },
+          {
+            "name": "Stark",
+            "code": "STA"
+          },
+          {
+            "name": "Summit",
+            "code": "SUM"
+          },
+          {
+            "name": "Trumbull",
+            "code": "TRU"
+          },
+          {
+            "name": "Tuscarawas",
+            "code": "TUS"
+          },
+          {
+            "name": "Union",
+            "code": "UNI"
+          },
+          {
+            "name": "Van Wert",
+            "code": "VAN"
+          },
+          {
+            "name": "Vinton",
+            "code": "VIN"
+          },
+          {
+            "name": "Warren",
+            "code": "WAR"
+          },
+          {
+            "name": "Washington",
+            "code": "WAS"
+          },
+          {
+            "name": "Wayne",
+            "code": "WAY"
+          },
+          {
+            "name": "Williams",
+            "code": "WIL"
+          },
+          {
+            "name": "Wood",
+            "code": "WOO"
+          },
+          {
+            "name": "Wyandot",
+            "code": "WYA"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "GLOBALID",
+      "type": "esriFieldTypeGlobalID",
+      "alias": "GlobalID",
+      "length": 38,
+      "domain": null
+    },
+    {
+      "name": "UNIQSEGID",
+      "type": "esriFieldTypeDouble",
+      "alias": "UniqueSegID",
+      "domain": null
+    },
+    {
+      "name": "ADARAMPID1",
+      "type": "esriFieldTypeString",
+      "alias": "ADA Ramp ID",
+      "length": 20,
+      "domain": null
+    },
+    {
+      "name": "ADARAMPID2",
+      "type": "esriFieldTypeString",
+      "alias": "ADA Ramp ID 2",
+      "length": 20,
+      "domain": null
+    },
+    {
+      "name": "SIGNALID",
+      "type": "esriFieldTypeString",
+      "alias": "Signal ID",
+      "length": 10,
+      "domain": null
+    },
+    {
+      "name": "MARKINGID",
+      "type": "esriFieldTypeString",
+      "alias": "Marking ID",
+      "length": 20,
+      "domain": null
+    },
+    {
+      "name": "NLFID",
+      "type": "esriFieldTypeString",
+      "alias": "NLFID",
+      "length": 255,
+      "domain": null
+    },
+    {
+      "name": "REPLACEDATE",
+      "type": "esriFieldTypeDate",
+      "alias": "Replace Date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "REMOVEDATE",
+      "type": "esriFieldTypeDate",
+      "alias": "Removal Date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "CONDITIONDATE",
+      "type": "esriFieldTypeDate",
+      "alias": "Condition Date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "FACILITYTYPE",
+      "type": "esriFieldTypeString",
+      "alias": "Crosswalk Type",
+      "length": 15,
+      "domain": {
+        "type": "codedValue",
+        "name": "XwalkType",
+        "description": "Marked or Unmarked Crosswalk",
+        "codedValues": [
+          {
+            "name": "Marked Crosswalk",
+            "code": "MC"
+          },
+          {
+            "name": "Unmarked Crosswalk",
+            "code": "UC"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "CONTROLLED",
+      "type": "esriFieldTypeString",
+      "alias": "Controlled",
+      "length": 40,
+      "domain": {
+        "type": "codedValue",
+        "name": "CONTROLLED",
+        "description": "Controlled crosswalk type",
+        "codedValues": [
+          {
+            "name": "Markings Only",
+            "code": "M"
+          },
+          {
+            "name": "Markings, Signs",
+            "code": "MS"
+          },
+          {
+            "name": "Markings, Signs, Signal",
+            "code": "MSG"
+          },
+          {
+            "name": "Markings, Signal",
+            "code": "MG"
+          },
+          {
+            "name": "Signs Only",
+            "code": "S"
+          },
+          {
+            "name": "Signs, Signal",
+            "code": "SG"
+          },
+          {
+            "name": "Signal Only",
+            "code": "G"
+          },
+          {
+            "name": "None",
+            "code": "N"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    },
+    {
+      "name": "Complete",
+      "type": "esriFieldTypeString",
+      "alias": "Complete",
+      "length": 3,
+      "domain": null
+    },
+    {
+      "name": "created_user",
+      "type": "esriFieldTypeString",
+      "alias": "created_user",
+      "length": 255,
+      "domain": null
+    },
+    {
+      "name": "created_date",
+      "type": "esriFieldTypeDate",
+      "alias": "created_date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "last_edited_user",
+      "type": "esriFieldTypeString",
+      "alias": "last_edited_user",
+      "length": 255,
+      "domain": null
+    },
+    {
+      "name": "last_edited_date",
+      "type": "esriFieldTypeDate",
+      "alias": "last_edited_date",
+      "length": 8,
+      "domain": null
+    },
+    {
+      "name": "Shape",
+      "type": "esriFieldTypeGeometry",
+      "alias": "Shape",
+      "domain": null
+    },
+    {
+      "name": "Shape.STLength()",
+      "type": "esriFieldTypeDouble",
+      "alias": "Shape.STLength()",
+      "domain": null
+    },
+    {
+      "name": "AssetID",
+      "type": "esriFieldTypeString",
+      "alias": "AssetID",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "DPSCWID",
+      "type": "esriFieldTypeString",
+      "alias": "DPSCWID",
+      "length": 50,
+      "domain": null
+    },
+    {
+      "name": "StatusLifeCycle",
+      "type": "esriFieldTypeString",
+      "alias": "StatusLifeCycle",
+      "length": 20,
+      "domain": {
+        "type": "codedValue",
+        "name": "CW_STATUS",
+        "description": "Status type of Cityworks assets",
+        "codedValues": [
+          {
+            "name": "Inactive",
+            "code": "Inactive"
+          },
+          {
+            "name": "Proposed",
+            "code": "Proposed"
+          },
+          {
+            "name": "Retired",
+            "code": "Retired"
+          },
+          {
+            "name": "Cancelled",
+            "code": "Cancelled "
+          },
+          {
+            "name": "Active",
+            "code": "Active"
+          }
+        ],
+        "mergePolicy": "esriMPTDefaultValue",
+        "splitPolicy": "esriSPTDefaultValue"
+      }
+    }
+  ],
+  "geometryField": {
+    "name": "Shape",
+    "type": "esriFieldTypeGeometry",
+    "alias": "Shape"
+  },
+  "indexes": [
+    {
+      "name": "R975_pk",
+      "fields": "OBJECTID",
+      "isAscending": true,
+      "isUnique": true,
+      "description": ""
+    },
+    {
+      "name": "UUID_975",
+      "fields": "GLOBALID",
+      "isAscending": true,
+      "isUnique": true,
+      "description": ""
+    },
+    {
+      "name": "S662_idx",
+      "fields": "Shape",
+      "isAscending": true,
+      "isUnique": true,
+      "description": ""
+    }
+  ],
+  "subtypes": [],
+  "relationships": [],
+  "canModifyLayer": true,
+  "canScaleSymbols": false,
+  "hasLabels": false,
+  "capabilities": "Map,Query,Data",
+  "maxRecordCount": 2000,
+  "maxSelectionCount": 2000,
+  "supportsStatistics": true,
+  "supportsExceedsLimitStatistics": true,
+  "supportsAdvancedQueries": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "isDataVersioned": false,
+  "ownershipBasedAccessControlForFeatures": {
+    "allowOthersToQuery": true
+  },
+  "useStandardizedQueries": true,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelIndexIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin",
+    "esriSpatialRelRelation"
+  ],
+  "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsPagination": true,
+    "supportsLod": false,
+    "supportsQueryWithLodSR": false,
+    "supportsTrueCurve": true,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true,
+    "supportsTimeRelation": true,
+    "supportsSqlFormat": false,
+    "supportsQueryAnalytic": true,
+    "supportsCurrentUserQueries": true
+  },
+  "supportsDatumTransformation": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsLinearRegression": true,
+    "supportsAsync": false,
+    "supportsPercentileAnalytic": true
+  },
+  "dateFieldsTimeReference": {
+    "timeZone": "Eastern Standard Time",
+    "timeZoneIANA": "America/New_York",
+    "respectsDaylightSaving": true
+  },
+  "preferredTimeReference": {
+    "timeZone": "Eastern Standard Time",
+    "timeZoneIANA": "America/New_York",
+    "respectsDaylightSaving": true
+  },
+  "datesInUnknownTimezone": false,
+  "hasGeometryProperties": true,
+  "geometryProperties": {
+    "shapeLengthFieldName": "Shape.STLength()",
+    "units": "esriFeet",
+    "mapUnits": {
+      "uwkid": 9003
+    }
+  },
+  "hasMetadata": true,
+  "isDataArchived": false,
+  "archivingInfo": {
+    "supportsQueryWithHistoricMoment": false,
+    "startArchivingMoment": -1
+  },
+  "supportsCoordinatesQuantization": true,
+  "supportsDynamicLegends": true
+}

@@ -197,7 +197,8 @@ class RAGPipeline:
         sims = [float(self.index.vectors[h.index] @ qvec) for h in hits]
         confidence = float(np.mean(sorted(sims, reverse=True)[:5])) if sims else 0.0
 
-        context, kept = build_context(thits + hits, self.cfg.context_char_budget)
+        context, kept = build_context(thits + hits, self.cfg.context_char_budget,
+                                     self.cfg.context_passage_chars)
         retrieved = [h for h in kept if h.passage.kind != TOOL_KIND]
         coverage_note, warnings = _diagnose(question, retrieved, confidence)
         if not retrieved:
