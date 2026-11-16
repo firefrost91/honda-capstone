@@ -1,0 +1,3290 @@
+{
+  "summary": {
+    "date": "2026-11-09",
+    "git_commit": "ceef885",
+    "backend": "mlx",
+    "llm_model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+    "embed_model": "BAAI/bge-small-en-v1.5",
+    "n_passages": 2372,
+    "n_questions": 34,
+    "n_layer1": 24,
+    "n_layer2": 8,
+    "n_addons": 2,
+    "judge": false,
+    "judge_validation": null,
+    "baseline": false,
+    "final_k": 14,
+    "total_latency_s": 8148.0,
+    "mean_latency_s": 239.647,
+    "means": {
+      "ret_source_recall": 0.077,
+      "ret_hit": 0.294,
+      "ret_mrr": 0.038,
+      "ret_precision": 0.031,
+      "ret_probe_context_recall": 0.724,
+      "retrieval_confidence": 0.738,
+      "n_docs": 9.029,
+      "card_share": 0.561,
+      "max_doc_share": 0.186,
+      "groundedness": 0.998,
+      "answer_relevancy": 0.845,
+      "relevancy_margin": 0.087,
+      "probe_recall": 0.742,
+      "locality": 4.647,
+      "words": 571.912,
+      "n_cited_docs": 7.912,
+      "n_gap_bullets": 2.265,
+      "judge_context_precision": null,
+      "judge_context_ap": null,
+      "judge_faithfulness": null
+    },
+    "rates": {
+      "hard_flag_free": 0.794,
+      "gap_section": 1,
+      "questions_passing": 0.235
+    },
+    "layer2": {
+      "n_stakeholders": 8,
+      "mean_pairwise_similarity": 0.91,
+      "mean_source_jaccard": 0.519,
+      "perspective_alignment_rate": 0.5,
+      "mean_perspective_lift": 3.23
+    }
+  },
+  "layer2": {
+    "n_stakeholders": 8,
+    "mean_pairwise_similarity": 0.91,
+    "mean_source_jaccard": 0.519,
+    "perspective_alignment_rate": 0.5,
+    "mean_perspective_lift": 3.23,
+    "alignment": {
+      "state": {
+        "own": 4,
+        "others_mean": 1.14,
+        "lift": 2.86,
+        "own_rank_first": false,
+        "own_terms": [
+          "crash reduction",
+          "hsip",
+          "regional",
+          "serious injur"
+        ]
+      },
+      "local": {
+        "own": 4,
+        "others_mean": 1.29,
+        "lift": 2.71,
+        "own_rank_first": true,
+        "own_terms": [
+          "feasib",
+          "long-term",
+          "maintain",
+          "maintenance"
+        ]
+      },
+      "resident": {
+        "own": 5,
+        "others_mean": 1.43,
+        "lift": 3.57,
+        "own_rank_first": true,
+        "own_terms": [
+          "community",
+          "detour",
+          "home",
+          "noise",
+          "resident"
+        ]
+      },
+      "driver": {
+        "own": 5,
+        "others_mean": 1.29,
+        "lift": 3.71,
+        "own_rank_first": true,
+        "own_terms": [
+          "commut",
+          "delay",
+          "driver",
+          "lane",
+          "speed"
+        ]
+      },
+      "vru": {
+        "own": 3,
+        "others_mean": 1.14,
+        "lift": 1.86,
+        "own_rank_first": false,
+        "own_terms": [
+          "comfort",
+          "cyclist",
+          "pedestrian"
+        ]
+      },
+      "ems": {
+        "own": 4,
+        "others_mean": 1.14,
+        "lift": 2.86,
+        "own_rank_first": true,
+        "own_terms": [
+          "emergency",
+          "ems",
+          "responder",
+          "response time"
+        ]
+      },
+      "transit": {
+        "own": 7,
+        "others_mean": 1.86,
+        "lift": 5.14,
+        "own_rank_first": false,
+        "own_terms": [
+          "cota",
+          "first/last",
+          "mobility",
+          "park & ride",
+          "rider",
+          "stop",
+          "transit"
+        ]
+      },
+      "freight": {
+        "own": 5,
+        "others_mean": 1.86,
+        "lift": 3.14,
+        "own_rank_first": false,
+        "own_terms": [
+          "continuity",
+          "freight",
+          "rail",
+          "trespass",
+          "truck"
+        ]
+      }
+    },
+    "restates_scenario": {
+      "state": true,
+      "local": true,
+      "resident": true,
+      "driver": true,
+      "vru": true,
+      "ems": true,
+      "transit": true,
+      "freight": true
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "layer": "L1",
+      "stakeholder": "state",
+      "stakeholder_label": "State / Regional Transportation Agencies",
+      "theme": "Prioritization",
+      "question": "Based on local data such as crash hotspots and roadway characteristics, which areas in Columbus / Central Ohio should be prioritized for safety improvement initiatives or planning, and why?",
+      "n_passages": 11,
+      "n_docs": 11,
+      "card_share": 0.727,
+      "max_doc_share": 0.091,
+      "retrieval_confidence": 0.742,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "columbus_road_centerlines",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_shsp_2025",
+        "ohio_hsp_ffy2024_2026",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:network_screening",
+        "tool:safety_targets"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.843,
+      "probe_recall": 0.833,
+      "locality": 6,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "HIN",
+        "HSIP",
+        "High Injury Network",
+        "SS4A"
+      ],
+      "words": 477,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 9,
+      "elapsed_s": 109.0,
+      "subqueries": [
+        "Based on local data such as crash hotspots and roadway characteristics, which areas in Columbus / Central Ohio should be prioritized for safety improvement initiatives or planning, and why?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 1.0
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.07692307692307693,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 1.0
+        }
+      },
+      "relevancy_margin": 0.063
+    },
+    {
+      "id": 2,
+      "layer": "L1",
+      "stakeholder": "state",
+      "stakeholder_label": "State / Regional Transportation Agencies",
+      "theme": "Local Context & Decision Making",
+      "question": "When planning safety improvements in Columbus / Central Ohio, what local factors should be considered for different locations, and how could those factors affect the prioritization or selection of safety improvements?",
+      "n_passages": 10,
+      "n_docs": 9,
+      "card_share": 0.4,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.771,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_cotsp_2019",
+        "morpc_cotsp_executive_summary_2019",
+        "morpc_mtp_2024_2050_attachment_08",
+        "odot_shsp_2025",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:network_screening",
+        "tool:safety_targets"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.2,
+      "ret_precision": 0.1,
+      "ret_probe_context_recall": 0.571,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.796,
+      "probe_recall": 0.429,
+      "locality": 9,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "HIN",
+        "HSIP",
+        "High Injury Network",
+        "MTP",
+        "SS4A"
+      ],
+      "words": 715,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 8,
+      "elapsed_s": 109.0,
+      "subqueries": [
+        "When planning safety improvements in Columbus / Central Ohio, what local factors should be considered for different locations, and how could those factors affect the prioritization or selection of safety improvements?",
+        "safety countermeasures and action strategies",
+        "high injury network corridors and intersections",
+        "project evaluation and prioritisation criteria",
+        "Factors affecting safety improvement priorities in Columbus based on local conditions."
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.2,
+          "precision": 0.1,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 0.7142857142857143
+        }
+      },
+      "relevancy_margin": 0.02
+    },
+    {
+      "id": 3,
+      "layer": "L1",
+      "stakeholder": "state",
+      "stakeholder_label": "State / Regional Transportation Agencies",
+      "theme": "Historical Precedents, Risks & Trade-offs",
+      "question": "Are there past transportation projects or cases in Central Ohio that should be considered when planning future safety improvements? What lessons, potential risks, and trade-offs from those cases should be considered in future planning?",
+      "n_passages": 11,
+      "n_docs": 8,
+      "card_share": 0.364,
+      "max_doc_share": 0.273,
+      "retrieval_confidence": 0.713,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_ej_technical_appendix",
+        "morpc_mtp_2024_2050_attachment_06",
+        "morpc_tip_2026_2029_full",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:network_screening",
+        "tool:safety_targets"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.091,
+      "ret_precision": 0.091,
+      "ret_probe_context_recall": 0.429,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.829,
+      "probe_recall": 0.714,
+      "locality": 3,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "MTP"
+      ],
+      "words": 354,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 7,
+      "elapsed_s": 77.9,
+      "subqueries": [
+        "Are there past transportation projects or cases in Central Ohio that should be considered when planning future safety improvements? What lessons, potential risks, and trade-offs from those cases should be considered in future planning?",
+        "projected population and employment growth forecast 2050",
+        "land use and development pattern changes",
+        "travel demand and vehicle miles travelled growth",
+        "safety countermeasures and action strategies"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.09090909090909091,
+          "precision": 0.09090909090909091,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.2857142857142857
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.08333333333333333,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.14285714285714285,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.5714285714285714
+        }
+      },
+      "relevancy_margin": 0.038
+    },
+    {
+      "id": 4,
+      "layer": "L1",
+      "stakeholder": "local",
+      "stakeholder_label": "Local Government / Public Works",
+      "theme": "Implementation Feasibility / Infrastructure Conditions",
+      "question": "When implementing safety improvements in Columbus, are there areas where existing roadway or infrastructure conditions, local geometry, or surrounding conditions could make implementation more challenging? How could these local conditions affect the selection of feasible safety improvements?",
+      "n_passages": 10,
+      "n_docs": 7,
+      "card_share": 0.4,
+      "max_doc_share": 0.3,
+      "retrieval_confidence": 0.772,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_cotsp_executive_summary_2019",
+        "odot_shsp_2025",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:infrastructure_condition",
+        "tool:network_screening"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.571,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 2,568"
+      ],
+      "answer_relevancy": 0.856,
+      "probe_recall": 0.143,
+      "locality": 5,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN",
+        "High Injury Network"
+      ],
+      "words": 553,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 7,
+      "elapsed_s": 98.2,
+      "subqueries": [
+        "When implementing safety improvements in Columbus, are there areas where existing roadway or infrastructure conditions, local geometry, or surrounding conditions could make implementation more challenging? How could these local conditions affect the selection of feasible safety improvements?",
+        "safety countermeasures and action strategies",
+        "high injury network corridors and intersections",
+        "project evaluation and prioritisation criteria",
+        "Columbus existing infrastructure challenges affecting safety improvement implementations"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "dense_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.2857142857142857
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.14285714285714285
+        }
+      },
+      "relevancy_margin": 0.058
+    },
+    {
+      "id": 5,
+      "layer": "L1",
+      "stakeholder": "local",
+      "stakeholder_label": "Local Government / Public Works",
+      "theme": "Maintenance / Long-term Sustainability",
+      "question": "For safety improvements planned or implemented in Columbus, what maintenance or infrastructure challenges should be considered to sustain their safety benefits over time? How could these challenges affect project design or implementation?",
+      "n_passages": 11,
+      "n_docs": 8,
+      "card_share": 0.545,
+      "max_doc_share": 0.273,
+      "retrieval_confidence": 0.723,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_state_of_safety_2015_2019",
+        "morpc_state_of_safety_2017_2021",
+        "odot_shsp_2025",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:infrastructure_condition",
+        "tool:network_screening"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 270, 397"
+      ],
+      "answer_relevancy": 0.835,
+      "probe_recall": 0.429,
+      "locality": 2,
+      "local_terms": [
+        "Columbus",
+        "I-270"
+      ],
+      "words": 548,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 7,
+      "elapsed_s": 136.9,
+      "subqueries": [
+        "For safety improvements planned or implemented in Columbus, what maintenance or infrastructure challenges should be considered to sustain their safety benefits over time? How could these challenges affect project design or implementation?",
+        "historical crash trends fatalities by year",
+        "regional demographic and travel behaviour trends",
+        "emerging transportation safety concerns",
+        "safety countermeasures and action strategies"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.5714285714285714,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 0.125,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.14285714285714285
+        }
+      },
+      "relevancy_margin": 0.054
+    },
+    {
+      "id": 6,
+      "layer": "L1",
+      "stakeholder": "local",
+      "stakeholder_label": "Local Government / Public Works",
+      "theme": "Future Demand / Long-term Safety Performance",
+      "question": "As traffic, population, and development change in Columbus / Central Ohio, are there areas where currently planned safety improvements may become less effective over time? What changes or indicators should local governments monitor to evaluate long-term safety performance?",
+      "n_passages": 10,
+      "n_docs": 8,
+      "card_share": 0.4,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.795,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_mtp_2024_2050_attachment_06",
+        "morpc_state_of_safety_2017_2021",
+        "morpc_state_of_safety_2018_2022",
+        "tool:crash_profile",
+        "tool:growth_outlook",
+        "tool:infrastructure_condition",
+        "tool:network_screening"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.2,
+      "ret_precision": 0.2,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.849,
+      "probe_recall": 0.857,
+      "locality": 5,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN",
+        "High Injury Network"
+      ],
+      "words": 395,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 80.9,
+      "subqueries": [
+        "As traffic, population, and development change in Columbus / Central Ohio, are there areas where currently planned safety improvements may become less effective over time? What changes or indicators should local governments monitor to evaluate long-term safety performance?",
+        "historical crash trends fatalities by year",
+        "regional demographic and travel behaviour trends",
+        "emerging transportation safety concerns",
+        "projected population and employment growth forecast 2050"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.2,
+          "precision": 0.2,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.75,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.42857142857142855,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.058
+    },
+    {
+      "id": 7,
+      "layer": "L1",
+      "stakeholder": "ems",
+      "stakeholder_label": "Emergency Responders / Healthcare Providers",
+      "theme": "Emergency Access / Response Time",
+      "question": "Are there areas in Columbus / Central Ohio where roadway design, traffic conditions, or other local factors could make it difficult for emergency responders to reach crash locations quickly and reliably? What local factors contribute to these challenges?",
+      "n_passages": 10,
+      "n_docs": 9,
+      "card_share": 0.5,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.707,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_cotsp_2019",
+        "morpc_mtp_2024_2050_attachment_08",
+        "ohio_quickclear_agreement",
+        "ohio_trauma_report_2024",
+        "tool:crash_profile",
+        "tool:emergency_response_profile",
+        "tool:infrastructure_condition",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.167,
+      "ret_precision": 0.1,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "merged duplicated 'what the evidence does not cover' sections",
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 19,818"
+      ],
+      "answer_relevancy": 0.819,
+      "probe_recall": 0.714,
+      "locality": 5,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "HIN",
+        "SS4A"
+      ],
+      "words": 635,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 6,
+      "elapsed_s": 110.4,
+      "subqueries": [
+        "Are there areas in Columbus / Central Ohio where roadway design, traffic conditions, or other local factors could make it difficult for emergency responders to reach crash locations quickly and reliably? What local factors contribute to these challenges?",
+        "incident management and emergency response time",
+        "traffic incident management program",
+        "emergency responder access and coordination",
+        "Columbus roadway design and traffic conditions affecting emergency responder access based on MORPC plans"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.16666666666666666,
+          "precision": 0.1,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.16666666666666666,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.25,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.7142857142857143
+        }
+      },
+      "relevancy_margin": 0.067
+    },
+    {
+      "id": 8,
+      "layer": "L1",
+      "stakeholder": "ems",
+      "stakeholder_label": "Emergency Responders / Healthcare Providers",
+      "theme": "Safety Improvements vs. Emergency Operations",
+      "question": "How could planned safety improvement projects in Columbus / Central Ohio improve emergency response in the surrounding areas? What improvements in emergency access, response time, or operational reliability could be expected?",
+      "n_passages": 11,
+      "n_docs": 10,
+      "card_share": 0.364,
+      "max_doc_share": 0.182,
+      "retrieval_confidence": 0.705,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_cotsp_2019",
+        "morpc_mtp_2024_2050_attachment_08",
+        "morpc_tip_2026_2029_full",
+        "odot_shsp_2025",
+        "ohio_quickclear_agreement",
+        "ohio_trauma_report_2024",
+        "tool:crash_profile",
+        "tool:emergency_response_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.333,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.143,
+      "ret_precision": 0.091,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.847,
+      "probe_recall": 0.833,
+      "locality": 7,
+      "local_terms": [
+        "COTA",
+        "COTSP",
+        "Central Ohio Transit Authority",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN",
+        "High Injury Network"
+      ],
+      "words": 720,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 9,
+      "elapsed_s": 113.9,
+      "subqueries": [
+        "How could planned safety improvement projects in Columbus / Central Ohio improve emergency response in the surrounding areas? What improvements in emergency access, response time, or operational reliability could be expected?",
+        "incident management and emergency response time",
+        "traffic incident management program",
+        "emergency responder access and coordination",
+        "safety countermeasures and action strategies"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.14285714285714285,
+          "precision": 0.09090909090909091,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.3333333333333333,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "hybrid_rules": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.25,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.087
+    },
+    {
+      "id": 9,
+      "layer": "L1",
+      "stakeholder": "ems",
+      "stakeholder_label": "Emergency Responders / Healthcare Providers",
+      "theme": "Crash Severity / Post-Crash Response",
+      "question": "Based on local crash and transportation data, are there areas in Columbus / Central Ohio where the frequency or severity of crashes may create particular challenges for emergency response and post-crash care? What additional information would be needed to better assess these risks?",
+      "n_passages": 10,
+      "n_docs": 9,
+      "card_share": 0.4,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.731,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_cotsp_2019",
+        "morpc_mtp_2024_2050_attachment_08",
+        "odot_shsp_2025",
+        "ohio_quickclear_agreement",
+        "ohio_trauma_report_2024",
+        "tool:crash_profile",
+        "tool:emergency_response_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.855,
+      "probe_recall": 0.857,
+      "locality": 7,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "I-71",
+        "MTP",
+        "Metropolitan Transportation Plan",
+        "SS4A"
+      ],
+      "words": 536,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 86.2,
+      "subqueries": [
+        "Based on local crash and transportation data, are there areas in Columbus / Central Ohio where the frequency or severity of crashes may create particular challenges for emergency response and post-crash care? What additional information would be needed to better assess these risks?",
+        "incident management and emergency response time",
+        "traffic incident management program",
+        "emergency responder access and coordination",
+        "crash records dataset fields and coverage"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.079
+    },
+    {
+      "id": 10,
+      "layer": "L1",
+      "stakeholder": "transit",
+      "stakeholder_label": "Public Transit / Mobility Providers",
+      "theme": "First / Last-Mile Safety & Access",
+      "question": "Are there areas in Columbus / Central Ohio where local roadway or infrastructure conditions create safety or accessibility challenges for people walking or cycling to public transit or Park & Ride facilities? What local factors contribute to these challenges?",
+      "n_passages": 10,
+      "n_docs": 8,
+      "card_share": 0.4,
+      "max_doc_share": 0.3,
+      "retrieval_confidence": 0.768,
+      "retrieved_sources": [
+        "morpc_atp_bike_ped_safety_memo_2021",
+        "morpc_mtp_2024_2050_attachment_07",
+        "morpc_mtp_2024_2050_attachment_10",
+        "odot_shsp_2025",
+        "tool:infrastructure_condition",
+        "tool:traffic_operations",
+        "tool:transit_access_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.872,
+      "probe_recall": 0.714,
+      "locality": 3,
+      "local_terms": [
+        "COTA",
+        "Central Ohio Transit Authority",
+        "Columbus"
+      ],
+      "words": 708,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 102.0,
+      "subqueries": [
+        "Are there areas in Columbus / Central Ohio where local roadway or infrastructure conditions create safety or accessibility challenges for people walking or cycling to public transit or Park & Ride facilities? What local factors contribute to these challenges?",
+        "Columbus Central Ohio pedestrian cyclist infrastructure accessibility challenges",
+        "Central Ohio local roadway infrastructure safety issues",
+        "Local factors affecting accessibility for walkers cyclists to transit park and ride facilities"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.2,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.079
+    },
+    {
+      "id": 11,
+      "layer": "L1",
+      "stakeholder": "transit",
+      "stakeholder_label": "Public Transit / Mobility Providers",
+      "theme": "Value of Supporting Safety Projects",
+      "question": "How could planned or existing safety improvement projects in Columbus / Central Ohio benefit public transit or mobility services? What local evidence should providers consider when determining whether supporting or participating in these projects would be worthwhile?",
+      "n_passages": 11,
+      "n_docs": 11,
+      "card_share": 0.636,
+      "max_doc_share": 0.091,
+      "retrieval_confidence": 0.709,
+      "retrieved_sources": [
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_tip_2026_2029_full",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "rtmc_mobility_study_attachment_01",
+        "tool:traffic_operations",
+        "tool:transit_access_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.091,
+      "ret_precision": 0.091,
+      "ret_probe_context_recall": 0.429,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.815,
+      "probe_recall": 0.429,
+      "locality": 13,
+      "local_terms": [
+        "COTA",
+        "COTSP",
+        "Central Ohio Transit Authority",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "Hilliard",
+        "MORPC",
+        "McKinley Avenue",
+        "ODOT",
+        "Renner Road",
+        "SS4A",
+        "Trabue Road"
+      ],
+      "words": 772,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 9,
+      "elapsed_s": 119.1,
+      "subqueries": [
+        "How could planned or existing safety improvement projects in Columbus / Central Ohio benefit public transit or mobility services? What local evidence should providers consider when determining whether supporting or participating in these projects would be worthwhile?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.09090909090909091,
+          "precision": 0.09090909090909091,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 1.0
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.125,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.42857142857142855
+        }
+      },
+      "relevancy_margin": -0.002
+    },
+    {
+      "id": 12,
+      "layer": "L1",
+      "stakeholder": "transit",
+      "stakeholder_label": "Public Transit / Mobility Providers",
+      "theme": "Network Connectivity / Future Mobility Needs",
+      "question": "Are there gaps in Columbus / Central Ohio's transportation network where improved walking, cycling, or other mobility connections could make access to public transit safer and more convenient? How should future transportation or safety improvements address these gaps?",
+      "n_passages": 11,
+      "n_docs": 8,
+      "card_share": 0.273,
+      "max_doc_share": 0.273,
+      "retrieval_confidence": 0.695,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_ej_technical_appendix",
+        "morpc_mtp_2024_2050",
+        "morpc_mtp_2024_2050_attachment_06",
+        "morpc_tip_2026_2029_full",
+        "tool:traffic_operations",
+        "tool:transit_access_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 530"
+      ],
+      "answer_relevancy": 0.769,
+      "probe_recall": 0.714,
+      "locality": 11,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Delaware County",
+        "HIN",
+        "High Injury Network",
+        "MORPC",
+        "MTP",
+        "ODOT",
+        "Sunbury",
+        "Transportation Improvement Program",
+        "Westerville"
+      ],
+      "words": 685,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 8,
+      "elapsed_s": 107.4,
+      "subqueries": [
+        "Are there gaps in Columbus / Central Ohio's transportation network where improved walking, cycling, or other mobility connections could make access to public transit safer and more convenient? How should future transportation or safety improvements address these gaps?",
+        "projected population and employment growth forecast 2050",
+        "land use and development pattern changes",
+        "travel demand and vehicle miles travelled growth",
+        "safety countermeasures and action strategies"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.5,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 1.0
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.5,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.05
+    },
+    {
+      "id": 13,
+      "layer": "L1",
+      "stakeholder": "resident",
+      "stakeholder_label": "Nearby Residents / Local Communities",
+      "theme": "Safety & Quality of Life Near Homes",
+      "question": "Are there residential neighborhoods in Columbus / Central Ohio where crash frequency, speeding, or noise on nearby roads is a particular concern for residents? What local data or conditions explain these concerns?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.741,
+      "retrieved_sources": [
+        "columbus_road_centerlines",
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "rtmc_mobility_study_attachment_01",
+        "tool:community_impact_profile",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.2,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.1,
+      "ret_precision": 0.1,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 0.971,
+      "n_unsupported": 1,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "1 of 34 sentences not supported by retrieved evidence (marked inline)"
+      ],
+      "answer_relevancy": 0.89,
+      "probe_recall": 0.857,
+      "locality": 7,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "Hilliard",
+        "McKinley Avenue",
+        "Renner Road",
+        "SS4A",
+        "Trabue Road"
+      ],
+      "words": 664,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 10,
+      "elapsed_s": 107.5,
+      "subqueries": [
+        "Are there residential neighborhoods in Columbus / Central Ohio where crash frequency, speeding, or noise on nearby roads is a particular concern for residents? What local data or conditions explain these concerns?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.2,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.1,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.2,
+          "hit": 1.0,
+          "mrr": 0.16666666666666666,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.42857142857142855
+        }
+      },
+      "relevancy_margin": 0.102
+    },
+    {
+      "id": 14,
+      "layer": "L1",
+      "stakeholder": "resident",
+      "stakeholder_label": "Nearby Residents / Local Communities",
+      "theme": "Cut-Through Traffic & Neighborhood Impacts",
+      "question": "Where in Columbus / Central Ohio could safety improvements on a main road or intersection push traffic onto neighborhood streets? What local evidence should be considered to assess the effect on nearby residents?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.72,
+      "retrieved_sources": [
+        "columbus_road_centerlines",
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "ohio_hsp_ffy2024_2026",
+        "tool:community_impact_profile",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.827,
+      "probe_recall": 0.571,
+      "locality": 3,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "SS4A"
+      ],
+      "words": 724,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 7,
+      "elapsed_s": 111.4,
+      "subqueries": [
+        "Where in Columbus / Central Ohio could safety improvements on a main road or intersection push traffic onto neighborhood streets? What local evidence should be considered to assess the effect on nearby residents?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.08333333333333333,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "hybrid_rules": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.14285714285714285,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.053
+    },
+    {
+      "id": 15,
+      "layer": "L1",
+      "stakeholder": "resident",
+      "stakeholder_label": "Nearby Residents / Local Communities",
+      "theme": "Construction Impacts & Community Engagement",
+      "question": "For past or planned safety projects in Columbus / Central Ohio, what construction impacts (detours, access to homes and schools, travel time) have affected nearby communities? What lessons should guide future planning and community communication?",
+      "n_passages": 10,
+      "n_docs": 7,
+      "card_share": 0.4,
+      "max_doc_share": 0.3,
+      "retrieval_confidence": 0.685,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_ej_technical_appendix",
+        "morpc_mtp_2024_2050_attachment_06",
+        "tool:community_impact_profile",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.429,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.852,
+      "probe_recall": 0.571,
+      "locality": 7,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Dublin",
+        "Grove City",
+        "MORPC",
+        "Mid-Ohio Regional Planning Commission"
+      ],
+      "words": 450,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 7,
+      "elapsed_s": 90.2,
+      "subqueries": [
+        "For past or planned safety projects in Columbus / Central Ohio, what construction impacts (detours, access to homes and schools, travel time) have affected nearby communities? What lessons should guide future planning and community communication?",
+        "projected population and employment growth forecast 2050",
+        "land use and development pattern changes",
+        "travel demand and vehicle miles travelled growth",
+        "environmental justice and disadvantaged communities analysis"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        }
+      },
+      "relevancy_margin": 0.055
+    },
+    {
+      "id": 16,
+      "layer": "L1",
+      "stakeholder": "driver",
+      "stakeholder_label": "Drivers / Daily Commuters",
+      "theme": "Crash Risk & Traffic Conflicts",
+      "question": "Which intersections or corridors in Columbus / Central Ohio have crash patterns (e.g., turning, rear-end, or angle crashes) that most affect daily commuters? What local roadway or traffic characteristics contribute to these conflicts?",
+      "n_passages": 11,
+      "n_docs": 9,
+      "card_share": 0.455,
+      "max_doc_share": 0.273,
+      "retrieval_confidence": 0.758,
+      "retrieved_sources": [
+        "columbus_crosswalks_sidewalks",
+        "columbus_high_injury_network",
+        "morpc_atp_bike_ped_safety_memo_2021",
+        "morpc_cotsp_2019",
+        "morpc_cotsp_executive_summary_2019",
+        "rtmc_mobility_study_attachment_01",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.1,
+      "ret_precision": 0.091,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.835,
+      "probe_recall": 0.714,
+      "locality": 9,
+      "local_terms": [
+        "Alton",
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Darby Creek",
+        "MORPC",
+        "McKinley Avenue",
+        "ODOT",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "words": 468,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 9,
+      "elapsed_s": 101.2,
+      "subqueries": [
+        "Which intersections or corridors in Columbus / Central Ohio have crash patterns (e.g., turning, rear-end, or angle crashes) that most affect daily commuters? What local roadway or traffic characteristics contribute to these conflicts?",
+        "Crash Patterns and Commuter Impact on Intersections and Corridors in Columbus",
+        "Local Roadway Characteristics Contributing to Conflicts in Central Ohio",
+        "Intersection and Corridor Safety Data from MORPC Plans and Vision Zero Columbus",
+        "ODOT Documents Detailing Crashes and Traffic Conflicts in Columbus and Central Ohio"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.09090909090909091,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        }
+      },
+      "relevancy_margin": 0.087
+    },
+    {
+      "id": 17,
+      "layer": "L1",
+      "stakeholder": "driver",
+      "stakeholder_label": "Drivers / Daily Commuters",
+      "theme": "Delay, Queues & Travel-Time Reliability",
+      "question": "Where in Columbus / Central Ohio do congestion, queue spillback, or unreliable travel times affect daily commutes? How could planned safety improvements change delay or reliability at these locations?",
+      "n_passages": 11,
+      "n_docs": 8,
+      "card_share": 0.273,
+      "max_doc_share": 0.273,
+      "retrieval_confidence": 0.714,
+      "retrieved_sources": [
+        "morpc_cotsp_2019",
+        "morpc_cotsp_executive_summary_2019",
+        "morpc_mtp_2024_2050_attachment_11",
+        "odot_shsp_2025",
+        "rtmc_mobility_study_attachment_01",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.25,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.091,
+      "ret_precision": 0.091,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.777,
+      "probe_recall": 0.714,
+      "locality": 5,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "HIN",
+        "High Injury Network"
+      ],
+      "words": 551,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 6,
+      "elapsed_s": 97.2,
+      "subqueries": [
+        "Where in Columbus / Central Ohio do congestion, queue spillback, or unreliable travel times affect daily commutes? How could planned safety improvements change delay or reliability at these locations?",
+        "safety countermeasures and action strategies",
+        "high injury network corridors and intersections",
+        "project evaluation and prioritisation criteria",
+        "project cost estimate and funding programme"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.09090909090909091,
+          "precision": 0.09090909090909091,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.2857142857142857
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 0.125,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.2857142857142857
+        }
+      },
+      "relevancy_margin": 0.02
+    },
+    {
+      "id": 18,
+      "layer": "L1",
+      "stakeholder": "driver",
+      "stakeholder_label": "Drivers / Daily Commuters",
+      "theme": "Roadway Design Clarity & Driver Behavior",
+      "question": "Are there locations in Columbus / Central Ohio where lane configuration, signage, signal timing, or interchange layout may confuse drivers or encourage speeding or risky lane changes? What local evidence supports this?",
+      "n_passages": 11,
+      "n_docs": 10,
+      "card_share": 0.636,
+      "max_doc_share": 0.182,
+      "retrieval_confidence": 0.743,
+      "retrieved_sources": [
+        "columbus_curbs",
+        "columbus_road_centerlines",
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_shsp_2025",
+        "ohio_hsp_ffy2024_2026",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "figures not found in any cited passage: 169"
+      ],
+      "answer_relevancy": 0.821,
+      "probe_recall": 0.857,
+      "locality": 4,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "ODOT",
+        "SS4A"
+      ],
+      "words": 785,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 9,
+      "elapsed_s": 118.8,
+      "subqueries": [
+        "Are there locations in Columbus / Central Ohio where lane configuration, signage, signal timing, or interchange layout may confuse drivers or encourage speeding or risky lane changes? What local evidence supports this?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.5,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.1111111111111111,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.076
+    },
+    {
+      "id": 19,
+      "layer": "L1",
+      "stakeholder": "vru",
+      "stakeholder_label": "Pedestrians / Cyclists / Vulnerable Road Users",
+      "theme": "Crossing Safety & Visibility",
+      "question": "Where in Columbus / Central Ohio do pedestrian or cyclist crashes and near-misses cluster at crossings? What roadway conditions (speed, lighting, crossing distance, signal timing) contribute to these risks?",
+      "n_passages": 10,
+      "n_docs": 9,
+      "card_share": 0.4,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.797,
+      "retrieved_sources": [
+        "columbus_vision_zero_annual_report_2024",
+        "morpc_atp_bike_ped_safety_memo_2021",
+        "morpc_cotsp_2019",
+        "odot_shsp_2025",
+        "tool:countermeasure_reference",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile",
+        "vision_zero_action_plan_1_0"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 1.0,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.832,
+      "probe_recall": 0.714,
+      "locality": 3,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Vision Zero Columbus"
+      ],
+      "words": 489,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 93.0,
+      "subqueries": [
+        "Where in Columbus / Central Ohio do pedestrian or cyclist crashes and near-misses cluster at crossings? What roadway conditions (speed, lighting, crossing distance, signal timing) contribute to these risks?",
+        "Where do pedestrian and cyclist crashes and near-misses cluster at intersections within Columbus and Central Ohio?"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 1.0
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 1.0
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 1.0
+        }
+      },
+      "relevancy_margin": 0.06
+    },
+    {
+      "id": 20,
+      "layer": "L1",
+      "stakeholder": "vru",
+      "stakeholder_label": "Pedestrians / Cyclists / Vulnerable Road Users",
+      "theme": "Sidewalk / Path Continuity & Accessibility",
+      "question": "Are there gaps in sidewalks, bike facilities, or accessible crossings in Columbus / Central Ohio that make walking or cycling difficult, especially for older adults and people with disabilities? Which areas should be prioritized?",
+      "n_passages": 10,
+      "n_docs": 9,
+      "card_share": 0.6,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.67,
+      "retrieved_sources": [
+        "columbus_crosswalks_sidewalks",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_mtp_2024_2050_attachment_11",
+        "morpc_mtp_2024_2050_attachment_12",
+        "odot_shsp_2025",
+        "tool:countermeasure_reference",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.571,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 1,
+      "hard_flag_free": false,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "1 figure(s) attributed only to a dataset catalogue entry, whose records are not loaded - treat as unverified",
+        "figures not found in any cited passage: 359"
+      ],
+      "answer_relevancy": 0.802,
+      "probe_recall": 0.857,
+      "locality": 6,
+      "local_terms": [
+        "COTSP",
+        "Columbus",
+        "Delaware County",
+        "Franklin County",
+        "MTP",
+        "SS4A"
+      ],
+      "words": 648,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 109.3,
+      "subqueries": [
+        "Are there gaps in sidewalks, bike facilities, or accessible crossings in Columbus / Central Ohio that make walking or cycling difficult, especially for older adults and people with disabilities? Which areas should be prioritized?",
+        "safety countermeasures and action strategies",
+        "high injury network corridors and intersections",
+        "project evaluation and prioritisation criteria",
+        "data limitations and analysis caveats"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.07692307692307693,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 1.0
+        },
+        "hybrid_rules": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 0.14285714285714285,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 0.8571428571428571
+        }
+      },
+      "relevancy_margin": 0.033
+    },
+    {
+      "id": 21,
+      "layer": "L1",
+      "stakeholder": "vru",
+      "stakeholder_label": "Pedestrians / Cyclists / Vulnerable Road Users",
+      "theme": "Separation from Vehicles & Comfort",
+      "question": "In Columbus / Central Ohio, which roads or intersections with high vehicle speeds or volumes make walking or cycling uncomfortable or unsafe? What local evidence shows whether recent safety improvements have made people feel safer?",
+      "n_passages": 11,
+      "n_docs": 11,
+      "card_share": 0.727,
+      "max_doc_share": 0.091,
+      "retrieval_confidence": 0.71,
+      "retrieved_sources": [
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_mtp_2024_2050_attachment_10",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "tool:countermeasure_reference",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.286,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data"
+      ],
+      "answer_relevancy": 0.838,
+      "probe_recall": 0.143,
+      "locality": 6,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "Franklin County",
+        "ODOT",
+        "SS4A"
+      ],
+      "words": 327,
+      "has_gap_section": true,
+      "n_gap_bullets": 3,
+      "n_cited_docs": 10,
+      "elapsed_s": 58.7,
+      "subqueries": [
+        "In Columbus / Central Ohio, which roads or intersections with high vehicle speeds or volumes make walking or cycling uncomfortable or unsafe? What local evidence shows whether recent safety improvements have made people feel safer?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.2857142857142857
+        },
+        "dense_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.125,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "bm25_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.25,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        }
+      },
+      "relevancy_margin": 0.065
+    },
+    {
+      "id": 22,
+      "layer": "L1",
+      "stakeholder": "freight",
+      "stakeholder_label": "Freight / Rail Operators",
+      "theme": "Truck Interactions & Freight Routes",
+      "question": "Where in Columbus / Central Ohio do trucks interact with cars, pedestrians, or cyclists in ways that create crash risk (e.g., near industrial areas, distribution centers, or highway ramps)? What local roadway conditions contribute?",
+      "n_passages": 9,
+      "n_docs": 8,
+      "card_share": 0.444,
+      "max_doc_share": 0.222,
+      "retrieval_confidence": 0.748,
+      "retrieved_sources": [
+        "morpc_atp_bike_ped_safety_memo_2021",
+        "morpc_cotsp_2019",
+        "morpc_cotsp_executive_summary_2019",
+        "odot_shsp_2025",
+        "tool:crash_profile",
+        "tool:freight_rail_profile",
+        "tool:traffic_operations",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.571,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data"
+      ],
+      "answer_relevancy": 0.835,
+      "probe_recall": 0.714,
+      "locality": 4,
+      "local_terms": [
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "MORPC",
+        "ODOT"
+      ],
+      "words": 453,
+      "has_gap_section": true,
+      "n_gap_bullets": 3,
+      "n_cited_docs": 8,
+      "elapsed_s": 77.9,
+      "subqueries": [
+        "Where in Columbus / Central Ohio do trucks interact with cars, pedestrians, or cyclists in ways that create crash risk (e.g., near industrial areas, distribution centers, or highway ramps)? What local roadway conditions contribute?",
+        "What specific local roadway conditions in Central Ohio pose significant risks for truck-car, truck-pedestrian, and truck-cyclist interactions at industrial areas, distribution centers, and highway ramps?"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.14285714285714285
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.2857142857142857
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.14285714285714285
+        }
+      },
+      "relevancy_margin": 0.085
+    },
+    {
+      "id": 23,
+      "layer": "L1",
+      "stakeholder": "freight",
+      "stakeholder_label": "Freight / Rail Operators",
+      "theme": "Rail Crossing Safety & Conflict Risk",
+      "question": "Which at-grade rail crossings in Columbus / Central Ohio have safety, blocked-crossing, or trespass concerns? How could nearby safety improvements affect crossing safety and freight operations?",
+      "n_passages": 10,
+      "n_docs": 8,
+      "card_share": 0.4,
+      "max_doc_share": 0.3,
+      "retrieval_confidence": 0.743,
+      "retrieved_sources": [
+        "morpc_cotsp_executive_summary_2019",
+        "morpc_mtp_2024_2050_attachment_10",
+        "morpc_mtp_2024_2050_attachment_12",
+        "odot_shsp_2025",
+        "tool:crash_profile",
+        "tool:freight_rail_profile",
+        "tool:traffic_operations",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data"
+      ],
+      "answer_relevancy": 0.864,
+      "probe_recall": 0.857,
+      "locality": 5,
+      "local_terms": [
+        "COTSP",
+        "Central Ohio Transportation Safety Plan",
+        "Columbus",
+        "I-70",
+        "MORPC"
+      ],
+      "words": 617,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 8,
+      "elapsed_s": 89.7,
+      "subqueries": [
+        "Which at-grade rail crossings in Columbus / Central Ohio have safety, blocked-crossing, or trespass concerns? How could nearby safety improvements affect crossing safety and freight operations?",
+        "safety countermeasures and action strategies",
+        "high injury network corridors and intersections",
+        "project evaluation and prioritisation criteria",
+        "Which at-grade rail crossings in Columbus/Central Ohio have safety issues related to blocked crossings or trespassing?"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 1.0,
+          "hit": 1.0,
+          "mrr": 0.125,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 1.0
+        },
+        "bm25_only": {
+          "source_recall": 0.6666666666666666,
+          "hit": 1.0,
+          "mrr": 0.08333333333333333,
+          "precision": 0.21428571428571427,
+          "probe_context_recall": 1.0
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.7142857142857143
+        }
+      },
+      "relevancy_margin": 0.096
+    },
+    {
+      "id": 24,
+      "layer": "L1",
+      "stakeholder": "freight",
+      "stakeholder_label": "Freight / Rail Operators",
+      "theme": "Freight Access & Operational Impact",
+      "question": "How could planned safety improvements in Columbus / Central Ohio affect freight access and operations, particularly for large trucks? Could changes such as lane reconfiguration, reduced roadway width, turning restrictions, or other design changes create challenges for freight movement? What local evidence should be considered when evaluating these impacts?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.7,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.734,
+      "retrieved_sources": [
+        "columbus_traffic_signals",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "rtmc_mobility_study_attachment_01",
+        "tool:crash_profile",
+        "tool:freight_rail_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.333,
+      "ret_hit": 1.0,
+      "ret_mrr": 0.1,
+      "ret_precision": 0.1,
+      "ret_probe_context_recall": 0.714,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.826,
+      "probe_recall": 0.429,
+      "locality": 6,
+      "local_terms": [
+        "Columbus",
+        "Franklin County",
+        "Hilliard",
+        "McKinley Avenue",
+        "Renner Road",
+        "Trabue Road"
+      ],
+      "words": 768,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 9,
+      "elapsed_s": 1566.8,
+      "subqueries": [
+        "How could planned safety improvements in Columbus / Central Ohio affect freight access and operations, particularly for large trucks? Could changes such as lane reconfiguration, reduced roadway width, turning restrictions, or other design changes create challenges for freight movement? What local evidence should be considered when evaluating these impacts?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.1,
+          "precision": 0.1,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "dense_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.5,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "bm25_only": {
+          "source_recall": 0.3333333333333333,
+          "hit": 1.0,
+          "mrr": 0.5,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.6666666666666666,
+          "hit": 1.0,
+          "mrr": 0.14285714285714285,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.7142857142857143
+        }
+      },
+      "relevancy_margin": 0.064
+    },
+    {
+      "id": 25,
+      "layer": "L2",
+      "stakeholder": "state",
+      "stakeholder_label": "State / Regional Transportation Agencies",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of State / Regional Transportation Agencies? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.771,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "tool:crash_profile",
+        "tool:network_screening",
+        "tool:project_outcome_evaluation",
+        "tool:safety_targets"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 0.958,
+      "n_unsupported": 1,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass",
+        "1 of 24 sentences not supported by retrieved evidence (marked inline)"
+      ],
+      "answer_relevancy": 0.92,
+      "probe_recall": 1.0,
+      "locality": 2,
+      "local_terms": [
+        "Columbus",
+        "HSIP"
+      ],
+      "words": 525,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 3378.7,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of State / Regional Transportation Agencies? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.42857142857142855,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.168
+    },
+    {
+      "id": 26,
+      "layer": "L2",
+      "stakeholder": "local",
+      "stakeholder_label": "Local Government / Public Works",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Local Government / Public Works? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 9,
+      "n_docs": 9,
+      "card_share": 0.889,
+      "max_doc_share": 0.111,
+      "retrieval_confidence": 0.766,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "tool:crash_profile",
+        "tool:infrastructure_condition",
+        "tool:network_screening",
+        "tool:project_outcome_evaluation"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.906,
+      "probe_recall": 1.0,
+      "locality": 3,
+      "local_terms": [
+        "Columbus",
+        "ODOT",
+        "SS4A"
+      ],
+      "words": 466,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 7,
+      "elapsed_s": 102.8,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Local Government / Public Works? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.6428571428571429,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        }
+      },
+      "relevancy_margin": 0.144
+    },
+    {
+      "id": 27,
+      "layer": "L2",
+      "stakeholder": "resident",
+      "stakeholder_label": "Nearby Residents / Local Communities",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Nearby Residents / Local Communities? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 9,
+      "n_docs": 9,
+      "card_share": 0.889,
+      "max_doc_share": 0.111,
+      "retrieval_confidence": 0.779,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "tool:community_impact_profile",
+        "tool:crash_profile",
+        "tool:project_outcome_evaluation",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.903,
+      "probe_recall": 1.0,
+      "locality": 1,
+      "local_terms": [
+        "Columbus"
+      ],
+      "words": 554,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 7,
+      "elapsed_s": 88.1,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Nearby Residents / Local Communities? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.5714285714285714,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        }
+      },
+      "relevancy_margin": 0.136
+    },
+    {
+      "id": 28,
+      "layer": "L2",
+      "stakeholder": "driver",
+      "stakeholder_label": "Drivers / Daily Commuters",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Drivers / Daily Commuters? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.768,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "tool:crash_profile",
+        "tool:project_outcome_evaluation",
+        "tool:speed_profile",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.861,
+      "probe_recall": 1.0,
+      "locality": 1,
+      "local_terms": [
+        "COTA"
+      ],
+      "words": 563,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 9,
+      "elapsed_s": 94.3,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Drivers / Daily Commuters? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.42857142857142855,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.169
+    },
+    {
+      "id": 29,
+      "layer": "L2",
+      "stakeholder": "vru",
+      "stakeholder_label": "Pedestrians / Cyclists / Vulnerable Road Users",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Pedestrians / Cyclists / Vulnerable Road Users? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.772,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "rtmc_mobility_study_attachment_01",
+        "tool:crash_profile",
+        "tool:project_outcome_evaluation",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.872,
+      "probe_recall": 1.0,
+      "locality": 0,
+      "local_terms": [],
+      "words": 632,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 7,
+      "elapsed_s": 118.1,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Pedestrians / Cyclists / Vulnerable Road Users? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.42857142857142855,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.199
+    },
+    {
+      "id": 30,
+      "layer": "L2",
+      "stakeholder": "ems",
+      "stakeholder_label": "Emergency Responders / Healthcare Providers",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Emergency Responders / Healthcare Providers? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 8,
+      "card_share": 0.5,
+      "max_doc_share": 0.2,
+      "retrieval_confidence": 0.73,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "odot_shsp_2025",
+        "ohio_quickclear_agreement",
+        "ohio_trauma_report_2024",
+        "tool:crash_profile",
+        "tool:emergency_response_profile",
+        "tool:project_outcome_evaluation",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.866,
+      "probe_recall": 1.0,
+      "locality": 0,
+      "local_terms": [],
+      "words": 400,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 6,
+      "elapsed_s": 101.1,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Emergency Responders / Healthcare Providers? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "incident management and emergency response time",
+        "traffic incident management program",
+        "emergency responder access and coordination",
+        "crash records dataset fields and coverage"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.6428571428571429,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.35714285714285715,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.08333333333333333,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.8333333333333334
+        }
+      },
+      "relevancy_margin": 0.201
+    },
+    {
+      "id": 31,
+      "layer": "L2",
+      "stakeholder": "transit",
+      "stakeholder_label": "Public Transit / Mobility Providers",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Public Transit / Mobility Providers? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.768,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "tool:project_outcome_evaluation",
+        "tool:traffic_operations",
+        "tool:transit_access_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.848,
+      "probe_recall": 1.0,
+      "locality": 2,
+      "local_terms": [
+        "COTA",
+        "Columbus"
+      ],
+      "words": 662,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 9,
+      "elapsed_s": 119.5,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Public Transit / Mobility Providers? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.5,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.16
+    },
+    {
+      "id": 32,
+      "layer": "L2",
+      "stakeholder": "freight",
+      "stakeholder_label": "Freight / Rail Operators",
+      "theme": "Shared scenario",
+      "question": "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Freight / Rail Operators? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+      "n_passages": 10,
+      "n_docs": 10,
+      "card_share": 0.8,
+      "max_doc_share": 0.1,
+      "retrieval_confidence": 0.756,
+      "retrieved_sources": [
+        "columbus_high_injury_network",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_traffic_counts",
+        "odot_road_inventory",
+        "odot_traffic_volume",
+        "ohio_hsp_ffy2024_2026",
+        "tool:crash_profile",
+        "tool:freight_rail_profile",
+        "tool:project_outcome_evaluation",
+        "tool:traffic_operations"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.833,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 1,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": false,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "figures not found in any cited passage: 8,611,925"
+      ],
+      "answer_relevancy": 0.84,
+      "probe_recall": 1.0,
+      "locality": 0,
+      "local_terms": [],
+      "words": 528,
+      "has_gap_section": true,
+      "n_gap_bullets": 4,
+      "n_cited_docs": 8,
+      "elapsed_s": 81.1,
+      "subqueries": [
+        "A safety improvement project at a Columbus intersection has reduced crashes from 8 to 2 per year. However, the two remaining crashes involved serious injuries. Traffic delay has improved, but pedestrian concerns remain.\n\nBased on this information, how would you evaluate the outcome of this safety improvement project from the perspective of Freight / Rail Operators? What concerns would remain, and what additional evidence would you want before deciding whether further action is needed?",
+        "crash records dataset fields and coverage",
+        "traffic volume count and speed data",
+        "roadway inventory and infrastructure asset data",
+        "public engagement and community feedback input"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8333333333333334
+        },
+        "dense_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.5,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "bm25_only": {
+          "source_recall": 0.5,
+          "hit": 1.0,
+          "mrr": 1.0,
+          "precision": 0.2857142857142857,
+          "probe_context_recall": 0.6666666666666666
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.6666666666666666
+        }
+      },
+      "relevancy_margin": 0.174
+    },
+    {
+      "id": 33,
+      "layer": "L2-addon",
+      "stakeholder": "all",
+      "stakeholder_label": "All stakeholders",
+      "theme": "Comparable Local Cases",
+      "question": "Are there other Columbus / Central Ohio intersections where a safety project reduced total crashes and delay but serious injuries or pedestrian concerns remained? What did local agencies do next, and what can be learned from those cases?",
+      "n_passages": 10,
+      "n_docs": 8,
+      "card_share": 0.3,
+      "max_doc_share": 0.3,
+      "retrieval_confidence": 0.689,
+      "retrieved_sources": [
+        "csx_public_projects_manual",
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "morpc_mtp_2024_2050_attachment_11",
+        "morpc_mtp_2024_2050_attachment_12",
+        "morpc_tip_2026_2029_full",
+        "tool:crash_profile",
+        "tool:traffic_operations",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.857,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "3 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.87,
+      "probe_recall": 0.714,
+      "locality": 4,
+      "local_terms": [
+        "CSX",
+        "Columbus",
+        "Franklin County",
+        "SS4A"
+      ],
+      "words": 390,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 8,
+      "elapsed_s": 88.5,
+      "subqueries": [
+        "Are there other Columbus / Central Ohio intersections where a safety project reduced total crashes and delay but serious injuries or pedestrian concerns remained? What did local agencies do next, and what can be learned from those cases?",
+        "project cost estimate and funding programme",
+        "project schedule phasing and construction timeline",
+        "fiscal constraint and cost inflation",
+        "Intersection Safety Projects Impacting Crash Reductions and Delay Mitigation - Columbus"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.8571428571428571
+        },
+        "hybrid_rules": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        }
+      },
+      "relevancy_margin": 0.071
+    },
+    {
+      "id": 34,
+      "layer": "L2-addon",
+      "stakeholder": "all",
+      "stakeholder_label": "All stakeholders",
+      "theme": "Local Evidence for Follow-Up Action",
+      "question": "For a Columbus intersection like the one in the scenario, what local data sources (e.g., crash records, pedestrian counts, emergency response data, resident complaints) would be needed to decide whether further action is warranted? What thresholds or local safety targets should be used?",
+      "n_passages": 11,
+      "n_docs": 8,
+      "card_share": 0.455,
+      "max_doc_share": 0.182,
+      "retrieval_confidence": 0.703,
+      "retrieved_sources": [
+        "franklin_county_ss4a_safety_action_plan_2026",
+        "odot_shsp_2025",
+        "ohio_quickclear_agreement",
+        "ohio_trauma_report_2024",
+        "tool:community_impact_profile",
+        "tool:crash_profile",
+        "tool:speed_profile",
+        "tool:vulnerable_user_profile"
+      ],
+      "ret_source_recall": 0.0,
+      "ret_hit": 0.0,
+      "ret_mrr": 0.0,
+      "ret_precision": 0.0,
+      "ret_probe_context_recall": 0.429,
+      "groundedness": 1.0,
+      "n_unsupported": 0,
+      "flag_invented_figure": 0,
+      "flag_scope_mismatch": 0,
+      "flag_catalog_figure": 0,
+      "hard_flag_free": true,
+      "warnings": [
+        "4 metric passage(s) are synthetic placeholder tool output, not measured data",
+        "evidence-gap section generated in a second pass"
+      ],
+      "answer_relevancy": 0.849,
+      "probe_recall": 0.857,
+      "locality": 4,
+      "local_terms": [
+        "COTA",
+        "Central Ohio Transit Authority",
+        "Columbus",
+        "ODOT"
+      ],
+      "words": 683,
+      "has_gap_section": true,
+      "n_gap_bullets": 1,
+      "n_cited_docs": 7,
+      "elapsed_s": 103.2,
+      "subqueries": [
+        "For a Columbus intersection like the one in the scenario, what local data sources (e.g., crash records, pedestrian counts, emergency response data, resident complaints) would be needed to decide whether further action is warranted? What thresholds or local safety targets should be used?",
+        "incident management and emergency response time",
+        "traffic incident management program",
+        "emergency responder access and coordination",
+        "crash records dataset fields and coverage"
+      ],
+      "ablation": {
+        "hybrid_llm_planner": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.42857142857142855
+        },
+        "dense_only": {
+          "source_recall": 0.0,
+          "hit": 0.0,
+          "mrr": 0.0,
+          "precision": 0.0,
+          "probe_context_recall": 0.5714285714285714
+        },
+        "bm25_only": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.3333333333333333,
+          "precision": 0.14285714285714285,
+          "probe_context_recall": 0.7142857142857143
+        },
+        "hybrid_rules": {
+          "source_recall": 0.25,
+          "hit": 1.0,
+          "mrr": 0.07142857142857142,
+          "precision": 0.07142857142857142,
+          "probe_context_recall": 0.5714285714285714
+        }
+      },
+      "relevancy_margin": 0.074
+    }
+  ]
+}
