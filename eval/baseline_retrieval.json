@@ -1,14 +1,15 @@
 {
-  "created_at": "2026-11-02T13:38:56",
+  "created_at": "2026-11-08T21:55:29",
   "final_k": 14,
   "max_per_source": 3,
   "mmr_lambda": 0.65,
   "embed_model": "BAAI/bge-small-en-v1.5",
-  "corpus_fingerprint": "c7a2b8212739249a",
+  "corpus_fingerprint": "d0723a0c2d8a0823",
   "questions": {
     "1": {
-      "expected_recall": 0.667,
+      "expected_recall": 0.333,
       "missing_expected": [
+        "vision_zero_action_plan_2023_2028",
         "vision_zero_action_plan_1_0"
       ],
       "aspirational_recall": 0.5,
@@ -19,19 +20,19 @@
       },
       "passage_ids": [
         "morpc_mtp_2024_2050_attachment_08__p0026__c001",
-        "morpc_cotsp_2019__p0002__c001",
         "morpc_cotsp_2019__p0022__c002",
+        "morpc_cotsp_2019__p0002__c001",
         "morpc_cotsp_2019__p0002__c002",
         "ohio_hsp_ffy2024_2026__p0069__c003",
-        "vision_zero_action_plan_2023_2028__p0004__c001",
         "ohio_otso_annual_report_2024__p0028__c002",
         "morpc_cotsp_executive_summary_2019__p0006__c002",
-        "morpc_cotsp_executive_summary_2019__p0006__c001",
         "morpc_mtp_2024_2050_attachment_08__p0023__c001",
         "morpc_mtp_2024_2050_attachment_08__p0019__c001",
         "morpc_state_of_safety_2017_2021__p0011__c003",
         "morpc_cotsp_executive_summary_2019__p0008__c002",
-        "ohio_hsp_ffy2024_2026__p0061__c003"
+        "morpc_cotsp_executive_summary_2019__p0009__c001",
+        "ohio_hsp_ffy2024_2026__p0061__c003",
+        "ohio_trauma_report_2024__p0044__c001"
       ]
     },
     "2": {
@@ -51,9 +52,9 @@
         "fhwa_columbus_community_connections_case_study__p0000__c003",
         "morpc_mtp_2024_2050_attachment_06__p0025__c001",
         "rtmc_mobility_study_attachment_01__p0026__c001",
-        "ohio_hsp_ffy2024_2026__p0056__c003",
-        "morpc_ej_overview__p0000__c002",
         "morpc_ej_technical_appendix__p0004__c001",
+        "morpc_ej_overview__p0000__c002",
+        "ohio_hsp_ffy2024_2026__p0056__c003",
         "vision_zero_action_plan_1_0__p0011__c001",
         "morpc_ej_technical_appendix__p0035__c001",
         "morpc_ej_overview__p0000__c001",
@@ -62,31 +63,33 @@
       ]
     },
     "3": {
-      "expected_recall": 1.0,
-      "missing_expected": [],
-      "aspirational_recall": 0.0,
-      "n_distinct_sources": 12,
-      "evidence_fraction": 0.714,
+      "expected_recall": 0.5,
+      "missing_expected": [
+        "vision_zero_action_plan_1_0"
+      ],
+      "aspirational_recall": 1.0,
+      "n_distinct_sources": 10,
+      "evidence_fraction": 0.857,
       "kinds": {
-        "data_card": 4,
-        "chunk": 9,
+        "data_card": 2,
+        "chunk": 11,
         "data_summary": 1
       },
       "passage_ids": [
-        "datacard::odot_crash_2023",
-        "datacard::odot_crash_2022",
-        "datacard::odot_crash_2021",
-        "datacard::columbus_traffic_signals",
+        "datacard::columbus_curbs",
+        "datacard::columbus_planned_micromobility_network",
+        "franklin_county_ss4a_safety_action_plan_2026__p0026__c002",
         "morpc_mtp_2024_2050_attachment_10__p0003__c001",
+        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "columbus_coc_crash_data__agg__by_area",
         "rtmc_mobility_study_attachment_01__p0026__c001",
         "rtmc_mobility_study_attachment_01__p0017__c002",
         "morpc_cotsp_2019__p0067__c002",
         "odot_shsp_2025__p0044__c001",
-        "rtmc_mobility_study_attachment_01__p0025__c001",
-        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "odot_shsp_2025__p0128__c001",
         "morpc_tip_2026_2029_full__p0469__c001",
-        "vision_zero_action_plan_1_0__p0027__c001",
-        "columbus_coc_crash_data__agg__all__2021"
+        "franklin_county_ss4a_safety_action_plan_2026__p0044__c001",
+        "morpc_tip_2026_2029_full__p0567__c001"
       ]
     },
     "4": {
@@ -95,7 +98,7 @@
         "morpc_mtp_2024_2050_attachment_12"
       ],
       "aspirational_recall": null,
-      "n_distinct_sources": 6,
+      "n_distinct_sources": 7,
       "evidence_fraction": 1.0,
       "kinds": {
         "chunk": 14
@@ -108,13 +111,13 @@
         "morpc_ej_technical_appendix__p0011__c001",
         "morpc_mtp_2024_2050_attachment_11__p0014__c001",
         "morpc_tip_2026_2029_full__p0530__c001",
+        "morpc_mtp_2024_2050_attachment_11__p0017__c001",
         "morpc_tip_2026_2029_full__p0460__c001",
         "morpc_mtp_2024_2050_attachment_11__p0004__c001",
         "morpc_mtp_2024_2050__p0000__c002",
-        "morpc_mtp_2024_2050_attachment_11__p0007__c001",
         "morpc_tip_2026_2029_full__p0454__c001",
         "morpc_mtp_2024_2050_attachment_09__p0004__c001",
-        "morpc_ej_technical_appendix__p0016__c001"
+        "morpc_cotsp_2019__p0022__c001"
       ]
     },
     "5": {
@@ -122,29 +125,28 @@
       "missing_expected": [
         "vision_zero_action_plan_2023_2028"
       ],
-      "aspirational_recall": 0.333,
+      "aspirational_recall": 0.667,
       "n_distinct_sources": 11,
-      "evidence_fraction": 0.714,
+      "evidence_fraction": 1.0,
       "kinds": {
-        "data_card": 4,
-        "data_summary": 2,
-        "chunk": 8
+        "chunk": 12,
+        "data_summary": 2
       },
       "passage_ids": [
-        "datacard::columbus_high_injury_network",
-        "datacard::odot_road_inventory",
-        "datacard::morpc_traffic_counts",
-        "datacard::odot_traffic_volume",
-        "columbus_coc_crash_data__agg__all__2021",
+        "franklin_county_ss4a_safety_action_plan_2026__p0026__c002",
+        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "columbus_coc_crash_data__agg__by_area",
         "vision_zero_action_plan_1_0__p0039__c001",
-        "columbus_coc_crash_data__agg__all__2022",
         "rtmc_mobility_study_attachment_01__p0017__c002",
         "vision_zero_action_plan_1_0__p0035__c001",
-        "morpc_mtp_2024_2050_attachment_10__p0003__c001",
         "morpc_cotsp_2019__p0067__c002",
         "odot_shsp_2025__p0044__c001",
-        "rtmc_mobility_study_attachment_01__p0025__c001",
-        "ohio_trauma_report_2024__p0039__c001"
+        "morpc_mtp_2024_2050_attachment_10__p0003__c001",
+        "crash_trends__agg__city_of_columbus_crash_layer_all",
+        "odot_shsp_2025__p0128__c001",
+        "ohio_trauma_report_2024__p0039__c001",
+        "morpc_tip_2026_2029_full__p0469__c001",
+        "odot_shsp_2025__p0025__c001"
       ]
     },
     "6": {
@@ -154,26 +156,26 @@
       ],
       "aspirational_recall": 0.667,
       "n_distinct_sources": 8,
-      "evidence_fraction": 0.857,
+      "evidence_fraction": 0.929,
       "kinds": {
-        "chunk": 12,
-        "doc_card": 2
+        "chunk": 13,
+        "doc_card": 1
       },
       "passage_ids": [
         "morpc_state_of_safety_2017_2021__p0006__c001",
         "doccard::morpc_state_of_safety_2017_2021",
         "morpc_state_of_safety_2018_2022__p0006__c001",
         "morpc_cotsp_2019__p0021__c001",
-        "morpc_cotsp_2019__p0020__c001",
         "morpc_mtp_2024_2050_attachment_08__p0018__c001",
+        "morpc_cotsp_2019__p0020__c001",
         "morpc_cotsp_executive_summary_2019__p0009__c004",
         "morpc_cotsp_2019__p0018__c001",
         "morpc_cotsp_executive_summary_2019__p0008__c001",
-        "doccard::morpc_state_of_safety_2015_2019",
         "morpc_cotsp_executive_summary_2019__p0008__c002",
         "morpc_state_of_safety_2015_2019__p0006__c001",
         "odot_shsp_2025__p0011__c001",
-        "morpc_mtp_2024_2050_attachment_06__p0002__c001"
+        "morpc_mtp_2024_2050_attachment_06__p0002__c001",
+        "morpc_mtp_2024_2050_attachment_06__p0004__c002"
       ]
     },
     "7": {
@@ -220,10 +222,10 @@
         "morpc_mtp_2024_2050_attachment_08__p0027__c001",
         "ohio_trauma_report_2024__p0047__c002",
         "odot_shsp_2025__p0045__c001",
+        "morpc_tip_2026_2029_full__p0074__c002",
         "odot_shsp_2025__p0125__c002",
         "ohio_trauma_report_2024__p0047__c003",
         "odot_shsp_2025__p0125__c001",
-        "morpc_tip_2026_2029_full__p0074__c002",
         "franklin_county_ss4a_safety_action_plan_2026__p0053__c002",
         "morpc_mtp_2024_2050_attachment_08__p0028__c001",
         "vision_zero_action_plan_2023_2028__p0017__c003"
@@ -235,27 +237,28 @@
         "columbus_high_injury_network"
       ],
       "aspirational_recall": null,
-      "n_distinct_sources": 12,
+      "n_distinct_sources": 13,
       "evidence_fraction": 0.714,
       "kinds": {
         "data_card": 4,
-        "chunk": 10
+        "chunk": 9,
+        "data_summary": 1
       },
       "passage_ids": [
         "datacard::morpc_traffic_counts",
         "datacard::odot_road_inventory",
-        "datacard::odot_crash_2023",
         "datacard::odot_traffic_volume",
+        "datacard::odot_crash_2023",
+        "franklin_county_ss4a_safety_action_plan_2026__p0026__c002",
+        "ohio_hsp_ffy2024_2026__p0095__c001",
         "rtmc_mobility_study_attachment_01__p0017__c002",
         "odot_shsp_2025__p0044__c001",
-        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "odot_shsp_2025__p0128__c001",
         "morpc_cotsp_2019__p0067__c002",
         "morpc_mtp_2024_2050_attachment_08__p0008__c001",
         "morpc_mtp_2024_2050_attachment_10__p0003__c001",
-        "odot_shsp_2025__p0128__c002",
-        "rtmc_mobility_study_attachment_01__p0025__c001",
         "morpc_tip_2026_2029_full__p0469__c001",
-        "franklin_county_ss4a_safety_action_plan_2026__p0016__c001"
+        "columbus_coc_crash_data__agg__by_area"
       ]
     },
     "10": {
@@ -264,28 +267,27 @@
         "vision_zero_action_plan_2023_2028"
       ],
       "aspirational_recall": 0.0,
-      "n_distinct_sources": 11,
-      "evidence_fraction": 0.714,
+      "n_distinct_sources": 9,
+      "evidence_fraction": 1.0,
       "kinds": {
-        "data_card": 4,
-        "chunk": 9,
+        "chunk": 13,
         "data_summary": 1
       },
       "passage_ids": [
-        "datacard::odot_road_inventory",
-        "datacard::morpc_traffic_counts",
-        "datacard::odot_traffic_volume",
-        "datacard::odot_crash_2023",
+        "franklin_county_ss4a_safety_action_plan_2026__p0026__c002",
+        "ohio_hsp_ffy2024_2026__p0095__c001",
         "rtmc_mobility_study_attachment_01__p0017__c002",
-        "morpc_mtp_2024_2050_attachment_10__p0003__c001",
         "morpc_cotsp_2019__p0067__c002",
         "odot_shsp_2025__p0044__c001",
-        "rtmc_mobility_study_attachment_01__p0025__c001",
-        "ohio_hsp_ffy2024_2026__p0095__c001",
+        "morpc_mtp_2024_2050_attachment_10__p0003__c001",
+        "odot_shsp_2025__p0128__c001",
         "morpc_tip_2026_2029_full__p0469__c001",
-        "columbus_coc_crash_data__agg__all__2021",
+        "columbus_coc_crash_data__agg__by_area",
+        "morpc_tip_2026_2029_full__p0470__c001",
         "rtmc_mobility_study_attachment_01__p0008__c001",
-        "ohio_hsp_ffy2024_2026__p0059__c002"
+        "ohio_hsp_ffy2024_2026__p0059__c002",
+        "rtmc_mobility_study_attachment_01__p0020__c001",
+        "morpc_mtp_2024_2050_attachment_07__p0002__c001"
       ]
     }
   }

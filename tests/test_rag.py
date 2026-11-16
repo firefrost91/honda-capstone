@@ -20,7 +20,7 @@ from rag.config import CONFIG
 from rag.corpus import load_passages, _informative, _clean
 from rag.lexical import BM25, tokenize, expand_query
 from rag.postprocess import clean
-from rag.retrieve import _cap_per_source, _mmr, plan_subqueries, rrf_fuse
+from rag.retrieve import Retriever, _cap_per_source, _clean_planned_query, _mmr, plan_subqueries, rrf_fuse
 
 
 # ---- corpus ---------------------------------------------------------------
@@ -98,6 +98,118 @@ def test_mmr_prefers_a_novel_passage_over_a_near_duplicate():
 def test_planner_expands_analytical_questions():
     qs = plan_subqueries("How have safety trends changed over the past 10 years?")
     assert len(qs) > 1 and qs[0].startswith("How have")
+
+
+class _FakeLLM:
+    available = True
+
+    def __init__(self, text):
+        self.text = text
+
+    def generate(self, *a, **k):
+        return self.text
+
+
+def test_planner_output_is_cleaned_of_preamble_labels_and_region_boilerplate():
+    clean = _clean_planned_query
+    assert clean("Here are 4 search queries:") is None
+    assert clean("Query 1: pedestrian fatality counts by road class Columbus / Central Ohio") \
+        == "pedestrian fatality counts by road class"
+    assert clean('2. "high injury network corridors in Central Ohio"') == "high injury network corridors"
+    assert clean("- **speed management** program evaluation") == "speed management program evaluation"
+    assert clean("Columbus / Central Ohio") is None          # nothing left once stripped
+    assert clean("crash data") is None                       # too short to be a probe
+    assert clean('{"queries": ["a", "b"]}') is None          # JSON debris
+    assert clean("Columbus area high severity crash hotspots") == "high severity crash hotspots"
+    assert clean("lessons from delayed Columbus transportation projects") == "lessons from delayed transportation projects"
+    # proper names that START with the region are not boilerplate
+    assert clean("Central Ohio Transit Authority bus service frequency") == "Central Ohio Transit Authority bus service frequency"
+    assert clean("Central Ohio Transportation Safety Plan action strategies").startswith("Central Ohio Transportation")
+    assert clean("City of Columbus speed management policy") == "City of Columbus speed management policy"
+    # a document name that contains the city is kept
+    assert "Vision Zero Columbus" in clean("Vision Zero Columbus action plan strategies")
+
+
+def test_planner_drops_probes_that_restate_the_question_or_each_other():
+    q = "What data would we need to prioritize pedestrian safety improvements?"
+    llm = _FakeLLM("Here are the queries:\n"
+                   "1. pedestrian safety improvements data prioritize\n"
+                   "2. sidewalk gap inventory near transit stops\n"
+                   "3. sidewalk gap inventory by transit stop\n")
+    out = plan_subqueries(q, llm=llm, cfg=replace(CONFIG, max_subqueries=20))
+    planned = [x for x in out if "sidewalk" in x]
+    assert len(planned) == 1
+    assert not any("Here are" in x or "prioritize pedestrian safety improvements data" in x for x in out)
+
+
+def test_llm_probes_get_slots_even_when_rule_facets_match_first():
+    q = "How have crash trends changed, and what data and cost evidence do we need?"
+    assert len(plan_subqueries(q)) == CONFIG.max_subqueries      # rules alone fill it
+    llm = _FakeLLM("sidewalk gap inventory near transit stops\n"
+                   "pedestrian crash severity by functional class\n")
+    out = plan_subqueries(q, llm=llm)
+    assert out[0] == q and len(out) == CONFIG.max_subqueries
+    assert sum("sidewalk" in x or "functional class" in x for x in out) == 2
+
+
+class _StubIndex:
+    def __init__(self, kinds):
+        from types import SimpleNamespace
+        self.passages = [SimpleNamespace(kind=k) for k in kinds]
+
+
+def test_catalogue_cards_need_a_reason_to_take_a_slot():
+    kinds = ["chunk", "data_card", "data_card", "data_card", "doc_card", "chunk"]
+    pool = list(range(6))
+    fused = {i: 1.0 - i * 0.1 for i in pool}
+    r = Retriever(_StubIndex(kinds), replace(CONFIG, max_catalog_cards=2,
+                                             max_catalog_cards_data_question=4))
+    q = "Which safety countermeasures should we prioritise?"
+    # only cards the question itself ranked highly are admitted, then capped at 2
+    qrank = {1: 0, 2: 5, 3: 7, 4: 50}          # 4 is deep in the list (or probe-only)
+    out = r._admit_catalog_cards(pool, fused, qrank, q)
+    assert [i for i in out if kinds[i] != "chunk"] == [1, 2]      # 3 over the cap, 4 too deep
+    assert 0 in out and 5 in out                                  # text is never dropped
+    # a question about data admits cards found only through probes, up to 4
+    dq = "What types of local data can be combined?"
+    out = r._admit_catalog_cards(pool, fused, {}, dq)
+    assert [i for i in out if kinds[i] != "chunk"] == [1, 2, 3, 4]
+
+
+def test_stakeholder_probes_take_slots_right_after_the_question():
+    from rag.tools.stakeholders import STAKEHOLDERS
+    q = "How would you evaluate the outcome of this safety project?"
+    for s in STAKEHOLDERS.values():
+        assert len(s.focus) >= 2, s.id            # every group has retrieval probes
+    probes = STAKEHOLDERS["emergency"].focus
+    out = plan_subqueries(q, stakeholder_probes=probes)
+    assert out[0] == q and out[1:3] == list(probes)
+    assert len(out) <= CONFIG.max_subqueries
+    # different groups asking the same question get different probe sets
+    assert plan_subqueries(q, stakeholder_probes=STAKEHOLDERS["freight"].focus) != out
+    # and the cap on stakeholder slots is honoured
+    capped = plan_subqueries(q, cfg=replace(CONFIG, max_stakeholder_probes=1), stakeholder_probes=probes)
+    assert capped[1] == probes[0] and probes[1] not in capped
+
+
+def test_role_block_reaches_the_planner_prompt_only_when_given():
+    from rag.retrieve import _role_block
+    assert _role_block("") == ""
+    assert "Emergency responders" in _role_block("Emergency responders. They care about: response time.")
+
+
+def test_only_an_explicit_perspective_steers_retrieval():
+    from types import SimpleNamespace
+    from rag.llm import NullLLM
+    from rag.pipeline import RAGPipeline
+    seen = []
+    pipe = RAGPipeline(index=SimpleNamespace(passages=[]), llm=NullLLM())
+    pipe.retriever = SimpleNamespace(retrieve=lambda q, llm=None, k=None, stakeholder=None:
+                                     (seen.append(stakeholder), ([], []))[1])
+    pipe._run_tools = lambda q, st: ([], [], st or "residents")    # auto-detect finds residents
+    pipe._prepare("Why are neighborhood streets unsafe?")
+    pipe._prepare("Why are neighborhood streets unsafe?", stakeholder="freight")
+    assert seen == [None, "freight"]
 
 
 def test_planner_obeys_the_subquery_ceiling_and_keeps_the_question():

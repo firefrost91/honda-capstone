@@ -77,6 +77,8 @@ class Answer:
     coverage_note: str = ""
     n_sources: int = 0
     elapsed_s: float = 0.0
+    #: text of each passage handed to the generator, aligned with ``sources``
+    contexts: list[str] = field(default_factory=list)
     backend: str = ""
     warnings: list[str] = field(default_factory=list)
     #: stakeholder profile id the answer was framed for (rag.tools.STAKEHOLDERS)
@@ -188,8 +190,14 @@ class RAGPipeline:
     # -- shared front half ---------------------------------------------
     def _prepare(self, question: str, k: int | None = None,
                  stakeholder: str | None = None) -> Prepared | None:
-        hits, subqueries = self.retriever.retrieve(question, llm=self.llm, k=k)
+        # An explicit perspective steers retrieval as well as framing. One
+        # guessed from the question's vocabulary only frames the answer: a weak
+        # keyword match ("neighborhood" -> residents) must not swap out passages
+        # the question itself called for (it cost Q8 its expected source).
+        explicit = stakeholder
         thits, tool_calls, stakeholder = self._run_tools(question, stakeholder)
+        hits, subqueries = self.retriever.retrieve(question, llm=self.llm, k=k,
+                                                   stakeholder=explicit)
         if not hits and not thits:
             return None
 
@@ -292,6 +300,7 @@ class RAGPipeline:
             n_sources=len({h.passage.source_id for h in kept if h.passage.kind != TOOL_KIND}),
             elapsed_s=time.time() - t0, backend=self.llm.name, warnings=warnings,
             stakeholder=stakeholder, tool_calls=list(tool_calls or []),
+            contexts=[h.passage.text for h in kept],
         )
 
     # -- public API -----------------------------------------------------
