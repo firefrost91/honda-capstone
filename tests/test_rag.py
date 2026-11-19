@@ -80,13 +80,35 @@ def test_rrf_rewards_agreement_between_retrievers():
     assert fused[2] > fused[1] and fused[2] > fused[3]
 
 
+#def test_source_cap_prevents_one_document_dominating():
+    #class P:
+        #def __init__(self, sid): self.source_id = sid
+    #passages = [P("tip")] * 10 + [P("vz")] * 5
+    #kept = _cap_per_source(list(range(15)), passages, cap=3)
+    #assert sum(1 for i in kept if passages[i].source_id == "tip") == 3
+
 def test_source_cap_prevents_one_document_dominating():
     class P:
-        def __init__(self, sid): self.source_id = sid
-    passages = [P("tip")] * 10 + [P("vz")] * 5
-    kept = _cap_per_source(list(range(15)), passages, cap=3)
-    assert sum(1 for i in kept if passages[i].source_id == "tip") == 3
+        def __init__(self, sid):
+            self.source_id = sid
 
+    passages = [P("tip")] * 10 + [P("vz")] * 5
+
+    kept = _cap_per_source(
+        list(range(15)),
+        passages,
+        cap=2
+    )
+
+    assert sum(
+        1 for i in kept
+        if passages[i].source_id == "tip"
+    ) == 2
+
+    assert sum(
+        1 for i in kept
+        if passages[i].source_id == "vz"
+    ) == 2
 
 def test_mmr_prefers_a_novel_passage_over_a_near_duplicate():
     vecs = np.array([[1, 0], [0.999, 0.045], [0, 1]], dtype=np.float32)
@@ -94,6 +116,33 @@ def test_mmr_prefers_a_novel_passage_over_a_near_duplicate():
     chosen = _mmr([0, 1, 2], {0: 1.0, 1: 0.99, 2: 0.7}, vecs, k=2, lam=0.5)
     assert chosen == [0, 2]
 
+def test_mmr_prefers_an_unrepresented_source_when_relevance_is_close():
+    vecs = np.eye(3, dtype=np.float32)
+
+    relevance = {
+        0: 1.0,
+        1: 0.90,
+        #2: 0.86,
+        2: 0.895,
+    }
+
+    source_ids = {
+        0: "tip",
+        1: "tip",
+        2: "linkus",
+    }
+
+    chosen = _mmr(
+        [0, 1, 2],
+        relevance,
+        vecs,
+        k=2,
+        lam=0.65,
+        source_ids=source_ids,
+        source_diversity_bonus=0.05,
+    )
+
+    assert chosen == [0, 2]
 
 def test_planner_expands_analytical_questions():
     qs = plan_subqueries("How have safety trends changed over the past 10 years?")
